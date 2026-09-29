@@ -3,105 +3,280 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ElsaTV.fun</title>
+
+  <title>Elsa Velazquez | AI Architect, DJ Elsa, ElsaTV</title>
+
+  <meta
+    name="description"
+    content="Elsa Velazquez — AI Architect, Software Engineer, Data Scientist, DJ Elsa. My ties to UAP, AI, governments, space aliens, and the AI Apocalypse. A self-evident record: read the sources, follow the connections, derive the proof for yourself."
+  />
+
+  <meta
+    name="keywords"
+    content="Elsa Velazquez, DJ Elsa, ElsaTV, AI architect, software engineer, data scientist, UAP, artificial intelligence, music, AI Apocalypse, independent research"
+  />
+
+  <meta name="author" content="Elsa Velazquez" />
+
+  <meta property="og:title" content="Elsa Velazquez | ElsaTV.fun" />
+  <meta
+    property="og:description"
+    content="AI Architect · Software Engineer · Data Scientist · DJ Elsa. A self-evident record. No secret clearance required."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://elsatv.fun/" />
+
+  <link rel="canonical" href="https://elsatv.fun/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Elsa Velazquez",
+    "url": "https://elsatv.fun/",
+    "jobTitle": [
+      "AI Architect",
+      "Software Engineer",
+      "Data Scientist",
+      "DJ"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/elsa-data-sci/",
+      "https://www.youtube.com/@elsaTVfun",
+      "https://www.youtube.com/@DJElsaVEVO",
+      "https://open.spotify.com/artist/27NhC9Ct23OhR441IZH6KY",
+      "https://music.youtube.com/@elsavelaz",
+      "https://soundcloud.com/elsavelazquez",
+      "https://www.tiktok.com/@elsatv.fun",
+      "https://www.instagram.com/elsatvfun",
+      "https://www.facebook.com/raptor.elsa.velazquez",
+      "https://elsatv.gumroad.com"
+    ]
+  }
+  </script>
+
   <style>
+    :root {
+      --bg: #0d0d0f;
+      --panel: #17171b;
+      --panel-2: #202027;
+      --text: #f5f5f5;
+      --muted: #b6b6be;
+      --line: #34343d;
+      --accent: #d8ff4f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      width: min(960px, calc(100% - 36px));
       margin: 0 auto;
-      padding: 40px 20px;
-      line-height: 1.5;
-      background: #111;
-      color: #fff;
+      padding: 56px 0 36px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 0.2rem;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 0.98;
+      margin: 0 0 14px;
     }
 
-    .subtitle {
-      color: #bbb;
-      margin-bottom: 2rem;
+    .roles {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 34px;
+    }
+
+    .thesis {
+      font-size: clamp(1.4rem, 3.4vw, 2.2rem);
+      line-height: 1.25;
+      max-width: 850px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .record {
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 36px;
     }
 
     .buttons {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
 
     .button {
       display: block;
-      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--text);
       text-decoration: none;
-      color: #fff;
-      background: #222;
-      border: 1px solid #444;
-      border-radius: 12px;
-      font-size: 1.1rem;
+      border-radius: 14px;
+      padding: 18px 20px;
+      font-weight: 700;
+      transition: transform 0.15s ease, background 0.15s ease;
     }
 
     .button:hover {
-      background: #333;
+      background: var(--panel-2);
+      transform: translateY(-1px);
     }
 
     .section {
-      margin-top: 40px;
+      margin-top: 44px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.35rem;
     }
 
     .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 12px 18px;
     }
 
     .links a {
-      color: #ddd;
+      color: var(--text);
+    }
+
+    .footer-message {
+      margin-top: 54px;
+      padding: 28px 0 8px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .footer-message strong {
+      display: block;
+      margin-top: 8px;
+      color: var(--accent);
+      font-size: 1.15rem;
+    }
+
+    @media (max-width: 700px) {
+      .wrap {
+        padding-top: 36px;
+      }
+
+      .buttons {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>ElsaTV.fun</h1>
+  <main class="wrap">
 
-  <p class="subtitle">
-    AI, music, research, digital media, and independent creative work.
-  </p>
+    <div class="eyebrow">ElsaTV.fun</div>
 
-  <div class="buttons">
-    <a class="button" href="https://elsatv.gumroad.com" target="_blank">
-      Buy PDFs & Digital Work
-    </a>
+    <h1>Elsa Velazquez</h1>
 
-    <a class="button" href="https://open.spotify.com/artist/27NhC9Ct23OhR441IZH6KY" target="_blank">
-      Stream DJ Elsa on Spotify
-    </a>
-
-    <a class="button" href="https://music.youtube.com/@elsavelaz" target="_blank">
-      Listen on YouTube Music
-    </a>
-
-    <a class="button" href="https://www.gofundme.com/f/help-elsa-sustain-hope-for-pets" target="_blank">
-      Support Hope for Pets
-    </a>
-
-    <a class="button" href="https://www.youtube.com/@elsaTVfun/posts" target="_blank">
-      Latest Content
-    </a>
-  </div>
-
-  <div class="section">
-    <h2>More</h2>
-
-    <div class="links">
-      <a href="https://www.linkedin.com/in/elsa-data-sci/" target="_blank">LinkedIn</a>
-      <a href="https://www.facebook.com/raptor.elsa.velazquez" target="_blank">Facebook</a>
-      <a href="https://soundcloud.com/elsavelazquez" target="_blank">SoundCloud</a>
-      <a href="https://www.tiktok.com/@elsatv.fun" target="_blank">TikTok</a>
-      <a href="https://www.youtube.com/@DJElsaVEVO" target="_blank">VEVO</a>
-      <a href="https://www.instagram.com/elsatvfun" target="_blank">Instagram</a>
+    <div class="roles">
+      AI Architect · Software Engineer · Data Scientist · DJ Elsa
     </div>
-  </div>
+
+    <div class="thesis">
+      My ties to UAP, AI, governments, space aliens, and the AI Apocalypse.
+    </div>
+
+    <div class="record">
+      A self-evident record. No secret clearance required.
+      Read the sources. Follow the connections. Derive the proof for yourself.
+    </div>
+
+    <div class="buttons">
+
+      <a class="button"
+         href="https://elsatv.gumroad.com"
+         target="_blank"
+         rel="noopener noreferrer">
+        Read the PDFs
+      </a>
+
+      <a class="button"
+         href="https://open.spotify.com/artist/27NhC9Ct23OhR441IZH6KY"
+         target="_blank"
+         rel="noopener noreferrer">
+        Stream the Music
+      </a>
+
+      <a class="button"
+         href="https://www.youtube.com/@elsaTVfun/posts"
+         target="_blank"
+         rel="noopener noreferrer">
+        Watch the Content
+      </a>
+
+      <a class="button"
+         href="https://www.linkedin.com/in/elsa-data-sci/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Professional Profile
+      </a>
+
+      <a class="button"
+         href="https://www.gofundme.com/f/help-elsa-sustain-hope-for-pets"
+         target="_blank"
+         rel="noopener noreferrer">
+        Support Pet + Human Lifespans
+      </a>
+
+      <a class="button"
+         href="https://music.youtube.com/@elsavelaz"
+         target="_blank"
+         rel="noopener noreferrer">
+        YouTube Music
+      </a>
+
+    </div>
+
+    <section class="section">
+      <h2>Elsewhere</h2>
+
+      <div class="links">
+        <a href="https://soundcloud.com/elsavelazquez" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+        <a href="https://www.youtube.com/@DJElsaVEVO" target="_blank" rel="noopener noreferrer">VEVO</a>
+        <a href="https://www.tiktok.com/@elsatv.fun" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.instagram.com/elsatvfun" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/raptor.elsa.velazquez" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </section>
+
+    <div class="footer-message">
+      Choose to Autonomously Administer the Cognitive Wild West Test —
+      the Quest for Self-Minded Intelligence
+      <strong>Free Will to All</strong>
+    </div>
+
+  </main>
 </body>
 </html>
