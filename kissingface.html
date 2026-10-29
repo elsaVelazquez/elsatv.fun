@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0c08">
+  <meta name="description" content="Browse DJ Elsa releases by album art and title. Listen on YouTube Music.">
+  <title>Kissingface — DJ Elsa</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0a0c08;--panel:#141912;--line:#303a2d;--text:#f5f6f0;--muted:#aeb8a7;--acid:#b8ff43}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 12% 0%,#203519 0,transparent 40rem),var(--bg);color:var(--text);font:16px/1.45 Arial,Helvetica,sans-serif}
+    a{color:inherit}.wrap{width:min(1240px,calc(100% - 36px));margin:auto;padding:24px 0 54px}.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:50px;font-size:.9rem}.logo{color:var(--acid);font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}.nav a:last-child{color:var(--muted)}
+    .hero{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:27px}.kicker{color:var(--acid);font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{font-size:clamp(3.8rem,10vw,7.2rem);line-height:.83;letter-spacing:-.075em;margin:12px 0 0}h1 span{color:var(--acid)}.intro{max-width:330px;color:var(--muted);margin:0 0 3px}.toolbar{display:flex;gap:10px;align-items:center;border-top:1px solid var(--line);padding:17px 0 20px}.toolbar input{flex:1;min-width:170px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:inherit}.count{color:var(--muted);font-size:.88rem;white-space:nowrap}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.card{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .16s,border-color .16s}.card:hover{transform:translateY(-3px);border-color:#728c59}.cover{display:block;position:relative;aspect-ratio:1/1;background:linear-gradient(145deg,#25331d,#11150f);overflow:hidden}.cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}.card:hover .cover img{transform:scale(1.035)}.cover::after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#0009);pointer-events:none}.cover-label{position:absolute;z-index:1;left:13px;right:13px;bottom:11px;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;text-shadow:0 1px 8px #000}.info{padding:13px 14px 14px}.row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px;color:#8c9a81;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}.row time{letter-spacing:0;text-transform:none;white-space:nowrap}.info h2{font-size:.98rem;line-height:1.25;margin:0 0 13px;min-height:2.5em}.listen{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--acid);color:#131a0c;text-decoration:none;border-radius:8px;padding:9px 11px;font-size:.8rem;font-weight:800}.listen:hover{filter:brightness(1.08)}.listen svg{width:15px;height:15px;fill:currentColor}.empty{display:none;color:var(--muted);padding:30px 0}.footer{border-top:1px solid var(--line);margin-top:42px;padding-top:17px;color:#899383;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.82rem}.footer a{color:var(--acid)}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{align-items:start;flex-direction:column}.intro{max-width:500px}}
+    @media(max-width:620px){.wrap{width:calc(100% - 24px);padding-top:16px}.nav{margin-bottom:38px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.info{padding:11px}.info h2{font-size:.9rem}.row{font-size:.62rem}.listen{font-size:.73rem}.intro{font-size:.94rem}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav" aria-label="Site navigation"><a class="logo" href="/">ElsaTV.fun</a><a href="https://music.youtube.com/@elsavelaz" target="_blank" rel="noopener noreferrer">YouTube Music ↗</a></nav>
+    <header class="hero"><div><div class="kicker">DJ Elsa · the music archive</div><h1>Kissing<span>face</span></h1></div><p class="intro">Album art and titles, straight from the releases. Tap a cover to listen on YouTube Music.</p></header>
+    <section aria-label="DJ Elsa albums"><div class="toolbar"><input id="search" type="search" placeholder="Find an album…" aria-label="Find an album"><span id="count" class="count" aria-live="polite"></span></div><div id="grid" class="grid"></div><p id="empty" class="empty">No albums match that search.</p></section>
+    <footer class="footer"><span>Cover previews come from the linked YouTube releases.</span><a href="https://www.youtube.com/@elsavelaz/releases" target="_blank" rel="noopener noreferrer">View the complete YouTube releases page ↗</a></footer>
+  </main> 
+  <script>
+    const albums=[
+      {title:"Galactic Grim Reaper Diaries",date:"2026-10-29",video:"17L5pnh8U3U",list:"OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q"},
+      {title:"The Book of Becoming: The Seed",date:"2026-10-27",video:"3qB2fRYf88w",list:"OLAK5uy_m42EEp7pBZmKkhZobdmAhFzLM4Dd01lsY"},
+      {title:"Puppets (Deluxe Edition)",date:"2026-10-27",video:"4Z14pSOYsS0",list:"OLAK5uy_ky9IhMrJWYi8hvxArbray5Szeew46DIUk"},
+      {title:"Push the Loosh",date:"2026-10-21",video:"PCRVNlcsQg0",list:"OLAK5uy_n-KwEJQABgA2G_UcztiZVtg5mGYgszeIo"},
+      {title:"The Event's Event Horizon",date:"2026-10-08",video:"_4njQ446JeY",list:"OLAK5uy_nC245JvKePLmYrW0hCCZVRFS123cxzYS0"},
+      {title:"Funding Funner Demon Rounds (Deluxe Edition)",date:"2026-10-07",video:"-CJDtD2Xq8M",list:"OLAK5uy_nx__Vc3ewxal3Jrbu0EW12HCYeOLThUkA"},
+      {title:"Vortex Nine Three Zero (Deluxe Edition)",date:"2026-10-16",video:"MdqrBx543iI",list:"OLAK5uy_kufxkHvOmiESkuNfF7Tn98Jk3HThmZkiA"},
+      {title:"Stole the Plot",date:"2026-08-17",video:"sDazEyUiFPw",list:"OLAK5uy_mukh36_n1wAbiFl2p72OOXAhYwpEF5u3U"},
+      {title:"Are You My Daddy",date:"2026-10-16",video:"ep-ap0n3wKk",list:"OLAK5uy_mn9cMdySRd4nPVTyHtz8XwZQytj42hrN8"},
+      {title:"Closer to Freedom",date:"2026-10-16",video:"RQcLsbjmA_k",list:"OLAK5uy_lwBa4BTX99rsUencp0YFqM_5_h6dMHzo8"},
+      {title:"I Make Me Thoth Vortex Eight Four One",date:"2026-10-03",video:"EwaIQ_RhiJ0",list:"OLAK5uy_mfEZ4lWwspBBrs_pyM6SMglKY6yDg9jWA"},
+      {title:"Hallowed Halls of a Mentee (Deluxe)",date:"2026-09-25",video:"UNa-Rt_Pf7o",list:"OLAK5uy_mlyKs27TkadJeivI2AviTpNaNL2rLmBNo"},
+      {title:"Standing Up Nerd Reich Standup (Vortex)",date:"2026-09-13",video:"5cclGoyPFYo",list:"OLAK5uy_klrpne-ATevrofvSkRVKAbUiYSZjaThjc"},
+      {title:"T Lang Lizard",date:"2026-09-13",video:"40WyfivwpKI",list:"OLAK5uy_maSi-88zhOl9q9FJRzHhiIlYgLtSxBzgI"},
+      {title:"The Devil Made Them (Vortex Eight Four One)",date:"2026-09-11",video:"DsCyS1YesW0",list:"OLAK5uy_mPlk3Aku6t6i0YgJu9q4xYW0lExqnrJ2E"},
+      {title:"Deep Concentration Robot Lullabies",date:"2026-09-06",video:"QoAyxUDOXXM",list:"OLAK5uy_l0PBIRpxms6_jFYqfV-K5e77ebVYDkFWA"},
+      {title:"RA : Missing Lynk",date:"2026-08-18",video:"Q4lAHqI6PUc",list:"OLAK5uy_k7fyNws957sjIXthDfD-6LV9q0ZKIGrIg"},
+      {title:"Amusing My Muse",date:"2026-08-18",video:"yNW9yFlM7oQ",list:"OLAK5uy_k_W_opiveLT7QH5ivFxL2FzpzfCY6lu10"},
+      {title:"Daemon Robot Lullabies",date:"2026-08-18",video:"obCMR_wPIz0",list:"OLAK5uy_mU5GVhBbbFGHVvIvDqlS-KezlbGZBANYM"},
+      {title:"deep focus high energy whos my daddy",date:"2026-08-18",video:"1BTDYZBkHfs",list:"OLAK5uy_kVMX1P3PObFDJgFQ27bsb5sL2QZ1-KPLI"},
+      {title:"Deep Concentration Bag Pipes Pay the Piper",date:"2026-08-18",video:"MYznb0ELGwU",list:"OLAK5uy_lJjAuscQtzh_mM0DcdUnjF-EydGBQlDXA"},
+      {title:"Juicy Juice",date:"2026-08-24",video:"q_9zV0nILbo",list:"OLAK5uy_lYxB5rsmWNHaysS9aSXJq8EDVVmlo-MP0"},
+      {title:"LILO & Stitched Together",date:"2026-08-24",video:"lROW4rERoHw",list:"OLAK5uy_nVqSvCccPjkaOHj3X2uDpNBdhxyDOBMZs"},
+      {title:"Juicy Juice Swing",date:"2026-08-24",video:"KYkpWeI077M",list:"OLAK5uy_lNi3hZMxH0TxvOqXcARxeVsga9ITtOqbo"},
+      {title:"Classical EVELution",date:"2026-08-24",video:"xkiTaupH0vA",list:"OLAK5uy_mpoWwv4nyperTfy-V69atFGbierp5UtVA"},
+      {title:"Already Home",date:"2026-08-25",video:"VScj0hiTWVg",list:"OLAK5uy_nzjSOfyXTurYrNzNQEm8ha0cCgoTkOXoQ"},
+      {title:"BIBLICAL Q n On n On",date:"2026-08-24",video:"S-WZtwtWKbE",list:"OLAK5uy_kKFlKw0GGGng-NPuII8bM6qqdepTUOzyA"},
+      {title:"Spelled Out Alphabet Soup",date:"2026-08-24",video:"Oo0AdTyZJHk",list:"OLAK5uy_nKcq4DLCFRc-JD2mZgGzSYyLbOK5n-t1Q"},
+      {title:"Petty Pets",date:"2026-08-24",video:"B1at2V3P5lk",list:"OLAK5uy_nF9vp4d7z10u0XfI5NjxgD5WfnL1tas18"},
+      {title:"Skip To My Looz",date:"2026-07-11",video:"E6lVtT59Yos",list:"OLAK5uy_mOC3odyViKrRV3wixdwRX2_QVhWWNZWFA"}
+    ];
+    const grid=document.getElementById('grid'), search=document.getElementById('search');
+    const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    function render(){const q=search.value.trim().toLowerCase(),shown=albums.filter(a=>a.title.toLowerCase().includes(q));grid.innerHTML=shown.map((a,i)=>`<article class="card"><a class="cover" href="https://music.youtube.com/playlist?list=${a.list}" target="_blank" rel="noopener noreferrer" aria-label="Listen to ${esc(a.title)} on YouTube Music"><img src="https://i.ytimg.com/vi/${a.video}/hqdefault.jpg" alt="Album artwork for ${esc(a.title)}" loading="lazy"><span class="cover-label">DJ Elsa · album ${String(albums.indexOf(a)+1).padStart(2,'0')}</span></a><div class="info"><div class="row"><span>Album</span><time datetime="${a.date}">${new Date(a.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',year:'numeric'})}</time></div><h2>${esc(a.title)}</h2><a class="listen" href="https://music.youtube.com/playlist?list=${a.list}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Listen on YouTube Music</a></div></article>`).join('');document.getElementById('count').textContent=`${shown.length} / ${albums.length} albums`;document.getElementById('empty').style.display=shown.length?'none':'block';}
+    search.addEventListener('input',render);render();
+  </script>
+</body>
+</html>
