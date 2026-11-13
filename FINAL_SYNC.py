@@ -445,13 +445,46 @@ def create_html(albums):
     /* logo sits whole inside the frame instead of being cropped to fill */
     .album img.pending-cover { object-fit: contain; background: #0e120c; padding: 18px; box-sizing: border-box; }
     .count { text-align: center; color: #aeb8a7; margin-bottom: 20px; }
+
+    /* --- site links in the header --- */
+    .home { display: inline-block; color: #b8ff43; text-decoration: none;
+      font-size: .85rem; letter-spacing: .04em; margin-bottom: 18px; }
+    .home:hover { text-decoration: underline; }
+    .platforms { display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 10px; margin-top: 18px; }
+    .platforms a { display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 16px; border: 1px solid #303a2d; border-radius: 999px;
+      color: #d7e0cf; text-decoration: none; font-size: .85rem;
+      white-space: nowrap; flex: 0 0 auto;
+      transition: border-color .15s, color .15s; }
+    .platforms a:hover { border-color: #b8ff43; color: #b8ff43; }
+    .platforms .dot { width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; }
+    @media (max-width: 520px) {
+      .header h1 { font-size: 2.2rem; }
+      .platforms { gap: 8px; }
+      .platforms a { padding: 7px 12px; font-size: .78rem; }
+    }
+    @media (max-width: 360px) {
+      .platforms a { padding: 6px 10px; font-size: .72rem; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
+      <a class="home" href="https://elsatv.fun">← elsatv.fun</a>
       <h1>DJ Elsa</h1>
       <p>Music Archive</p>
+      <div class="platforms">
+        <a href="https://music.youtube.com/channel/UC04IGR2TTAdwM37b6JTw64A">
+          <span class="dot" style="background:#ff0033"></span>YouTube Music</a>
+        <a href="https://www.youtube.com/@elsavelaz/releases">
+          <span class="dot" style="background:#ff0000"></span>YouTube</a>
+        <a href="https://open.spotify.com/artist/27NhC9Ct23OhR441IZH6KY">
+          <span class="dot" style="background:#1db954"></span>Spotify</a>
+        <a href="https://music.apple.com/us/artist/dj-elsa/415547530">
+          <span class="dot" style="background:#fa243c"></span>Apple Music</a>
+      </div>
     </div>
     <div class="count">''' + str(len(albums)) + ''' albums</div>
     <div class="grid">
