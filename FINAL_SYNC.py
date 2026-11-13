@@ -418,15 +418,6 @@ def create_html(albums):
     .album:hover { transform: translateY(-2px); }
     .album img { width: 100%; height: 200px; object-fit: cover; display: block; }
 
-    /*
-     * Song list revealed on hover (desktop) and on tap (touch).
-     * A real hover only exists with a mouse, so tapping is handled by a hidden
-     * checkbox: tap pins the list open, tap again releases it. On pointer
-     * devices the checkbox is inert and :hover drives it, as before.
-     */
-    .album:hover .tracklist, .toggle:checked ~ .tracklist {
-      opacity: 1; visibility: visible;
-    }
     .toggle { position: absolute; opacity: 0; width: 0; height: 0; margin: 0; }
     .tracklist {
       /* sits over the COVER only. The info block below never moves, so the
@@ -436,9 +427,29 @@ def create_html(albums):
       list-style: none; overflow-y: auto;
       background: #080b07;
       font-size: .8rem; line-height: 1.4; color: #d7e0cf;
-      opacity: 0; visibility: hidden; transition: opacity .15s ease;
+      /* no opacity fade: on touch the transition started from 0 and made a
+         tap feel like it had done nothing */
+      opacity: 0; visibility: hidden;
       z-index: 1;
     }
+    /*
+     * Song list visibility — declared AFTER the base .tracklist rule above.
+     * Same specificity, so source order decides: putting these before the base
+     * rule meant it silently overrode them and the list never opened.
+     *
+     * :hover is limited to devices with a real pointer: on touch a tap sets a
+     * sticky hover that persists until another element is tapped, which pinned
+     * the list open and made the close button appear to do nothing.
+     */
+    @media (hover: hover) and (pointer: fine) {
+      .album:hover .tracklist { opacity: 1; visibility: visible; }
+    }
+    .toggle:checked ~ .tracklist {
+      opacity: 1; visibility: visible;
+    }
+    /* the whole open card is the close target, so a second tap anywhere folds
+       it back without needing the small ✕ */
+    .toggle:checked ~ .tracklist { cursor: pointer; }
     /* title truncates so it never runs into the duration */
     .tracklist li { padding: 1px 0; display: flex; gap: 6px; align-items: baseline;
       list-style: none; }
@@ -462,14 +473,17 @@ def create_html(albums):
     .open-hit { position: absolute; top: 0; left: 0; right: 0; height: 200px;
       cursor: pointer; z-index: 1; }
     .close-btn { display: none; position: absolute; top: 8px; right: 8px;
-      z-index: 4; width: 32px; height: 32px;
+      z-index: 4; width: 34px; height: 34px;
       align-items: center; justify-content: center;
       color: #9aa894; font-size: 1rem; line-height: 1; cursor: pointer;
-      border-radius: 50%; background: #1b2318; }
+      border-radius: 50%; background: #1b2318;
+      /* iOS: fire the tap immediately, no 300ms delay, no scroll hijack */
+      touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
     .close-btn:hover, .close-btn:active { color: #131a0c; background: #b8ff43; }
+    .open-hit { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 
     .toggle:checked ~ .open-hit { display: none; }
-    .toggle:checked ~ .tracklist { opacity: 1; visibility: visible; z-index: 2; }
+    .toggle:checked ~ .tracklist { z-index: 2; }
     .toggle:checked ~ .close-btn { display: flex; }
     .album-info { padding: 15px; }
     .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 4px 0; }
@@ -576,6 +590,34 @@ def create_html(albums):
 
     html += '''    </div>
   </div>
+
+  <script>
+  /*
+   * Flip a card on tap.
+   *
+   * The pure-CSS version relies on <label for> to toggle a hidden checkbox,
+   * which is unreliable on touch: once a card is open, its cover tap target
+   * is display:none, so a second tap lands on the tracklist and toggles
+   * nothing. Driving the checkbox here makes every tap on the card a flip,
+   * open or closed, with links excluded so songs still open their pages.
+   */
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.album');
+    if (!card) return;
+
+    var box = card.querySelector('.toggle');
+    if (!box) return;
+
+    // Links win: tapping a song or the footer button opens YouTube.
+    if (e.target.closest('a')) return;
+
+    // Everything else on the card is a flip. While OPEN that means the list
+    // itself is the close target, so a second tap anywhere folds it back —
+    // no need to hit the small ✕, which is what was failing on touch.
+    e.preventDefault();
+    box.checked = !box.checked;
+  }, false);
+  </script>
 </body>
 </html>'''
 
