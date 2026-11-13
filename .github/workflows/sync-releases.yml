@@ -28,10 +28,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Only ONCE_PAT is needed: links come from manual_links.json, the ONCE
+      # store status, and a scrape of the releases page. No YouTube API key.
       - name: Sync releases
         env:
           ONCE_PAT: ${{ secrets.ONCE_PAT }}
-          API_KEY: ${{ secrets.API_KEY }}
         run: python FINAL_SYNC.py
 
       - name: Commit changes
