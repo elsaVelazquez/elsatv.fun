@@ -246,6 +246,36 @@ def main():
             'songs': songs,
         })
 
+    # Links collected in DJ_Elsa_YouTube_and_YouTube_Music_Links.json are the
+    # most reliable we have. Only blanks are filled: anything ONCE or the
+    # scrape already supplied keeps priority. Template, per the owner:
+    # https://music.youtube.com/watch?v= + youtube_video_id
+    dump_file = Path('DJ_Elsa_YouTube_and_YouTube_Music_Links.json')
+    if dump_file.exists():
+        try:
+            dump_links = {}
+            for d in json.loads(dump_file.read_text(encoding='utf-8')):
+                vid = d.get('youtube_video_id') or ''
+                if not vid:
+                    continue
+                dump_links[(norm(d.get('album_name')),
+                            norm(d.get('song_name')))] = (
+                    d.get('youtube_music_link')
+                    or f'https://music.youtube.com/watch?v={vid}')
+            filled = 0
+            for a in albums:
+                key = norm(a['album_name'])
+                for s in a['songs']:
+                    if s.get('youtube_link'):
+                        continue
+                    url = dump_links.get((key, norm(s['song_name'])))
+                    if url:
+                        s['youtube_link'] = url
+                        filled += 1
+            print(f'    + {filled} song link(s) filled from the link dump')
+        except Exception as e:
+            print(f'    ! link dump unreadable: {e}')
+
     albums.sort(key=lambda a: a['date_published'], reverse=True)
 
     payload = {
