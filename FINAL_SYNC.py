@@ -447,19 +447,14 @@ def create_html(albums):
       text-overflow: ellipsis; white-space: nowrap; }
     .tracklist .dur { color: #6f7d66; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
     .tracklist .empty { color: #6f7d66; font-style: italic; }
-    /* the <a> is a direct child of <ul>; keep it out of list-item styling */
-    .tracklist a.listen-btn { list-style: none; }
-    .listen-btn { display: block; margin: 0 0 9px 0; padding: 8px 12px;
-      background: #b8ff43; color: #131a0c; text-align: center;
-      text-decoration: none; border-radius: 5px; font-weight: bold;
-      font-size: .82rem; letter-spacing: .02em; }
-    .listen-btn:hover { filter: brightness(1.1); }
+
     /* tap to fold the tracklist back to the cover */
-    .close-btn { position: absolute; top: 8px; right: 10px; z-index: 3;
-      color: #7f8c76; font-size: .95rem; line-height: 1; cursor: pointer;
-      padding: 4px; }
-    .close-btn:hover { color: #f5f6f0; }
-    .tracklist .listen-btn { margin-right: 22px; }
+    .close-btn { position: sticky; top: 0; float: right; z-index: 3;
+      width: 20px; height: 20px; margin: -4px -4px 0 0;
+      display: flex; align-items: center; justify-content: center;
+      color: #9aa894; font-size: .8rem; line-height: 1; cursor: pointer;
+      border-radius: 50%; background: #1b2318; }
+    .close-btn:hover { color: #131a0c; background: #b8ff43; }
     /*
      * The tap target is the COVER AREA only, matching where the list appears.
      * Closed: tap the cover to open. Open: the list is on top, so taps reach
@@ -555,19 +550,6 @@ def create_html(albums):
         date = album.get('date') or ''
         date_html = f'<div class="album-date">{date}</div>' if date else ''
 
-        # One-click listen button inside the overlay. Prefers the album
-        # playlist; falls back to the single track when no album id is known
-        # yet (ONCE may publish one later).
-        listen_url = album.get('album_link') or album['youtube_url']
-        if listen_url:
-            is_album = bool(album.get('album_link'))
-            listen = (
-                f'<a class="listen-btn" href="{listen_url}" target="_blank">'
-                f'{'▶ Play album' if is_album else '▶ Play this release'}</a>'
-            )
-        else:
-            listen = ''
-
         html += f'''      <div class="album">
         <img src="{cover}" alt="{album['title']}"{img_class} loading="lazy">
         <input type="checkbox" class="toggle" id="t{i}"
@@ -575,7 +557,7 @@ def create_html(albums):
         <label for="t{i}" class="toggle-label" aria-hidden="true"></label>
         <ul class="tracklist">
           <label for="t{i}" class="close-btn" aria-label="Hide tracklist">✕</label>
-          {listen}{items}
+          {items}
         </ul>
         <div class="album-info">
           <h3 class="album-title">{album['title']}</h3>
