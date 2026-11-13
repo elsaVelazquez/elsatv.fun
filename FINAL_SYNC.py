@@ -448,25 +448,29 @@ def create_html(albums):
     .tracklist .dur { color: #6f7d66; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
     .tracklist .empty { color: #6f7d66; font-style: italic; }
 
-    /* tap to fold the tracklist back to the cover */
-    .close-btn { position: sticky; top: 0; float: right; z-index: 3;
-      width: 20px; height: 20px; margin: -4px -4px 0 0;
-      display: flex; align-items: center; justify-content: center;
-      color: #9aa894; font-size: .8rem; line-height: 1; cursor: pointer;
-      border-radius: 50%; background: #1b2318; }
-    .close-btn:hover { color: #131a0c; background: #b8ff43; }
     /*
-     * The tap target is the COVER AREA, matching where the list appears.
-     * Closed: the label is on top, so tapping the cover opens the list.
-     * Open:   the list is on top of the label, so tapping a song or the ✕
-     *         hits the list. The label stays in the DOM (not display:none)
-     *         because it is what toggles the checkbox back off — removing it
-     *         left no way to fold the card shut by tapping.
+     * Tap targets. Both are labels bound to the same checkbox, so each card
+     * toggles independently and any number can be open at once.
+     *
+     *   .open-hit   on the cover, shown only while closed
+     *   .close-btn  floats over the list, shown only while open
+     *
+     * The close control is a SIBLING of the scrolling <ul>, not a child: a
+     * label nested inside an overflow:auto element does not reliably receive
+     * taps on mobile, which is why folding a card back never worked.
      */
-    .toggle-label { position: absolute; top: 0; left: 0; right: 0; height: 200px;
+    .open-hit { position: absolute; top: 0; left: 0; right: 0; height: 200px;
       cursor: pointer; z-index: 1; }
-    .toggle:checked ~ .toggle-label { z-index: 0; }
+    .close-btn { display: none; position: absolute; top: 8px; right: 8px;
+      z-index: 4; width: 32px; height: 32px;
+      align-items: center; justify-content: center;
+      color: #9aa894; font-size: 1rem; line-height: 1; cursor: pointer;
+      border-radius: 50%; background: #1b2318; }
+    .close-btn:hover, .close-btn:active { color: #131a0c; background: #b8ff43; }
+
+    .toggle:checked ~ .open-hit { display: none; }
     .toggle:checked ~ .tracklist { opacity: 1; visibility: visible; z-index: 2; }
+    .toggle:checked ~ .close-btn { display: flex; }
     .album-info { padding: 15px; }
     .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 4px 0; }
     .album-date { font-size: .78rem; color: #7f8c76; margin: 0 0 10px 0;
@@ -557,9 +561,9 @@ def create_html(albums):
         <img src="{cover}" alt="{album['title']}"{img_class} loading="lazy">
         <input type="checkbox" class="toggle" id="t{i}"
                aria-label="Show tracklist for {escape(album['title'])}">
-        <label for="t{i}" class="toggle-label" aria-hidden="true"></label>
+        <label for="t{i}" class="open-hit" aria-label="Show tracklist"></label>
+        <label for="t{i}" class="close-btn" aria-label="Hide tracklist">✕</label>
         <ul class="tracklist">
-          <label for="t{i}" class="close-btn" aria-label="Hide tracklist">✕</label>
           {items}
         </ul>
         <div class="album-info">
