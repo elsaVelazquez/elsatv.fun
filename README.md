@@ -46,6 +46,10 @@ page is scraped once per run.
 | `Instructions.md`         | your notes                                                                         |
 | `albums.json`             | scraped fallback album list                                                        |
 
+`archive/` holds the retired sync scripts (`archive/scripts/`) and the docs that
+described them (`archive/docs/`). Nothing in there is used any more — it is kept
+for history only.
+
 ## When a release shows "Coming soon"
 
 Usually ONCE has it as `attention_needed`, so there is no store link yet. If
