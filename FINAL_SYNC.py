@@ -399,6 +399,16 @@ def create_album_data(releases, api_key):
     return albums
 
 
+def _song_title(song):
+    """Track name, linked to that song when ONCE gave a video id."""
+    name = escape(song['song_name'])
+    url = song.get('youtube_link')
+    if url:
+        return (f'<a class="name" href="{url}" target="_blank" '
+                f'rel="noopener" title="{name}">{name}</a>')
+    return f'<span class="name">{name}</span>'
+
+
 def create_html(albums):
     """Create the final HTML"""
 
@@ -456,6 +466,19 @@ def create_html(albums):
     .tracklist .num { color: #6f7d66; flex: 0 0 1.4em; }
     .tracklist .name { flex: 1 1 auto; min-width: 0; overflow: hidden;
       text-overflow: ellipsis; white-space: nowrap; }
+    /* song titles are links; no underline, a teal glow on hover instead */
+    .tracklist a.name { color: #d7e0cf; text-decoration: none;
+      transition: color .12s ease, text-shadow .12s ease; }
+    @media (hover: hover) and (pointer: fine) {
+      .tracklist a.name:hover, .tracklist a.name:focus-visible {
+        color: #5ff2d0;
+        text-shadow: 0 0 6px rgba(95, 242, 208, .65),
+                     0 0 14px rgba(95, 242, 208, .35);
+      }
+    }
+    /* touch: glow on press so the tap registers visually */
+    .tracklist a.name:active { color: #5ff2d0;
+      text-shadow: 0 0 6px rgba(95, 242, 208, .65); }
     .tracklist .dur { color: #6f7d66; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
     .tracklist .empty { color: #6f7d66; font-style: italic; }
 
@@ -560,7 +583,7 @@ def create_html(albums):
         if songs:
             items = ''.join(
                 f'<li><span class="num">{s.get("track_number", "")}</span>'
-                f'<span class="name">{escape(s["song_name"])}</span>'
+                f'{_song_title(s)}'
                 f'<span class="dur">{s.get("duration", "")}</span></li>'
                 for s in songs
             )

@@ -115,8 +115,10 @@ def get_releases(pat):
 def get_tracks(release_id, pat, retries=4):
     """Tracklist for one release. Cached in lore/tracks_cache.json."""
     cache = load_json(TRACKS_FILE, {})
-    if release_id in cache:
-        return cache[release_id]
+    cached = cache.get(release_id)
+    # re-fetch only if the cached shape predates the per-song youtube_link
+    if cached and all('youtube_link' in t for t in cached):
+        return cached
 
     headers = {'Authorization': f'Bearer {pat}',
                'Content-Type': 'application/json'}
@@ -128,14 +130,17 @@ def get_tracks(release_id, pat, retries=4):
                 time.sleep(15 * (attempt + 1))
                 continue
             r.raise_for_status()
-            tracks = [
-                {
+            tracks = []
+            for t in (r.json().get('tracks') or []):
+                vid = t.get('ytmusic_video_id')
+                tracks.append({
                     'track_number': t.get('track_number') or 0,
                     'song_name': t.get('title') or '',
                     'duration': duration(t.get('duration')),
-                }
-                for t in (r.json().get('tracks') or [])
-            ]
+                    # direct link to this song, from ONCE's per-track video id
+                    'youtube_link': (f'https://music.youtube.com/watch?v={vid}'
+                                     if vid else ''),
+                })
             tracks.sort(key=lambda t: t['track_number'])
             cache[release_id] = tracks
             TRACKS_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -224,8 +229,11 @@ def main():
                     for v in cache.values() if v.get('youtube_url')}
 
         songs = get_tracks(rid, pat)
+        # Only fill songs ONCE gave no video id for. Overwriting unconditionally
+        # threw away every link get_tracks had just fetched.
         for s in songs:
-            s['youtube_link'] = by_title.get(norm(s['song_name']), '')
+            if not s.get('youtube_link'):
+                s['youtube_link'] = by_title.get(norm(s['song_name']), '')
 
         print(f'[{i}/{len(releases)}] {title[:44]:44} {len(songs)} song(s)')
 
