@@ -271,8 +271,27 @@ def create_album_data(releases, api_key):
     cache = load_cache()
     manual = load_manual()
 
-    # Public channel page — one request, no API quota, fills ONCE's gaps
-    scraped = scrape_channel_releases()
+    # Only fetch the public releases page if something is genuinely new.
+    # A release already marked `checked` in the cache (see below) was looked
+    # for and not found, so we do not re-scrape it on every run.
+    def needs_lookup(r):
+        if manual.get(norm(r.get('title', ''))):
+            return False
+        entry = cache.get(r['id'], {})
+        if entry.get('youtube_url'):
+            return False
+        # Already checked and absent — only retry if ONCE status moved on
+        return entry.get('checked_status') != r.get('status')
+
+    unresolved = [r for r in releases if needs_lookup(r)]
+
+    if unresolved:
+        print(f"{len(unresolved)} release(s) to look up — checking releases page",
+              flush=True)
+        scraped = scrape_channel_releases()
+    else:
+        print("all links known or already checked — not scraping", flush=True)
+        scraped = {}
 
     print(f"{len(releases)} releases on ONCE, resolving links...", flush=True)
 
@@ -324,8 +343,6 @@ def create_album_data(releases, api_key):
             if cover.startswith('/'):
                 cover = 'https://once.app' + cover
 
-        # Only cache a resolved link. Blank results are NOT stored, so anything
-        # still "Coming soon" gets re-checked on the next run.
         if youtube_url:
             cache[rid] = {
                 'title': title,
@@ -334,6 +351,20 @@ def create_album_data(releases, api_key):
                 'cover_art': cover,
             }
             save_cache(cache)  # write as we go, so a crash keeps progress
+        elif rid in {r['id'] for r in unresolved}:
+            # Looked for it and it isn't there. Remember the ONCE status we saw
+            # so the next run skips it until that status changes (e.g. the
+            # release actually goes live).
+            cache[rid] = {
+                'title': title,
+                'youtube_url': None,
+                'album_link': None,
+                'cover_art': '',
+                'checked_status': release.get('status'),
+            }
+            save_cache(cache)
+            print(f"  ⏳ marked checked — not on YouTube yet "
+                  f"(ONCE status: {release.get('status')})", flush=True)
 
         album = {
             'title': title,
