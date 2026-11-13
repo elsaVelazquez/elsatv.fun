@@ -14,6 +14,8 @@ import time
 
 CACHE_FILE = Path('lore/yt_link_cache.json')
 MANUAL_FILE = Path('lore/manual_links.json')
+# Shown on any card that has no track/album art yet.
+PENDING_LOGO = 'elfalpha_logo.png'
 RELEASES_URL = 'https://www.youtube.com/@elsavelaz/releases'
 UA = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/120.0 Safari/537.36')
@@ -404,6 +406,8 @@ def create_html(albums):
     .album-link { display: inline-block; background: #b8ff43; color: #131a0c; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold; }
     .album-link:hover { filter: brightness(1.1); }
     .album-link.pending { background: #303a2d; color: #aeb8a7; }
+    /* logo sits whole inside the frame instead of being cropped to fill */
+    .album img.pending-cover { object-fit: contain; background: #0e120c; padding: 18px; box-sizing: border-box; }
     .count { text-align: center; color: #aeb8a7; margin-bottom: 20px; }
   </style>
 </head>
@@ -419,11 +423,13 @@ def create_html(albums):
 
     for album in albums:
         # ONCE cover-art URLs are account-private (404 for a browser), so only
-        # use a cover we know is publicly loadable.
+        # use a cover we know is publicly loadable. Anything without one gets
+        # the ElfAlpha logo.
         cover = album['cover_art'] if 'ytimg' in album['cover_art'] else ''
+        img_class = ''
         if not cover:
-            cover = (f"https://dummyimage.com/300x300/1a2b1a/b8ff43"
-                     f"&text={album['title'].replace(' ', '+')[:15]}")
+            cover = PENDING_LOGO
+            img_class = ' class="pending-cover"'
 
         if album['youtube_url']:
             link = (f'<a href="{album["youtube_url"]}" target="_blank" '
@@ -432,7 +438,7 @@ def create_html(albums):
             link = '<span class="album-link pending">Coming soon</span>'
 
         html += f'''      <div class="album">
-        <img src="{cover}" alt="{album['title']}" loading="lazy">
+        <img src="{cover}" alt="{album['title']}"{img_class} loading="lazy">
         <div class="album-info">
           <h3 class="album-title">{album['title']}</h3>
           {link}

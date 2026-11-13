@@ -18,6 +18,8 @@
     .album-link { display: inline-block; background: #b8ff43; color: #131a0c; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold; }
     .album-link:hover { filter: brightness(1.1); }
     .album-link.pending { background: #303a2d; color: #aeb8a7; }
+    /* logo sits whole inside the frame instead of being cropped to fill */
+    .album img.pending-cover { object-fit: contain; background: #0e120c; padding: 18px; box-sizing: border-box; }
     .count { text-align: center; color: #aeb8a7; margin-bottom: 20px; }
   </style>
 </head>
@@ -30,7 +32,7 @@
     <div class="count">78 albums</div>
     <div class="grid">
       <div class="album">
-        <img src="https://dummyimage.com/300x300/1a2b1a/b8ff43&text=Real+Dream+Is+R" alt="Real Dream Is Real" loading="lazy">
+        <img src="elfalpha_logo.png" alt="Real Dream Is Real" class="pending-cover" loading="lazy">
         <div class="album-info">
           <h3 class="album-title">Real Dream Is Real</h3>
           <span class="album-link pending">Coming soon</span>
