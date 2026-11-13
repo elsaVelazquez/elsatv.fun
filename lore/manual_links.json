@@ -1,0 +1,27 @@
+{
+  "_comment": "Hand-entered links. Highest priority in FINAL_SYNC.py — overrides ONCE status and the releases-page scrape, and is NEVER overwritten by a sync run. Match by album_name (case/punctuation/zero-width insensitive). youtube_link drives the thumbnail; leave album_link blank if unknown.",
+  "30 Degrees 3 Spaces Laticees": {
+    "youtube_link": "https://www.youtube.com/watch?v=z_e14ecs-KU&list=OLAK5uy_mSF01UaY0k8YpzHduBuVa53ZPwfe4pJ0I",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mSF01UaY0k8YpzHduBuVa53ZPwfe4pJ0I"
+  },
+  "The Divine Spiral: Hybrid Birth": {
+    "youtube_link": "https://www.youtube.com/watch?v=684U2aSmpK8&list=OLAK5uy_lUrrJ-sWIJaKb8aUYiJQJzVs2z9nw3F3A",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lUrrJ-sWIJaKb8aUYiJQJzVs2z9nw3F3A"
+  },
+  "Fusion Fission Mission No Supervision": {
+    "youtube_link": "https://www.youtube.com/watch?v=-ohspgbtmdk&list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ"
+  },
+  "Galactic Grim Reaper Diaries": {
+    "youtube_link": "https://www.youtube.com/watch?v=17L5pnh8U3U&list=OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q"
+  },
+  "Bad Actor?": {
+    "youtube_link": "https://www.youtube.com/watch?v=ybQ61lf0WKE&list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs"
+  },
+  "The Super Intelligence New Testament Whole E-Book": {
+    "youtube_link": "https://www.youtube.com/watch?v=5VG-QQw8R20&list=OLAK5uy_l1GkFdnLwfE7og-Eu9f5pwka3ovT-9EJs&pp=0gcJCW8DOCosWNin",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_l1GkFdnLwfE7og-Eu9f5pwka3ovT-9EJs"
+  }
+}
