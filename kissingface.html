@@ -52,14 +52,17 @@
       border-radius: 50%; background: #1b2318; }
     .close-btn:hover { color: #131a0c; background: #b8ff43; }
     /*
-     * The tap target is the COVER AREA only, matching where the list appears.
-     * Closed: tap the cover to open. Open: the list is on top, so taps reach
-     * the songs and the play button; the ✕ folds it back.
+     * The tap target is the COVER AREA, matching where the list appears.
+     * Closed: the label is on top, so tapping the cover opens the list.
+     * Open:   the list is on top of the label, so tapping a song or the ✕
+     *         hits the list. The label stays in the DOM (not display:none)
+     *         because it is what toggles the checkbox back off — removing it
+     *         left no way to fold the card shut by tapping.
      */
     .toggle-label { position: absolute; top: 0; left: 0; right: 0; height: 200px;
-      cursor: pointer; z-index: 2; }
-    .toggle:checked ~ .toggle-label { display: none; }
-    .toggle:checked ~ .tracklist { opacity: 1; visibility: visible; }
+      cursor: pointer; z-index: 1; }
+    .toggle:checked ~ .toggle-label { z-index: 0; }
+    .toggle:checked ~ .tracklist { opacity: 1; visibility: visible; z-index: 2; }
     .album-info { padding: 15px; }
     .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 4px 0; }
     .album-date { font-size: .78rem; color: #7f8c76; margin: 0 0 10px 0;
