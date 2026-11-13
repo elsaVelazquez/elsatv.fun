@@ -6,6 +6,8 @@ FINAL WORKING SOLUTION - Combines ONCE + YouTube APIs properly
 import os
 import re
 import json
+from html import escape
+
 import requests
 from pathlib import Path
 from datetime import datetime
@@ -14,6 +16,7 @@ import time
 
 CACHE_FILE = Path('lore/yt_link_cache.json')
 MANUAL_FILE = Path('lore/manual_links.json')
+ALBUMS_FILE = Path('lore/albums.json')
 # Shown on any card that has no track/album art yet.
 PENDING_LOGO = 'elfalpha_logo.png'
 RELEASES_URL = 'https://www.youtube.com/@elsavelaz/releases'
@@ -273,6 +276,18 @@ def create_album_data(releases, api_key):
     cache = load_cache()
     manual = load_manual()
 
+    # Tracklists come from build_albums.py -> lore/albums.json. Run it first;
+    # a missing file just means cards render without a hover list.
+    tracklists = {}
+    if ALBUMS_FILE.exists():
+        try:
+            for a in json.loads(ALBUMS_FILE.read_text()).get('albums', []):
+                tracklists[norm(a['album_name'])] = a.get('songs') or []
+        except Exception as e:
+            print(f"  ⚠️  albums.json unreadable: {e}")
+    else:
+        print("  ℹ️  no lore/albums.json — run build_albums.py for tracklists")
+
     # Only fetch the public releases page if something is genuinely new.
     # A release already marked `checked` in the cache (see below) was looked
     # for and not found, so we do not re-scrape it on every run.
@@ -374,6 +389,7 @@ def create_album_data(releases, api_key):
             'cover_art': cover,
             'youtube_url': youtube_url or '',
             'album_link': playlist_url or '',
+            'songs': tracklists.get(norm(title)) or [],
             'genre': release.get('genre', 'Electronic')
         }
         albums.append(album)
@@ -398,9 +414,27 @@ def create_html(albums):
     .header { text-align: center; margin-bottom: 40px; }
     .header h1 { color: #b8ff43; font-size: 3rem; margin: 0; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-    .album { background: #141912; border: 1px solid #303a2d; border-radius: 10px; overflow: hidden; transition: transform 0.2s; }
+    .album { background: #141912; border: 1px solid #303a2d; border-radius: 10px; overflow: hidden; transition: transform 0.2s; position: relative; }
     .album:hover { transform: translateY(-2px); }
-    .album img { width: 100%; height: 200px; object-fit: cover; }
+    .album img { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+    /* song list revealed on hover */
+    .album:hover .tracklist { opacity: 1; visibility: visible; }
+    .tracklist {
+      position: absolute; top: 0; left: 0; right: 0; height: 200px;
+      margin: 0; padding: 12px 14px; box-sizing: border-box;
+      list-style: none; overflow-y: auto;
+      background: rgba(8, 11, 7, .98);
+      font-size: .8rem; line-height: 1.4; color: #d7e0cf;
+      opacity: 0; visibility: hidden; transition: opacity .15s ease;
+    }
+    /* title truncates so it never runs into the duration */
+    .tracklist li { padding: 1px 0; display: flex; gap: 6px; align-items: baseline; }
+    .tracklist .num { color: #6f7d66; flex: 0 0 1.4em; }
+    .tracklist .name { flex: 1 1 auto; min-width: 0; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap; }
+    .tracklist .dur { color: #6f7d66; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
+    .tracklist .empty { color: #6f7d66; font-style: italic; }
     .album-info { padding: 15px; }
     .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 10px 0; }
     .album-link { display: inline-block; background: #b8ff43; color: #131a0c; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold; }
@@ -437,8 +471,20 @@ def create_html(albums):
         else:
             link = '<span class="album-link pending">Coming soon</span>'
 
+        songs = album.get('songs') or []
+        if songs:
+            items = ''.join(
+                f'<li><span class="num">{s.get("track_number", "")}</span>'
+                f'<span class="name">{escape(s["song_name"])}</span>'
+                f'<span class="dur">{s.get("duration", "")}</span></li>'
+                for s in songs
+            )
+        else:
+            items = '<li class="empty">tracklist not published yet</li>'
+
         html += f'''      <div class="album">
         <img src="{cover}" alt="{album['title']}"{img_class} loading="lazy">
+        <ul class="tracklist">{items}</ul>
         <div class="album-info">
           <h3 class="album-title">{album['title']}</h3>
           {link}

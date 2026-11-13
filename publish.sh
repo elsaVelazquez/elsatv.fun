@@ -18,12 +18,16 @@ else
     exit 1
 fi
 
+echo "→ building album tracklists"
+"$PY" build_albums.py
+
 echo "→ syncing releases"
 "$PY" FINAL_SYNC.py
 
 # Only build output is staged. manual_links.json and .env are never touched:
 # the first is yours to edit, the second must never be committed.
-git add kissingface.html lore/songs.json lore/yt_link_cache.json
+git add kissingface.html lore/songs.json lore/yt_link_cache.json \
+        lore/albums.json lore/tracks_cache.json
 
 if git diff --staged --quiet; then
     echo "→ nothing changed, nothing to publish"

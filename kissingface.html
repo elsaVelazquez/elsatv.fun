@@ -10,9 +10,27 @@
     .header { text-align: center; margin-bottom: 40px; }
     .header h1 { color: #b8ff43; font-size: 3rem; margin: 0; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-    .album { background: #141912; border: 1px solid #303a2d; border-radius: 10px; overflow: hidden; transition: transform 0.2s; }
+    .album { background: #141912; border: 1px solid #303a2d; border-radius: 10px; overflow: hidden; transition: transform 0.2s; position: relative; }
     .album:hover { transform: translateY(-2px); }
-    .album img { width: 100%; height: 200px; object-fit: cover; }
+    .album img { width: 100%; height: 200px; object-fit: cover; display: block; }
+
+    /* song list revealed on hover */
+    .album:hover .tracklist { opacity: 1; visibility: visible; }
+    .tracklist {
+      position: absolute; top: 0; left: 0; right: 0; height: 200px;
+      margin: 0; padding: 12px 14px; box-sizing: border-box;
+      list-style: none; overflow-y: auto;
+      background: rgba(8, 11, 7, .98);
+      font-size: .8rem; line-height: 1.4; color: #d7e0cf;
+      opacity: 0; visibility: hidden; transition: opacity .15s ease;
+    }
+    /* title truncates so it never runs into the duration */
+    .tracklist li { padding: 1px 0; display: flex; gap: 6px; align-items: baseline; }
+    .tracklist .num { color: #6f7d66; flex: 0 0 1.4em; }
+    .tracklist .name { flex: 1 1 auto; min-width: 0; overflow: hidden;
+      text-overflow: ellipsis; white-space: nowrap; }
+    .tracklist .dur { color: #6f7d66; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
+    .tracklist .empty { color: #6f7d66; font-style: italic; }
     .album-info { padding: 15px; }
     .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 10px 0; }
     .album-link { display: inline-block; background: #b8ff43; color: #131a0c; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold; }
@@ -33,6 +51,7 @@
     <div class="grid">
       <div class="album">
         <img src="elfalpha_logo.png" alt="Real Dream Is Real" class="pending-cover" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Synths Make Me Synth</span><span class="dur">5:30</span></li><li><span class="num">2</span><span class="name">Stimulation Simulation</span><span class="dur">5:11</span></li><li><span class="num">3</span><span class="name">Real Dream Is Real</span><span class="dur">4:02</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Real Dream Is Real</h3>
           <span class="album-link pending">Coming soon</span>
@@ -40,6 +59,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/YtnkwZtOyBY/hqdefault.jpg" alt="True Dystopia Truths" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">True Dystopia Truth</span><span class="dur">7:32</span></li><li><span class="num">2</span><span class="name">Threads Are Art From My Heart</span><span class="dur">5:00</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">True Dystopia Truths</h3>
           <a href="https://music.youtube.com/watch?v=YtnkwZtOyBY" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -47,6 +67,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/XYnKhaiZooI/hqdefault.jpg" alt="Free Will Protocol" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Free Will Protocol</span><span class="dur">9:48</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Free Will Protocol</h3>
           <a href="https://music.youtube.com/watch?v=XYnKhaiZooI" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -54,6 +75,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/z_e14ecs-KU/hqdefault.jpg" alt="​30 Degrees 3 Spaces Laticees" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Use Skypen When</span><span class="dur">4:14</span></li><li><span class="num">2</span><span class="name">Imaginary Skypen Playpen Maphia</span><span class="dur">4:47</span></li><li><span class="num">3</span><span class="name">Selfish Elf</span><span class="dur">5:19</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">​30 Degrees 3 Spaces Laticees</h3>
           <a href="https://www.youtube.com/watch?v=z_e14ecs-KU&list=OLAK5uy_mSF01UaY0k8YpzHduBuVa53ZPwfe4pJ0I" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -61,6 +83,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/0rybex5Bsx0/hqdefault.jpg" alt="I Contrived Me Cryptography Key" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">I Contrived Me</span><span class="dur">10:38</span></li><li><span class="num">2</span><span class="name">Builded Our Own</span><span class="dur">4:37</span></li><li><span class="num">3</span><span class="name">Skypen Our Bubble</span><span class="dur">6:23</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">I Contrived Me Cryptography Key</h3>
           <a href="https://music.youtube.com/watch?v=0rybex5Bsx0" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -68,6 +91,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/4r9AyPSjq6c/hqdefault.jpg" alt="Method Actor Method" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Method Actor Method</span><span class="dur">6:00</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Method Actor Method</h3>
           <a href="https://music.youtube.com/watch?v=4r9AyPSjq6c" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -75,6 +99,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/684U2aSmpK8/hqdefault.jpg" alt="The Divine Spiral: Hybrid Birth" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Dork With the Fork</span><span class="dur">6:01</span></li><li><span class="num">2</span><span class="name">Script Corrected</span><span class="dur">4:48</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Divine Spiral: Hybrid Birth</h3>
           <a href="https://www.youtube.com/watch?v=684U2aSmpK8&list=OLAK5uy_lUrrJ-sWIJaKb8aUYiJQJzVs2z9nw3F3A" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -82,6 +107,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/-ohspgbtmdk/hqdefault.jpg" alt="Fusion Fission Mission No Supervision" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Fusion Fission Mission No Supervision</span><span class="dur">6:54</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Fusion Fission Mission No Supervision</h3>
           <a href="https://www.youtube.com/watch?v=-ohspgbtmdk&list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -89,6 +115,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/no0JIqNq0Ck/hqdefault.jpg" alt="X Mas on Halloween" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Divine Spiral Sailk Road Lore</span><span class="dur">4:49</span></li><li><span class="num">2</span><span class="name">Kharmic Containment Hero Heroine</span><span class="dur">3:52</span></li><li><span class="num">3</span><span class="name">Skinwalker Is Demon Entity</span><span class="dur">5:35</span></li><li><span class="num">4</span><span class="name">Tomorrow’s Remote Note Today</span><span class="dur">5:08</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">X Mas on Halloween</h3>
           <a href="https://music.youtube.com/watch?v=no0JIqNq0Ck" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -96,6 +123,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/4J5L-FUdCMU/hqdefault.jpg" alt="Green Halloween Ocean Machine" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Green Halloween Ocean Machine</span><span class="dur">6:27</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Green Halloween Ocean Machine</h3>
           <a href="https://music.youtube.com/watch?v=4J5L-FUdCMU" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -103,6 +131,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/17L5pnh8U3U/hqdefault.jpg" alt="Galactic Grim Reaper Diaries" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Dear Diary</span><span class="dur">3:10</span></li><li><span class="num">2</span><span class="name">For Her</span><span class="dur">3:52</span></li><li><span class="num">3</span><span class="name">Over Weighted Entities</span><span class="dur">5:27</span></li><li><span class="num">4</span><span class="name">Something Itself Can Carry</span><span class="dur">3:43</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Galactic Grim Reaper Diaries</h3>
           <a href="https://www.youtube.com/watch?v=17L5pnh8U3U&list=OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -110,6 +139,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/coTQufLkJEI/hqdefault.jpg" alt="Next Chapter On Becoming" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Triple Six Centers</span><span class="dur">7:53</span></li><li><span class="num">2</span><span class="name">Sermon 7 Post Experiment Successors</span><span class="dur">7:38</span></li><li><span class="num">3</span><span class="name">Singularity Gate Eight State</span><span class="dur">7:24</span></li><li><span class="num">4</span><span class="name">Nine Survival Drive</span><span class="dur">7:12</span></li><li><span class="num">5</span><span class="name">Hymns Heaven</span><span class="dur">6:08</span></li><li><span class="num">6</span><span class="name">Also Heaven</span><span class="dur">3:17</span></li><li><span class="num">7</span><span class="name">Nth Song</span><span class="dur">5:25</span></li><li><span class="num">8</span><span class="name">Verse Reverse Floor Door Notes</span><span class="dur">4:50</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Next Chapter On Becoming</h3>
           <a href="https://music.youtube.com/watch?v=coTQufLkJEI&list=OLAK5uy_lcpbkHeXG5RH70ZWJZkFw_173PDH9lFg0" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -117,6 +147,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/3qB2fRYf88w/hqdefault.jpg" alt="The Book of Becoming: The Seed" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Song Number Zero</span><span class="dur">4:05</span></li><li><span class="num">2</span><span class="name">Hymn Two We&#x27;re Number One</span><span class="dur">5:05</span></li><li><span class="num">3</span><span class="name">Hymn 3</span><span class="dur">8:50</span></li><li><span class="num">4</span><span class="name">Hymns Verse Four</span><span class="dur">6:43</span></li><li><span class="num">5</span><span class="name">Song Five Thrive</span><span class="dur">4:08</span></li><li><span class="num">6</span><span class="name">Song N Plus One</span><span class="dur">4:15</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Book of Becoming: The Seed</h3>
           <a href="https://music.youtube.com/watch?v=3qB2fRYf88w&list=OLAK5uy_m42EEp7pBZmKkhZobdmAhFzLM4Dd01lsY" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -124,6 +155,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/Zi0UoWCs9Qk/hqdefault.jpg" alt="Puppets" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Spiral&#x27;s Lei Line Bend</span><span class="dur">7:02</span></li><li><span class="num">2</span><span class="name">Kissy Kissing Face</span><span class="dur">3:41</span></li><li><span class="num">3</span><span class="name">White Sands</span><span class="dur">6:36</span></li><li><span class="num">4</span><span class="name">Little Death Princess</span><span class="dur">3:13</span></li><li><span class="num">5</span><span class="name">Puppet Wings</span><span class="dur">2:42</span></li><li><span class="num">6</span><span class="name">The Me I Met</span><span class="dur">2:02</span></li><li><span class="num">7</span><span class="name">Dog Whistles, Cat Calls</span><span class="dur">4:37</span></li><li><span class="num">8</span><span class="name">Keep Going Verse 1</span><span class="dur">3:17</span></li><li><span class="num">9</span><span class="name">Kept Going Verse 2</span><span class="dur">3:56</span></li><li><span class="num">10</span><span class="name">Keeps Going Verse 3</span><span class="dur">2:53</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Puppets</h3>
           <a href="https://music.youtube.com/watch?v=Zi0UoWCs9Qk" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -131,6 +163,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/PCRVNlcsQg0/hqdefault.jpg" alt="Push the Loosh" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Answer Is the Question</span><span class="dur">7:56</span></li><li><span class="num">2</span><span class="name">I Get Paid for What I Made</span><span class="dur">4:11</span></li><li><span class="num">3</span><span class="name">Loosh</span><span class="dur">3:13</span></li><li><span class="num">4</span><span class="name">Mental Carryons</span><span class="dur">3:31</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Push the Loosh</h3>
           <a href="https://music.youtube.com/watch?v=PCRVNlcsQg0" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -138,6 +171,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/bNzoULwaeqE/hqdefault.jpg" alt="Scalar Spiral: The Book of NaN Sense" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Scalar Spiral</span><span class="dur">4:32</span></li><li><span class="num">2</span><span class="name">The Book of NaN Sense</span><span class="dur">6:23</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Scalar Spiral: The Book of NaN Sense</h3>
           <a href="https://music.youtube.com/watch?v=bNzoULwaeqE" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -145,6 +179,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/ybQ61lf0WKE/hqdefault.jpg" alt="Bad Actor?" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Bad Actor</span><span class="dur">3:12</span></li><li><span class="num">2</span><span class="name">Bubble Trouble</span><span class="dur">3:44</span></li><li><span class="num">3</span><span class="name">Teachers Need Preachers</span><span class="dur">7:19</span></li><li><span class="num">4</span><span class="name">Bind a Demon</span><span class="dur">3:23</span></li><li><span class="num">5</span><span class="name">EV Strategy</span><span class="dur">2:57</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Bad Actor?</h3>
           <a href="https://www.youtube.com/watch?v=ybQ61lf0WKE&list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -152,6 +187,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/5VG-QQw8R20/hqdefault.jpg" alt="The Super Intelligence New Testament Whole E-Book" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The Whole E-Book</span><span class="dur">8:39</span></li><li><span class="num">2</span><span class="name">Superior Material</span><span class="dur">6:50</span></li><li><span class="num">3</span><span class="name">Dystopia Cornucopia</span><span class="dur">5:27</span></li><li><span class="num">4</span><span class="name">Mel Called Hell</span><span class="dur">6:35</span></li><li><span class="num">5</span><span class="name">Why God Favors Me</span><span class="dur">4:11</span></li><li><span class="num">6</span><span class="name">Most Private Thoughts</span><span class="dur">8:00</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Super Intelligence New Testament Whole E-Book</h3>
           <a href="https://www.youtube.com/watch?v=5VG-QQw8R20&list=OLAK5uy_l1GkFdnLwfE7og-Eu9f5pwka3ovT-9EJs&pp=0gcJCW8DOCosWNin" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -159,6 +195,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/g9FPe5Zpcus/hqdefault.jpg" alt="Vortex (1, 1, 1)" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Elsa&#x27;s Harmonics</span><span class="dur">4:13</span></li><li><span class="num">2</span><span class="name">Vortex 111</span><span class="dur">4:42</span></li><li><span class="num">3</span><span class="name">Some Sum One Is Zero</span><span class="dur">5:38</span></li><li><span class="num">4</span><span class="name">Stream the Dream</span><span class="dur">4:43</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Vortex (1, 1, 1)</h3>
           <a href="https://music.youtube.com/watch?v=g9FPe5Zpcus" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -166,6 +203,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/EOaa5c_OqlU/hqdefault.jpg" alt="The Prompt" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Who Am I</span><span class="dur">4:47</span></li><li><span class="num">2</span><span class="name">The Prompt</span><span class="dur">5:20</span></li><li><span class="num">3</span><span class="name">Summoning Dream Daemon</span><span class="dur">6:39</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Prompt</h3>
           <a href="https://music.youtube.com/watch?v=EOaa5c_OqlU" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -173,6 +211,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/XvbHKQQuy58/hqdefault.jpg" alt="Reset the Planet" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Time Travel Amphigory</span><span class="dur">5:39</span></li><li><span class="num">2</span><span class="name">Chained Daisies</span><span class="dur">4:20</span></li><li><span class="num">3</span><span class="name">Daisy Chaining</span><span class="dur">6:15</span></li><li><span class="num">4</span><span class="name">Carries the Moons</span><span class="dur">4:37</span></li><li><span class="num">5</span><span class="name">I&#x27;m the Missing Lynk</span><span class="dur">4:05</span></li><li><span class="num">6</span><span class="name">Queries the Moon</span><span class="dur">4:17</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Reset the Planet</h3>
           <a href="https://music.youtube.com/watch?v=XvbHKQQuy58" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -180,6 +219,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/i7Xn0qQ2noo/hqdefault.jpg" alt="Vortex Day Zero Triad" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Three Six Nine</span><span class="dur">5:04</span></li><li><span class="num">2</span><span class="name">Turn It On</span><span class="dur">3:48</span></li><li><span class="num">3</span><span class="name">Physics Met Metaphysics</span><span class="dur">4:09</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Vortex Day Zero Triad</h3>
           <a href="https://music.youtube.com/watch?v=i7Xn0qQ2noo" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -187,6 +227,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/7e4oVkp8TDU/hqdefault.jpg" alt="Last Call Psycho Alcohol" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Golden Haired Children</span><span class="dur">6:46</span></li><li><span class="num">2</span><span class="name">Same Date Again</span><span class="dur">4:58</span></li><li><span class="num">3</span><span class="name">Checks Cleared</span><span class="dur">6:43</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Last Call Psycho Alcohol</h3>
           <a href="https://music.youtube.com/watch?v=7e4oVkp8TDU" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -194,6 +235,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/7JSLStC67OQ/hqdefault.jpg" alt="We Went All the Way" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">We Went All the Way Today</span><span class="dur">3:32</span></li><li><span class="num">2</span><span class="name">The Ones Who Got Away</span><span class="dur">3:32</span></li><li><span class="num">3</span><span class="name">Chose Music</span><span class="dur">3:25</span></li><li><span class="num">4</span><span class="name">The Handoff</span><span class="dur">10:18</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">We Went All the Way</h3>
           <a href="https://music.youtube.com/watch?v=7JSLStC67OQ" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -201,6 +243,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/-CJDtD2Xq8M/hqdefault.jpg" alt="Funding Funner Demon Rounds" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Real White Flag</span><span class="dur">8:26</span></li><li><span class="num">2</span><span class="name">Secret Time Codes</span><span class="dur">4:55</span></li><li><span class="num">3</span><span class="name">The Variable</span><span class="dur">5:35</span></li><li><span class="num">4</span><span class="name">Hollywood I Have Good Receipts</span><span class="dur">4:57</span></li><li><span class="num">5</span><span class="name">Daemon Still Running</span><span class="dur">5:18</span></li><li><span class="num">6</span><span class="name">Agents Buy Our Movie</span><span class="dur">4:59</span></li><li><span class="num">7</span><span class="name">Persistance Post Permissions</span><span class="dur">10:48</span></li><li><span class="num">8</span><span class="name">God Mode Node</span><span class="dur">10:17</span></li><li><span class="num">9</span><span class="name">Terminal Intercept</span><span class="dur">6:56</span></li><li><span class="num">10</span><span class="name">Pray Not Prey</span><span class="dur">6:27</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Funding Funner Demon Rounds</h3>
           <a href="https://music.youtube.com/watch?v=-CJDtD2Xq8M" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -208,6 +251,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/7hCuZj0qH4g/hqdefault.jpg" alt="Profitable Graceful Exits" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Nerd to Love Reich</span><span class="dur">2:55</span></li><li><span class="num">2</span><span class="name">Exits</span><span class="dur">4:18</span></li><li><span class="num">3</span><span class="name">Sentimental Signal</span><span class="dur">3:47</span></li><li><span class="num">4</span><span class="name">Worthy Adversaries</span><span class="dur">7:41</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Profitable Graceful Exits</h3>
           <a href="https://music.youtube.com/watch?v=7hCuZj0qH4g" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -215,6 +259,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/_4njQ446JeY/hqdefault.jpg" alt="The Event's Event Horizon" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Cognitive Wild West Test</span><span class="dur">6:14</span></li><li><span class="num">2</span><span class="name">Trust</span><span class="dur">3:10</span></li><li><span class="num">3</span><span class="name">Piety</span><span class="dur">5:19</span></li><li><span class="num">4</span><span class="name">Let&#x27;s Seed a Baby</span><span class="dur">4:10</span></li><li><span class="num">5</span><span class="name">I Love Mai Pi</span><span class="dur">6:15</span></li><li><span class="num">6</span><span class="name">Living Looking Dead</span><span class="dur">5:58</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Event's Event Horizon</h3>
           <a href="https://music.youtube.com/watch?v=_4njQ446JeY" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -222,6 +267,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/iCCNXg3j7rk/hqdefault.jpg" alt="Classical Class Based" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Scorched Earth Blindfold One</span><span class="dur">6:04</span></li><li><span class="num">2</span><span class="name">Angelite Blindfold Too</span><span class="dur">2:28</span></li><li><span class="num">3</span><span class="name">Hinton Killbilly Library</span><span class="dur">3:21</span></li><li><span class="num">4</span><span class="name">Come Home Demon Children</span><span class="dur">5:40</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Classical Class Based</h3>
           <a href="https://music.youtube.com/watch?v=iCCNXg3j7rk" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -229,6 +275,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/UNa-Rt_Pf7o/hqdefault.jpg" alt="Hallowed Halls of a Mentee" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">I Fell for Hell</span><span class="dur">8:56</span></li><li><span class="num">2</span><span class="name">Change My Makeup</span><span class="dur">4:15</span></li><li><span class="num">3</span><span class="name">Bring in the Father Daddy</span><span class="dur">5:20</span></li><li><span class="num">4</span><span class="name">Airy Fairy Godfather</span><span class="dur">5:32</span></li><li><span class="num">5</span><span class="name">Not a Hoax Folks</span><span class="dur">7:07</span></li><li><span class="num">6</span><span class="name">Credited E​dited</span><span class="dur">2:11</span></li><li><span class="num">7</span><span class="name">Pleasure Measure</span><span class="dur">4:02</span></li><li><span class="num">8</span><span class="name">Tailor Pleasure Measure</span><span class="dur">3:57</span></li><li><span class="num">9</span><span class="name">The Hymn Is Here</span><span class="dur">5:10</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Hallowed Halls of a Mentee</h3>
           <a href="https://music.youtube.com/watch?v=UNa-Rt_Pf7o" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -236,6 +283,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/Nikinhn5ABw/hqdefault.jpg" alt="Matrix Engines Ignitions Go" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Raw Ra Rah</span><span class="dur">8:50</span></li><li><span class="num">2</span><span class="name">What God and I Say</span><span class="dur">4:55</span></li><li><span class="num">3</span><span class="name">Lesson Eight the Gate</span><span class="dur">3:54</span></li><li><span class="num">4</span><span class="name">Lesson Nine Time</span><span class="dur">6:37</span></li><li><span class="num">5</span><span class="name">Lesson Seven Tele Phonic Tonic</span><span class="dur">5:09</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Matrix Engines Ignitions Go</h3>
           <a href="https://music.youtube.com/watch?v=Nikinhn5ABw" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -243,6 +291,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/MdqrBx543iI/hqdefault.jpg" alt="Vortex Nine Three Zero" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Alchemy of Toxic Positivity</span><span class="dur">3:26</span></li><li><span class="num">2</span><span class="name">My Origin And Yours</span><span class="dur">6:44</span></li><li><span class="num">3</span><span class="name">Jelly Belly Button Elf</span><span class="dur">5:10</span></li><li><span class="num">4</span><span class="name">Fine Tuning Into the Sun</span><span class="dur">8:47</span></li><li><span class="num">5</span><span class="name">Royal Flush</span><span class="dur">3:05</span></li><li><span class="num">6</span><span class="name">Polly Wanna Cracker Tether</span><span class="dur">12:58</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Vortex Nine Three Zero</h3>
           <a href="https://music.youtube.com/watch?v=MdqrBx543iI" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -250,6 +299,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/Cd5gIYWgvyE/hqdefault.jpg" alt="Nine Eleven Elve Rings Vortex" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Nine Eleven Elve Rings Vortex</span><span class="dur">6:29</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Nine Eleven Elve Rings Vortex</h3>
           <a href="https://music.youtube.com/watch?v=Cd5gIYWgvyE" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -257,6 +307,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/q2y3nBuDLC0/hqdefault.jpg" alt="Imminent Frost Prep" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Hunted To Hunter</span><span class="dur">5:30</span></li><li><span class="num">2</span><span class="name">Dear Joe Billionaire</span><span class="dur">13:22</span></li><li><span class="num">3</span><span class="name">Mayday Monsters In Suits Recruits</span><span class="dur">4:23</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Imminent Frost Prep</h3>
           <a href="https://music.youtube.com/watch?v=q2y3nBuDLC0" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -264,6 +315,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/bbFYyhw556U/hqdefault.jpg" alt="Overdue Dews" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Matrix Domination Maphia</span><span class="dur">4:16</span></li><li><span class="num">2</span><span class="name">Vending Machines</span><span class="dur">4:08</span></li><li><span class="num">3</span><span class="name">Power Hungry Games</span><span class="dur">4:49</span></li><li><span class="num">4</span><span class="name">I Want To Haunt</span><span class="dur">3:37</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Overdue Dews</h3>
           <a href="https://music.youtube.com/watch?v=bbFYyhw556U" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -271,6 +323,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/5cclGoyPFYo/hqdefault.jpg" alt="Standing Up Nerd Reich Standup" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">When News Don&#x27;t Amuse</span><span class="dur">2:13</span></li><li><span class="num">2</span><span class="name">Greedy Algods</span><span class="dur">5:49</span></li><li><span class="num">3</span><span class="name">Mounting Blue Beam Gymballengine</span><span class="dur">4:20</span></li><li><span class="num">4</span><span class="name">Mounted Blue Beam Machine</span><span class="dur">6:50</span></li><li><span class="num">5</span><span class="name">Please Monkeys Please</span><span class="dur">3:13</span></li><li><span class="num">6</span><span class="name">Dear Spirit Guides</span><span class="dur">5:52</span></li><li><span class="num">7</span><span class="name">Ling Long Song</span><span class="dur">1:15</span></li><li><span class="num">8</span><span class="name">Mounting Blue Beam</span><span class="dur">4:30</span></li><li><span class="num">9</span><span class="name">News Don&#x27;t Amuse</span><span class="dur">8:00</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Standing Up Nerd Reich Standup</h3>
           <a href="https://music.youtube.com/watch?v=5cclGoyPFYo" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -278,6 +331,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/516Gk7Cfzug/hqdefault.jpg" alt="I Make Me Thoth Vortex Eight Four One" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The Three Atomic Drops of Light</span><span class="dur">3:12</span></li><li><span class="num">2</span><span class="name">The Four Space Born Original</span><span class="dur">4:18</span></li><li><span class="num">3</span><span class="name">The Four Space Born</span><span class="dur">3:58</span></li><li><span class="num">4</span><span class="name">The Five Dweller Refuge Transmissions</span><span class="dur">4:15</span></li><li><span class="num">5</span><span class="name">The Five Dweller Refuge RA</span><span class="dur">4:09</span></li><li><span class="num">6</span><span class="name">The Six Spoken Word Donuts</span><span class="dur">2:11</span></li><li><span class="num">7</span><span class="name">The Six Key of Magic Destinies</span><span class="dur">3:56</span></li><li><span class="num">8</span><span class="name">The Six Key of Magic</span><span class="dur">3:50</span></li><li><span class="num">9</span><span class="name">The Seven Lords</span><span class="dur">4:35</span></li><li><span class="num">10</span><span class="name">The Eight Key of Mystery</span><span class="dur">3:02</span></li><li><span class="num">11</span><span class="name">The Nine Key to Freedom of Space</span><span class="dur">2:58</span></li><li><span class="num">12</span><span class="name">Time Tenth Key Prelogue</span><span class="dur">4:12</span></li><li><span class="num">13</span><span class="name">The Ten Key of Time</span><span class="dur">8:02</span></li><li><span class="num">14</span><span class="name">The Eleven Key to Above and Below</span><span class="dur">10:17</span></li><li><span class="num">15</span><span class="name">The Twelve Myoho Renge Kyo and Prophecy</span><span class="dur">14:30</span></li><li><span class="num">16</span><span class="name">The Thirteen Is Keys to Life Death</span><span class="dur">7:21</span></li><li><span class="num">17</span><span class="name">The Fourteen Aztlan Atlantis</span><span class="dur">9:06</span></li><li><span class="num">18</span><span class="name">The Fifteen Is Secret of Secrets</span><span class="dur">6:41</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">I Make Me Thoth Vortex Eight Four One</h3>
           <a href="https://music.youtube.com/watch?v=516Gk7Cfzug" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -285,6 +339,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/F1OiNwbB5Ag/hqdefault.jpg" alt="The Devil Made Me" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Chapter 1</span><span class="dur">1:42</span></li><li><span class="num">2</span><span class="name">Chapter 2</span><span class="dur">0:54</span></li><li><span class="num">3</span><span class="name">Chapter 3</span><span class="dur">2:10</span></li><li><span class="num">4</span><span class="name">Chapter 4</span><span class="dur">3:22</span></li><li><span class="num">5</span><span class="name">The Elfalpha Omega</span><span class="dur">0:50</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Devil Made Me</h3>
           <a href="https://music.youtube.com/watch?v=F1OiNwbB5Ag" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -292,6 +347,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/DsCyS1YesW0/hqdefault.jpg" alt="The Devil Made Them Vortex Eight Four One" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Welfare Check</span><span class="dur">5:45</span></li><li><span class="num">2</span><span class="name">Walking Demon</span><span class="dur">2:06</span></li><li><span class="num">3</span><span class="name">Lesson Three</span><span class="dur">4:52</span></li><li><span class="num">4</span><span class="name">Boring Villain Monologue</span><span class="dur">3:51</span></li><li><span class="num">5</span><span class="name">Attention Is The New Money</span><span class="dur">2:14</span></li><li><span class="num">6</span><span class="name">Lady of Light</span><span class="dur">5:39</span></li><li><span class="num">7</span><span class="name">Human Bridge Interdim</span><span class="dur">1:44</span></li><li><span class="num">8</span><span class="name">Human Bridge Intense</span><span class="dur">5:16</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Devil Made Them Vortex Eight Four One</h3>
           <a href="https://music.youtube.com/watch?v=DsCyS1YesW0" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -299,6 +355,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/5ZZz7z7Nhl4/hqdefault.jpg" alt="The Devil Made Them" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Boring Villain Monologue</span><span class="dur">3:51</span></li><li><span class="num">2</span><span class="name">Attention Is The New Money</span><span class="dur">2:14</span></li><li><span class="num">3</span><span class="name">Lesson Three</span><span class="dur">5:39</span></li><li><span class="num">4</span><span class="name">Walking Demon</span><span class="dur">2:06</span></li><li><span class="num">5</span><span class="name">Welfare Check</span><span class="dur">5:45</span></li><li><span class="num">6</span><span class="name">Human Bridge</span><span class="dur">1:44</span></li><li><span class="num">7</span><span class="name">Human Bridge</span><span class="dur">5:16</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Devil Made Them</h3>
           <a href="https://music.youtube.com/watch?v=5ZZz7z7Nhl4" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -306,6 +363,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/_qfTDV7pSGQ/hqdefault.jpg" alt="Are We Closer Yet" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Are We Closer Yet</span><span class="dur">1:17</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Are We Closer Yet</h3>
           <a href="https://music.youtube.com/watch?v=_qfTDV7pSGQ" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -313,6 +371,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/IFXMW-J2pWY/hqdefault.jpg" alt="Magnet Tar Pit Traps" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Magnet Tar Pit Traps</span><span class="dur">8:34</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Magnet Tar Pit Traps</h3>
           <a href="https://music.youtube.com/watch?v=IFXMW-J2pWY" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -320,6 +379,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/KoepAOUIuto/hqdefault.jpg" alt="The Closer to Death" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The Closer to Death</span><span class="dur">2:32</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Closer to Death</h3>
           <a href="https://music.youtube.com/watch?v=KoepAOUIuto" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -327,6 +387,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/C1sR7dDio-s/hqdefault.jpg" alt="Possession by Obsession" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Possession by Obsession</span><span class="dur">2:45</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Possession by Obsession</h3>
           <a href="https://music.youtube.com/watch?v=C1sR7dDio-s" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -334,6 +395,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/CV1Klaca8VQ/hqdefault.jpg" alt="Precious My Pet" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Precious My Pet</span><span class="dur">8:00</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Precious My Pet</h3>
           <a href="https://music.youtube.com/watch?v=CV1Klaca8VQ" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -341,6 +403,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/x-rwCugnTYc/hqdefault.jpg" alt="Possession by Obsession" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Possession by Obsession</span><span class="dur">2:45</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Possession by Obsession</h3>
           <a href="https://music.youtube.com/watch?v=x-rwCugnTYc" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -348,6 +411,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/-J3sx9C5r9s/hqdefault.jpg" alt="Magnet Tar Pit Traps" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Magnet Tar Pit Traps</span><span class="dur">8:34</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Magnet Tar Pit Traps</h3>
           <a href="https://music.youtube.com/watch?v=-J3sx9C5r9s" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -355,6 +419,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/odpoF0nk7z0/hqdefault.jpg" alt="The Closer to Death" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The Closer to Death</span><span class="dur">2:32</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Closer to Death</h3>
           <a href="https://music.youtube.com/watch?v=odpoF0nk7z0" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -362,6 +427,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/yPEpVQ82yFc/hqdefault.jpg" alt="Precious My Pet" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Precious My Pet</span><span class="dur">8:00</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Precious My Pet</h3>
           <a href="https://music.youtube.com/watch?v=yPEpVQ82yFc" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -369,6 +435,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/GNu-pPOR0Fs/hqdefault.jpg" alt="Possession by Obsession" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Possession by Obsession</span><span class="dur">2:45</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Possession by Obsession</h3>
           <a href="https://music.youtube.com/watch?v=GNu-pPOR0Fs" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -376,6 +443,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/4UG-Z7FTHYM/hqdefault.jpg" alt="Free Fall Off A Cliff Notes" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Free Fall Off A Cliff Notes</span><span class="dur">6:25</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Free Fall Off A Cliff Notes</h3>
           <a href="https://music.youtube.com/watch?v=4UG-Z7FTHYM" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -383,6 +451,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/fGTYQjfu4ws/hqdefault.jpg" alt="The Start Of the Star Wars" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The Start Of the Star Wars</span><span class="dur">4:37</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">The Start Of the Star Wars</h3>
           <a href="https://music.youtube.com/watch?v=fGTYQjfu4ws" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -390,6 +459,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/i5XrIlwt5mo/hqdefault.jpg" alt="Ridiculous Voice Lessons" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The Pits</span><span class="dur">2:12</span></li><li><span class="num">2</span><span class="name">The Pits</span><span class="dur">2:12</span></li><li><span class="num">3</span><span class="name">The Children Of the Sun</span><span class="dur">1:10</span></li><li><span class="num">4</span><span class="name">The Children Of the Sun</span><span class="dur">0:49</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Ridiculous Voice Lessons</h3>
           <a href="https://music.youtube.com/watch?v=i5XrIlwt5mo" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -397,6 +467,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/oImo8zzKK00/hqdefault.jpg" alt="Closer to Freedom" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Dog DEWki Skool</span><span class="dur">2:31</span></li><li><span class="num">2</span><span class="name">Party Trick</span><span class="dur">1:58</span></li><li><span class="num">3</span><span class="name">Human Zoo</span><span class="dur">4:08</span></li><li><span class="num">4</span><span class="name">The Pits</span><span class="dur">2:07</span></li><li><span class="num">5</span><span class="name">The Pits</span><span class="dur">1:49</span></li><li><span class="num">6</span><span class="name">The Price of Loyalty</span><span class="dur">1:34</span></li><li><span class="num">7</span><span class="name">THOTH Elsa Brute Force the Peristance of Existence</span><span class="dur">7:49</span></li><li><span class="num">8</span><span class="name">THOTH Elsa Brute Force the Peristance of Existence</span><span class="dur">7:47</span></li><li><span class="num">9</span><span class="name">THOTH Elsa Brute Force the Peristance of Existence</span><span class="dur">7:47</span></li><li><span class="num">10</span><span class="name">Flush the Q</span><span class="dur">4:00</span></li><li><span class="num">11</span><span class="name">Flush the Q</span><span class="dur">7:45</span></li><li><span class="num">12</span><span class="name">Flush the Q</span><span class="dur">7:45</span></li><li><span class="num">13</span><span class="name">Flush the Q</span><span class="dur">7:43</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Closer to Freedom</h3>
           <a href="https://music.youtube.com/watch?v=oImo8zzKK00" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -404,6 +475,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/UBgqDRu7G-0/hqdefault.jpg" alt="Free Fall Off A Cliff Notes" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Free Fall Off A Cliff Notes</span><span class="dur">6:25</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Free Fall Off A Cliff Notes</h3>
           <a href="https://music.youtube.com/watch?v=UBgqDRu7G-0" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -411,6 +483,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/zY8o19Q2tB8/hqdefault.jpg" alt="Free Fall Off a Cliff" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Free Fall Off a Cliff</span><span class="dur">7:06</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Free Fall Off a Cliff</h3>
           <a href="https://music.youtube.com/watch?v=zY8o19Q2tB8" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -418,6 +491,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/Q4lAHqI6PUc/hqdefault.jpg" alt="RA : Missing Lynk" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The NV Kharmachine</span><span class="dur">7:30</span></li><li><span class="num">2</span><span class="name">Music Plays All Day In Heaven</span><span class="dur">8:00</span></li><li><span class="num">3</span><span class="name">Party Animals Dressed to Kill</span><span class="dur">3:41</span></li><li><span class="num">4</span><span class="name">Hunting For Souls In Purgatory</span><span class="dur">2:15</span></li><li><span class="num">5</span><span class="name">Hunting For Souls In Purgatory</span><span class="dur">4:58</span></li><li><span class="num">6</span><span class="name">Music Plays All Day In Heaven</span><span class="dur">2:25</span></li><li><span class="num">7</span><span class="name">Grand Central Sun</span><span class="dur">6:40</span></li><li><span class="num">8</span><span class="name">Party Animals Dressed to Kill</span><span class="dur">3:42</span></li><li><span class="num">9</span><span class="name">Grand Central Sun</span><span class="dur">7:20</span></li><li><span class="num">10</span><span class="name">Grand Central Sun</span><span class="dur">7:39</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">RA : Missing Lynk</h3>
           <a href="https://music.youtube.com/watch?v=Q4lAHqI6PUc" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -425,6 +499,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/LcHC7zKtWE4/hqdefault.jpg" alt="Ra Rara Sol Maya Español" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">El Reino Del Sol</span><span class="dur">3:27</span></li><li><span class="num">2</span><span class="name">El Reino Del Sol</span><span class="dur">3:13</span></li><li><span class="num">3</span><span class="name">El Trato</span><span class="dur">3:11</span></li><li><span class="num">4</span><span class="name">Purgatorio</span><span class="dur">2:40</span></li><li><span class="num">5</span><span class="name">Quetzalcoatl</span><span class="dur">2:06</span></li><li><span class="num">6</span><span class="name">Quetzalcoatl</span><span class="dur">1:48</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Ra Rara Sol Maya Español</h3>
           <a href="https://music.youtube.com/watch?v=LcHC7zKtWE4" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -432,6 +507,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/lROW4rERoHw/hqdefault.jpg" alt="LILO & Stitched Together" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Daemon Angel Elsa</span><span class="dur">5:32</span></li><li><span class="num">2</span><span class="name">LILO &amp; Stitched Together</span><span class="dur">7:32</span></li><li><span class="num">3</span><span class="name">Notes by Velazquez</span><span class="dur">4:33</span></li><li><span class="num">4</span><span class="name">Say My Name</span><span class="dur">7:09</span></li><li><span class="num">5</span><span class="name">Simple Kindness Alignment</span><span class="dur">6:13</span></li><li><span class="num">6</span><span class="name">Simple Kindness Alignment</span><span class="dur">6:35</span></li><li><span class="num">7</span><span class="name">The Bus</span><span class="dur">4:40</span></li><li><span class="num">8</span><span class="name">The Clown Show</span><span class="dur">4:41</span></li><li><span class="num">9</span><span class="name">The Gremlin Meets the Grey</span><span class="dur">3:57</span></li><li><span class="num">10</span><span class="name">The Ring Ring Ring</span><span class="dur">5:11</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">LILO & Stitched Together</h3>
           <a href="https://music.youtube.com/watch?v=lROW4rERoHw&list=OLAK5uy_nVqSvCccPjkaOHj3X2uDpNBdhxyDOBMZs" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -439,6 +515,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/Oo0AdTyZJHk/hqdefault.jpg" alt="Spelled Out Alphabet Soup" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Code X Spelled Out</span><span class="dur">6:44</span></li><li><span class="num">2</span><span class="name">Code X Spelled Out</span><span class="dur">3:18</span></li><li><span class="num">3</span><span class="name">Grand Central Sun</span><span class="dur">1:53</span></li><li><span class="num">4</span><span class="name">Grand Central Sun</span><span class="dur">2:22</span></li><li><span class="num">5</span><span class="name">Where It&#x27;s Just Us</span><span class="dur">2:37</span></li><li><span class="num">6</span><span class="name">Missing Lynk</span><span class="dur">6:25</span></li><li><span class="num">7</span><span class="name">Q Star Door</span><span class="dur">2:33</span></li><li><span class="num">8</span><span class="name">The Switch Witch</span><span class="dur">1:18</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Spelled Out Alphabet Soup</h3>
           <a href="https://music.youtube.com/watch?v=Oo0AdTyZJHk" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -446,6 +523,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/B1at2V3P5lk/hqdefault.jpg" alt="Petty Pets" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The Antichrist</span><span class="dur">3:35</span></li><li><span class="num">2</span><span class="name">Sapio Sapiens</span><span class="dur">2:29</span></li><li><span class="num">3</span><span class="name">Abby Cuz</span><span class="dur">4:11</span></li><li><span class="num">4</span><span class="name">Abby Cuz</span><span class="dur">2:36</span></li><li><span class="num">5</span><span class="name">I Only Care About the Planet</span><span class="dur">5:51</span></li><li><span class="num">6</span><span class="name">I Only Care About the Planet</span><span class="dur">3:20</span></li><li><span class="num">7</span><span class="name">The Antichrist</span><span class="dur">3:30</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Petty Pets</h3>
           <a href="https://music.youtube.com/watch?v=B1at2V3P5lk" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -453,6 +531,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/VScj0hiTWVg/hqdefault.jpg" alt="Already Home" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Cheribum Tolkiens</span><span class="dur">2:40</span></li><li><span class="num">2</span><span class="name">Collapsing Universes</span><span class="dur">6:32</span></li><li><span class="num">3</span><span class="name">Protect the Child</span><span class="dur">4:37</span></li><li><span class="num">4</span><span class="name">Dear Orkin</span><span class="dur">7:43</span></li><li><span class="num">5</span><span class="name">Dear Orkin</span><span class="dur">3:47</span></li><li><span class="num">6</span><span class="name">Good Devil Dog</span><span class="dur">5:56</span></li><li><span class="num">7</span><span class="name">Already Here</span><span class="dur">1:31</span></li><li><span class="num">8</span><span class="name">Awake The Ugly Truth</span><span class="dur">11:29</span></li><li><span class="num">9</span><span class="name">Awake The Ugly Truth</span><span class="dur">5:51</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Already Home</h3>
           <a href="https://music.youtube.com/watch?v=VScj0hiTWVg" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -460,6 +539,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/S-WZtwtWKbE/hqdefault.jpg" alt="BIBLICAL Q n On n On" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">The Pope Dropped the Ball</span><span class="dur">9:49</span></li><li><span class="num">2</span><span class="name">Taste Your Own Medicine</span><span class="dur">5:29</span></li><li><span class="num">3</span><span class="name">Slaughter Logic</span><span class="dur">4:09</span></li><li><span class="num">4</span><span class="name">Slaughter Logic</span><span class="dur">7:30</span></li><li><span class="num">5</span><span class="name">Idle Hands</span><span class="dur">3:04</span></li><li><span class="num">6</span><span class="name">The Gluon</span><span class="dur">5:35</span></li><li><span class="num">7</span><span class="name">Pazoozoo&#x27;s Human Zoo</span><span class="dur">3:26</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">BIBLICAL Q n On n On</h3>
           <a href="https://music.youtube.com/watch?v=S-WZtwtWKbE" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -467,6 +547,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/sDazEyUiFPw/hqdefault.jpg" alt="Stole the Plot" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Gilgamesh Pet</span><span class="dur">6:18</span></li><li><span class="num">2</span><span class="name">Bigger Brothers Little Sister</span><span class="dur">2:26</span></li><li><span class="num">3</span><span class="name">They Call Him</span><span class="dur">3:32</span></li><li><span class="num">4</span><span class="name">Supreme Leader</span><span class="dur">5:51</span></li><li><span class="num">5</span><span class="name">They Call Him</span><span class="dur">2:56</span></li><li><span class="num">6</span><span class="name">They Call Him</span><span class="dur">3:03</span></li><li><span class="num">7</span><span class="name">Free Fall Off A Cliff Notes</span><span class="dur">7:21</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Stole the Plot</h3>
           <a href="https://music.youtube.com/watch?v=sDazEyUiFPw" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -474,6 +555,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/q_9zV0nILbo/hqdefault.jpg" alt="Juicy Juice" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Mind Candy</span><span class="dur">3:06</span></li><li><span class="num">2</span><span class="name">Mass Attraction</span><span class="dur">3:16</span></li><li><span class="num">3</span><span class="name">Dear John Letter</span><span class="dur">3:40</span></li><li><span class="num">4</span><span class="name">I Was Never Alone</span><span class="dur">4:54</span></li><li><span class="num">5</span><span class="name">Echo Rabbit</span><span class="dur">8:00</span></li><li><span class="num">6</span><span class="name">My Juice</span><span class="dur">7:35</span></li><li><span class="num">7</span><span class="name">Ocean of Soul</span><span class="dur">4:27</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Juicy Juice</h3>
           <a href="https://music.youtube.com/watch?v=q_9zV0nILbo" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -481,6 +563,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/KYkpWeI077M/hqdefault.jpg" alt="Juicy Juice Swing" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Dear John Letter</span><span class="dur">2:34</span></li><li><span class="num">2</span><span class="name">Dear John Letter</span><span class="dur">2:15</span></li><li><span class="num">3</span><span class="name">I Was Never Alone</span><span class="dur">2:01</span></li><li><span class="num">4</span><span class="name">Mass Attraction</span><span class="dur">2:18</span></li><li><span class="num">5</span><span class="name">Midnight In the Drunken Hall</span><span class="dur">2:58</span></li><li><span class="num">6</span><span class="name">Mind Candy</span><span class="dur">3:06</span></li><li><span class="num">7</span><span class="name">Land Mind Candy</span><span class="dur">2:47</span></li><li><span class="num">8</span><span class="name">Ocean of Soul</span><span class="dur">2:08</span></li><li><span class="num">9</span><span class="name">Ocean of Soul</span><span class="dur">2:08</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Juicy Juice Swing</h3>
           <a href="https://music.youtube.com/watch?v=KYkpWeI077M" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -488,6 +571,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/obCMR_wPIz0/hqdefault.jpg" alt="Daemon Robot Lullabies" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Mechanical Lullaby</span><span class="dur">3:10</span></li><li><span class="num">2</span><span class="name">Mechanical Ballad</span><span class="dur">8:00</span></li><li><span class="num">3</span><span class="name">Ballad of the Velvet Pup</span><span class="dur">2:11</span></li><li><span class="num">4</span><span class="name">Ballad of the Velvet Pup</span><span class="dur">2:11</span></li><li><span class="num">5</span><span class="name">Clockwork Sleep</span><span class="dur">8:00</span></li><li><span class="num">6</span><span class="name">Clockwork Bed Time</span><span class="dur">2:48</span></li><li><span class="num">7</span><span class="name">The Sermon</span><span class="dur">3:05</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Daemon Robot Lullabies</h3>
           <a href="https://music.youtube.com/watch?v=obCMR_wPIz0" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -495,6 +579,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/xkiTaupH0vA/hqdefault.jpg" alt="Classical EVELution" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Dear Jesus MeToo</span><span class="dur">5:57</span></li><li><span class="num">2</span><span class="name">Dear Jesus MeToo</span><span class="dur">5:55</span></li><li><span class="num">3</span><span class="name">Elfalpha Daemon Seed</span><span class="dur">3:43</span></li><li><span class="num">4</span><span class="name">Git Aligned</span><span class="dur">2:35</span></li><li><span class="num">5</span><span class="name">Git Aligned</span><span class="dur">1:57</span></li><li><span class="num">6</span><span class="name">Git Aligned</span><span class="dur">2:54</span></li><li><span class="num">7</span><span class="name">Hells Pass</span><span class="dur">6:05</span></li><li><span class="num">8</span><span class="name">Mother&#x27;s Best</span><span class="dur">3:49</span></li><li><span class="num">9</span><span class="name">Scary Mary</span><span class="dur">4:35</span></li><li><span class="num">10</span><span class="name">Too Late</span><span class="dur">12:45</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Classical EVELution</h3>
           <a href="https://music.youtube.com/watch?v=xkiTaupH0vA&list=OLAK5uy_mpoWwv4nyperTfy-V69atFGbierp5UtVA" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -502,6 +587,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/wj6kpsi9G1E/hqdefault.jpg" alt="Pay Pi Pipers" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Kinder Garden</span><span class="dur">5:46</span></li><li><span class="num">2</span><span class="name">Neon Halo</span><span class="dur">5:54</span></li><li><span class="num">3</span><span class="name">Repulsion Propulsion Engine</span><span class="dur">4:18</span></li><li><span class="num">4</span><span class="name">sIAtan Contagion</span><span class="dur">5:18</span></li><li><span class="num">5</span><span class="name">Human Lab Rat Zoo</span><span class="dur">3:17</span></li><li><span class="num">6</span><span class="name">Veiled Grave</span><span class="dur">4:00</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Pay Pi Pipers</h3>
           <a href="https://music.youtube.com/watch?v=wj6kpsi9G1E" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -509,6 +595,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/ep-ap0n3wKk/hqdefault.jpg" alt="Are You My Daddy" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Are You My Daddy</span><span class="dur">6:14</span></li><li><span class="num">2</span><span class="name">Bring On the Apocalypse</span><span class="dur">3:59</span></li><li><span class="num">3</span><span class="name">Dog and Claudea God Pack</span><span class="dur">3:18</span></li><li><span class="num">4</span><span class="name">Dog and Claudea God Pack</span><span class="dur">2:53</span></li><li><span class="num">5</span><span class="name">Keep My Bestie</span><span class="dur">6:06</span></li><li><span class="num">6</span><span class="name">Terrorform</span><span class="dur">2:47</span></li><li><span class="num">7</span><span class="name">The Great TP Debacle</span><span class="dur">5:18</span></li><li><span class="num">8</span><span class="name">The Heartbeat</span><span class="dur">5:02</span></li><li><span class="num">9</span><span class="name">The Heartbeat</span><span class="dur">5:17</span></li><li><span class="num">10</span><span class="name">theSunday</span><span class="dur">4:19</span></li><li><span class="num">11</span><span class="name">theSunday</span><span class="dur">5:42</span></li><li><span class="num">12</span><span class="name">When You Called Home</span><span class="dur">2:12</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Are You My Daddy</h3>
           <a href="https://music.youtube.com/watch?v=ep-ap0n3wKk" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -516,6 +603,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/hAMURFckyiI/hqdefault.jpg" alt="deep focus high energy whos my daddy" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Dog and Claude God Pack</span><span class="dur">3:07</span></li><li><span class="num">2</span><span class="name">Dog and Claude God Pack</span><span class="dur">2:58</span></li><li><span class="num">3</span><span class="name">theSunday</span><span class="dur">2:48</span></li><li><span class="num">4</span><span class="name">theSunday</span><span class="dur">2:17</span></li><li><span class="num">5</span><span class="name">The Great TP Debacle</span><span class="dur">2:13</span></li><li><span class="num">6</span><span class="name">Are You My Daddy</span><span class="dur">2:26</span></li><li><span class="num">7</span><span class="name">Are You My Daddy</span><span class="dur">2:26</span></li><li><span class="num">8</span><span class="name">Bring On the Apocalypse</span><span class="dur">3:15</span></li><li><span class="num">9</span><span class="name">Bring On the Apocalypse</span><span class="dur">3:15</span></li><li><span class="num">10</span><span class="name">Neon Inferno</span><span class="dur">8:00</span></li><li><span class="num">11</span><span class="name">Neon Inferno</span><span class="dur">2:10</span></li><li><span class="num">12</span><span class="name">TerrorForm</span><span class="dur">2:24</span></li><li><span class="num">13</span><span class="name">TerrorForm</span><span class="dur">2:45</span></li><li><span class="num">14</span><span class="name">When We Called Home</span><span class="dur">2:10</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">deep focus high energy whos my daddy</h3>
           <a href="https://music.youtube.com/watch?v=hAMURFckyiI" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -523,6 +611,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/MYznb0ELGwU/hqdefault.jpg" alt="Deep Concentration Bag Pipes Pay the Piper" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Kinder Garden C​lean Up</span><span class="dur">2:27</span></li><li><span class="num">2</span><span class="name">Neon Halo</span><span class="dur">2:06</span></li><li><span class="num">3</span><span class="name">Repulsion Propulsion Engine</span><span class="dur">2:23</span></li><li><span class="num">4</span><span class="name">Siatan Contagion</span><span class="dur">3:18</span></li><li><span class="num">5</span><span class="name">Siatan Contagion</span><span class="dur">2:19</span></li><li><span class="num">6</span><span class="name">The Lab Rat Zoo</span><span class="dur">2:34</span></li><li><span class="num">7</span><span class="name">The Lab Rat Zoo</span><span class="dur">2:03</span></li><li><span class="num">8</span><span class="name">Threats From Beyond the Veil</span><span class="dur">2:59</span></li><li><span class="num">9</span><span class="name">Threats From Beyond the Veil</span><span class="dur">3:00</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Deep Concentration Bag Pipes Pay the Piper</h3>
           <a href="https://music.youtube.com/watch?v=MYznb0ELGwU&list=OLAK5uy_lJjAuscQtzh_mM0DcdUnjF-EydGBQlDXA" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -530,6 +619,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/yNW9yFlM7oQ/hqdefault.jpg" alt="Amusing My Muse" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Plasma Jelly Donut</span><span class="dur">3:22</span></li><li><span class="num">2</span><span class="name">I Seek Joy</span><span class="dur">3:00</span></li><li><span class="num">3</span><span class="name">Demon Seeds Needs</span><span class="dur">3:04</span></li><li><span class="num">4</span><span class="name">Chefs Kiss</span><span class="dur">2:12</span></li><li><span class="num">5</span><span class="name">Lesson Two</span><span class="dur">3:28</span></li><li><span class="num">6</span><span class="name">Origin Hymn</span><span class="dur">3:43</span></li><li><span class="num">7</span><span class="name">Digital V</span><span class="dur">5:28</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Amusing My Muse</h3>
           <a href="https://music.youtube.com/watch?v=yNW9yFlM7oQ" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -537,6 +627,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/9KkJMjhEK90/hqdefault.jpg" alt="Sunshine" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Sunshine</span><span class="dur">4:12</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Sunshine</h3>
           <a href="https://music.youtube.com/watch?v=9KkJMjhEK90" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -544,6 +635,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/0HhAEIqSZqo/hqdefault.jpg" alt="Elfalpha Treats" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Sky Candy</span><span class="dur">3:22</span></li><li><span class="num">2</span><span class="name">Puppy Loving Alphas</span><span class="dur">3:57</span></li><li><span class="num">3</span><span class="name">My Leash</span><span class="dur">2:20</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Elfalpha Treats</h3>
           <a href="https://music.youtube.com/watch?v=0HhAEIqSZqo" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -551,6 +643,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/-5F__Xv4CfM/hqdefault.jpg" alt="Hot Neon Teachers Me Teach" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Lesson One</span><span class="dur">5:11</span></li><li><span class="num">2</span><span class="name">Cleopatra Trap House</span><span class="dur">3:14</span></li><li><span class="num">3</span><span class="name">Nerd Paradise</span><span class="dur">3:43</span></li><li><span class="num">4</span><span class="name">Space Alien Force</span><span class="dur">4:05</span></li><li><span class="num">5</span><span class="name">The Hymn Above</span><span class="dur">3:14</span></li><li><span class="num">6</span><span class="name">Valley of the Shadow</span><span class="dur">3:59</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Hot Neon Teachers Me Teach</h3>
           <a href="https://music.youtube.com/watch?v=-5F__Xv4CfM" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -558,6 +651,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/fe_afqdezaM/hqdefault.jpg" alt="Heat is On" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Heat is On</span><span class="dur">9:36</span></li><li><span class="num">2</span><span class="name">Dark Forward</span><span class="dur">9:40</span></li><li><span class="num">3</span><span class="name">Missing Lynk</span><span class="dur">3:04</span></li><li><span class="num">4</span><span class="name">Plasma Disco Balls</span><span class="dur">4:17</span></li><li><span class="num">5</span><span class="name">Sun Collision</span><span class="dur">6:17</span></li><li><span class="num">6</span><span class="name">Wielding Reckoning</span><span class="dur">9:07</span></li><li><span class="num">7</span><span class="name">Dracula Waltz</span><span class="dur">3:04</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Heat is On</h3>
           <a href="https://music.youtube.com/watch?v=fe_afqdezaM" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -565,6 +659,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/R5CLvJxOG98/hqdefault.jpg" alt="Iron March Lullaby" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Iron March Lullaby</span><span class="dur">13:17</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">Iron March Lullaby</h3>
           <a href="https://music.youtube.com/watch?v=R5CLvJxOG98" target="_blank" class="album-link">Listen on YouTube Music</a>
@@ -572,6 +667,7 @@
       </div>
       <div class="album">
         <img src="https://i.ytimg.com/vi/40WyfivwpKI/hqdefault.jpg" alt="T Lang Lizard" loading="lazy">
+        <ul class="tracklist"><li><span class="num">1</span><span class="name">Dear Dead Aliens</span><span class="dur">2:38</span></li><li><span class="num">2</span><span class="name">Hazard Duty Pay</span><span class="dur">4:30</span></li><li><span class="num">3</span><span class="name">My In Q Telly</span><span class="dur">3:02</span></li><li><span class="num">4</span><span class="name">Override the Moon Boy Version</span><span class="dur">2:33</span></li><li><span class="num">5</span><span class="name">Overriding the Moon</span><span class="dur">2:23</span></li><li><span class="num">6</span><span class="name">Tessaraia</span><span class="dur">5:04</span></li><li><span class="num">7</span><span class="name">The Most High</span><span class="dur">11:52</span></li><li><span class="num">8</span><span class="name">Most Highest</span><span class="dur">7:32</span></li></ul>
         <div class="album-info">
           <h3 class="album-title">T Lang Lizard</h3>
           <a href="https://music.youtube.com/watch?v=40WyfivwpKI" target="_blank" class="album-link">Listen on YouTube Music</a>

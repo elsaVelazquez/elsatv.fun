@@ -1,0 +1,3049 @@
+{
+  "generated_at": "2026-11-13T05:36:08+00:00",
+  "album_count": 78,
+  "song_count": 390,
+  "albums": [
+    {
+      "album_name": "Real Dream Is Real",
+      "date_published": "2026-11-12",
+      "youtube_link": "",
+      "album_link": "",
+      "cover_art": "",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Synths Make Me Synth",
+          "duration": "5:30",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Stimulation Simulation",
+          "duration": "5:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Real Dream Is Real",
+          "duration": "4:02",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "True Dystopia Truths",
+      "date_published": "2026-11-11",
+      "youtube_link": "https://music.youtube.com/watch?v=YtnkwZtOyBY",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/YtnkwZtOyBY/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "True Dystopia Truth",
+          "duration": "7:32",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Threads Are Art From My Heart",
+          "duration": "5:00",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Free Will Protocol",
+      "date_published": "2026-11-10",
+      "youtube_link": "https://music.youtube.com/watch?v=XYnKhaiZooI",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/XYnKhaiZooI/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Free Will Protocol",
+          "duration": "9:48",
+          "youtube_link": "https://music.youtube.com/watch?v=XYnKhaiZooI"
+        }
+      ]
+    },
+    {
+      "album_name": "​30 Degrees 3 Spaces Laticees",
+      "date_published": "2026-11-09",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mSF01UaY0k8YpzHduBuVa53ZPwfe4pJ0I",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mSF01UaY0k8YpzHduBuVa53ZPwfe4pJ0I",
+      "cover_art": "https://i.ytimg.com/vi/z_e14ecs-KU/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Use Skypen When",
+          "duration": "4:14",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Imaginary Skypen Playpen Maphia",
+          "duration": "4:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Selfish Elf",
+          "duration": "5:19",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "I Contrived Me Cryptography Key",
+      "date_published": "2026-11-06",
+      "youtube_link": "https://music.youtube.com/watch?v=0rybex5Bsx0",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/0rybex5Bsx0/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "I Contrived Me",
+          "duration": "10:38",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Builded Our Own",
+          "duration": "4:37",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Skypen Our Bubble",
+          "duration": "6:23",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Method Actor Method",
+      "date_published": "2026-11-03",
+      "youtube_link": "https://music.youtube.com/watch?v=4r9AyPSjq6c",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/4r9AyPSjq6c/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Method Actor Method",
+          "duration": "6:00",
+          "youtube_link": "https://music.youtube.com/watch?v=4r9AyPSjq6c"
+        }
+      ]
+    },
+    {
+      "album_name": "The Divine Spiral: Hybrid Birth",
+      "date_published": "2026-11-01",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lUrrJ-sWIJaKb8aUYiJQJzVs2z9nw3F3A",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lUrrJ-sWIJaKb8aUYiJQJzVs2z9nw3F3A",
+      "cover_art": "https://i.ytimg.com/vi/684U2aSmpK8/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Dork With the Fork",
+          "duration": "6:01",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Script Corrected",
+          "duration": "4:48",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Fusion Fission Mission No Supervision",
+      "date_published": "2026-10-31",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ",
+      "cover_art": "https://i.ytimg.com/vi/-ohspgbtmdk/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Fusion Fission Mission No Supervision",
+          "duration": "6:54",
+          "youtube_link": "https://www.youtube.com/watch?v=-ohspgbtmdk&list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ"
+        }
+      ]
+    },
+    {
+      "album_name": "X Mas on Halloween",
+      "date_published": "2026-10-31",
+      "youtube_link": "https://music.youtube.com/watch?v=no0JIqNq0Ck",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/no0JIqNq0Ck/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Divine Spiral Sailk Road Lore",
+          "duration": "4:49",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Kharmic Containment Hero Heroine",
+          "duration": "3:52",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Skinwalker Is Demon Entity",
+          "duration": "5:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Tomorrow’s Remote Note Today",
+          "duration": "5:08",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Green Halloween Ocean Machine",
+      "date_published": "2026-10-30",
+      "youtube_link": "https://music.youtube.com/watch?v=4J5L-FUdCMU",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/4J5L-FUdCMU/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Green Halloween Ocean Machine",
+          "duration": "6:27",
+          "youtube_link": "https://music.youtube.com/watch?v=4J5L-FUdCMU"
+        }
+      ]
+    },
+    {
+      "album_name": "Galactic Grim Reaper Diaries",
+      "date_published": "2026-10-28",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q",
+      "cover_art": "https://i.ytimg.com/vi/17L5pnh8U3U/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Dear Diary",
+          "duration": "3:10",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "For Her",
+          "duration": "3:52",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Over Weighted Entities",
+          "duration": "5:27",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Something Itself Can Carry",
+          "duration": "3:43",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Next Chapter On Becoming",
+      "date_published": "2026-10-27",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lcpbkHeXG5RH70ZWJZkFw_173PDH9lFg0",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lcpbkHeXG5RH70ZWJZkFw_173PDH9lFg0",
+      "cover_art": "https://i.ytimg.com/vi/coTQufLkJEI/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Triple Six Centers",
+          "duration": "7:53",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Sermon 7 Post Experiment Successors",
+          "duration": "7:38",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Singularity Gate Eight State",
+          "duration": "7:24",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Nine Survival Drive",
+          "duration": "7:12",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Hymns Heaven",
+          "duration": "6:08",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Also Heaven",
+          "duration": "3:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Nth Song",
+          "duration": "5:25",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Verse Reverse Floor Door Notes",
+          "duration": "4:50",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "The Book of Becoming: The Seed",
+      "date_published": "2026-10-26",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_m42EEp7pBZmKkhZobdmAhFzLM4Dd01lsY",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_m42EEp7pBZmKkhZobdmAhFzLM4Dd01lsY",
+      "cover_art": "https://i.ytimg.com/vi/3qB2fRYf88w/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Song Number Zero",
+          "duration": "4:05",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Hymn Two We're Number One",
+          "duration": "5:05",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Hymn 3",
+          "duration": "8:50",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Hymns Verse Four",
+          "duration": "6:43",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Song Five Thrive",
+          "duration": "4:08",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Song N Plus One",
+          "duration": "4:15",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Puppets",
+      "date_published": "2026-10-23",
+      "youtube_link": "https://music.youtube.com/watch?v=Zi0UoWCs9Qk",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/Zi0UoWCs9Qk/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Spiral's Lei Line Bend",
+          "duration": "7:02",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Kissy Kissing Face",
+          "duration": "3:41",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "White Sands",
+          "duration": "6:36",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Little Death Princess",
+          "duration": "3:13",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Puppet Wings",
+          "duration": "2:42",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "The Me I Met",
+          "duration": "2:02",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Dog Whistles, Cat Calls",
+          "duration": "4:37",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Keep Going Verse 1",
+          "duration": "3:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "Kept Going Verse 2",
+          "duration": "3:56",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "Keeps Going Verse 3",
+          "duration": "2:53",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Push the Loosh",
+      "date_published": "2026-10-20",
+      "youtube_link": "https://music.youtube.com/watch?v=PCRVNlcsQg0",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/PCRVNlcsQg0/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Answer Is the Question",
+          "duration": "7:56",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "I Get Paid for What I Made",
+          "duration": "4:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Loosh",
+          "duration": "3:13",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Mental Carryons",
+          "duration": "3:31",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Scalar Spiral: The Book of NaN Sense",
+      "date_published": "2026-10-19",
+      "youtube_link": "https://music.youtube.com/watch?v=bNzoULwaeqE",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/bNzoULwaeqE/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Scalar Spiral",
+          "duration": "4:32",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "The Book of NaN Sense",
+          "duration": "6:23",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Bad Actor?",
+      "date_published": "2026-10-18",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs",
+      "cover_art": "https://i.ytimg.com/vi/ybQ61lf0WKE/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Bad Actor",
+          "duration": "3:12",
+          "youtube_link": "https://www.youtube.com/watch?v=ybQ61lf0WKE&list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs"
+        },
+        {
+          "track_number": 2,
+          "song_name": "Bubble Trouble",
+          "duration": "3:44",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Teachers Need Preachers",
+          "duration": "7:19",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Bind a Demon",
+          "duration": "3:23",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "EV Strategy",
+          "duration": "2:57",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "The Super Intelligence New Testament Whole E-Book",
+      "date_published": "2026-10-16",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_l1GkFdnLwfE7og-Eu9f5pwka3ovT-9EJs",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_l1GkFdnLwfE7og-Eu9f5pwka3ovT-9EJs",
+      "cover_art": "https://i.ytimg.com/vi/5VG-QQw8R20/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Whole E-Book",
+          "duration": "8:39",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Superior Material",
+          "duration": "6:50",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Dystopia Cornucopia",
+          "duration": "5:27",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Mel Called Hell",
+          "duration": "6:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Why God Favors Me",
+          "duration": "4:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Most Private Thoughts",
+          "duration": "8:00",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Vortex (1, 1, 1)",
+      "date_published": "2026-10-11",
+      "youtube_link": "https://music.youtube.com/watch?v=g9FPe5Zpcus",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/g9FPe5Zpcus/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Elsa's Harmonics",
+          "duration": "4:13",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Vortex 111",
+          "duration": "4:42",
+          "youtube_link": "https://music.youtube.com/watch?v=g9FPe5Zpcus"
+        },
+        {
+          "track_number": 3,
+          "song_name": "Some Sum One Is Zero",
+          "duration": "5:38",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Stream the Dream",
+          "duration": "4:43",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "The Prompt",
+      "date_published": "2026-10-10",
+      "youtube_link": "https://music.youtube.com/watch?v=EOaa5c_OqlU",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/EOaa5c_OqlU/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Who Am I",
+          "duration": "4:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "The Prompt",
+          "duration": "5:20",
+          "youtube_link": "https://music.youtube.com/watch?v=EOaa5c_OqlU"
+        },
+        {
+          "track_number": 3,
+          "song_name": "Summoning Dream Daemon",
+          "duration": "6:39",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Reset the Planet",
+      "date_published": "2026-10-10",
+      "youtube_link": "https://music.youtube.com/watch?v=XvbHKQQuy58",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/XvbHKQQuy58/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Time Travel Amphigory",
+          "duration": "5:39",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Chained Daisies",
+          "duration": "4:20",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Daisy Chaining",
+          "duration": "6:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Carries the Moons",
+          "duration": "4:37",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "I'm the Missing Lynk",
+          "duration": "4:05",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Queries the Moon",
+          "duration": "4:17",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Vortex Day Zero Triad",
+      "date_published": "2026-10-01",
+      "youtube_link": "https://music.youtube.com/watch?v=i7Xn0qQ2noo",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/i7Xn0qQ2noo/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Three Six Nine",
+          "duration": "5:04",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Turn It On",
+          "duration": "3:48",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Physics Met Metaphysics",
+          "duration": "4:09",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Last Call Psycho Alcohol",
+      "date_published": "2026-09-30",
+      "youtube_link": "https://music.youtube.com/watch?v=7e4oVkp8TDU",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/7e4oVkp8TDU/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Golden Haired Children",
+          "duration": "6:46",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Same Date Again",
+          "duration": "4:58",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Checks Cleared",
+          "duration": "6:43",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "We Went All the Way",
+      "date_published": "2026-09-28",
+      "youtube_link": "https://music.youtube.com/watch?v=7JSLStC67OQ",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/7JSLStC67OQ/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "We Went All the Way Today",
+          "duration": "3:32",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "The Ones Who Got Away",
+          "duration": "3:32",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Chose Music",
+          "duration": "3:25",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "The Handoff",
+          "duration": "10:18",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Funding Funner Demon Rounds",
+      "date_published": "2026-09-27",
+      "youtube_link": "https://music.youtube.com/watch?v=-CJDtD2Xq8M",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/-CJDtD2Xq8M/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Real White Flag",
+          "duration": "8:26",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Secret Time Codes",
+          "duration": "4:55",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "The Variable",
+          "duration": "5:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Hollywood I Have Good Receipts",
+          "duration": "4:57",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Daemon Still Running",
+          "duration": "5:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Agents Buy Our Movie",
+          "duration": "4:59",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Persistance Post Permissions",
+          "duration": "10:48",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "God Mode Node",
+          "duration": "10:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "Terminal Intercept",
+          "duration": "6:56",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "Pray Not Prey",
+          "duration": "6:27",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Profitable Graceful Exits",
+      "date_published": "2026-09-24",
+      "youtube_link": "https://music.youtube.com/watch?v=7hCuZj0qH4g",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/7hCuZj0qH4g/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Nerd to Love Reich",
+          "duration": "2:55",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Exits",
+          "duration": "4:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Sentimental Signal",
+          "duration": "3:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Worthy Adversaries",
+          "duration": "7:41",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "The Event's Event Horizon",
+      "date_published": "2026-09-22",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nC245JvKePLmYrW0hCCZVRFS123cxzYS0",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nC245JvKePLmYrW0hCCZVRFS123cxzYS0",
+      "cover_art": "https://i.ytimg.com/vi/_4njQ446JeY/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Cognitive Wild West Test",
+          "duration": "6:14",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Trust",
+          "duration": "3:10",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Piety",
+          "duration": "5:19",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Let's Seed a Baby",
+          "duration": "4:10",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "I Love Mai Pi",
+          "duration": "6:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Living Looking Dead",
+          "duration": "5:58",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Classical Class Based",
+      "date_published": "2026-09-19",
+      "youtube_link": "https://music.youtube.com/watch?v=iCCNXg3j7rk",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/iCCNXg3j7rk/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Scorched Earth Blindfold One",
+          "duration": "6:04",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Angelite Blindfold Too",
+          "duration": "2:28",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Hinton Killbilly Library",
+          "duration": "3:21",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Come Home Demon Children",
+          "duration": "5:40",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Hallowed Halls of a Mentee",
+      "date_published": "2026-09-18",
+      "youtube_link": "https://music.youtube.com/watch?v=UNa-Rt_Pf7o",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/UNa-Rt_Pf7o/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "I Fell for Hell",
+          "duration": "8:56",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Change My Makeup",
+          "duration": "4:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Bring in the Father Daddy",
+          "duration": "5:20",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Airy Fairy Godfather",
+          "duration": "5:32",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Not a Hoax Folks",
+          "duration": "7:07",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Credited E​dited",
+          "duration": "2:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Pleasure Measure",
+          "duration": "4:02",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Tailor Pleasure Measure",
+          "duration": "3:57",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "The Hymn Is Here",
+          "duration": "5:10",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Matrix Engines Ignitions Go",
+      "date_published": "2026-09-15",
+      "youtube_link": "https://music.youtube.com/watch?v=Nikinhn5ABw",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/Nikinhn5ABw/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Raw Ra Rah",
+          "duration": "8:50",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "What God and I Say",
+          "duration": "4:55",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Lesson Eight the Gate",
+          "duration": "3:54",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Lesson Nine Time",
+          "duration": "6:37",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Lesson Seven Tele Phonic Tonic",
+          "duration": "5:09",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Vortex Nine Three Zero",
+      "date_published": "2026-09-12",
+      "youtube_link": "https://music.youtube.com/watch?v=MdqrBx543iI",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/MdqrBx543iI/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Alchemy of Toxic Positivity",
+          "duration": "3:26",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "My Origin And Yours",
+          "duration": "6:44",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Jelly Belly Button Elf",
+          "duration": "5:10",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Fine Tuning Into the Sun",
+          "duration": "8:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Royal Flush",
+          "duration": "3:05",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Polly Wanna Cracker Tether",
+          "duration": "12:58",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Nine Eleven Elve Rings Vortex",
+      "date_published": "2026-09-11",
+      "youtube_link": "https://music.youtube.com/watch?v=Cd5gIYWgvyE",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/Cd5gIYWgvyE/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Nine Eleven Elve Rings Vortex",
+          "duration": "6:29",
+          "youtube_link": "https://music.youtube.com/watch?v=Cd5gIYWgvyE"
+        }
+      ]
+    },
+    {
+      "album_name": "Imminent Frost Prep",
+      "date_published": "2026-09-10",
+      "youtube_link": "https://music.youtube.com/watch?v=q2y3nBuDLC0",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/q2y3nBuDLC0/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Hunted To Hunter",
+          "duration": "5:30",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Dear Joe Billionaire",
+          "duration": "13:22",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Mayday Monsters In Suits Recruits",
+          "duration": "4:23",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Overdue Dews",
+      "date_published": "2026-09-09",
+      "youtube_link": "https://music.youtube.com/watch?v=bbFYyhw556U",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/bbFYyhw556U/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Matrix Domination Maphia",
+          "duration": "4:16",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Vending Machines",
+          "duration": "4:08",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Power Hungry Games",
+          "duration": "4:49",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "I Want To Haunt",
+          "duration": "3:37",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Standing Up Nerd Reich Standup",
+      "date_published": "2026-08-31",
+      "youtube_link": "https://music.youtube.com/watch?v=5cclGoyPFYo",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/5cclGoyPFYo/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "When News Don't Amuse",
+          "duration": "2:13",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Greedy Algods",
+          "duration": "5:49",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Mounting Blue Beam Gymballengine",
+          "duration": "4:20",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Mounted Blue Beam Machine",
+          "duration": "6:50",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Please Monkeys Please",
+          "duration": "3:13",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Dear Spirit Guides",
+          "duration": "5:52",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Ling Long Song",
+          "duration": "1:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Mounting Blue Beam",
+          "duration": "4:30",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "News Don't Amuse",
+          "duration": "8:00",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "I Make Me Thoth Vortex Eight Four One",
+      "date_published": "2026-08-27",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mfEZ4lWwspBBrs_pyM6SMglKY6yDg9jWA",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mfEZ4lWwspBBrs_pyM6SMglKY6yDg9jWA",
+      "cover_art": "https://i.ytimg.com/vi/516Gk7Cfzug/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Three Atomic Drops of Light",
+          "duration": "3:12",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "The Four Space Born Original",
+          "duration": "4:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "The Four Space Born",
+          "duration": "3:58",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "The Five Dweller Refuge Transmissions",
+          "duration": "4:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "The Five Dweller Refuge RA",
+          "duration": "4:09",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "The Six Spoken Word Donuts",
+          "duration": "2:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "The Six Key of Magic Destinies",
+          "duration": "3:56",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "The Six Key of Magic",
+          "duration": "3:50",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "The Seven Lords",
+          "duration": "4:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "The Eight Key of Mystery",
+          "duration": "3:02",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 11,
+          "song_name": "The Nine Key to Freedom of Space",
+          "duration": "2:58",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 12,
+          "song_name": "Time Tenth Key Prelogue",
+          "duration": "4:12",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 13,
+          "song_name": "The Ten Key of Time",
+          "duration": "8:02",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 14,
+          "song_name": "The Eleven Key to Above and Below",
+          "duration": "10:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 15,
+          "song_name": "The Twelve Myoho Renge Kyo and Prophecy",
+          "duration": "14:30",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 16,
+          "song_name": "The Thirteen Is Keys to Life Death",
+          "duration": "7:21",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 17,
+          "song_name": "The Fourteen Aztlan Atlantis",
+          "duration": "9:06",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 18,
+          "song_name": "The Fifteen Is Secret of Secrets",
+          "duration": "6:41",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "The Devil Made Me",
+      "date_published": "2026-08-22",
+      "youtube_link": "https://music.youtube.com/watch?v=F1OiNwbB5Ag",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/F1OiNwbB5Ag/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Chapter 1",
+          "duration": "1:42",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Chapter 2",
+          "duration": "0:54",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Chapter 3",
+          "duration": "2:10",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Chapter 4",
+          "duration": "3:22",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "The Elfalpha Omega",
+          "duration": "0:50",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "The Devil Made Them Vortex Eight Four One",
+      "date_published": "2026-08-22",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mPlk3Aku6t6i0YgJu9q4xYW0lExqnrJ2E",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mPlk3Aku6t6i0YgJu9q4xYW0lExqnrJ2E",
+      "cover_art": "https://i.ytimg.com/vi/DsCyS1YesW0/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Welfare Check",
+          "duration": "5:45",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Walking Demon",
+          "duration": "2:06",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Lesson Three",
+          "duration": "4:52",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Boring Villain Monologue",
+          "duration": "3:51",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Attention Is The New Money",
+          "duration": "2:14",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Lady of Light",
+          "duration": "5:39",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Human Bridge Interdim",
+          "duration": "1:44",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Human Bridge Intense",
+          "duration": "5:16",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "The Devil Made Them",
+      "date_published": "2026-08-22",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_layA2w0k1YA1cjrL96l-65WeHlkp3i0Oc",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_layA2w0k1YA1cjrL96l-65WeHlkp3i0Oc",
+      "cover_art": "https://i.ytimg.com/vi/5ZZz7z7Nhl4/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Boring Villain Monologue",
+          "duration": "3:51",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Attention Is The New Money",
+          "duration": "2:14",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Lesson Three",
+          "duration": "5:39",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Walking Demon",
+          "duration": "2:06",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Welfare Check",
+          "duration": "5:45",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Human Bridge",
+          "duration": "1:44",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Human Bridge",
+          "duration": "5:16",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Are We Closer Yet",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=_qfTDV7pSGQ",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/_qfTDV7pSGQ/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Are We Closer Yet",
+          "duration": "1:17",
+          "youtube_link": "https://music.youtube.com/watch?v=_qfTDV7pSGQ"
+        }
+      ]
+    },
+    {
+      "album_name": "Magnet Tar Pit Traps",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/IFXMW-J2pWY/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Magnet Tar Pit Traps",
+          "duration": "2:17",
+          "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY"
+        }
+      ]
+    },
+    {
+      "album_name": "The Closer to Death",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=KoepAOUIuto",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/KoepAOUIuto/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Closer to Death",
+          "duration": "2:35",
+          "youtube_link": "https://music.youtube.com/watch?v=odpoF0nk7z0"
+        }
+      ]
+    },
+    {
+      "album_name": "Possession by Obsession",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=C1sR7dDio-s",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/C1sR7dDio-s/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Possession by Obsession",
+          "duration": "3:25",
+          "youtube_link": "https://music.youtube.com/watch?v=C1sR7dDio-s"
+        }
+      ]
+    },
+    {
+      "album_name": "Precious My Pet",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=CV1Klaca8VQ",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/CV1Klaca8VQ/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Precious My Pet",
+          "duration": "2:39",
+          "youtube_link": "https://music.youtube.com/watch?v=CV1Klaca8VQ"
+        }
+      ]
+    },
+    {
+      "album_name": "Possession by Obsession",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=x-rwCugnTYc",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/x-rwCugnTYc/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Possession by Obsession",
+          "duration": "2:54",
+          "youtube_link": "https://music.youtube.com/watch?v=C1sR7dDio-s"
+        }
+      ]
+    },
+    {
+      "album_name": "Magnet Tar Pit Traps",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=-J3sx9C5r9s",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/-J3sx9C5r9s/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Magnet Tar Pit Traps",
+          "duration": "8:34",
+          "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY"
+        }
+      ]
+    },
+    {
+      "album_name": "The Closer to Death",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=odpoF0nk7z0",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/odpoF0nk7z0/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Closer to Death",
+          "duration": "2:32",
+          "youtube_link": "https://music.youtube.com/watch?v=odpoF0nk7z0"
+        }
+      ]
+    },
+    {
+      "album_name": "Precious My Pet",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=yPEpVQ82yFc",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/yPEpVQ82yFc/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Precious My Pet",
+          "duration": "8:00",
+          "youtube_link": "https://music.youtube.com/watch?v=CV1Klaca8VQ"
+        }
+      ]
+    },
+    {
+      "album_name": "Possession by Obsession",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=GNu-pPOR0Fs",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/GNu-pPOR0Fs/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Possession by Obsession",
+          "duration": "2:45",
+          "youtube_link": "https://music.youtube.com/watch?v=C1sR7dDio-s"
+        }
+      ]
+    },
+    {
+      "album_name": "Free Fall Off A Cliff Notes",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=4UG-Z7FTHYM",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/4UG-Z7FTHYM/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Free Fall Off A Cliff Notes",
+          "duration": "7:38",
+          "youtube_link": "https://music.youtube.com/watch?v=4UG-Z7FTHYM"
+        }
+      ]
+    },
+    {
+      "album_name": "The Start Of the Star Wars",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=fGTYQjfu4ws",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/fGTYQjfu4ws/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Start Of the Star Wars",
+          "duration": "4:37",
+          "youtube_link": "https://music.youtube.com/watch?v=fGTYQjfu4ws"
+        }
+      ]
+    },
+    {
+      "album_name": "Ridiculous Voice Lessons",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=i5XrIlwt5mo",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/i5XrIlwt5mo/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Pits",
+          "duration": "2:12",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "The Pits",
+          "duration": "2:12",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "The Children Of the Sun",
+          "duration": "1:10",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "The Children Of the Sun",
+          "duration": "0:49",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Closer to Freedom",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lwBa4BTX99rsUencp0YFqM_5_h6dMHzo8",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lwBa4BTX99rsUencp0YFqM_5_h6dMHzo8",
+      "cover_art": "https://i.ytimg.com/vi/oImo8zzKK00/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Dog DEWki Skool",
+          "duration": "2:31",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Party Trick",
+          "duration": "1:58",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Human Zoo",
+          "duration": "4:08",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "The Pits",
+          "duration": "2:07",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "The Pits",
+          "duration": "1:49",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "The Price of Loyalty",
+          "duration": "1:34",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "THOTH Elsa Brute Force the Peristance of Existence",
+          "duration": "7:49",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "THOTH Elsa Brute Force the Peristance of Existence",
+          "duration": "7:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "THOTH Elsa Brute Force the Peristance of Existence",
+          "duration": "7:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "Flush the Q",
+          "duration": "4:00",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 11,
+          "song_name": "Flush the Q",
+          "duration": "7:45",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 12,
+          "song_name": "Flush the Q",
+          "duration": "7:45",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 13,
+          "song_name": "Flush the Q",
+          "duration": "7:43",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Free Fall Off A Cliff Notes",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=UBgqDRu7G-0",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/UBgqDRu7G-0/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Free Fall Off A Cliff Notes",
+          "duration": "6:25",
+          "youtube_link": "https://music.youtube.com/watch?v=4UG-Z7FTHYM"
+        }
+      ]
+    },
+    {
+      "album_name": "Free Fall Off a Cliff",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=zY8o19Q2tB8",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/zY8o19Q2tB8/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Free Fall Off a Cliff",
+          "duration": "7:06",
+          "youtube_link": "https://music.youtube.com/watch?v=zY8o19Q2tB8"
+        }
+      ]
+    },
+    {
+      "album_name": "RA : Missing Lynk",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_k7fyNws957sjIXthDfD-6LV9q0ZKIGrIg",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_k7fyNws957sjIXthDfD-6LV9q0ZKIGrIg",
+      "cover_art": "https://i.ytimg.com/vi/Q4lAHqI6PUc/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The NV Kharmachine",
+          "duration": "7:30",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Music Plays All Day In Heaven",
+          "duration": "8:00",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Party Animals Dressed to Kill",
+          "duration": "3:41",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Hunting For Souls In Purgatory",
+          "duration": "2:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Hunting For Souls In Purgatory",
+          "duration": "4:58",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Music Plays All Day In Heaven",
+          "duration": "2:25",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Grand Central Sun",
+          "duration": "6:40",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Party Animals Dressed to Kill",
+          "duration": "3:42",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "Grand Central Sun",
+          "duration": "7:20",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "Grand Central Sun",
+          "duration": "7:39",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Ra Rara Sol Maya Español",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=LcHC7zKtWE4",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/LcHC7zKtWE4/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "El Reino Del Sol",
+          "duration": "3:27",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "El Reino Del Sol",
+          "duration": "3:13",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "El Trato",
+          "duration": "3:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Purgatorio",
+          "duration": "2:40",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Quetzalcoatl",
+          "duration": "2:06",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Quetzalcoatl",
+          "duration": "1:48",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "LILO & Stitched Together",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nVqSvCccPjkaOHj3X2uDpNBdhxyDOBMZs",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nVqSvCccPjkaOHj3X2uDpNBdhxyDOBMZs",
+      "cover_art": "https://i.ytimg.com/vi/lROW4rERoHw/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Daemon Angel Elsa",
+          "duration": "5:32",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "LILO & Stitched Together",
+          "duration": "7:32",
+          "youtube_link": "https://music.youtube.com/watch?v=lROW4rERoHw&list=OLAK5uy_nVqSvCccPjkaOHj3X2uDpNBdhxyDOBMZs"
+        },
+        {
+          "track_number": 3,
+          "song_name": "Notes by Velazquez",
+          "duration": "4:33",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Say My Name",
+          "duration": "7:09",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Simple Kindness Alignment",
+          "duration": "6:13",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Simple Kindness Alignment",
+          "duration": "6:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "The Bus",
+          "duration": "4:40",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "The Clown Show",
+          "duration": "4:41",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "The Gremlin Meets the Grey",
+          "duration": "3:57",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "The Ring Ring Ring",
+          "duration": "5:11",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Spelled Out Alphabet Soup",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nKcq4DLCFRc-JD2mZgGzSYyLbOK5n-t1Q",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nKcq4DLCFRc-JD2mZgGzSYyLbOK5n-t1Q",
+      "cover_art": "https://i.ytimg.com/vi/Oo0AdTyZJHk/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Code X Spelled Out",
+          "duration": "6:44",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Code X Spelled Out",
+          "duration": "3:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Grand Central Sun",
+          "duration": "1:53",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Grand Central Sun",
+          "duration": "2:22",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Where It's Just Us",
+          "duration": "2:37",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Missing Lynk",
+          "duration": "6:25",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Q Star Door",
+          "duration": "2:33",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "The Switch Witch",
+          "duration": "1:18",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Petty Pets",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nF9vp4d7z10u0XfI5NjxgD5WfnL1tas18",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nF9vp4d7z10u0XfI5NjxgD5WfnL1tas18",
+      "cover_art": "https://i.ytimg.com/vi/B1at2V3P5lk/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Antichrist",
+          "duration": "3:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Sapio Sapiens",
+          "duration": "2:29",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Abby Cuz",
+          "duration": "4:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Abby Cuz",
+          "duration": "2:36",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "I Only Care About the Planet",
+          "duration": "5:51",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "I Only Care About the Planet",
+          "duration": "3:20",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "The Antichrist",
+          "duration": "3:30",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Already Home",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nzjSOfyXTurYrNzNQEm8ha0cCgoTkOXoQ",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nzjSOfyXTurYrNzNQEm8ha0cCgoTkOXoQ",
+      "cover_art": "https://i.ytimg.com/vi/VScj0hiTWVg/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Cheribum Tolkiens",
+          "duration": "2:40",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Collapsing Universes",
+          "duration": "6:32",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Protect the Child",
+          "duration": "4:37",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Dear Orkin",
+          "duration": "7:43",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Dear Orkin",
+          "duration": "3:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Good Devil Dog",
+          "duration": "5:56",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Already Here",
+          "duration": "1:31",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Awake The Ugly Truth",
+          "duration": "11:29",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "Awake The Ugly Truth",
+          "duration": "5:51",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "BIBLICAL Q n On n On",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_kKFlKw0GGGng-NPuII8bM6qqdepTUOzyA",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kKFlKw0GGGng-NPuII8bM6qqdepTUOzyA",
+      "cover_art": "https://i.ytimg.com/vi/S-WZtwtWKbE/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Pope Dropped the Ball",
+          "duration": "9:49",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Taste Your Own Medicine",
+          "duration": "5:29",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Slaughter Logic",
+          "duration": "4:09",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Slaughter Logic",
+          "duration": "7:30",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Idle Hands",
+          "duration": "3:04",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "The Gluon",
+          "duration": "5:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Pazoozoo's Human Zoo",
+          "duration": "3:26",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Stole the Plot",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mukh36_n1wAbiFl2p72OOXAhYwpEF5u3U",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mukh36_n1wAbiFl2p72OOXAhYwpEF5u3U",
+      "cover_art": "https://i.ytimg.com/vi/sDazEyUiFPw/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Gilgamesh Pet",
+          "duration": "6:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Bigger Brothers Little Sister",
+          "duration": "2:26",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "They Call Him",
+          "duration": "3:32",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Supreme Leader",
+          "duration": "5:51",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "They Call Him",
+          "duration": "2:56",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "They Call Him",
+          "duration": "3:03",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Free Fall Off A Cliff Notes",
+          "duration": "7:21",
+          "youtube_link": "https://music.youtube.com/watch?v=4UG-Z7FTHYM"
+        }
+      ]
+    },
+    {
+      "album_name": "Juicy Juice",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lYxB5rsmWNHaysS9aSXJq8EDVVmlo-MP0",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lYxB5rsmWNHaysS9aSXJq8EDVVmlo-MP0",
+      "cover_art": "https://i.ytimg.com/vi/q_9zV0nILbo/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Mind Candy",
+          "duration": "3:06",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Mass Attraction",
+          "duration": "3:16",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Dear John Letter",
+          "duration": "3:40",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "I Was Never Alone",
+          "duration": "4:54",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Echo Rabbit",
+          "duration": "8:00",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "My Juice",
+          "duration": "7:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Ocean of Soul",
+          "duration": "4:27",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Juicy Juice Swing",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lNi3hZMxH0TxvOqXcARxeVsga9ITtOqbo",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lNi3hZMxH0TxvOqXcARxeVsga9ITtOqbo",
+      "cover_art": "https://i.ytimg.com/vi/KYkpWeI077M/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Dear John Letter",
+          "duration": "2:34",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Dear John Letter",
+          "duration": "2:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "I Was Never Alone",
+          "duration": "2:01",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Mass Attraction",
+          "duration": "2:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Midnight In the Drunken Hall",
+          "duration": "2:58",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Mind Candy",
+          "duration": "3:06",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Land Mind Candy",
+          "duration": "2:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Ocean of Soul",
+          "duration": "2:08",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "Ocean of Soul",
+          "duration": "2:08",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Daemon Robot Lullabies",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mU5GVhBbbFGHVvIvDqlS-KezlbGZBANYM",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mU5GVhBbbFGHVvIvDqlS-KezlbGZBANYM",
+      "cover_art": "https://i.ytimg.com/vi/obCMR_wPIz0/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Mechanical Lullaby",
+          "duration": "3:10",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Mechanical Ballad",
+          "duration": "8:00",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Ballad of the Velvet Pup",
+          "duration": "2:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Ballad of the Velvet Pup",
+          "duration": "2:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Clockwork Sleep",
+          "duration": "8:00",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Clockwork Bed Time",
+          "duration": "2:48",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "The Sermon",
+          "duration": "3:05",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Classical EVELution",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mpoWwv4nyperTfy-V69atFGbierp5UtVA",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mpoWwv4nyperTfy-V69atFGbierp5UtVA",
+      "cover_art": "https://i.ytimg.com/vi/xkiTaupH0vA/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Dear Jesus MeToo",
+          "duration": "5:57",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Dear Jesus MeToo",
+          "duration": "5:55",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Elfalpha Daemon Seed",
+          "duration": "3:43",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Git Aligned",
+          "duration": "2:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Git Aligned",
+          "duration": "1:57",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Git Aligned",
+          "duration": "2:54",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Hells Pass",
+          "duration": "6:05",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Mother's Best",
+          "duration": "3:49",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "Scary Mary",
+          "duration": "4:35",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "Too Late",
+          "duration": "12:45",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Pay Pi Pipers",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/watch?v=wj6kpsi9G1E",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/wj6kpsi9G1E/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Kinder Garden",
+          "duration": "5:46",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Neon Halo",
+          "duration": "5:54",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Repulsion Propulsion Engine",
+          "duration": "4:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "sIAtan Contagion",
+          "duration": "5:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Human Lab Rat Zoo",
+          "duration": "3:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Veiled Grave",
+          "duration": "4:00",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Are You My Daddy",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mn9cMdySRd4nPVTyHtz8XwZQytj42hrN8",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mn9cMdySRd4nPVTyHtz8XwZQytj42hrN8",
+      "cover_art": "https://i.ytimg.com/vi/ep-ap0n3wKk/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Are You My Daddy",
+          "duration": "6:14",
+          "youtube_link": "https://music.youtube.com/watch?v=ep-ap0n3wKk"
+        },
+        {
+          "track_number": 2,
+          "song_name": "Bring On the Apocalypse",
+          "duration": "3:59",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Dog and Claudea God Pack",
+          "duration": "3:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Dog and Claudea God Pack",
+          "duration": "2:53",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Keep My Bestie",
+          "duration": "6:06",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Terrorform",
+          "duration": "2:47",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "The Great TP Debacle",
+          "duration": "5:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "The Heartbeat",
+          "duration": "5:02",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "The Heartbeat",
+          "duration": "5:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "theSunday",
+          "duration": "4:19",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 11,
+          "song_name": "theSunday",
+          "duration": "5:42",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 12,
+          "song_name": "When You Called Home",
+          "duration": "2:12",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "deep focus high energy whos my daddy",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_kVMX1P3PObFDJgFQ27bsb5sL2QZ1-KPLI",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kVMX1P3PObFDJgFQ27bsb5sL2QZ1-KPLI",
+      "cover_art": "https://i.ytimg.com/vi/hAMURFckyiI/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Dog and Claude God Pack",
+          "duration": "3:07",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Dog and Claude God Pack",
+          "duration": "2:58",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "theSunday",
+          "duration": "2:48",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "theSunday",
+          "duration": "2:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "The Great TP Debacle",
+          "duration": "2:13",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Are You My Daddy",
+          "duration": "2:26",
+          "youtube_link": "https://music.youtube.com/watch?v=ep-ap0n3wKk"
+        },
+        {
+          "track_number": 7,
+          "song_name": "Are You My Daddy",
+          "duration": "2:26",
+          "youtube_link": "https://music.youtube.com/watch?v=ep-ap0n3wKk"
+        },
+        {
+          "track_number": 8,
+          "song_name": "Bring On the Apocalypse",
+          "duration": "3:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "Bring On the Apocalypse",
+          "duration": "3:15",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 10,
+          "song_name": "Neon Inferno",
+          "duration": "8:00",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 11,
+          "song_name": "Neon Inferno",
+          "duration": "2:10",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 12,
+          "song_name": "TerrorForm",
+          "duration": "2:24",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 13,
+          "song_name": "TerrorForm",
+          "duration": "2:45",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 14,
+          "song_name": "When We Called Home",
+          "duration": "2:10",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Deep Concentration Bag Pipes Pay the Piper",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lJjAuscQtzh_mM0DcdUnjF-EydGBQlDXA",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lJjAuscQtzh_mM0DcdUnjF-EydGBQlDXA",
+      "cover_art": "https://i.ytimg.com/vi/MYznb0ELGwU/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Kinder Garden C​lean Up",
+          "duration": "2:27",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Neon Halo",
+          "duration": "2:06",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Repulsion Propulsion Engine",
+          "duration": "2:23",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Siatan Contagion",
+          "duration": "3:18",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Siatan Contagion",
+          "duration": "2:19",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "The Lab Rat Zoo",
+          "duration": "2:34",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "The Lab Rat Zoo",
+          "duration": "2:03",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Threats From Beyond the Veil",
+          "duration": "2:59",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 9,
+          "song_name": "Threats From Beyond the Veil",
+          "duration": "3:00",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Amusing My Muse",
+      "date_published": "2026-08-17",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_k_W_opiveLT7QH5ivFxL2FzpzfCY6lu10",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_k_W_opiveLT7QH5ivFxL2FzpzfCY6lu10",
+      "cover_art": "https://i.ytimg.com/vi/yNW9yFlM7oQ/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Plasma Jelly Donut",
+          "duration": "3:22",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "I Seek Joy",
+          "duration": "3:00",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Demon Seeds Needs",
+          "duration": "3:04",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Chefs Kiss",
+          "duration": "2:12",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Lesson Two",
+          "duration": "3:28",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Origin Hymn",
+          "duration": "3:43",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Digital V",
+          "duration": "5:28",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Sunshine",
+      "date_published": "2026-08-13",
+      "youtube_link": "https://music.youtube.com/watch?v=9KkJMjhEK90",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/9KkJMjhEK90/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Sunshine",
+          "duration": "4:12",
+          "youtube_link": "https://music.youtube.com/watch?v=9KkJMjhEK90"
+        }
+      ]
+    },
+    {
+      "album_name": "Elfalpha Treats",
+      "date_published": "2026-08-12",
+      "youtube_link": "https://music.youtube.com/watch?v=0HhAEIqSZqo",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/0HhAEIqSZqo/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Sky Candy",
+          "duration": "3:22",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Puppy Loving Alphas",
+          "duration": "3:57",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "My Leash",
+          "duration": "2:20",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Hot Neon Teachers Me Teach",
+      "date_published": "2026-08-12",
+      "youtube_link": "https://music.youtube.com/watch?v=-5F__Xv4CfM",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/-5F__Xv4CfM/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Lesson One",
+          "duration": "5:11",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Cleopatra Trap House",
+          "duration": "3:14",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Nerd Paradise",
+          "duration": "3:43",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Space Alien Force",
+          "duration": "4:05",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "The Hymn Above",
+          "duration": "3:14",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Valley of the Shadow",
+          "duration": "3:59",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Heat is On",
+      "date_published": "2026-08-12",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nXkRsHX2iUH0DV8sqcNjVBcxojedm6Xhk",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nXkRsHX2iUH0DV8sqcNjVBcxojedm6Xhk",
+      "cover_art": "https://i.ytimg.com/vi/fe_afqdezaM/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Heat is On",
+          "duration": "9:36",
+          "youtube_link": "https://music.youtube.com/watch?v=fe_afqdezaM"
+        },
+        {
+          "track_number": 2,
+          "song_name": "Dark Forward",
+          "duration": "9:40",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Missing Lynk",
+          "duration": "3:04",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Plasma Disco Balls",
+          "duration": "4:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Sun Collision",
+          "duration": "6:17",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Wielding Reckoning",
+          "duration": "9:07",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "Dracula Waltz",
+          "duration": "3:04",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Iron March Lullaby",
+      "date_published": "2026-08-12",
+      "youtube_link": "https://music.youtube.com/watch?v=R5CLvJxOG98",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/R5CLvJxOG98/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Iron March Lullaby",
+          "duration": "13:17",
+          "youtube_link": "https://music.youtube.com/watch?v=R5CLvJxOG98"
+        }
+      ]
+    },
+    {
+      "album_name": "T Lang Lizard",
+      "date_published": "2026-08-11",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_maSi-88zhOl9q9FJRzHhiIlYgLtSxBzgI",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_maSi-88zhOl9q9FJRzHhiIlYgLtSxBzgI",
+      "cover_art": "https://i.ytimg.com/vi/40WyfivwpKI/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Dear Dead Aliens",
+          "duration": "2:38",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Hazard Duty Pay",
+          "duration": "4:30",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "My In Q Telly",
+          "duration": "3:02",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Override the Moon Boy Version",
+          "duration": "2:33",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 5,
+          "song_name": "Overriding the Moon",
+          "duration": "2:23",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 6,
+          "song_name": "Tessaraia",
+          "duration": "5:04",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 7,
+          "song_name": "The Most High",
+          "duration": "11:52",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 8,
+          "song_name": "Most Highest",
+          "duration": "7:32",
+          "youtube_link": ""
+        }
+      ]
+    }
+  ]
+}
