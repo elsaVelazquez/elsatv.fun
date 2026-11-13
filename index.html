@@ -295,6 +295,18 @@
                    0 0 22px rgba(95, 242, 208, 0.5);
     }
 
+    /* the archive's own name, smaller, inside the same link */
+    .lore-entry.featured .title-sub {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.55em;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: rgba(155, 255, 232, 0.8);
+      border-bottom: none;
+      text-decoration: none;
+    }
+
     /* underlined like a hyperlink, with a persistent arrow */
     .lore-entry.featured .title-link::after {
       content: " →";
@@ -458,7 +470,7 @@
       <section class="lore-entry featured" aria-labelledby="lore-heading">
         <div>
           <h3 id="lore-heading">
-            <a class="title-link" href="kissingface.html">The Lore</a>
+            <a class="title-link" href="kissingface.html">The Lore<span class="title-sub">Kissing Face</span></a>
           </h3>
           <a class="lore-stretch" href="kissingface.html" tabindex="-1" aria-hidden="true">Listen to the Lore</a>
         </div>
