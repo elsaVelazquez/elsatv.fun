@@ -418,15 +418,26 @@ def create_html(albums):
     .album:hover { transform: translateY(-2px); }
     .album img { width: 100%; height: 200px; object-fit: cover; display: block; }
 
-    /* song list revealed on hover */
-    .album:hover .tracklist { opacity: 1; visibility: visible; }
+    /*
+     * Song list revealed on hover (desktop) and on tap (touch).
+     * A real hover only exists with a mouse, so tapping is handled by a hidden
+     * checkbox: tap pins the list open, tap again releases it. On pointer
+     * devices the checkbox is inert and :hover drives it, as before.
+     */
+    .album:hover .tracklist, .toggle:checked ~ .tracklist {
+      opacity: 1; visibility: visible;
+    }
+    .toggle { position: absolute; opacity: 0; width: 0; height: 0; margin: 0; }
+    .toggle:checked ~ .album-info { background: #0e120c; }
     .tracklist {
-      position: absolute; top: 0; left: 0; right: 0; height: 200px;
+      /* covers the whole card, cover art and info alike */
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       margin: 0; padding: 12px 14px; box-sizing: border-box;
       list-style: none; overflow-y: auto;
-      background: rgba(8, 11, 7, .98);
+      background: #080b07;
       font-size: .8rem; line-height: 1.4; color: #d7e0cf;
       opacity: 0; visibility: hidden; transition: opacity .15s ease;
+      z-index: 1;
     }
     /* title truncates so it never runs into the duration */
     .tracklist li { padding: 1px 0; display: flex; gap: 6px; align-items: baseline; }
@@ -435,6 +446,25 @@ def create_html(albums):
       text-overflow: ellipsis; white-space: nowrap; }
     .tracklist .dur { color: #6f7d66; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
     .tracklist .empty { color: #6f7d66; font-style: italic; }
+    .listen-btn { display: block; margin: 0 0 9px 0; padding: 8px 12px;
+      background: #b8ff43; color: #131a0c; text-align: center;
+      text-decoration: none; border-radius: 5px; font-weight: bold;
+      font-size: .82rem; letter-spacing: .02em; }
+    .listen-btn:hover { filter: brightness(1.1); }
+    /* tap to fold the tracklist back to the cover */
+    .close-btn { position: absolute; top: 8px; right: 10px; z-index: 3;
+      color: #7f8c76; font-size: .95rem; line-height: 1; cursor: pointer;
+      padding: 4px; }
+    .close-btn:hover { color: #f5f6f0; }
+    .tracklist .listen-btn { margin-right: 22px; }
+    /*
+     * Closed: the label sits on top of the card and a tap opens the list.
+     * Open:   the list is on top, so taps reach the songs and the play button.
+     *         A "close" control is rendered inside the list for toggling back.
+     */
+    .toggle-label { position: absolute; inset: 0; cursor: pointer; z-index: 2; }
+    .toggle:checked ~ .toggle-label { display: none; }
+    .toggle:checked ~ .tracklist { opacity: 1; visibility: visible; }
     .album-info { padding: 15px; }
     .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 4px 0; }
     .album-date { font-size: .78rem; color: #7f8c76; margin: 0 0 10px 0;
@@ -490,7 +520,7 @@ def create_html(albums):
     <div class="grid">
 '''
 
-    for album in albums:
+    for i, album in enumerate(albums):
         # ONCE cover-art URLs are account-private (404 for a browser), so only
         # use a cover we know is publicly loadable. Anything without one gets
         # the ElfAlpha logo.
@@ -521,9 +551,28 @@ def create_html(albums):
         date = album.get('date') or ''
         date_html = f'<div class="album-date">{date}</div>' if date else ''
 
+        # One-click listen button inside the overlay. Prefers the album
+        # playlist; falls back to the single track when no album id is known
+        # yet (ONCE may publish one later).
+        listen_url = album.get('album_link') or album['youtube_url']
+        if listen_url:
+            is_album = bool(album.get('album_link'))
+            listen = (
+                f'<a class="listen-btn" href="{listen_url}" target="_blank">'
+                f'{'▶ Play album' if is_album else '▶ Play this release'}</a>'
+            )
+        else:
+            listen = ''
+
         html += f'''      <div class="album">
         <img src="{cover}" alt="{album['title']}"{img_class} loading="lazy">
-        <ul class="tracklist">{items}</ul>
+        <input type="checkbox" class="toggle" id="t{i}"
+               aria-label="Show tracklist for {escape(album['title'])}">
+        <label for="t{i}" class="toggle-label" aria-hidden="true"></label>
+        <ul class="tracklist">
+          <label for="t{i}" class="close-btn" aria-label="Hide tracklist">✕</label>
+          {listen}{items}
+        </ul>
         <div class="album-info">
           <h3 class="album-title">{album['title']}</h3>
           {date_html}
