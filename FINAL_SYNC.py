@@ -436,7 +436,9 @@ def create_html(albums):
     .tracklist .dur { color: #6f7d66; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
     .tracklist .empty { color: #6f7d66; font-style: italic; }
     .album-info { padding: 15px; }
-    .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 10px 0; }
+    .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 4px 0; }
+    .album-date { font-size: .78rem; color: #7f8c76; margin: 0 0 10px 0;
+      letter-spacing: .03em; }
     .album-link { display: inline-block; background: #b8ff43; color: #131a0c; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold; }
     .album-link:hover { filter: brightness(1.1); }
     .album-link.pending { background: #303a2d; color: #aeb8a7; }
@@ -482,11 +484,16 @@ def create_html(albums):
         else:
             items = '<li class="empty">tracklist not published yet</li>'
 
+        # Release date, shown under the album title
+        date = album.get('date') or ''
+        date_html = f'<div class="album-date">{date}</div>' if date else ''
+
         html += f'''      <div class="album">
         <img src="{cover}" alt="{album['title']}"{img_class} loading="lazy">
         <ul class="tracklist">{items}</ul>
         <div class="album-info">
           <h3 class="album-title">{album['title']}</h3>
+          {date_html}
           {link}
         </div>
       </div>
