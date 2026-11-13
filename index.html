@@ -223,44 +223,39 @@
       color: #5ff2d0;
       text-decoration: underline;
       text-decoration-color: rgba(95, 242, 208, 0.45);
-      text-underline-offset: 3px;
+      text-underline-offset: 4px;
       transition: color 0.12s ease, text-shadow 0.12s ease,
                   text-decoration-color 0.12s ease;
     }
 
     .lore-entry:hover .title-link,
-    .lore-entry:focus-visible .title-link {
+    .lore-entry .title-link:hover,
+    .lore-entry .title-link:focus-visible {
       color: #9bffe8;
       text-decoration-color: #9bffe8;
       text-shadow: 0 0 6px rgba(95, 242, 208, 0.65),
                    0 0 14px rgba(95, 242, 208, 0.35);
     }
 
-    /* whole card is the click target */
-    .lore-entry:hover {
-      border-color: #4a5a48;
-    }
 
-    /* featured: the main archive link, placed right under the record statement */
+
+    /* featured: the archive link, one banner with the platform pills inside */
     .lore-entry.featured {
       position: relative;
+      display: grid;
+      gap: 14px 24px;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: center;
       margin: 0 0 26px;
       padding: 22px 24px;
-      display: grid;
-      gap: 8px 24px;
-      grid-template-columns: minmax(0, 1fr) auto;
-      align-items: center;
-      border-color: rgba(95, 242, 208, 0.45);
-      background: linear-gradient(180deg, rgba(95, 242, 208, 0.07), rgba(95, 242, 208, 0.02));
-      box-shadow: 0 0 0 1px rgba(95, 242, 208, 0.08),
-                  0 0 32px rgba(95, 242, 208, 0.10);
+      border-color: rgba(95, 242, 208, 0.4);
+      background: linear-gradient(180deg, rgba(95, 242, 208, 0.06), rgba(95, 242, 208, 0.015));
+      border-radius: 16px;
     }
 
     .lore-entry.featured:hover,
     .lore-entry.featured:focus-visible {
-      border-color: #5ff2d0;
-      box-shadow: 0 0 0 1px rgba(95, 242, 208, 0.2),
-                  0 0 44px rgba(95, 242, 208, 0.18);
+      border-color: rgba(95, 242, 208, 0.85);
     }
 
     .lore-entry.featured:focus-visible {
@@ -277,15 +272,27 @@
       text-transform: uppercase;
     }
 
-    .lore-entry.featured h3 {
-      margin: 0 0 6px;
-      font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+    /* the headline is the big obvious link: bright, glowing, and clickable */
+    .lore-entry.featured .title-link {
+      color: #5ff2d0;
+      text-shadow: 0 0 6px rgba(95, 242, 208, 0.55),
+                   0 0 18px rgba(95, 242, 208, 0.25);
+      display: inline-block;
+      font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+      font-weight: 800;
+      line-height: 1.12;
       letter-spacing: -0.01em;
-      line-height: 1.1;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(95, 242, 208, 0.45);
+      padding-bottom: 2px;
     }
 
-    .lore-entry.featured p {
-      font-size: 0.95rem;
+    .lore-entry.featured .title-link:hover,
+    .lore-entry.featured .title-link:focus-visible {
+      color: #9bffe8;
+      border-bottom-color: #9bffe8;
+      text-shadow: 0 0 8px rgba(95, 242, 208, 0.85),
+                   0 0 22px rgba(95, 242, 208, 0.5);
     }
 
     /* underlined like a hyperlink, with a persistent arrow */
@@ -295,44 +302,53 @@
       white-space: nowrap;
     }
 
-    .lore-cta {
-      display: inline-block;
-      padding: 10px 20px;
-      grid-column: 2;
-      grid-row: 1;
-      border-radius: 999px;
-      background: #5ff2d0;
-      color: #0a0c08;
-      font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      white-space: nowrap;
-      box-shadow: 0 0 18px rgba(95, 242, 208, 0.35);
-      transition: background 0.15s ease, box-shadow 0.15s ease;
+    /* a whole-card link layer, so clicking anywhere on the banner opens it */
+    .lore-stretch {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      text-indent: -9999px;
+      overflow: hidden;
+      z-index: 1;
     }
 
-    .lore-entry:hover .lore-cta,
-    .lore-entry.featured:focus-visible .lore-cta {
-      background: #9bffe8;
-      box-shadow: 0 0 26px rgba(95, 242, 208, 0.6);
+    /* ...while the pills and the CTA stay above it and keep their own targets */
+    .lore-entry.featured .platforms,
+    .lore-entry.featured .lore-open,
+    .lore-entry.featured .lore-kicker,
+    .lore-entry.featured h3 {
+      position: relative;
+      z-index: 2;
     }
 
+    .lore-entry.featured .lore-open {
+      z-index: 3;
+      margin-top: 6px;
+    }
+
+
+
+    /* the platform pills live inside the banner; each is its own link */
     .platforms {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 10px;
+      grid-column: 1 / -1;
+      padding-top: 16px;
+      margin-bottom: 1em; /* a <br>-sized breath after the pills */
+      border-top: 1px solid rgba(95, 242, 208, 0.12);
     }
 
     .platforms a {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 7px 13px;
+      gap: 9px;
+      padding: 14px 24px;
       border: 1px solid var(--line);
       border-radius: 999px;
       color: var(--text);
       text-decoration: none;
-      font-size: 0.82rem;
+      font-size: 1.08rem;
       white-space: nowrap;
       flex: 0 0 auto;
       transition: border-color 0.15s, color 0.15s;
@@ -344,10 +360,44 @@
     }
 
     .platforms .dot {
-      width: 8px;
-      height: 8px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       flex: 0 0 auto;
+    }
+
+    /* one solid call to action, aligned with the headline */
+    .lore-open {
+      justify-self: start;
+      align-self: center;
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: #5ff2d0;
+      color: #06110d;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 0 22px rgba(95, 242, 208, 0.35);
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+
+    .lore-open:hover,
+    .lore-open:focus-visible {
+      box-shadow: 0 0 30px rgba(95, 242, 208, 0.6);
+      transform: translateY(-1px);
+    }
+
+    @media (min-width: 700px) {
+      .lore-entry.featured {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      /* the pills stay together as one row under the copy, spanning both columns */
+      .lore-entry.featured .platforms {
+        grid-column: 1 / -1;
+      }
     }
 
     .footer-message {
@@ -375,20 +425,10 @@
         grid-template-columns: 1fr;
       }
 
-      /* stack the featured card: text on top, full-width button beneath */
+      /* stack the featured banner on a phone */
       .lore-entry.featured {
         grid-template-columns: minmax(0, 1fr);
         padding: 18px;
-      }
-
-      .lore-cta {
-        grid-column: 1;
-        grid-row: auto;
-        justify-self: stretch;
-        text-align: center;
-        margin-top: 4px;
-        padding: 13px 20px;
-        font-size: 1rem;
       }
     }
   </style>
@@ -414,33 +454,31 @@
       Read the sources. Follow the connections. Derive the proof for yourself.
     </div>
 
-    <section class="lore-block" aria-labelledby="lore-heading">
-      <a class="lore-entry featured" href="kissingface.html">
-        <div>
-          <span class="lore-kicker">Start here — the music archive</span>
-          <h3 id="lore-heading">
-            <span class="title-link">Kissing Face</span>
-          </h3>
-          <p>Every album, every track, every date — the whole record, playable. Click to open it.</p>
-        </div>
-        <span class="lore-cta">Open Kissing Face →</span>
-      </a>
 
-      <div class="platforms">
-        <a href="https://music.youtube.com/@elsavelaz"
-           target="_blank" rel="noopener noreferrer">
-          <span class="dot" style="background:#ff0033"></span>YouTube Music</a>
-        <a href="https://www.youtube.com/@elsavelaz/releases"
-           target="_blank" rel="noopener noreferrer">
-          <span class="dot" style="background:#ff0000"></span>YouTube</a>
-        <a href="https://open.spotify.com/artist/27NhC9Ct23OhR441IZH6KY"
-           target="_blank" rel="noopener noreferrer">
-          <span class="dot" style="background:#1db954"></span>Spotify</a>
-        <a href="https://music.apple.com/us/artist/dj-elsa/415547530"
-           target="_blank" rel="noopener noreferrer">
-          <span class="dot" style="background:#fa243c"></span>Apple Music</a>
-      </div>
-    </section>
+      <section class="lore-entry featured" aria-labelledby="lore-heading">
+        <div>
+          <h3 id="lore-heading">
+            <a class="title-link" href="kissingface.html">The Lore</a>
+          </h3>
+          <a class="lore-stretch" href="kissingface.html" tabindex="-1" aria-hidden="true">Listen to the Lore</a>
+        </div>
+
+        <div class="platforms">
+          <a href="https://music.youtube.com/@elsavelaz"
+             target="_blank" rel="noopener noreferrer">
+            <span class="dot" style="background:#ff0033"></span>YouTube Music</a>
+          <a href="https://www.youtube.com/@elsavelaz/releases"
+             target="_blank" rel="noopener noreferrer">
+            <span class="dot" style="background:#ff0000"></span>YouTube</a>
+          <a href="https://open.spotify.com/artist/27NhC9Ct23OhR441IZH6KY"
+             target="_blank" rel="noopener noreferrer">
+            <span class="dot" style="background:#1db954"></span>Spotify</a>
+          <a href="https://music.apple.com/us/artist/dj-elsa/415547530"
+             target="_blank" rel="noopener noreferrer">
+            <span class="dot" style="background:#fa243c"></span>Apple Music</a>
+        </div>
+
+      </section>
 
     <div class="buttons">
 
