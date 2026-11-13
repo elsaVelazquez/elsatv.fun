@@ -428,10 +428,10 @@ def create_html(albums):
       opacity: 1; visibility: visible;
     }
     .toggle { position: absolute; opacity: 0; width: 0; height: 0; margin: 0; }
-    .toggle:checked ~ .album-info { background: #0e120c; }
     .tracklist {
-      /* covers the whole card, cover art and info alike */
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      /* sits over the COVER only. The info block below never moves, so the
+         title, date and Listen button stay put on hover and on tap. */
+      position: absolute; top: 0; left: 0; right: 0; height: 200px;
       margin: 0; padding: 12px 14px; box-sizing: border-box;
       list-style: none; overflow-y: auto;
       background: #080b07;
@@ -440,12 +440,15 @@ def create_html(albums):
       z-index: 1;
     }
     /* title truncates so it never runs into the duration */
-    .tracklist li { padding: 1px 0; display: flex; gap: 6px; align-items: baseline; }
+    .tracklist li { padding: 1px 0; display: flex; gap: 6px; align-items: baseline;
+      list-style: none; }
     .tracklist .num { color: #6f7d66; flex: 0 0 1.4em; }
     .tracklist .name { flex: 1 1 auto; min-width: 0; overflow: hidden;
       text-overflow: ellipsis; white-space: nowrap; }
     .tracklist .dur { color: #6f7d66; flex: 0 0 auto; font-variant-numeric: tabular-nums; }
     .tracklist .empty { color: #6f7d66; font-style: italic; }
+    /* the <a> is a direct child of <ul>; keep it out of list-item styling */
+    .tracklist a.listen-btn { list-style: none; }
     .listen-btn { display: block; margin: 0 0 9px 0; padding: 8px 12px;
       background: #b8ff43; color: #131a0c; text-align: center;
       text-decoration: none; border-radius: 5px; font-weight: bold;
@@ -458,11 +461,12 @@ def create_html(albums):
     .close-btn:hover { color: #f5f6f0; }
     .tracklist .listen-btn { margin-right: 22px; }
     /*
-     * Closed: the label sits on top of the card and a tap opens the list.
-     * Open:   the list is on top, so taps reach the songs and the play button.
-     *         A "close" control is rendered inside the list for toggling back.
+     * The tap target is the COVER AREA only, matching where the list appears.
+     * Closed: tap the cover to open. Open: the list is on top, so taps reach
+     * the songs and the play button; the ✕ folds it back.
      */
-    .toggle-label { position: absolute; inset: 0; cursor: pointer; z-index: 2; }
+    .toggle-label { position: absolute; top: 0; left: 0; right: 0; height: 200px;
+      cursor: pointer; z-index: 2; }
     .toggle:checked ~ .toggle-label { display: none; }
     .toggle:checked ~ .tracklist { opacity: 1; visibility: visible; }
     .album-info { padding: 15px; }
