@@ -424,11 +424,12 @@ def main():
 
     load_env()
 
-    # Get API keys
+    # API_KEY is optional. Link resolution no longer touches the YouTube Data
+    # API (manual override -> ONCE -> releases page), so the script runs fine
+    # without it. Kept only so nothing breaks if it is set.
     api_key = os.getenv('API_KEY')
     if not api_key:
-        print("❌ API_KEY not found in .env")
-        return
+        print("ℹ️  no API_KEY set — running without it (not needed)")
 
     # Get ONCE releases
     releases = get_once_releases()
