@@ -1,6 +1,6 @@
 # Daily publish
 
-```
+```sh
 ./publish.sh
 ```
 
@@ -9,27 +9,44 @@ pushes. If nothing changed it stops without committing.
 
 Run manually instead:
 
-cd ~CODE/elsatvfun/elsatv.fun
+```sh
+cd <project-folder>
 source venv/bin/activate
 # your prompt now starts with (venv)
 python -V        # sanity check: should be 3.13
+```
 
+Then, for a hand-edited page such as `index.html`:
+
+```sh
 git status                       # what's modified
 git diff index.html              # read your own changes
 git add index.html
 git commit -m "Homepage: describe your change here"
 git push origin main
+```
 
-# if making changes to other pages besides kissingface:
+## If making changes to other pages besides kissingface
+
+`main` takes direct pushes, so there is no pull request and nothing to
+"merge" — the push is the update. Use a branch only when you *want* a diff to
+review before it goes live:
+
+```sh
 git switch -c notes/instructions
 git commit -am "Notes: my personal instructions"
 git push -u origin notes/instructions
-
-When to use ./publish.sh instead
-If your change is to the music page (kissingface.html) or the album/track data — i.e. you edited manual_links.json and want the page regenerated — then:
-
-
 ```
+
+GitHub then offers "Compare & pull request" for that branch.
+
+## When to use ./publish.sh instead
+
+If your change is to the music page (`kissingface.html`) or the album/track
+data — i.e. you edited `manual_links.json` and want the page regenerated —
+then:
+
+```sh
 venv/bin/python FINAL_SYNC.py
 ```
 
@@ -49,7 +66,7 @@ are skipped until their ONCE status changes (e.g. they go live).
 
 It means ONCE has no store link yet. If you can see it on YouTube:
 
-```
+```sh
 venv/bin/python add_link.py "Album Name" "https://www.youtube.com/watch?v=XXX&list=OLAK5uy_..."
 
 venv/bin/python add_link.py --missing   # what still needs one
@@ -58,7 +75,7 @@ venv/bin/python add_link.py --list      # what is pinned manually
 
 Then commit the manual file too, or the link only exists on this machine:
 
-```
+```sh
 git add lore/manual_links.json && git commit -m "Add link for Album Name"
 ```
 
