@@ -276,13 +276,28 @@ def create_album_data(releases, api_key):
     cache = load_cache()
     manual = load_manual()
 
-    # Tracklists come from build_albums.py -> lore/albums.json. Run it first;
-    # a missing file just means cards render without a hover list.
+    # build_albums.py -> lore/albums.json is the richest source we have. It
+    # carries the tracklists, plus an album playlist and a cover that it already
+    # resolved by title. Run it first; a missing file just means cards render
+    # without a hover list.
     tracklists = {}
+    album_meta = {}
     if ALBUMS_FILE.exists():
         try:
             for a in json.loads(ALBUMS_FILE.read_text()).get('albums', []):
-                tracklists[norm(a['album_name'])] = a.get('songs') or []
+                key = norm(a['album_name'])
+                tracklists[key] = a.get('songs') or []
+                album_meta[key] = {
+                    'album_link': a.get('album_link') or '',
+                    'cover_art': a.get('cover_art') or '',
+                    # a bare watch?v=… from ONCE still yields a thumbnail id
+                    'video_id': None,
+                }
+                for url in (a.get('album_link'), a.get('youtube_link')):
+                    m = re.search(r'[?&]v=([A-Za-z0-9_-]{11})', url or '')
+                    if m:
+                        album_meta[key]['video_id'] = m.group(1)
+                        break
         except Exception as e:
             print(f"  ⚠️  albums.json unreadable: {e}")
     else:
@@ -336,16 +351,35 @@ def create_album_data(releases, api_key):
 
         # 2) scrape the public releases page (by title, exact-normalised)
         hit = scraped.get(norm(title))
+        hit_link = ''
         if hit:
             if not youtube_url:
                 youtube_url = hit['youtube_url']
                 print(f"  ✅ scrape: {youtube_url}", flush=True)
             playlist_url = playlist_url or hit.get('playlist_url')
+            # the scraped watch?v=&list= URL is what the live page already had
+            hit_link = hit.get('youtube_url') or ''
+
+        # A playlist the owner typed into manual_links.json is "preferred": it
+        # replaces whatever link the card had, so the button opens the album.
+        preferred = bool(override and override.get('album_link'))
+
+        # build_albums.py resolves the same album by title. Its cover fills a
+        # gap (ONCE's cover URLs are account-private and 404 in a browser), but
+        # its playlist is only ever a last resort: a card that already had a
+        # working link keeps it, so a sync never rewrites 30 good cards.
+        meta = album_meta.get(norm(title)) or {}
+        if preferred:
+            playlist_url = override['album_link']
+        else:
+            playlist_url = playlist_url or hit_link or meta.get('album_link') or ''
 
         video_id = None
         if youtube_url:
             m = re.search(r'[?&]v=([A-Za-z0-9_-]{11})', youtube_url)
             video_id = m.group(1) if m else None
+        if not video_id:
+            video_id = meta.get('video_id')
 
         if not youtube_url:
             print(f"  ⚠️  no YouTube link yet (ONCE status: "
@@ -355,6 +389,9 @@ def create_album_data(releases, api_key):
         # load (ONCE's /api/files cover-art URLs are account-private → 404).
         # Fall back to the ONCE file only when we have no video id.
         cover = f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg" if video_id else ''
+        if not cover:
+            # build_albums.py may already have found a public thumbnail
+            cover = meta.get('cover_art') or ''
         if not cover:
             cover = release.get('cover_art_file_url') or ''
             if cover.startswith('/'):
@@ -390,7 +427,8 @@ def create_album_data(releases, api_key):
             'youtube_url': youtube_url or '',
             'album_link': playlist_url or '',
             'songs': tracklists.get(norm(title)) or [],
-            'genre': release.get('genre', 'Electronic')
+            'genre': release.get('genre', 'Electronic'),
+            'preferred_link': preferred,
         }
         albums.append(album)
 
@@ -573,8 +611,19 @@ def create_html(albums):
             cover = PENDING_LOGO
             img_class = ' class="pending-cover"'
 
-        if album['youtube_url']:
-            link = (f'<a href="{album["youtube_url"]}" target="_blank" '
+        # The button opens the existing link unchanged — a bare watch?v= or a
+        # watch?v=&list= both go where they always did. A playlist subtitled
+        # "preferred" is only for an album no link exists for yet.
+        if album.get('preferred_link') and album.get('album_link'):
+            href = album['album_link']
+        else:
+            href = album['youtube_url'] or album.get('album_link')
+        if not href and isinstance(album.get('songs'), list):
+            # last resort: a per-song link ONCE published for the tracklist
+            href = next((s.get('youtube_link') for s in album['songs']
+                         if s.get('youtube_link')), '')
+        if href:
+            link = (f'<a href="{href}" target="_blank" rel="noopener" '
                     f'class="album-link">Listen on YouTube Music</a>')
         else:
             link = '<span class="album-link pending">Coming soon</span>'
@@ -692,13 +741,30 @@ def main():
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(songs, indent=2, ensure_ascii=False), encoding='utf-8')
 
-    with_link = sum(1 for s in songs if s['youtube_link'])
+    with_link = sum(1 for s in songs if s['album_link'] or s['youtube_link'])
     with_cover = sum(1 for s in songs if s['cover_art'])
     print(f"\n🎉 DONE!")
     print(f"✅ kissingface.html: {len(albums)} album cards")
     print(f"✅ lore/songs.json: {len(songs)} rows")
     print(f"   {with_link} with a YouTube link, {len(songs) - with_link} still blank")
     print(f"   {with_cover} with cover art")
+
+    # Name the cards that rendered as "Coming soon" or fell back to the
+    # placeholder logo. The totals above can look healthy while individual
+    # cards are dead, which is exactly how the missing playlist id went
+    # unnoticed. This is a warning, not a failure: a brand-new release that
+    # ONCE has not published yet legitimately has no link.
+    broken = [a['title'] for a in albums
+              if not (a['album_link'] or a['youtube_url'])]
+    if broken:
+        print(f"\n⚠️  {len(broken)} card(s) show 'Coming soon':")
+        for title in broken:
+            print(f"     - {title}")
+    no_cover = [a['title'] for a in albums if not a['cover_art']]
+    if no_cover:
+        print(f"\n⚠️  {len(no_cover)} card(s) use the placeholder logo:")
+        for title in no_cover:
+            print(f"     - {title}")
 
 
 if __name__ == "__main__":
