@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-14T11:02:40+00:00",
+  "generated_at": "2026-11-14T11:22:14+00:00",
   "album_count": 78,
   "song_count": 390,
   "albums": [
     {
       "album_name": "Real Dream Is Real",
       "date_published": "2026-11-12",
-      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_kd-zoKzT3Z3iAKyyxipOHaVU4AN0iv0dQ",
-      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kd-zoKzT3Z3iAKyyxipOHaVU4AN0iv0dQ",
-      "cover_art": "",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_kyXxhYtBc1Aiai9iCLGvkS07ajG9Cz4_8",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kyXxhYtBc1Aiai9iCLGvkS07ajG9Cz4_8",
+      "cover_art": "https://i.ytimg.com/vi/uhKsURRr0Rw/hqdefault.jpg",
       "songs": [
         {
           "track_number": 1,
@@ -26,7 +26,7 @@
           "track_number": 3,
           "song_name": "Real Dream Is Real",
           "duration": "4:02",
-          "youtube_link": ""
+          "youtube_link": "https://www.youtube.com/watch?v=uhKsURRr0Rw&list=OLAK5uy_kd-zoKzT3Z3iAKyyxipOHaVU4AN0iv0dQ"
         }
       ]
     },
