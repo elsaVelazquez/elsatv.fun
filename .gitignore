@@ -29,3 +29,11 @@ lore/YTelsaTVposts/
 
 # Editor
 .vscode/
+
+# Scraping / ingestion scripts. NOTE: add_link.py, build_albums.py and
+# FINAL_SYNC.py are already tracked, and .gitignore does NOT untrack a file
+# that is already in the repo. Listing them here only stops NEW files from
+# being added; taking them out of the repo needs `git rm --cached <file>`.
+# Also: .github/workflows/sync-releases.yml runs FINAL_SYNC.py on a nightly
+# cron, so removing it from the repo breaks that job.
+collect_music_links.py
