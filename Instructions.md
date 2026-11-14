@@ -85,3 +85,14 @@ git add lore/manual_links.json && git commit -m "Add link for Album Name"
 - `.env` is gitignored and stays local. Never commit it, never paste its
   contents anywhere.
 - `manual_links.json` wins over ONCE and the scrape, and is never overwritten.
+
+
+## to add links manually
+
+-while in main:
+
+```sh
+git add FINAL_SYNC.py lore/manual_links.json
+git commit -m "manual_links: Real Dream Is Real; honour typed playlists"
+./publish.sh
+```
