@@ -9,6 +9,26 @@ pushes. If nothing changed it stops without committing.
 
 Run manually instead:
 
+cd ~CODE/elsatvfun/elsatv.fun
+source venv/bin/activate
+# your prompt now starts with (venv)
+python -V        # sanity check: should be 3.13
+
+git status                       # what's modified
+git diff index.html              # read your own changes
+git add index.html
+git commit -m "Homepage: describe your change here"
+git push origin main
+
+# if making changes to other pages besides kissingface:
+git switch -c notes/instructions
+git commit -am "Notes: my personal instructions"
+git push -u origin notes/instructions
+
+When to use ./publish.sh instead
+If your change is to the music page (kissingface.html) or the album/track data — i.e. you edited manual_links.json and want the page regenerated — then:
+
+
 ```
 venv/bin/python FINAL_SYNC.py
 ```
