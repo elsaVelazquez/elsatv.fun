@@ -87,10 +87,15 @@ border-radius:999px;padding:1px 8px}
 .meta a{color:var(--acc);text-decoration:none}
 .meta a:hover{text-decoration:underline}
 .shots{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}
-.shot{margin:0;flex:1 1 190px;max-width:340px}
-.shot img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;
+.shot{margin:0;flex:1 1 190px;max-width:340px;min-height:120px}
+/* The box is the MINIMUM: these photos are mostly portrait 9:16 screenshots, so
+   a fixed 4:3 crop cut the top and bottom off every one of them (the date bar
+   went with it). An unloaded or failed image keeps ~4:3 so lazy rows do not
+   collapse to a sliver, and a loaded one simply grows to its real shape. */
+.shot img{width:100%;height:auto;min-height:120px;object-fit:contain;display:block;
 border-radius:6px;border:1px solid var(--line);cursor:zoom-in;
 transition:transform .15s;background:#0d1109}
+.shot a{display:block}
 .shot a:hover img{transform:translateY(-2px)}
 .shot-date{margin-top:5px;font-size:.8rem;color:var(--lime);
 	letter-spacing:.02em}
