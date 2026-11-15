@@ -88,11 +88,20 @@ def image_entries(post, ocr, extra, llm, stamped_dir):
     The three text fields are kept apart on purpose: the first tesseract pass,
     the multi-pass second reading, and the LLM's verbatim retype. Nothing is
     merged or shortened — the page prepends them in that order.
+
+    `cdn` is the image's own URL on YouTube's CDN, taken from index.json. The
+    two lists are parallel — image_files[n] came from image_urls[n] when
+    archive_posts.py downloaded them — so the file index is the join key. It is
+    left '' when the lists do not line up, and the page then falls back to the
+    local file path instead of showing a wrong picture.
     """
+    files = post.get('image_files') or []
+    urls = post.get('image_urls') or []
     out = []
-    for name in post.get('image_files') or []:
+    for n, name in enumerate(files):
         out.append({
             'file': name,
+            'cdn': urls[n] if n < len(urls) else '',
             'stamped': (f'{stamped_dir.name}/{name}'
                         if (stamped_dir / name).exists() else ''),
             'ocr_text': (ocr.get(name) or {}).get('text', ''),

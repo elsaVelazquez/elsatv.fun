@@ -10,7 +10,13 @@ Three copies of the same 1,617 pictures, each doing a different job:
 
 The page itself (`posts.html`) stays on GitHub Pages. It is one static file, so
 Pages is fine. The _pictures_ cannot live there — Pages has a 1 GB limit and the
-stamped set is ~0.9 GB before anything else — which is the whole reason for R2.
+image set is 199 MB of WebP before anything else — which is the whole reason
+for R2.
+
+**What gets uploaded is `lore/YTelsaTVposts/web/`, not `datestamped/`.**
+`web/` is 1,617 WebP files (~199 MB), made by `web_images.py`: same pictures,
+same black date bar, longest side 1600 px, ~4–6× smaller. `datestamped/`
+(1.8 GB of JPEG) is the master — it stays on the drive and goes into the zips.
 
 ---
 
@@ -58,19 +64,25 @@ That's the only fiddly part. Everything after this is one command.
 
 `.env` is already gitignored, so these never reach GitHub.
 
+One command does it, including replacing any old R2 line. Paste the three
+values **in quotes** — the Account ID and the secret can contain characters the
+shell would otherwise eat:
+
 ```bash
 cd /Volumes/storage2-end-sep2025-to-future/CODE/elsatvfun/elsatv.fun
-cat >> .env <<'EOF'
-
-# Cloudflare R2 — image delivery for posts.html
-R2_ACCOUNT_ID=paste-account-id
-R2_ACCESS_KEY_ID=paste-access-key-id
-R2_SECRET_ACCESS_KEY=paste-secret
-R2_BUCKET=elsatv-images
-EOF
+venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_r2.py --set-keys \
+  "paste-account-id" \
+  "paste-access-key-id" \
+  "paste-secret" \
+  --set-bucket elsatv-images
 ```
 
-Then check it parses (it will say "missing in .env" if a paste went wrong):
+It trims stray spaces, writes the four `R2_*` lines into `.env`, and prints them
+back with the middle hidden (`abc1…9xyz (32 chars)`) so you can confirm the
+length without exposing the secret. Running it twice is safe — it replaces, not
+appends.
+
+Then check it parses and see what is already in the bucket:
 
 ```bash
 venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_r2.py --check
@@ -90,7 +102,8 @@ R2 buckets are private by default. The page needs to read them with no key.
    Cloudflare adds the DNS record for you.
 3. Wait for the status to say **Active** (usually under a minute with the
    domain already on Cloudflare). Files are then at
-   `https://img.elsatv.fun/datestamped/<file>`.
+   `https://img.elsatv.fun/web/<file>.webp` (the script uploads under the
+   `web/` key prefix).
 
 **Option B — the free `r2.dev` endpoint (no domain work)**
 
@@ -111,45 +124,45 @@ cd /Volumes/storage2-end-sep2025-to-future/CODE/elsatvfun/elsatv.fun
 # look first, no uploading
 venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_r2.py --dry-run
 
-# then for real
+# then for real (use your URL from Step 3). --public-base does not edit any
+# file; it just prints the FALLBACK_BASE line for Step 5 to copy.
 venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_r2.py --public-base https://img.elsatv.fun
 ```
 
-About 0.9 GB, so a few minutes on a normal connection. It prints progress every
-25 files and skips anything already in the bucket, so:
+The source is `lore/YTelsaTVposts/web/*.webp` — the ~199 MB WebP set made by
+`web_images.py`, not the 1.9 GB `datestamped/` originals. About 199 MB, so a
+couple of minutes on a normal connection. Each file is one
+`put_object` with `Cache-Control: immutable`, and anything already in the bucket
+is skipped, so:
 
 - **you interrupted it?** run the same command again, it picks up where it stopped
 - **you added three new posts?** run the same command again, it uploads three files
 
-At the end it prints the exact line to paste in Step 5.
+At the end it prints the exact `FALLBACK_BASE` line for Step 5.
 
 ---
 
 ## Step 5 — Point the page at the bucket
 
-Open `scripts/lore/yt_posts_lore_scripts/build_posts_html.py`, find line 79:
+Open `scripts/lore/yt_posts_lore_scripts/build_posts_html.py`, find
+`FALLBACK_BASE`, and set it to the URL from Step 3 (paste the line Step 4
+printed):
 
 ```python
-FALLBACK_BASE = ''
-```
-
-and make it the URL from Step 3:
-
-```python
-FALLBACK_BASE = 'https://img.elsatv.fun'
+FALLBACK_BASE = ''                                  # was
+FALLBACK_BASE = 'https://img.elsatv.fun'            # now
 ```
 
 Then rebuild and publish:
 
 ```bash
 cd /Volumes/storage2-end-sep2025-to-future/CODE/elsatvfun/elsatv.fun
-venv/bin/python scripts/lore/yt_posts_lore_scripts/build_day_index.py
 venv/bin/python scripts/lore/yt_posts_lore_scripts/build_posts_html.py
 
-# the builder writes lore/YTelsaTVposts/posts.html; the root copy is what Pages serves
-cp lore/YTelsaTVposts/posts.html posts.html
+# the builder writes BOTH copies: lore/YTelsaTVposts/posts.html and the root
+# posts.html that Pages serves. No cp needed.
 
-git add posts.html scripts/lore/yt_posts_lore_scripts/build_posts_html.py scripts/lore/yt_posts_lore_scripts/sync_r2.py
+git add posts.html lore/YTelsaTVposts/posts.html scripts/lore/yt_posts_lore_scripts/build_posts_html.py scripts/lore/yt_posts_lore_scripts/sync_r2.py
 git commit -m "posts: images fall back to Cloudflare R2"
 git push origin main
 ```
@@ -158,12 +171,12 @@ git push origin main
 
 ## Step 6 — Prove it works
 
-Check the bucket serves a real file. Take any name from the build output:
+Check the bucket serves a real file. Take any name from `web/`:
 
 ```bash
-ls lore/YTelsaTVposts/datestamped | head -1
+ls lore/YTelsaTVposts/web/*.webp | head -1
 # then open in a browser:
-#   https://img.elsatv.fun/datestamped/<that-name>
+#   https://img.elsatv.fun/web/<that-name>.webp
 ```
 
 It should show the picture **with the black date bar across the top**. If it

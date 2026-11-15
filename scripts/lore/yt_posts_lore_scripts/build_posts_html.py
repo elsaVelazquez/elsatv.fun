@@ -91,10 +91,14 @@ CDN_SIZE = '=s800'
 # Or pass it on the command line, which is easier than editing this file:
 #
 #   venv/bin/python .../build_posts_html.py --fallback-base https://pub-xxxx.r2.dev
+#
+# The bucket holds the WebP copies made by web_images.py, under web/
+# (e.g. web/abc123_1.webp), so FALLBACK_DIR and FALLBACK_EXT below match that.
 FALLBACK_BASE = ''
-FALLBACK_DIR = 'datestamped'
-# If the uploaded files sit directly in the bucket root instead of a
-# datestamped/ prefix, pass --fallback-dir '' on the command line.
+FALLBACK_DIR = 'web'
+FALLBACK_EXT = '.webp'
+# If the uploaded files sit directly in the bucket root instead of a web/
+# prefix, pass --fallback-dir '' on the command line.
 FALLBACK_SUBPREFIX = ''
 
 
@@ -134,10 +138,13 @@ def fallback_path(img):
     name = img.get('file', '')
     if not name:
         return ''
+    # The bucket holds the WebP re-encode, not the original: same stem, new
+    # suffix (web_images.py writes <stem>.webp for every file in datestamped/).
+    stem = name.rsplit('.', 1)[0] if '.' in name else name
     parts = [FALLBACK_BASE.rstrip('/')]
     if FALLBACK_SUBPREFIX:
         parts.append(FALLBACK_SUBPREFIX.strip('/'))
-    parts.append(name)
+    parts.append(stem + FALLBACK_EXT)
     return '/'.join(parts)
 
 
@@ -150,7 +157,11 @@ def render_image(img, idx, post=None):
     never loads, and collapses to a 2px sliver. Loading eagerly plus the CSS
     aspect-ratio keeps the layout stable without measuring anything.
     """
-    src = img.get('cdn') or image_path(img)
+    # CDN sentinel: 'youtube' in index.json means the URL is a real yt3.ggpht
+    # URL. Anything else (a local path, the string 'webp', etc.) is not an
+    # absolute URL, so it must never win over the local file.
+    cdn = img.get('cdn') or ''
+    src = cdn if cdn.startswith(('http://', 'https://')) else image_path(img)
     fallback = fallback_path(img)
     fallback_attr = (f'\n                 data-fallback="{html.escape(fallback)}"'
                      if fallback else '')
@@ -552,12 +563,11 @@ JS = r'''
 
 def build_page(payload, remote_images=False):
     days = payload.get('days', {})
-    if not remote_images:
-        # Local build: stamped files on disk, as before.
-        for day in days.values():
-            for post in day.get('posts', []):
-                for img in post.get('images', []):
-                    img.pop('cdn', None)
+    # NOTE: the `cdn` key set in main() is intentionally NOT stripped here.
+    # render_image() already prefers it only when it is an absolute URL, so the
+    # local copy still shows datestamped/ files from disk (it opens with
+    # file://, where a remote URL is useless) while the public copy — where
+    # those relative paths cannot resolve on GitHub Pages — gets the CDN.
     body = ''.join(render_day(k, d) for k, d in days.items())
     stats = (f'{payload.get("day_count", 0)} days · '
              f'{payload.get("post_count", 0)} posts · '
@@ -649,7 +659,8 @@ def main():
                 img['cdn'] = cdn_path(urls.get(img.get('file'), ''))
     remote = sum(1 for day in payload.get('days', {}).values()
                  for post in day.get('posts', [])
-                 for img in post.get('images', []) if img.get('cdn'))
+                 for img in post.get('images', [])
+                 if (img.get('cdn') or '').startswith(('http://', 'https://')))
     total = sum(1 for day in payload.get('days', {}).values()
                 for post in day.get('posts', [])
                 for img in post.get('images', []))
@@ -664,12 +675,14 @@ def main():
     #    nothing for GitHub Pages to store. If an image has no recorded URL it
     #    falls back to the relative path, which simply will not resolve here.
     root_page = build_page(payload, remote_images=True)
-    # Only rewrite URLs that are still RELATIVE — the " in the pattern means an
-    # absolute https:// URL (YouTube CDN, R2 fallback) can never be touched.
-    root_page = root_page.replace('src="datestamped/', f'src="{ROOT}/datestamped/')
-    root_page = root_page.replace('src="images/', f'src="{ROOT}/images/')
-    root_page = root_page.replace('href="datestamped/', f'href="{ROOT}/datestamped/')
-    root_page = root_page.replace('href="images/', f'href="{ROOT}/images/')
+    # Deliberately NO path rewriting. An earlier version prefixed every leftover
+    # relative path with lore/YTelsaTVposts/ because that is where datestamped/
+    # and images/ live on this machine — but that folder is gitignored, so on
+    # GitHub Pages those URLs were guaranteed 404s pointing at a directory that
+    # is never published. Left relative, the same few images fail the same way
+    # (there is nothing at the repo root to serve them), but the markup no longer
+    # lies about where a file is, and data-fallback takes over as soon as an
+    # image host is configured.
     ROOT_COPY.write_text(root_page, encoding='utf-8')
     print(f'→ {ROOT_COPY}  ({remote}/{total} images from YouTube CDN, '
           f'{total - remote} with no URL)')

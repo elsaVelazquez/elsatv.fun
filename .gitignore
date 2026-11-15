@@ -23,6 +23,11 @@ Thumbs.db
 *.temp
 .trigger_sync
 
+# Throwaway QA probes (headless-browser checks, screenshot scratch scripts).
+# These are written, run once, and deleted — never part of the pipeline.
+_probe.js
+scripts/**/_qa_*.mjs
+
 # Local YouTube posts archive (lore corpus backup) — ~1.9 GB of images,
 # intentionally kept off GitHub. See lore/YTelsaTVposts/README.md
 # This also covers lore/YTelsaTVposts/export/, which is where
@@ -31,6 +36,10 @@ lore/YTelsaTVposts/
 
 # Editor
 .vscode/
+
+# R2 credentials for sync_r2.py (account id, keys). Never commit.
+.r2.env
+rclone.conf
 
 # Scraping / ingestion scripts. NOTE: add_link.py, build_albums.py and
 # FINAL_SYNC.py are already tracked, and .gitignore does NOT untrack a file
