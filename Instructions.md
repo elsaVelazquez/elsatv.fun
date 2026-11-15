@@ -47,8 +47,12 @@ data — i.e. you edited `manual_links.json` and want the page regenerated —
 then:
 
 ```sh
-venv/bin/python FINAL_SYNC.py
+venv/bin/python scripts/lore/music_lore_scripts/FINAL_SYNC.py
 ```
+
+Always run script commands **from the repo root** (`~CODE/elsatvfun/elsatv.fun`),
+not from inside `scripts/`. The scripts find `lore/`, `.env` and `kissingface.html`
+relative to wherever you are standing.
 
 ## What a normal run does (about 20 seconds)
 
@@ -67,10 +71,10 @@ are skipped until their ONCE status changes (e.g. they go live).
 It means ONCE has no store link yet. If you can see it on YouTube:
 
 ```sh
-venv/bin/python add_link.py "Album Name" "https://www.youtube.com/watch?v=XXX&list=OLAK5uy_..."
+venv/bin/python scripts/lore/music_lore_scripts/add_link.py "Album Name" "https://www.youtube.com/watch?v=XXX&list=OLAK5uy_..."
 
-venv/bin/python add_link.py --missing   # what still needs one
-venv/bin/python add_link.py --list      # what is pinned manually
+venv/bin/python scripts/lore/music_lore_scripts/add_link.py --missing   # what still needs one
+venv/bin/python scripts/lore/music_lore_scripts/add_link.py --list      # what is pinned manually
 ```
 
 Then commit the manual file too, or the link only exists on this machine:
@@ -92,7 +96,7 @@ git add lore/manual_links.json && git commit -m "Add link for Album Name"
 -while in main:
 
 ```sh
-git add FINAL_SYNC.py lore/manual_links.json
+git add lore/manual_links.json
 git commit -m "manual_links: Real Dream Is Real; honour typed playlists"
 ./publish.sh
 ```

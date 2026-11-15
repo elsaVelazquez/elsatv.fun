@@ -3,7 +3,8 @@
 #
 #   ./publish.sh
 #
-# Runs FINAL_SYNC.py (needs .env), then commits only the generated files and
+# Runs the music scripts in scripts/lore/music_lore_scripts/ (need .env),
+# then commits only the generated files and
 # pushes to main. GitHub Pages serves kissingface.html from the repo root.
 set -e
 cd "$(dirname "$0")"
@@ -18,11 +19,13 @@ else
     exit 1
 fi
 
+MUSIC="scripts/lore/music_lore_scripts"
+
 echo "→ building album tracklists"
-"$PY" build_albums.py
+"$PY" "$MUSIC/build_albums.py"
 
 echo "→ syncing releases"
-"$PY" FINAL_SYNC.py
+"$PY" "$MUSIC/FINAL_SYNC.py"
 
 # Only build output is staged. manual_links.json and .env are never touched:
 # the first is yours to edit, the second must never be committed.

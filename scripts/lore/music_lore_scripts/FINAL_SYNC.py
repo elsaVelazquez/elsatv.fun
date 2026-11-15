@@ -14,8 +14,12 @@ from datetime import datetime
 import time
 
 
+# Run from the repo root: every path below (and .env, kissingface.html) is
+# relative to it. publish.sh and the nightly Action both do exactly that.
 CACHE_FILE = Path('lore/yt_link_cache.json')
 MANUAL_FILE = Path('lore/manual_links.json')
+# QA'd album + per-song links, produced outside this script. See load_enriched().
+ENRICHED_FILE = Path('lore/music_links_enriched.json')
 ALBUMS_FILE = Path('lore/albums.json')
 # Shown on any card that has no track/album art yet.
 PENDING_LOGO = 'elfalpha_logo.png'
@@ -106,6 +110,49 @@ def load_manual():
         return {}
     return {norm(k): v for k, v in data.items()
             if not k.startswith('_') and isinstance(v, dict)}
+
+
+def load_enriched():
+    """
+    lore/music_links_enriched.json — QA'd links, keyed by album title.
+
+    Written by the separate lookup pass, not by this script. Only two fields are
+    read out of it:
+
+        youtubemusic_album_link   the album playlist the card button opens
+        youtubemusic_song_link    per track, the link behind the song title
+
+    Everything else in the file — apple_*, spotify_*, the plain youtube_ urls,
+    cover_art, and the lookup_status/link_counts summary — is deliberately
+    ignored.
+
+    Album and song links are kept apart on purpose: the button must always open
+    the release, and a song title must always open that one song.
+    """
+    if not ENRICHED_FILE.exists():
+        return {}
+    try:
+        data = json.loads(ENRICHED_FILE.read_text())
+    except Exception as e:
+        print(f"  ⚠️  music_links_enriched.json unreadable: {e}")
+        return {}
+
+    albums = {}
+    for a in data.get('albums') or []:
+        title = a.get('album_name') or ''
+        if not title:
+            continue
+        songs = {}
+        for s in a.get('songs') or []:
+            name = s.get('song_name') or ''
+            link = s.get('youtubemusic_song_link') or ''
+            if name and link:
+                songs[norm(name)] = link
+        albums[norm(title)] = {
+            'album_link': a.get('youtubemusic_album_link') or '',
+            'songs': songs,
+        }
+    return albums
 
 
 def yt_link_from_once(release_id, pat, retries=4):
@@ -275,6 +322,10 @@ def create_album_data(releases, api_key):
     pat = os.getenv('ONCE_PAT')
     cache = load_cache()
     manual = load_manual()
+    enriched = load_enriched()
+    if enriched:
+        print(f"{len(enriched)} album(s) with QA'd links in "
+              f"music_links_enriched.json", flush=True)
 
     # build_albums.py -> lore/albums.json is the richest source we have. It
     # carries the tracklists, plus an album playlist and a cover that it already
@@ -369,8 +420,13 @@ def create_album_data(releases, api_key):
         # its playlist is only ever a last resort: a card that already had a
         # working link keeps it, so a sync never rewrites 30 good cards.
         meta = album_meta.get(norm(title)) or {}
+        # QA'd links outrank the cache and the scrape; only a hand-typed
+        # manual_links.json entry beats them.
+        qa = enriched.get(norm(title)) or {}
         if preferred:
             playlist_url = override['album_link']
+        elif qa.get('album_link'):
+            playlist_url = qa['album_link']
         else:
             playlist_url = playlist_url or hit_link or meta.get('album_link') or ''
 
@@ -426,9 +482,11 @@ def create_album_data(releases, api_key):
             'cover_art': cover,
             'youtube_url': youtube_url or '',
             'album_link': playlist_url or '',
-            'songs': tracklists.get(norm(title)) or [],
+            'songs': _with_song_links(
+                tracklists.get(norm(title)) or [], qa.get('songs') or {}),
             'genre': release.get('genre', 'Electronic'),
             'preferred_link': preferred,
+            'qa_album_link': qa.get('album_link') or '',
         }
         albums.append(album)
 
@@ -437,8 +495,23 @@ def create_album_data(releases, api_key):
     return albums
 
 
+def _with_song_links(songs, qa_songs):
+    """
+    Attach the per-song link from music_links_enriched.json to each track.
+
+    ONCE only sometimes knows a track's video id, so most tracklists arrived
+    with youtube_link empty and the song titles rendered as dead text. A QA'd
+    link wins when present; anything ONCE supplied stays otherwise.
+    """
+    for s in songs:
+        link = qa_songs.get(norm(s.get('song_name', '')))
+        if link:
+            s['youtube_link'] = link
+    return songs
+
+
 def _song_title(song):
-    """Track name, linked to that song when ONCE gave a video id."""
+    """Track name, linked to that song when we know its own video id."""
     name = escape(song['song_name'])
     url = song.get('youtube_link')
     if url:
@@ -611,11 +684,12 @@ def create_html(albums):
             cover = PENDING_LOGO
             img_class = ' class="pending-cover"'
 
-        # The button opens the existing link unchanged — a bare watch?v= or a
-        # watch?v=&list= both go where they always did. A playlist subtitled
-        # "preferred" is only for an album no link exists for yet.
+        # The button always opens the RELEASE, never a single track. A hand-typed
+        # or QA'd playlist wins; otherwise keep whatever link the card had.
         if album.get('preferred_link') and album.get('album_link'):
             href = album['album_link']
+        elif album.get('qa_album_link'):
+            href = album['qa_album_link']
         else:
             href = album['youtube_url'] or album.get('album_link')
         if not href and isinstance(album.get('songs'), list):

@@ -33,7 +33,7 @@ jobs:
       - name: Sync releases
         env:
           ONCE_PAT: ${{ secrets.ONCE_PAT }}
-        run: python FINAL_SYNC.py
+        run: python scripts/lore/music_lore_scripts/FINAL_SYNC.py
 
       - name: Commit changes
         run: |
