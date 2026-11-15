@@ -5,7 +5,9 @@ build_posts_html.py — turn days.json into a self-contained, browsable page.
     venv/bin/python scripts/lore/yt_posts_lore_scripts/build_posts_html.py
 
 Reads  lore/YTelsaTVposts/days.json
-Writes lore/YTelsaTVposts/posts.html
+Writes lore/YTelsaTVposts/posts.html   (canonical, folder-relative copy)
+       posts.html                      (same page at the repo root: the
+                                        homepage link and the public URL)
 
 The page is one static file: no framework, no build step, no server. Images are
 referenced by relative path, so it also works opened straight from disk. That
@@ -31,6 +33,8 @@ from pathlib import Path
 ROOT = Path('lore/YTelsaTVposts')
 DAYS = ROOT / 'days.json'
 OUT = ROOT / 'posts.html'
+# Mirror at the repo root — served as elsatv.fun/posts.html
+ROOT_COPY = Path('posts.html')
 
 # Relative to the html file, which lives in ROOT.
 IMG_DIR = 'datestamped'
@@ -145,6 +149,11 @@ border-bottom:1px solid var(--line);padding:14px 20px;
 display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
 header h1{margin:0;font-size:1.15rem;color:var(--lime);letter-spacing:.02em}
 header .stat{color:var(--dim);font-size:.85rem}
+header .src{color:var(--lime);font-size:.85rem}
+header .src a{color:var(--lime);text-decoration:none;display:inline-flex;
+align-items:center;gap:5px;border-bottom:1px solid rgba(184,255,67,.35)}
+header .src a:hover{border-bottom-color:var(--lime)}
+header .src svg{width:15px;height:15px;fill:#f00;flex:0 0 auto}
 main{max-width:1500px;margin:0 auto;padding:22px 18px 80px}
 .day{margin:0 0 34px}
 .day h2{position:sticky;top:52px;z-index:4;margin:0 0 12px;padding:10px 12px;
@@ -229,6 +238,11 @@ def build_page(payload):
 <body>
 <header>
   <h1>Community posts</h1>
+  <span class="src">Community posts on
+    <a href="https://www.youtube.com/@elsaTVfun/posts" target="_blank"
+       rel="noopener noreferrer">YT@elsaTVfun/posts<svg viewBox="0 0 24 24"
+       aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+  </span>
   <span class="stat">{esc(stats)}</span>
   <span class="stat">newest first · times in Mountain Time</span>
 </header>
@@ -248,6 +262,17 @@ def main():
     page = build_page(payload)
     OUT.write_text(page, encoding='utf-8')
     print(f'→ {OUT}')
+
+    # Second copy at the repo root, so the page answers at elsatv.fun/posts.html
+    # and the homepage button can use href="posts.html". The folder layout is
+    # flattened, so every relative image path gains the ROOT prefix.
+    root_page = page.replace('src="datestamped/', f'src="{ROOT}/datestamped/')
+    root_page = root_page.replace('src="images/', f'src="{ROOT}/images/')
+    root_page = root_page.replace('href="datestamped/', f'href="{ROOT}/datestamped/')
+    root_page = root_page.replace('href="images/', f'href="{ROOT}/images/')
+    ROOT_COPY.write_text(root_page, encoding='utf-8')
+    print(f'→ {ROOT_COPY}  (same page, image paths prefixed)')
+
     print(f'  {payload.get("day_count", 0)} days, '
           f'{payload.get("post_count", 0)} posts, {len(page)/1024:.0f} KB')
 
