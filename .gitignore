@@ -23,8 +23,10 @@ Thumbs.db
 *.temp
 .trigger_sync
 
-# Local YouTube posts archive (lore corpus backup) — 1.7 GB of images,
+# Local YouTube posts archive (lore corpus backup) — ~1.9 GB of images,
 # intentionally kept off GitHub. See lore/YTelsaTVposts/README.md
+# This also covers lore/YTelsaTVposts/export/, which is where
+# archive_wayback.py writes datestamped.zip. A zip must never be committed.
 lore/YTelsaTVposts/
 
 # Editor

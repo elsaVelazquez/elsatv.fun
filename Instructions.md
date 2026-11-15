@@ -100,3 +100,16 @@ git add lore/manual_links.json
 git commit -m "manual_links: Real Dream Is Real; honour typed playlists"
 ./publish.sh
 ```
+
+new release, don't rescrape the world" one-liner runs on a single script
+
+```sh
+ refresh_posts.py
+```
+
+checks for new post IDs and only then touches the network — everything else re-runs over what's on dis
+same shape as for music, and exactly what your future supervisor will call.
+
+```sh
+publish.sh
+```
