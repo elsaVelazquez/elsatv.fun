@@ -104,8 +104,11 @@ def image_entries(post, ocr, extra, llm, stamped_dir):
             'cdn': urls[n] if n < len(urls) else '',
             'stamped': (f'{stamped_dir.name}/{name}'
                         if (stamped_dir / name).exists() else ''),
+            # ocr_multi.py writes 'ocr_extra', older runs wrote 'extra_text' —
+            # read both so a second pass is never silently dropped.
             'ocr_text': (ocr.get(name) or {}).get('text', ''),
-            'ocr_extra': (extra.get(name) or {}).get('extra_text', ''),
+            'ocr_extra': ((extra.get(name) or {}).get('ocr_extra')
+                          or (extra.get(name) or {}).get('extra_text', '')),
             'llm_text': (llm.get(name) or {}).get('text', ''),
         })
     return out
