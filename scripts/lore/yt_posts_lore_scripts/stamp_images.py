@@ -154,6 +154,8 @@ def stamp_one(src_path, dest_path, label):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--limit', type=int, default=0, help='first N images only')
+    ap.add_argument('--force', action='store_true',
+                    help='restamp files that already have a copy (default: skip)')
     ap.add_argument('--src', default=str(SRC))
     ap.add_argument('--dest', default=str(DEST))
     args = ap.parse_args()
@@ -165,21 +167,29 @@ def main():
     files = sorted(src.glob('*.jpg'))
     if args.limit:
         files = files[:args.limit]
-    print(f'→ stamping {len(files)} image(s) into {dest}')
+
+    # Incremental: an image that already has a stamped copy is skipped, so a
+    # run after a new archive only does the new pictures. --force redoes all.
+    todo = [p for p in files
+            if args.force or not (dest / p.name).exists()]
+    skipped = len(files) - len(todo)
+    print(f'→ {len(files)} image(s), {skipped} already stamped, '
+          f'{len(todo)} to do, into {dest}')
 
     undated = 0
-    for i, path in enumerate(files, 1):
+    for i, path in enumerate(todo, 1):
         label = display_for(path.name, dates)
         if not label:
             undated += 1
             label = 'date unknown'
         out = dest / path.name
         w, h, fp = stamp_one(path, out, label)
-        print(f'  [{i}/{len(files)}] {path.name[:34]:34} '
+        print(f'  [{i}/{len(todo)}] {path.name[:34]:34} '
               f'{label:24} {w}x{h} font {fp}px')
 
     print(f'\n→ {dest}')
-    print(f'  {len(files)} stamped, {undated} without a known date')
+    print(f'  {len(todo)} stamped, {skipped} skipped (already done), '
+          f'{undated} without a known date')
 
 
 if __name__ == '__main__':

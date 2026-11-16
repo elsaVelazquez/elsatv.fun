@@ -3,9 +3,23 @@
 archive_posts.py — pull every YouTube Community post (text + images) and keep a
 local, self-contained copy.
 
-    venv/bin/python archive_posts.py
+    venv/bin/python scripts/lore/yt_posts_lore_scripts/archive_posts.py
     venv/bin/python archive_posts.py --channel UCvjxv_x4chfG4c1yeNb7-vw
     venv/bin/python archive_posts.py --no-images        # metadata only
+    venv/bin/python archive_posts.py --full             # ignore what we have
+
+INCREMENTAL BY DEFAULT
+----------------------
+A normal run merges into the index.json that is already on disk: posts we
+already have are kept exactly as they are, new posts are added on top, and
+the image download stops at the first post id we recognise (the feed is
+newest-first, so everything past that point is already archived). That means
+a daily run costs one page of the feed and a handful of images instead of
+1,617 re-downloads.
+
+Nothing is ever deleted by a normal run. If a post disappears from YouTube it
+stays in the archive — that is the whole point of an archive. Use --full when
+you deliberately want to rebuild the corpus from scratch.
 
 Writes, under lore/posts/:
 
@@ -38,7 +52,9 @@ UA = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/120.0 Safari/537.36')
 HEADERS = {'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.9'}
 
-OUT = Path('lore/posts')
+# The pipeline (build_day_index.py, stamp_images.py, ocr_images.py, …) reads
+# lore/YTelsaTVposts/. A fresh run must write there, not to a second folder.
+OUT = Path('lore/YTelsaTVposts')
 IMAGES = OUT / 'images'
 
 # The browse endpoint wants the public web API key that the page itself uses.
@@ -115,11 +131,18 @@ def post_record(node):
     attachment_kind = next((k for k in att if k.endswith('Renderer')), '')
 
     published = runs_text(node.get('publishedTimeText'))
+    published_abs = runs_text(
+        (node.get('publishedTimeText') or {}).get('accessibility', {})
+        .get('accessibilityData', {}))
     likes = runs_text(node.get('voteCount'))
 
     return {
         'post_id': post_id,
         'published_text': published,
+        # YouTube renders "2 days ago" instead of a timestamp. The
+        # accessibility label holds the date; keeping it means a merge can
+        # carry over the old spelling if the relative text changes.
+        'published_abs': published_abs,
         'text': text.strip(),
         'hashtags': re.findall(r'#\w+', text),
         'image_urls': [u for u in images if u],
@@ -129,8 +152,15 @@ def post_record(node):
     }
 
 
-def collect_posts(first_data, api_key, client_version, max_pages=200):
-    """Yield every post, following continuation tokens until exhausted."""
+def collect_posts(first_data, api_key, client_version, max_pages=200,
+                  known=None, max_new=0):
+    """Yield every post, following continuation tokens until exhausted.
+
+    If `known` is a set of post ids we already have, stop paging as soon as a
+    whole page adds nothing new — the feed is newest-first, so there is
+    nothing below that we do not already hold. `max_new` puts a hard ceiling on
+    how many new posts an incremental run will follow, for a dry run.
+    """
     seen = set()
 
     def emit(data):
@@ -140,7 +170,18 @@ def collect_posts(first_data, api_key, client_version, max_pages=200):
                 seen.add(rec['post_id'])
                 yield rec
 
-    yield from emit(first_data)
+    first = list(emit(first_data))
+    yield from first
+
+    new_seen = len([p for p in first if not known or p['post_id'] not in known])
+
+    # Already caught up: the first page is all we needed.
+    if known and seen and not (seen - known):
+        print(f'  first page is entirely known — no paging needed')
+        return
+    if max_new and new_seen >= max_new:
+        print(f'  --max-new {max_new} reached on the first page')
+        return
 
     for tok in [t.get('token') for t in walk(first_data, 'continuationCommand')]:
         if not tok:
@@ -163,8 +204,17 @@ def collect_posts(first_data, api_key, client_version, max_pages=200):
                 break
 
             before = len(seen)
-            yield from emit(data)
+            fresh = list(emit(data))
+            yield from fresh
             if len(seen) == before:
+                break
+            new_seen += len([p for p in fresh
+                             if not known or p['post_id'] not in known])
+            if known and not ({r['post_id'] for r in fresh} - known):
+                print(f'  page {page}: all known — stopping')
+                break
+            if max_new and new_seen >= max_new:
+                print(f'  --max-new {max_new} reached on page {page}')
                 break
 
             toks = [t.get('token') for t in walk(data, 'continuationCommand')]
@@ -220,6 +270,14 @@ def main():
     ap.add_argument('--posts-path', default='/posts')
     ap.add_argument('--no-images', action='store_true')
     ap.add_argument('--out', default=str(OUT))
+    ap.add_argument('--full', action='store_true',
+                    help='ignore the existing index.json and rescrape everything')
+    ap.add_argument('--max-new', type=int, default=0,
+                    help='stop paging after N new posts (0 = follow the feed '
+                         'until it runs into posts we already hold)')
+    ap.add_argument('--refresh-metadata', action='store_true',
+                    help='also update like counts / relative "3 days ago" text '
+                         'on posts we already have (never re-downloads images)')
     args = ap.parse_args()
 
     OUT = Path(args.out)
@@ -241,13 +299,52 @@ def main():
 
     print(f'  posts on first page: {len(walk(data, "backstagePostRenderer"))}')
 
-    posts = list(collect_posts(data, key_m.group(1), ver_m.group(1)))
-    print(f'  total posts: {len(posts)}')
+    # What we already hold, keyed by post id, in the order it is on disk.
+    existing = {}
+    index_path = OUT / 'index.json'
+    if index_path.exists() and not args.full:
+        try:
+            old = json.loads(index_path.read_text())
+            existing = {p['post_id']: p for p in old.get('posts', [])
+                        if p.get('post_id')}
+            print(f'  on disk already: {len(existing)} post(s)')
+        except Exception as e:
+            print(f'  ⚠️  could not read {index_path} ({e}) — rebuilding')
+            existing = {}
 
-    if not args.no_images:
+    fetched = list(collect_posts(data, key_m.group(1), ver_m.group(1),
+                                 known=set(existing) or None,
+                                 max_new=args.max_new))
+    fresh = [p for p in fetched if p['post_id'] not in existing]
+    print(f'  seen in feed: {len(fetched)}, new: {len(fresh)}')
+    if not fresh:
+        print('  nothing new — index.json left as it is')
+        if not args.refresh_metadata:
+            return
+
+    # A post we already hold can still have changed: likes go up, and
+    # published_text is relative ("6 hours ago" -> "3 days ago"). Copy those
+    # two fields across rather than re-fetching or re-downloading anything.
+    refreshed = 0
+    if args.refresh_metadata:
+        for p in fetched:
+            old = existing.get(p['post_id'])
+            if not old:
+                continue
+            for k in ('published_text', 'like_count', 'published_abs'):
+                if p.get(k) and p[k] != old.get(k):
+                    old[k] = p[k]
+                    refreshed += 1
+        if refreshed:
+            print(f'  metadata refreshed on {refreshed} field(s)')
+
+    # Images are per-post-id, so anything not in `fresh` already has its files
+    # on disk and must not be looked at again.
+    todo = fresh
+    if not args.no_images and todo:
         IMAGES.mkdir(parents=True, exist_ok=True)
         total_bytes = 0
-        for i, p in enumerate(posts, 1):
+        for i, p in enumerate(todo, 1):
             files = []
             for n, u in enumerate(p['image_urls'], 1):
                 ext = '.jpg'
@@ -259,8 +356,22 @@ def main():
             p['image_files'] = files
             if p['image_urls']:
                 print(
-                    f'  [{i}/{len(posts)}] {len(files)}/{len(p["image_urls"])} images')
-        print(f'  images on disk: {total_bytes / 1e6:.1f} MB')
+                    f'  [{i}/{len(todo)}] {len(files)}/'
+                    f'{len(p["image_urls"])} images')
+        print(f'  images downloaded this run: {total_bytes / 1e6:.1f} MB')
+
+    # New posts in feed order (newest first), then everything we already had
+    # in the order it was on disk. Nothing already archived is dropped.
+    fresh_ids = {f['post_id'] for f in fresh}
+    kept = []
+    for pid, p in existing.items():
+        if pid in fresh_ids:
+            continue
+        # Older records have no absolute date; fall back to what they had.
+        if not p.get('published_abs'):
+            p['published_abs'] = p.get('published_text', '')
+        kept.append(p)
+    posts = fresh + kept
 
     payload = {
         'generated_at': datetime.now(timezone.utc).isoformat(timespec='seconds'),
@@ -275,8 +386,8 @@ def main():
 
     print(f'\n→ {OUT / "index.json"}')
     print(f'→ {OUT / "posts.md"}')
-    print(f'  {len(posts)} posts, '
-          f'{payload["image_count"]} images')
+    print(f'  {len(posts)} posts ({len(fresh)} new, {refreshed} metadata '
+          f'updates), {payload["image_count"]} images')
 
 
 if __name__ == '__main__':
