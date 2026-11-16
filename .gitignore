@@ -47,4 +47,8 @@ rclone.conf
 # being added; taking them out of the repo needs `git rm --cached <file>`.
 # Also: .github/workflows/sync-releases.yml runs FINAL_SYNC.py on a nightly
 # cron, so removing it from the repo breaks that job.
-collect_music_links.py
+# collect_music_links.py
+
+
+grep -qxF '.daily_sync.lock/' .gitignore || echo '.daily_sync.lock/' >> .gitignore
+grep -qxF 'cron.log' .gitignore || echo 'cron.log' >> .gitignore.daily_sync.lock
