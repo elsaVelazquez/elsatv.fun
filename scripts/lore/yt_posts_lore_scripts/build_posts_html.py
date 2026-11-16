@@ -168,17 +168,27 @@ def render_image(img, idx, post=None):
 
     # Order matters and is the user's: the LLM read comes first, then the first
     # tesseract pass, then the multi-pass reading. All three are verbatim.
+    #
+    # Each block carries a coloured badge naming the reader that produced it,
+    # because the point is to show the different engines side by side: a vision
+    # model sees what tesseract cannot (text burned over a busy photo) and
+    # tesseract sees what a model paraphrases away. The label lives OUTSIDE the
+    # text so the transcription itself stays untouched and copy-pasteable.
+    def block(kind, label, text):
+        return (f'<div class="ocr {kind}">'
+                f'<span class="badge">{label}</span>'
+                f'<span class="said">{esc(text)}</span></div>')
+
     blocks = []
     llm = (img.get('llm_text') or '').strip()
     if llm:
-        blocks.append(f'<div class="ocr llm">{esc(llm)}</div>')
+        blocks.append(block('llm', 'OpenAI · vision', llm))
     ocr = (img.get('ocr_text') or '').strip()
     if ocr:
-        blocks.append(f'<div class="ocr">{esc(ocr)}</div>')
+        blocks.append(block('tess1', 'Tesseract · pass 1', ocr))
     extra = (img.get('ocr_extra') or '').strip()
     if extra:
-        blocks.append(
-            f'<div class="ocr pass2">{esc(extra)}</div>')
+        blocks.append(block('tess2', 'Tesseract · multi-pass', extra))
     text_html = ''.join(blocks)
 
     # The date, as text under the image. This is the point of the whole
@@ -387,11 +397,28 @@ transition:transform .15s;background:#0d1109}
 	border-bottom:1px solid rgba(184,255,67,.35)}
 .shot-date a:hover{border-bottom-color:var(--lime)}
 .ocr{margin-top:6px;padding:8px 9px;background:#080b07;border:1px solid #22301e;
-border-radius:6px;font:12px/1.45 ui-monospace,Menlo,monospace;color:#a9b8a2;
+border-left:3px solid #22301e;border-radius:6px;
+font:12px/1.45 ui-monospace,Menlo,monospace;color:#a9b8a2;
 max-height:9.5em;overflow:auto;white-space:pre-wrap}
 .ocr:empty{display:none}
-.ocr.llm{color:#e8f0de;border-color:#3f5a36;background:#0b120a}
-.ocr.pass2{opacity:.75}
+.ocr .said{display:block}
+/* one colour per reader — matches the legend in the sticky header */
+.ocr.tess1{border-left-color:#8fa6c9}
+.ocr.tess2{border-left-color:#c9a98f;opacity:.85}
+.ocr.llm{color:#e8f0de;border-color:#3f5a36;border-left-color:#b8ff43;
+background:#0b120a;max-height:14em}
+.badge{display:inline-block;margin:0 0 4px;padding:1px 6px;border-radius:4px;
+font:600 9.5px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+text-transform:uppercase;letter-spacing:.06em;color:#0a0c08;background:#8fa6c9;
+vertical-align:middle}
+.ocr.tess2 .badge{background:#c9a98f}
+.ocr.llm .badge{background:#b8ff43}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;
+font-size:.72rem;color:var(--dim);margin-top:4px}
+.legend .k{display:inline-block;width:9px;height:9px;border-radius:2px;
+margin-right:5px;vertical-align:-1px;background:#8fa6c9}
+.legend .k.t2{background:#c9a98f}
+.legend .k.ll{background:#b8ff43}
 .talk{border-left:1px solid var(--line);padding-left:14px}
 .comment,.reply{margin:0 0 10px;font-size:.84rem}
 .reply{margin-left:14px;opacity:.85}
@@ -595,6 +622,12 @@ def build_page(payload, remote_images=False):
   </span>
   <span class="stat">{esc(stats)}</span>
   <span class="stat">newest first · times in Mountain Time</span>
+  <span class="legend" title="Which reader produced the text under each image">
+    text under images read by
+    <span><i class="k ll"></i>OpenAI vision</span>
+    <span><i class="k"></i>Tesseract&nbsp;pass&nbsp;1</span>
+    <span><i class="k t2"></i>Tesseract&nbsp;multi-pass</span>
+  </span>
   <nav class="nav">
     <a href="{html.escape(HOME_HREF)}" id="home-link" title="Back to elsatv.fun">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3z"/></svg>
