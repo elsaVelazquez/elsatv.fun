@@ -154,6 +154,90 @@
       border-color: #d8ff4f;
     }
 
+    /* the YouTube posts card: highlighted so it reads as a link, not a label */
+    .button-posts {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #1c2410;
+      border-color: #b8ff43;
+      box-shadow: 0 0 0 1px rgba(184, 255, 67, 0.18),
+                  0 0 18px rgba(184, 255, 67, 0.10);
+    }
+    /* the arrow sits top-right so the card is visibly a link, not a label */
+    .button-posts::after {
+      content: "\2197";
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      color: var(--lime, #b8ff43);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1;
+      opacity: 0.75;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .button-posts:hover::after,
+    .button-posts:focus-visible::after {
+      opacity: 1;
+      transform: translate(2px, -2px);
+    }
+    .button-posts:hover {
+      background: #25300f;
+      border-color: #d8ff4f;
+      box-shadow: 0 0 0 1px rgba(216, 255, 79, 0.32),
+                  0 0 26px rgba(216, 255, 79, 0.18);
+    }
+    .button-posts .posts-title {
+      display: block;
+      padding-right: 20px;
+    }
+    /* the "on YouTube posts ↗" line: red logo + pill, always visible */
+    .button-posts .yt {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 10px;
+      padding: 5px 11px 5px 8px;
+      border-radius: 999px;
+      background: #b8ff43;
+      color: #10140b;
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+    .button-posts .yt svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+    .button-posts:hover .yt,
+    .button-posts:focus-visible .yt {
+      background: #d8ff4f;
+    }
+    /* the little YouTube badge inside the card */
+    .yt-badge {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 27px;
+      margin-top: 2px;
+      border-radius: 8px;
+      background: #ff0000;
+      box-shadow: 0 0 12px rgba(255, 0, 0, 0.35);
+    }
+    .yt-badge svg {
+      width: 20px;
+      height: 20px;
+    }
+    .button-posts .posts-label {
+      display: block;
+    }
+
     .section {
       margin-top: 44px;
       padding-top: 26px;
@@ -579,10 +663,24 @@
         "The Hymns Machine" ( #3iATLAS ) on YouTube Music
       </a>
 
-      <a class="button"
+      <a class="button button-posts"
          href="posts.html"
          rel="noopener noreferrer">
-        Content - Read the Daily Citizen Science, Independent Reporting Aligning/ Syncing With Me
+        <span class="yt-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path fill="#fff" d="M9.6 15.6V8.4L15.8 12z"/>
+          </svg>
+        </span>
+        <span class="posts-label">
+          <span class="posts-title">Content - Read the Daily Citizen Science, Independent Reporting Aligning/ Syncing With Me</span>
+          <span class="yt">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="#ff0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/>
+              <path fill="#fff" d="M9.6 15.6V8.4L15.8 12z"/>
+            </svg>
+            on YouTube posts ↗
+          </span>
+        </span>
       </a>
 
       <a class="button"

@@ -90,7 +90,6 @@ git add lore/manual_links.json && git commit -m "Add link for Album Name"
   contents anywhere.
 - `manual_links.json` wins over ONCE and the scrape, and is never overwritten.
 
-
 ## to add links manually
 
 -while in main:
@@ -101,15 +100,112 @@ git commit -m "manual_links: Real Dream Is Real; honour typed playlists"
 ./publish.sh
 ```
 
-new release, don't rescrape the world" one-liner runs on a single script
+## Updating https://elsatv.fun/posts.html
+
+`./publish.sh` is for the **music page only** — it never touches `posts.html`.
+The posts page has its own orchestrator, run from the repo root:
 
 ```sh
- refresh_posts.py
+venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_posts.py
 ```
 
-checks for new post IDs and only then touches the network — everything else re-runs over what's on dis
-same shape as for music, and exactly what your future supervisor will call.
+That is the one command. It looks at what is already on disk and fetches only
+what is missing — new post ids only, new images only, new dates and comments
+only — then rebuilds `days.json` and `posts.html`. Nothing already collected is
+re-downloaded. `--dry-run` reports what it would do and exits without writing.
+
+**This script does not commit or push.** It has no git calls on purpose —
+review the page first, then publish it yourself:
 
 ```sh
-publish.sh
+git add posts.html
+git commit -m "Posts: sync"
+git push origin main
 ```
+
+### `git add posts.html` is the whole `git add`
+
+Only `posts.html` (repo root) ships to GitHub. Everything else the pipeline
+writes lives in `lore/YTelsaTVposts/`, which is **gitignored on purpose**
+(1.7 GB of images plus the JSON that is regenerated from them).
+
+So never run this:
+
+```sh
+git add posts.html lore/YTelsaTVposts/     # ✗ fails, folder is ignored
+```
+
+`git add` exits non-zero on the ignored path, and because the command is
+chained with `&&`, the commit and push never run — the page looks "not
+updated" while everything actually worked. Add `posts.html` alone.
+
+The images are not in the repo at all: `posts.html` links them from YouTube's
+CDN (`yt3.ggpht.com/...=s800`), so nothing large is stored on GitHub.
+
+### What the sync prints
+
+Seen on a real run that picked up one new post:
+
+```sh
+
+▸ 1/7 fetch posts not already in index.json
+  $ /Volumes/storage2-end-sep2025-to-future/CODE/elsatvfun/elsatv.fun/scripts/lore/yt_posts_lore_scripts/archive_posts.py
+→ https://www.youtube.com/@elsaTVfun/posts
+  posts on first page: 10
+  on disk already: 203 post(s)
+  page 1: all known — stopping
+  seen in feed: 20, new: 1
+  [1/1] 10/10 images
+  images downloaded this run: 9.4 MB
+
+→ lore/YTelsaTVposts/index.json
+→ lore/YTelsaTVposts/posts.md
+  204 posts (1 new, 0 metadata updates), 1655 images
+  ✓ archive_posts.py (7.1s)
+
+new: 1 post(s), 10 image(s)
+  + 4 hours ago                      10 img  Nov 15 2026 Vortex(0, 6, 0) in my SIM in these songs, I show
+
+▸ 2/7 dates for 1 new post(s)
+  $ /Volumes/storage2-end-sep2025-to-future/CODE/elsatvfun/elsatv.fun/scripts/lore/yt_posts_lore_scripts/post_dates.py --limit 1
+→ resolving 1 post date(s)
+  [1/1] 2026-11-15  Nov 15, 2026 3:39 PM
+
+→ lore/YTelsaTVposts/dates.json
+  204 post(s) dated, 0 without a date
+  ✓ post_dates.py (0.9s)
+
+▸ 3/7 comments for 1 new post(s)
+```
+
+OCR is deliberately not in `sync_posts.py` — it is the slow, paid step. Run it
+afterwards on the new images only, then rebuild the page:
+
+```sh
+venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_multi.py --limit 20
+venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_llm_openai.py --max-cost 0.10
+venv/bin/python scripts/lore/yt_posts_lore_scripts/build_posts_html.py
+```
+
+
+use these commands to update https://elsatv.fun/posts.html:
+
+```sh
+venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_posts.py
+git add posts.html
+git commit -m "Posts: sync"
+git push origin main
+```
+
+use this to update the  https://elsatv.fun/kissingface.html
+
+
+```sh
+venv/bin/python scripts/lore/music_lore_scripts/FINAL_SYNC.py
+git add kissingface.html lore/songs.json lore/yt_link_cache.json
+git commit -m "Update music page"
+git push origin main
+open "https://elsatv.fun/kissingface.html"
+```
+
+then cmd + shift + r
