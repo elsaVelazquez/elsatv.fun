@@ -209,3 +209,13 @@ open "https://elsatv.fun/kissingface.html"
 ```
 
 then cmd + shift + r
+
+
+to do all the above using automation, put this into command line 1 time, have to authorize bash to run scripts on mac:
+
+```sh
+➜  elsatv.fun git:(main) ✗ chmod +x daily_sync.sh
+./daily_sync.sh
+./daily_sync.sh: line 1: cd: /Users/elsa/elsatv.fun: No such file or directory
+➜  elsatv.fun git:(main) ✗ ./daily_sync.sh
+```
