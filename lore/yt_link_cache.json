@@ -469,9 +469,14 @@
  },
  "c615e844-77c0-4845-b4cc-07813c7cf662": {
   "title": "Bombastic Schtick",
-  "youtube_url": null,
-  "album_link": null,
-  "cover_art": "",
-  "checked_status": "submitted"
+  "youtube_url": "https://music.youtube.com/watch?v=3JsLepzLbyY",
+  "album_link": "",
+  "cover_art": "https://i.ytimg.com/vi/3JsLepzLbyY/hqdefault.jpg"
+ },
+ "e54062fc-5595-43bd-96db-e23c34f2bd02": {
+  "title": "Deuteronomy Jubilee.exe",
+  "youtube_url": "https://music.youtube.com/watch?v=nxM1RmKCvv4&list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
+  "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
+  "cover_art": "https://i.ytimg.com/vi/nxM1RmKCvv4/hqdefault.jpg"
  }
 }

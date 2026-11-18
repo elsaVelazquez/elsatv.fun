@@ -1,11 +1,19 @@
 [
   {
+    "song_name": "Deuteronomy Jubilee.exe",
+    "date_published": "2026-11-17",
+    "album_name": "Deuteronomy Jubilee.exe",
+    "youtube_link": "https://music.youtube.com/watch?v=nxM1RmKCvv4&list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
+    "cover_art": "https://i.ytimg.com/vi/nxM1RmKCvv4/hqdefault.jpg"
+  },
+  {
     "song_name": "Bombastic Schtick",
     "date_published": "2026-11-15",
     "album_name": "Bombastic Schtick",
-    "youtube_link": "",
+    "youtube_link": "https://music.youtube.com/watch?v=3JsLepzLbyY",
     "album_link": "",
-    "cover_art": "https://once.app/api/files/cover-art/78948911-7507-4307-ad17-1c9b06c984d7/85d737bc-21bd-4bd3-b69e-a7a186245062.png"
+    "cover_art": "https://i.ytimg.com/vi/3JsLepzLbyY/hqdefault.jpg"
   },
   {
     "song_name": "Real Dream Is Real",
