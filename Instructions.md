@@ -219,3 +219,11 @@ to do all the above using automation, put this into command line 1 time, have to
 ./daily_sync.sh: line 1: cd: /Users/elsa/elsatv.fun: No such file or directory
 ➜  elsatv.fun git:(main) ✗ ./daily_sync.sh
 ```
+
+to update the home page
+
+```sh
+git add index.html
+git commit -m "feat: add notes here"
+git push origin main
+```
