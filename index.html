@@ -505,11 +505,12 @@
       color: #5ff2d0;
     }
 
-    .platforms .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
+    /* the brand mark in front of each platform name */
+    .platforms svg {
+      width: 22px;
+      height: 22px;
       flex: 0 0 auto;
+      display: block;
     }
 
     /* one solid call to action, aligned with the headline */
@@ -561,9 +562,10 @@
         min-width: 0;
       }
 
-      .lore-entry.featured .platforms .dot {
-        width: 8px;
-        height: 8px;
+      /* the marks shrink on phones so all four pills fit one row */
+      .lore-entry.featured .platforms svg {
+        width: 16px;
+        height: 16px;
       }
     }
 
@@ -824,11 +826,11 @@
 
       <section class="lore-entry featured" aria-labelledby="lore-heading">
         <div class="lore-copy">
-          <span class="lore-kicker">The Music</span>
+          <span class="lore-kicker">The Hymns Machine</span>
           <h3 id="lore-heading">
             <a class="title-link" href="kissingface.html"><span class="title-text">The Lore <span class="title-sub">→ Kissing Face</span></span></a>
           </h3>
-          <p class="lore-blurb">Every release, its date, and the 0 · 3 · 6 · 9 why behind it.</p>
+          <p class="lore-blurb">  🎶 It's FREE to stream into the dream. &#9834; &#9835;</p>
         </div>
 
         <!-- three releases, re-picked at random on every scrape:
@@ -850,16 +852,16 @@
         <div class="platforms">
           <a href="https://music.youtube.com/@elsavelaz"
              target="_blank" rel="noopener noreferrer" title="YouTube Music">
-            <span class="dot" style="background:#ff0033"></span>YouTube Music</a>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#ff0033" fill-rule="evenodd" d="M12 1.6a10.4 10.4 0 1 0 0 20.8 10.4 10.4 0 0 0 0-20.8zm0 2.1a8.3 8.3 0 1 1 0 16.6 8.3 8.3 0 0 1 0-16.6z"/><path fill="#ff0033" d="M9.7 16.2V7.8l6.6 4.2z"/></svg>YouTube Music</a>
           <a href="https://www.youtube.com/@elsavelaz/releases"
              target="_blank" rel="noopener noreferrer" title="YouTube releases">
-            <span class="dot" style="background:#ff0000"></span>YouTube</a>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#fff" d="M23.5 6.9a3 3 0 0 0-2.1-2.1C19.5 4.3 12 4.3 12 4.3s-7.5 0-9.4.5A3 3 0 0 0 .5 6.9C0 8.8 0 12 0 12s0 3.2.5 5.1a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.1.5-5.1s0-3.2-.5-5.1z"/><path fill="#16181c" d="M9.6 15.6V8.4L15.8 12z"/></svg>YouTube</a>
           <a href="https://open.spotify.com/artist/27NhC9Ct23OhR441IZH6KY"
              target="_blank" rel="noopener noreferrer" title="Spotify">
-            <span class="dot" style="background:#1db954"></span>Spotify</a>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.4" fill="#1ed760"/><g fill="none" stroke="#0b0d10" stroke-width="2.1" stroke-linecap="round"><path d="M6.6 8.7c3.7-1.2 8.1-.9 11.6 1"/><path d="M7.3 12.3c3-1 6.6-.7 9.5 1"/><path d="M8.1 15.8c2.4-.8 5.2-.5 7.5.9"/></g></svg>Spotify</a>
           <a href="https://music.apple.com/us/artist/dj-elsa/415547530"
              target="_blank" rel="noopener noreferrer" title="Apple Music">
-            <span class="dot" style="background:#fa243c"></span>Apple Music</a>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#fff" d="M15.9 3.1a.9.9 0 0 0-1.1-.88L8.2 3.9A1.4 1.4 0 0 0 7.2 5.2v9.9a2.9 2.9 0 1 0 1.7 2.65V7.2l6-1.3v6.6a2.9 2.9 0 1 0 1.7 2.65z"/></svg>Apple Music</a>
         </div>
 
       </section>
