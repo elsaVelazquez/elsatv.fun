@@ -6,6 +6,7 @@ FINAL WORKING SOLUTION - Combines ONCE + YouTube APIs properly
 import os
 import re
 import json
+import sys
 from html import escape
 
 import requests
@@ -13,7 +14,13 @@ from pathlib import Path
 from datetime import datetime
 import time
 
+# The sibling modules below live next to this file, not in the repo root, and
+# cron runs this from the root. Put this directory on the path first.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from pattern_dates import label as pattern_label, pick as date_pick
+# the homepage's three random covers; local module, same directory as this file
+from homepage_images import pick as pick_home_covers
 
 
 # Run from the repo root: every path below (and .env, kissingface.html) is
@@ -853,6 +860,13 @@ def main():
     # Create HTML
     html = create_html(albums)
     Path('kissingface.html').write_text(html)
+
+    # Rotate the three covers index.html shows. Deliberately not fatal: a bad
+    # cover download must never cost us the release data written above.
+    try:
+        pick_home_covers()
+    except Exception as e:
+        print(f"  ⚠️  homepage covers not rotated: {e}")
 
     # Create lore/songs.json — slim, one row per release
     songs = [

@@ -416,6 +416,17 @@
       vertical-align: baseline;
     }
 
+    /* the one-line blurb under the headline.
+       nowrap + NO max-width: the copy column is sized by the headline (which is
+       nowrap too), so the sentence stays on one line and never strands the 9. */
+    .lore-entry.featured .lore-blurb {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
     /* keep the pair small enough to sit on one line on phones too */
     @media (max-width: 520px) {
       .lore-entry.featured {
@@ -476,13 +487,14 @@
     .platforms a {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      padding: 14px 24px;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
       border: 1px solid var(--line);
       border-radius: 999px;
       color: var(--text);
       text-decoration: none;
-      font-size: 1.08rem;
+      font-size: 1rem;
       white-space: nowrap;
       flex: 0 0 auto;
       transition: border-color 0.15s, color 0.15s;
@@ -555,9 +567,192 @@
       }
     }
 
+    /* --- covers: three releases, re-picked at random on every scrape ---
+       They stack as a fanned deck so three squares fit in one band, not three. */
+    .lore-entry.featured .lore-covers {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      width: 100%;
+      max-width: 300px;
+      height: 132px;
+      /* nudge the deck down so its middle aligns with the copy block's centre */
+      margin: 0 auto;
+      align-self: center;
+    }
+
+    .lore-entry.featured .lore-cover {
+      display: block;
+      flex: 0 0 auto;
+      width: 106px;
+      height: 106px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(95, 242, 208, 0.45);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+      background: var(--panel-2);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    /* the three overlap: outer ones tucked behind, the middle one standing up */
+    .lore-entry.featured .lore-cover:first-child {
+      transform: translateX(16px) rotate(-5deg) scale(0.9);
+      z-index: 1;
+    }
+
+    .lore-entry.featured .lore-cover.is-big {
+      transform: translateY(-4px) scale(1.06);
+      z-index: 3;
+      border-color: rgba(95, 242, 208, 0.9);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6),
+                  0 0 20px rgba(95, 242, 208, 0.22);
+    }
+
+    .lore-entry.featured .lore-cover:last-child {
+      transform: translateX(-16px) rotate(5deg) scale(0.9);
+      z-index: 1;
+    }
+
+    .lore-entry.featured .lore-covers:hover .lore-cover:first-child {
+      transform: translateX(-24px) rotate(-8deg) scale(0.94);
+    }
+
+    .lore-entry.featured .lore-covers:hover .lore-cover:last-child {
+      transform: translateX(24px) rotate(8deg) scale(0.94);
+    }
+
+    .lore-entry.featured .lore-cover img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* the teal rule that closes the music section off from everything below */
+    .lore-divider {
+      position: relative;
+      height: 1px;
+      margin: 4px 0 34px;
+      background: rgba(95, 242, 208, 0.35);
+    }
+
+    .lore-divider span {
+      position: absolute;
+      inset: -3px 0 auto;
+      height: 7px;
+      background: radial-gradient(ellipse at center,
+                  rgba(95, 242, 208, 0.55), rgba(95, 242, 208, 0) 70%);
+    }
+
+    /* --- icon beside the letters ----------------------------------------
+       Each primary button draws its own mark at the left, then the label.
+       The mark is inline SVG, no image request, so nothing to preload.
+       The card is a flex row so the mark, the letter chip and the label all
+       sit on one line and the card keeps a single, even height. */
+    .button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .button .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      flex: 0 0 auto;
+      vertical-align: middle;
+      border-radius: 8px;
+      background: rgba(216, 255, 79, 0.10);
+      color: var(--accent);
+    }
+
+    .button .btn-icon svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    .button .btn-label {
+      flex: 1 1 auto;
+      min-width: 0;
+      vertical-align: middle;
+    }
+
+    /* the letter chip keeps the button height honest and reads at a glance */
+    .button .btn-key {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 26px;
+      height: 26px;
+      flex: 0 0 auto;
+      margin-right: 10px;
+      padding: 0 6px;
+      border-radius: 6px;
+      border: 1px solid rgba(216, 255, 79, 0.45);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      vertical-align: middle;
+    }
+
+    /* the gap that used to separate the YouTube badge from its copy */
+    .button-posts .yt-badge {
+      border-radius: 8px;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 520px) {
+      .button .btn-icon {
+        width: 26px;
+        height: 26px;
+        margin-right: 8px;
+      }
+
+      .button .btn-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .button .btn-key {
+        display: none; /* the word is enough at this width */
+      }
+
+      .lore-entry.featured .lore-covers {
+        height: 112px;
+      }
+
+      .lore-entry.featured .lore-cover {
+        width: 88px;
+        height: 88px;
+      }
+    }
+
     @media (min-width: 700px) {
       .lore-entry.featured {
-        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-columns: minmax(0, 1.15fr) auto auto;
+        align-items: center;
+      }
+
+      /* the covers sit in the middle column, the CTA at the right */
+      .lore-entry.featured .lore-covers {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .lore-entry.featured .lore-open {
+        grid-column: 3;
+        grid-row: 1;
       }
 
       /* the pills stay together as one row under the copy, spanning both columns */
@@ -595,6 +790,12 @@
       .lore-entry.featured {
         grid-template-columns: minmax(0, 1fr);
         padding: 18px;
+        justify-items: center;
+      }
+
+      .lore-entry.featured .lore-copy {
+        justify-self: stretch;
+        text-align: center;
       }
     }
   </style>
@@ -622,29 +823,49 @@
 
 
       <section class="lore-entry featured" aria-labelledby="lore-heading">
-        <div>
+        <div class="lore-copy">
+          <span class="lore-kicker">The Music</span>
           <h3 id="lore-heading">
             <a class="title-link" href="kissingface.html"><span class="title-text">The Lore <span class="title-sub">→ Kissing Face</span></span></a>
           </h3>
-          <a class="lore-stretch" href="kissingface.html" tabindex="-1" aria-hidden="true">Listen to the Lore</a>
+          <p class="lore-blurb">Every release, its date, and the 0 · 3 · 6 · 9 why behind it.</p>
         </div>
+
+        <!-- three releases, re-picked at random on every scrape:
+             homepage_images.py overwrites these three filenames each run -->
+        <div class="lore-covers" aria-hidden="true">
+          <a class="lore-cover" href="kissingface.html" tabindex="-1">
+            <img src="lore/covers/home_cover_1.jpg" alt="" loading="lazy" width="200" height="200" />
+          </a>
+          <a class="lore-cover is-big" href="kissingface.html" tabindex="-1">
+            <img src="lore/covers/home_cover_2.jpg" alt="" loading="lazy" width="200" height="200" />
+          </a>
+          <a class="lore-cover" href="kissingface.html" tabindex="-1">
+            <img src="lore/covers/home_cover_3.jpg" alt="" loading="lazy" width="200" height="200" />
+          </a>
+        </div>
+
+        <a class="lore-open" href="kissingface.html">Open the Lore</a>
 
         <div class="platforms">
           <a href="https://music.youtube.com/@elsavelaz"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer" title="YouTube Music">
             <span class="dot" style="background:#ff0033"></span>YouTube Music</a>
           <a href="https://www.youtube.com/@elsavelaz/releases"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer" title="YouTube releases">
             <span class="dot" style="background:#ff0000"></span>YouTube</a>
           <a href="https://open.spotify.com/artist/27NhC9Ct23OhR441IZH6KY"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer" title="Spotify">
             <span class="dot" style="background:#1db954"></span>Spotify</a>
           <a href="https://music.apple.com/us/artist/dj-elsa/415547530"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank" rel="noopener noreferrer" title="Apple Music">
             <span class="dot" style="background:#fa243c"></span>Apple Music</a>
         </div>
 
       </section>
+
+      <!-- the teal rule: the music section ends here, everything below is other -->
+      <div class="lore-divider" role="presentation"><span></span></div>
 
     <div class="buttons">
 
@@ -652,15 +873,23 @@
          href="https://elsatv.gumroad.com"
          target="_blank"
          rel="noopener noreferrer">
-        Get the PDFs / Documentation
+        <span class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h4"/></svg>
+        </span>
+        <span class="btn-key" aria-hidden="true">P</span>
+        <span class="btn-label">Get the PDFs / Documentation</span>
       </a>
 
       <a class="button button-primary"
          href="https://music.youtube.com/@elsavelaz"
          target="_blank"
          rel="noopener noreferrer">
-        Stream the Instructions I Am Sending to Myself and 
-        "The Hymns Machine" ( #3iATLAS ) on YouTube Music
+        <span class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+        </span>
+        <span class="btn-key" aria-hidden="true">S</span>
+        <span class="btn-label">Stream the Instructions I Am Sending to Myself and 
+        "The Hymns Machine" ( #3iATLAS ) on YouTube Music</span>
       </a>
 
       <a class="button button-posts"
@@ -668,6 +897,7 @@
          rel="noopener noreferrer">
         <span class="yt-badge" aria-hidden="true">
           <svg viewBox="0 0 24 24" focusable="false">
+            <path fill="#ff0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/>
             <path fill="#fff" d="M9.6 15.6V8.4L15.8 12z"/>
           </svg>
         </span>
@@ -687,14 +917,22 @@
          href="https://www.linkedin.com/in/elsa-data-sci/"
          target="_blank"
          rel="noopener noreferrer">
-        LinkedIn Professional Profile
+        <span class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M16 8a5 5 0 0 1 5 5v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a5 5 0 0 1 5-5zM7 9H3v10h4zM5 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/></svg>
+        </span>
+        <span class="btn-key" aria-hidden="true">L</span>
+        <span class="btn-label">LinkedIn Professional Profile</span>
       </a>
 
       <a class="button"
          href="https://www.gofundme.com/f/help-elsa-sustain-hope-for-pets"
          target="_blank"
          rel="noopener noreferrer">
-        Support Pet + Human Lifespans
+        <span class="btn-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 20s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.7-7 9-7 9z"/></svg>
+        </span>
+        <span class="btn-key" aria-hidden="true">G</span>
+        <span class="btn-label">Support Pet + Human Lifespans</span>
       </a>
 
     </div>

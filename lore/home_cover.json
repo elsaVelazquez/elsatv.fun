@@ -1,0 +1,23 @@
+{
+  "picked_at": "2026-11-18T19:49:05+00:00",
+  "covers": [
+    {
+      "slot": 1,
+      "file": "lore/covers/home_cover_1.jpg",
+      "album_name": "Juicy Juice",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lYxB5rsmWNHaysS9aSXJq8EDVVmlo-MP0"
+    },
+    {
+      "slot": 2,
+      "file": "lore/covers/home_cover_2.jpg",
+      "album_name": "Vortex Day Zero Triad",
+      "album_link": "https://music.youtube.com/watch?v=i7Xn0qQ2noo"
+    },
+    {
+      "slot": 3,
+      "file": "lore/covers/home_cover_3.jpg",
+      "album_name": "Free Fall Off a Cliff",
+      "album_link": "https://music.youtube.com/watch?v=zY8o19Q2tB8"
+    }
+  ]
+}
