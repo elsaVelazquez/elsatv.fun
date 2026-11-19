@@ -1,8 +1,68 @@
 {
-  "generated_at": "2026-11-14T21:25:56+00:00",
-  "album_count": 78,
-  "song_count": 390,
+  "generated_at": "2026-11-18T19:49:05+00:00",
+  "album_count": 80,
+  "song_count": 397,
   "albums": [
+    {
+      "album_name": "Deuteronomy Jubilee.exe",
+      "date_published": "2026-11-18",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
+      "cover_art": "https://i.ytimg.com/vi/nxM1RmKCvv4/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Blessed Midas Touch",
+          "duration": "5:46",
+          "youtube_link": "https://music.youtube.com/watch?v=nxM1RmKCvv4"
+        },
+        {
+          "track_number": 2,
+          "song_name": "Profit Prophet",
+          "duration": "4:27",
+          "youtube_link": "https://music.youtube.com/watch?v=6G6e-rVuYBc"
+        },
+        {
+          "track_number": 3,
+          "song_name": "Donut Halos",
+          "duration": "6:46",
+          "youtube_link": "https://music.youtube.com/watch?v=JMPZ87S3oa0"
+        },
+        {
+          "track_number": 4,
+          "song_name": "Klezmer Pterodactyl Egg",
+          "duration": "2:56",
+          "youtube_link": "https://music.youtube.com/watch?v=wZeAikjpYXE"
+        }
+      ]
+    },
+    {
+      "album_name": "Bombastic Schtick",
+      "date_published": "2026-11-15",
+      "youtube_link": "https://music.youtube.com/watch?v=3JsLepzLbyY",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/3JsLepzLbyY/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Gates Eight and Nine",
+          "duration": "3:43",
+          "youtube_link": "https://music.youtube.com/watch?v=VJbmGcQvb6k"
+        },
+        {
+          "track_number": 2,
+          "song_name": "Bombastic Schtick",
+          "duration": "6:05",
+          "youtube_link": "https://music.youtube.com/watch?v=Wx-aK_kogf8"
+        },
+        {
+          "track_number": 3,
+          "song_name": "Mex Tex",
+          "duration": "3:18",
+          "youtube_link": "https://music.youtube.com/watch?v=sfBRvp0h5uo"
+        }
+      ]
+    },
     {
       "album_name": "Real Dream Is Real",
       "date_published": "2026-11-12",
@@ -122,7 +182,7 @@
     },
     {
       "album_name": "Method Actor Method",
-      "date_published": "2026-11-03",
+      "date_published": "2026-11-05",
       "youtube_link": "https://music.youtube.com/watch?v=4r9AyPSjq6c",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/4r9AyPSjq6c/hqdefault.jpg",
@@ -356,7 +416,7 @@
     },
     {
       "album_name": "Puppets",
-      "date_published": "2026-10-23",
+      "date_published": "2026-10-24",
       "youtube_link": "https://music.youtube.com/watch?v=Zi0UoWCs9Qk",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/Zi0UoWCs9Qk/hqdefault.jpg",
@@ -479,7 +539,7 @@
     },
     {
       "album_name": "Bad Actor?",
-      "date_published": "2026-10-18",
+      "date_published": "2026-10-19",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs",
       "cover_art": "https://i.ytimg.com/vi/ybQ61lf0WKE/hqdefault.jpg",
@@ -623,7 +683,7 @@
     },
     {
       "album_name": "Reset the Planet",
-      "date_published": "2026-10-10",
+      "date_published": "2026-10-08",
       "youtube_link": "https://music.youtube.com/watch?v=XvbHKQQuy58",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/XvbHKQQuy58/hqdefault.jpg",
@@ -857,7 +917,7 @@
     },
     {
       "album_name": "The Event's Event Horizon",
-      "date_published": "2026-09-22",
+      "date_published": "2026-09-24",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nC245JvKePLmYrW0hCCZVRFS123cxzYS0",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nC245JvKePLmYrW0hCCZVRFS123cxzYS0",
       "cover_art": "https://i.ytimg.com/vi/_4njQ446JeY/hqdefault.jpg",
@@ -902,7 +962,7 @@
     },
     {
       "album_name": "Classical Class Based",
-      "date_published": "2026-09-19",
+      "date_published": "2026-09-21",
       "youtube_link": "https://music.youtube.com/watch?v=iCCNXg3j7rk",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/iCCNXg3j7rk/hqdefault.jpg",
@@ -1156,71 +1216,8 @@
       ]
     },
     {
-      "album_name": "Standing Up Nerd Reich Standup",
-      "date_published": "2026-08-31",
-      "youtube_link": "https://music.youtube.com/watch?v=5cclGoyPFYo",
-      "album_link": "",
-      "cover_art": "https://i.ytimg.com/vi/5cclGoyPFYo/hqdefault.jpg",
-      "songs": [
-        {
-          "track_number": 1,
-          "song_name": "When News Don't Amuse",
-          "duration": "2:13",
-          "youtube_link": "https://music.youtube.com/watch?v=5cclGoyPFYo"
-        },
-        {
-          "track_number": 2,
-          "song_name": "Greedy Algods",
-          "duration": "5:49",
-          "youtube_link": "https://music.youtube.com/watch?v=0HjeXL-G5Nk"
-        },
-        {
-          "track_number": 3,
-          "song_name": "Mounting Blue Beam Gymballengine",
-          "duration": "4:20",
-          "youtube_link": "https://music.youtube.com/watch?v=JuSgGZWqd-g"
-        },
-        {
-          "track_number": 4,
-          "song_name": "Mounted Blue Beam Machine",
-          "duration": "6:50",
-          "youtube_link": "https://music.youtube.com/watch?v=iR6M9PrEoTA"
-        },
-        {
-          "track_number": 5,
-          "song_name": "Please Monkeys Please",
-          "duration": "3:13",
-          "youtube_link": "https://music.youtube.com/watch?v=fR4YAV1Egs4"
-        },
-        {
-          "track_number": 6,
-          "song_name": "Dear Spirit Guides",
-          "duration": "5:52",
-          "youtube_link": "https://music.youtube.com/watch?v=zuK0LnomUEs"
-        },
-        {
-          "track_number": 7,
-          "song_name": "Ling Long Song",
-          "duration": "1:15",
-          "youtube_link": "https://music.youtube.com/watch?v=hykg_husj58"
-        },
-        {
-          "track_number": 8,
-          "song_name": "Mounting Blue Beam",
-          "duration": "4:30",
-          "youtube_link": "https://music.youtube.com/watch?v=oubULe54o1U"
-        },
-        {
-          "track_number": 9,
-          "song_name": "News Don't Amuse",
-          "duration": "8:00",
-          "youtube_link": "https://music.youtube.com/watch?v=7hfESlUJ1NI"
-        }
-      ]
-    },
-    {
       "album_name": "I Make Me Thoth Vortex Eight Four One",
-      "date_published": "2026-08-27",
+      "date_published": "2026-08-31",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mfEZ4lWwspBBrs_pyM6SMglKY6yDg9jWA",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mfEZ4lWwspBBrs_pyM6SMglKY6yDg9jWA",
       "cover_art": "https://i.ytimg.com/vi/516Gk7Cfzug/hqdefault.jpg",
@@ -1332,6 +1329,69 @@
           "song_name": "The Fifteen Is Secret of Secrets",
           "duration": "6:41",
           "youtube_link": "https://music.youtube.com/watch?v=ktfatiJV3Ck"
+        }
+      ]
+    },
+    {
+      "album_name": "Standing Up Nerd Reich Standup",
+      "date_published": "2026-08-29",
+      "youtube_link": "https://music.youtube.com/watch?v=5cclGoyPFYo",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/5cclGoyPFYo/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "When News Don't Amuse",
+          "duration": "2:13",
+          "youtube_link": "https://music.youtube.com/watch?v=5cclGoyPFYo"
+        },
+        {
+          "track_number": 2,
+          "song_name": "Greedy Algods",
+          "duration": "5:49",
+          "youtube_link": "https://music.youtube.com/watch?v=0HjeXL-G5Nk"
+        },
+        {
+          "track_number": 3,
+          "song_name": "Mounting Blue Beam Gymballengine",
+          "duration": "4:20",
+          "youtube_link": "https://music.youtube.com/watch?v=JuSgGZWqd-g"
+        },
+        {
+          "track_number": 4,
+          "song_name": "Mounted Blue Beam Machine",
+          "duration": "6:50",
+          "youtube_link": "https://music.youtube.com/watch?v=iR6M9PrEoTA"
+        },
+        {
+          "track_number": 5,
+          "song_name": "Please Monkeys Please",
+          "duration": "3:13",
+          "youtube_link": "https://music.youtube.com/watch?v=fR4YAV1Egs4"
+        },
+        {
+          "track_number": 6,
+          "song_name": "Dear Spirit Guides",
+          "duration": "5:52",
+          "youtube_link": "https://music.youtube.com/watch?v=zuK0LnomUEs"
+        },
+        {
+          "track_number": 7,
+          "song_name": "Ling Long Song",
+          "duration": "1:15",
+          "youtube_link": "https://music.youtube.com/watch?v=hykg_husj58"
+        },
+        {
+          "track_number": 8,
+          "song_name": "Mounting Blue Beam",
+          "duration": "4:30",
+          "youtube_link": "https://music.youtube.com/watch?v=oubULe54o1U"
+        },
+        {
+          "track_number": 9,
+          "song_name": "News Don't Amuse",
+          "duration": "8:00",
+          "youtube_link": "https://music.youtube.com/watch?v=7hfESlUJ1NI"
         }
       ]
     },
@@ -2990,7 +3050,7 @@
     },
     {
       "album_name": "T Lang Lizard",
-      "date_published": "2026-08-11",
+      "date_published": "2026-08-12",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_maSi-88zhOl9q9FJRzHhiIlYgLtSxBzgI",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_maSi-88zhOl9q9FJRzHhiIlYgLtSxBzgI",
       "cover_art": "https://i.ytimg.com/vi/40WyfivwpKI/hqdefault.jpg",

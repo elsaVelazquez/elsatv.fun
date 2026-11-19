@@ -2494,5 +2494,51 @@
    "duration": "7:32",
    "youtube_link": "https://music.youtube.com/watch?v=os2HJFyQNKk"
   }
+ ],
+ "e54062fc-5595-43bd-96db-e23c34f2bd02": [
+  {
+   "track_number": 1,
+   "song_name": "Blessed Midas Touch",
+   "duration": "5:46",
+   "youtube_link": "https://music.youtube.com/watch?v=nxM1RmKCvv4"
+  },
+  {
+   "track_number": 2,
+   "song_name": "Profit Prophet",
+   "duration": "4:27",
+   "youtube_link": "https://music.youtube.com/watch?v=6G6e-rVuYBc"
+  },
+  {
+   "track_number": 3,
+   "song_name": "Donut Halos",
+   "duration": "6:46",
+   "youtube_link": "https://music.youtube.com/watch?v=JMPZ87S3oa0"
+  },
+  {
+   "track_number": 4,
+   "song_name": "Klezmer Pterodactyl Egg",
+   "duration": "2:56",
+   "youtube_link": "https://music.youtube.com/watch?v=wZeAikjpYXE"
+  }
+ ],
+ "c615e844-77c0-4845-b4cc-07813c7cf662": [
+  {
+   "track_number": 1,
+   "song_name": "Gates Eight and Nine",
+   "duration": "3:43",
+   "youtube_link": "https://music.youtube.com/watch?v=VJbmGcQvb6k"
+  },
+  {
+   "track_number": 2,
+   "song_name": "Bombastic Schtick",
+   "duration": "6:05",
+   "youtube_link": "https://music.youtube.com/watch?v=Wx-aK_kogf8"
+  },
+  {
+   "track_number": 3,
+   "song_name": "Mex Tex",
+   "duration": "3:18",
+   "youtube_link": "https://music.youtube.com/watch?v=sfBRvp0h5uo"
+  }
  ]
 }
