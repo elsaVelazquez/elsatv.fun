@@ -13,6 +13,8 @@ from pathlib import Path
 from datetime import datetime
 import time
 
+from pattern_dates import label as pattern_label, pick as date_pick
+
 
 # Run from the repo root: every path below (and .env, kissingface.html) is
 # relative to it. publish.sh and the nightly Action both do exactly that.
@@ -153,6 +155,44 @@ def load_enriched():
             'songs': songs,
         }
     return albums
+
+
+def release_date_for(release, pat, retries=3):
+    """The date the lore shows for a release.
+
+    The /releases list gives `created_at` (submission) and omits `release_date`
+    (it is None there), so the detail endpoint is still required: a release
+    submitted Nov 17 for a Nov 18 go-live should read 2026-11-18.
+
+    The 0/3/6/9 pattern then chooses among the real dates ONCE recorded —
+    release_date first, then the alternates — falling back to release_date when
+    none of them land. Mirrors build_albums.date_published.
+    """
+    detail = {}
+    rid = release.get('id')
+    if rid:
+        headers = {'Authorization': f'Bearer {pat}',
+                   'Content-Type': 'application/json'}
+        for attempt in range(retries):
+            try:
+                r = requests.get(f'https://once.app/v1/releases/{rid}',
+                                 headers=headers, timeout=30)
+                if r.status_code == 429:
+                    time.sleep(15 * (attempt + 1))
+                    continue
+                r.raise_for_status()
+                detail = r.json().get('release') or {}
+                break
+            except Exception:
+                if attempt == retries - 1:
+                    break
+                time.sleep(5 * (attempt + 1))
+
+    return date_pick((detail.get('release_date'),
+                      detail.get('original_release_date'),
+                      detail.get('first_distributed_at'),
+                      release.get('first_distributed_at'),
+                      release.get('created_at')))
 
 
 def yt_link_from_once(release_id, pat, retries=4):
@@ -476,9 +516,15 @@ def create_album_data(releases, api_key):
             print(f"  ⏳ marked checked — not on YouTube yet "
                   f"(ONCE status: {release.get('status')})", flush=True)
 
+        # Resolved once: release_date_for hits the detail endpoint.
+        published = release_date_for(release, pat)
+
         album = {
             'title': title,
-            'date': (release.get('created_at') or '')[:10],
+            # release_date, not created_at: the card shows the day it goes live
+            'date': published,
+            # A label derived from that real date — never a replacement for it.
+            'date_pattern': pattern_label(published),
             'cover_art': cover,
             'youtube_url': youtube_url or '',
             'album_link': playlist_url or '',
@@ -623,6 +669,10 @@ def create_html(albums):
     .album-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 4px 0; }
     .album-date { font-size: .78rem; color: #7f8c76; margin: 0 0 10px 0;
       letter-spacing: .03em; }
+    /* the 0/3/6/9 signature, shown only when the real date lands on it */
+    .album-pattern { display: inline-block; margin-left: 8px; padding: 1px 6px;
+      border: 1px solid #40503a; border-radius: 999px; font-size: .7rem;
+      color: #b8ff43; letter-spacing: .06em; }
     .album-link { display: inline-block; background: #b8ff43; color: #131a0c; padding: 8px 16px; text-decoration: none; border-radius: 5px; font-weight: bold; }
     .album-link:hover { filter: brightness(1.1); }
     .album-link.pending { background: #303a2d; color: #aeb8a7; }
@@ -713,9 +763,14 @@ def create_html(albums):
         else:
             items = '<li class="empty">tracklist not published yet</li>'
 
-        # Release date, shown under the album title
+        # Release date, shown under the album title. The 0/3/6/9 signature rides
+        # alongside it as a label, so the real date stays the only date shown.
         date = album.get('date') or ''
-        date_html = f'<div class="album-date">{date}</div>' if date else ''
+        mark = album.get('date_pattern') or ''
+        mark_html = (f'<span class="album-pattern" title="0/3/6/9 date pattern">'
+                     f'{escape(mark)}</span>') if mark else ''
+        date_html = (f'<div class="album-date">{date}{mark_html}</div>'
+                     if date else '')
 
         html += f'''      <div class="album">
         <img src="{cover}" alt="{album['title']}"{img_class} loading="lazy">
@@ -804,6 +859,8 @@ def main():
         {
             'song_name': a['title'],
             'date_published': a['date'],
+            # empty string when the date does not land on the pattern
+            'date_pattern': a.get('date_pattern') or '',
             'album_name': a['title'],
             'youtube_link': a['youtube_url'],
             'album_link': a['album_link'],

@@ -1,0 +1,562 @@
+{
+ "e54062fc-5595-43bd-96db-e23c34f2bd02": {
+  "release_date": "2026-11-18",
+  "original_release_date": "2026-11-17",
+  "created_at": "2026-11-17T22:17:17.589948+00:00",
+  "first_distributed_at": "2026-11-17T23:06:40.381163+00:00",
+  "status": "submitted"
+ },
+ "c615e844-77c0-4845-b4cc-07813c7cf662": {
+  "release_date": "2026-11-15",
+  "original_release_date": null,
+  "created_at": "2026-11-15T21:53:25.955615+00:00",
+  "first_distributed_at": "2026-11-17T00:40:34.830577+00:00",
+  "status": "submitted"
+ },
+ "571cb6cf-eb96-41c5-9828-253b373c189e": {
+  "release_date": "2026-11-12",
+  "original_release_date": null,
+  "created_at": "2026-11-12T21:37:09.071268+00:00",
+  "first_distributed_at": "2026-11-13T21:23:48.968223+00:00",
+  "status": "submitted"
+ },
+ "7f37d098-00f9-4ee2-8d02-c937dac1cfa9": {
+  "release_date": "2026-11-11",
+  "original_release_date": null,
+  "created_at": "2026-11-11T22:09:01.809684+00:00",
+  "first_distributed_at": "2026-11-12T02:00:16.479271+00:00",
+  "status": "submitted"
+ },
+ "32fd5381-2baf-4173-b415-a5abf81d12b3": {
+  "release_date": "2026-11-10",
+  "original_release_date": null,
+  "created_at": "2026-11-10T21:31:08.864415+00:00",
+  "first_distributed_at": "2026-11-11T00:11:19.444785+00:00",
+  "status": "submitted"
+ },
+ "0aee6277-1a53-4855-8d49-d12d8401d161": {
+  "release_date": "2026-11-09",
+  "original_release_date": null,
+  "created_at": "2026-11-09T21:43:53.132771+00:00",
+  "first_distributed_at": "2026-11-10T03:52:52.975841+00:00",
+  "status": "submitted"
+ },
+ "377f647c-d120-46b5-a85a-87ff1977be57": {
+  "release_date": "2026-11-06",
+  "original_release_date": "2026-11-08",
+  "created_at": "2026-11-06T21:38:49.448564+00:00",
+  "first_distributed_at": "2026-11-08T19:35:44.37064+00:00",
+  "status": "submitted"
+ },
+ "3d88d938-b4fa-4f7d-befa-80f9a1a16091": {
+  "release_date": "2026-11-05",
+  "original_release_date": null,
+  "created_at": "2026-11-03T21:16:28.327032+00:00",
+  "first_distributed_at": "2026-11-05T04:34:19.921256+00:00",
+  "status": "attention_needed"
+ },
+ "e73b7e0e-791b-4a32-9da1-937141cbe8f5": {
+  "release_date": "2026-11-01",
+  "original_release_date": null,
+  "created_at": "2026-11-01T21:42:38.908158+00:00",
+  "first_distributed_at": "2026-11-02T02:34:50.110048+00:00",
+  "status": "attention_needed"
+ },
+ "d80d5a2e-0577-435e-aa73-0ad85f6baf7f": {
+  "release_date": "2026-10-31",
+  "original_release_date": null,
+  "created_at": "2026-10-31T20:35:12.777691+00:00",
+  "first_distributed_at": "2026-11-01T02:11:47.537568+00:00",
+  "status": "attention_needed"
+ },
+ "63386fe9-2069-49c9-b441-2131fab68284": {
+  "release_date": "2026-10-31",
+  "original_release_date": null,
+  "created_at": "2026-10-31T07:27:06.807532+00:00",
+  "first_distributed_at": "2026-10-31T20:23:49.839658+00:00",
+  "status": "attention_needed"
+ },
+ "01e3c408-49b1-4ac3-a14b-b83c7325e1f9": {
+  "release_date": "2026-10-30",
+  "original_release_date": "2026-10-31",
+  "created_at": "2026-10-30T21:05:54.100378+00:00",
+  "first_distributed_at": "2026-10-31T20:55:19.77704+00:00",
+  "status": "attention_needed"
+ },
+ "fec74f7f-50dc-4ca9-a551-f8dfd7e7b533": {
+  "release_date": "2026-10-28",
+  "original_release_date": "2026-10-29",
+  "created_at": "2026-10-28T06:58:43.620672+00:00",
+  "first_distributed_at": "2026-10-29T03:09:47.686278+00:00",
+  "status": "attention_needed"
+ },
+ "e5e17c71-9e20-4f6d-865d-448d4e22bc25": {
+  "release_date": "2026-10-27",
+  "original_release_date": null,
+  "created_at": "2026-10-27T18:23:00.737349+00:00",
+  "first_distributed_at": "2026-10-28T00:02:06.982214+00:00",
+  "status": "attention_needed"
+ },
+ "d332e6cb-dba1-4569-bbed-19741d27de3b": {
+  "release_date": "2026-10-26",
+  "original_release_date": null,
+  "created_at": "2026-10-26T18:04:41.191698+00:00",
+  "first_distributed_at": "2026-10-26T22:08:26.303058+00:00",
+  "status": "attention_needed"
+ },
+ "a2c755a3-6c6d-4780-aea6-206abf9aef15": {
+  "release_date": "2026-10-24",
+  "original_release_date": "2026-10-23",
+  "created_at": "2026-10-23T07:24:39.575927+00:00",
+  "first_distributed_at": "2026-10-23T19:53:49.996384+00:00",
+  "status": "attention_needed"
+ },
+ "e9a2d51e-f268-409c-9e90-1467a5fc57c5": {
+  "release_date": "2026-10-20",
+  "original_release_date": null,
+  "created_at": "2026-10-20T09:48:27.185529+00:00",
+  "first_distributed_at": "2026-10-21T07:12:50.866087+00:00",
+  "status": "attention_needed"
+ },
+ "5ae99bae-6b2d-4e86-b355-9eb0422e3524": {
+  "release_date": "2026-10-19",
+  "original_release_date": "2026-10-19",
+  "created_at": "2026-10-19T17:06:14.488227+00:00",
+  "first_distributed_at": "2026-10-19T21:46:53.271852+00:00",
+  "status": "attention_needed"
+ },
+ "815847d8-9109-42da-900c-f61a006bd12c": {
+  "release_date": "2026-10-19",
+  "original_release_date": "2026-10-18",
+  "created_at": "2026-10-18T08:00:16.655101+00:00",
+  "first_distributed_at": "2026-10-19T05:51:48.610404+00:00",
+  "status": "attention_needed"
+ },
+ "856b8152-c4cf-4d72-ba2f-899a257af540": {
+  "release_date": "2026-10-16",
+  "original_release_date": "2026-10-16",
+  "created_at": "2026-10-16T02:51:50.706708+00:00",
+  "first_distributed_at": "2026-10-16T04:29:04.784897+00:00",
+  "status": "attention_needed"
+ },
+ "6858d230-ea20-4bfb-8fab-53d9d0731312": {
+  "release_date": "2026-10-11",
+  "original_release_date": null,
+  "created_at": "2026-10-11T19:07:17.64248+00:00",
+  "first_distributed_at": "2026-10-12T11:41:55.38017+00:00",
+  "status": "submitted"
+ },
+ "c40eb050-2296-4173-890b-988fa61ac377": {
+  "release_date": "2026-10-10",
+  "original_release_date": "2026-10-11",
+  "created_at": "2026-10-10T19:25:18.150675+00:00",
+  "first_distributed_at": "2026-10-11T13:50:50.478183+00:00",
+  "status": "submitted"
+ },
+ "9f4f80b8-5329-471e-b040-c26579687c68": {
+  "release_date": "2026-10-08",
+  "original_release_date": "2026-10-10",
+  "created_at": "2026-10-10T19:24:07.804531+00:00",
+  "first_distributed_at": "2026-10-12T08:12:42.401214+00:00",
+  "status": "submitted"
+ },
+ "8c7d6338-a4c3-43de-9ec6-2eed9fe90995": {
+  "release_date": "2026-10-01",
+  "original_release_date": "2026-10-02",
+  "created_at": "2026-10-01T20:18:58.271082+00:00",
+  "first_distributed_at": "2026-10-02T02:45:40.698184+00:00",
+  "status": "submitted"
+ },
+ "1b59dc41-0b20-432f-bcff-4e05ea77f8e2": {
+  "release_date": "2026-09-30",
+  "original_release_date": null,
+  "created_at": "2026-09-30T19:33:04.132634+00:00",
+  "first_distributed_at": "2026-10-01T20:34:23.597455+00:00",
+  "status": "submitted"
+ },
+ "0f59963b-5e96-42c2-af5e-8e526b2cb59b": {
+  "release_date": "2026-09-28",
+  "original_release_date": "2026-09-29",
+  "created_at": "2026-09-28T20:24:58.414644+00:00",
+  "first_distributed_at": "2026-09-29T03:44:05.857126+00:00",
+  "status": "submitted"
+ },
+ "16068fa5-a1b5-4b62-a472-9ed2dc22f24d": {
+  "release_date": "2026-09-27",
+  "original_release_date": "2026-09-27",
+  "created_at": "2026-09-27T15:20:19.470895+00:00",
+  "first_distributed_at": "2026-09-27T19:52:36.119142+00:00",
+  "status": "submitted"
+ },
+ "cbb0f8c4-7be5-49b3-8872-868919bb67cd": {
+  "release_date": "2026-09-24",
+  "original_release_date": null,
+  "created_at": "2026-09-24T07:34:34.80936+00:00",
+  "first_distributed_at": "2026-09-24T20:13:55.110615+00:00",
+  "status": "submitted"
+ },
+ "549c4312-6616-4416-8836-c39e7b272cfd": {
+  "release_date": "2026-09-24",
+  "original_release_date": null,
+  "created_at": "2026-09-22T06:58:28.53309+00:00",
+  "first_distributed_at": "2026-09-24T16:53:47.962064+00:00",
+  "status": "submitted"
+ },
+ "116a5c5e-21db-4e9c-a885-a4b3959b8487": {
+  "release_date": "2026-09-21",
+  "original_release_date": null,
+  "created_at": "2026-09-19T03:36:39.647033+00:00",
+  "first_distributed_at": "2026-09-21T18:50:07.661189+00:00",
+  "status": "submitted"
+ },
+ "8e591acd-a550-4163-84cc-180308e69df0": {
+  "release_date": "2026-09-18",
+  "original_release_date": "2026-09-18",
+  "created_at": "2026-09-18T03:26:35.115753+00:00",
+  "first_distributed_at": "2026-09-25T17:42:49.985142+00:00",
+  "status": "attention_needed"
+ },
+ "03aa2c76-5b2b-4de1-b6a8-86267ac11928": {
+  "release_date": "2026-09-15",
+  "original_release_date": "2026-09-16",
+  "created_at": "2026-09-15T07:26:45.662403+00:00",
+  "first_distributed_at": "2026-09-16T01:12:49.60758+00:00",
+  "status": "submitted"
+ },
+ "82d991c8-dda9-4cdb-8dd8-7b568cd257fd": {
+  "release_date": "2026-09-12",
+  "original_release_date": null,
+  "created_at": "2026-09-12T20:02:10.580749+00:00",
+  "first_distributed_at": "2026-09-12T22:48:14.293189+00:00",
+  "status": "submitted"
+ },
+ "3d03e2aa-cc55-4af3-b5c1-ef09c448f0bf": {
+  "release_date": "2026-09-11",
+  "original_release_date": null,
+  "created_at": "2026-09-11T19:48:46.100402+00:00",
+  "first_distributed_at": "2026-09-13T04:53:55.059248+00:00",
+  "status": "submitted"
+ },
+ "b1eb643f-81f6-4e82-baa0-30e62fff213c": {
+  "release_date": "2026-09-10",
+  "original_release_date": "2026-09-10",
+  "created_at": "2026-09-10T20:05:22.422965+00:00",
+  "first_distributed_at": "2026-09-11T18:25:42.937561+00:00",
+  "status": "submitted"
+ },
+ "bc594ca0-5442-4b9c-b366-87e60c85b78d": {
+  "release_date": "2026-09-09",
+  "original_release_date": null,
+  "created_at": "2026-09-09T20:24:05.518102+00:00",
+  "first_distributed_at": "2026-09-10T01:40:46.681941+00:00",
+  "status": "submitted"
+ },
+ "260d747c-3d94-4a41-897b-6254be15d3e8": {
+  "release_date": "2026-08-29",
+  "original_release_date": "2026-08-31",
+  "created_at": "2026-08-31T04:02:46.899813+00:00",
+  "first_distributed_at": "2026-08-31T18:25:59.358326+00:00",
+  "status": "submitted"
+ },
+ "2e6a0199-eb51-40ff-987b-d2f3725a54cb": {
+  "release_date": "2026-08-31",
+  "original_release_date": null,
+  "created_at": "2026-08-27T16:42:31.818476+00:00",
+  "first_distributed_at": "2026-08-28T21:52:46.70734+00:00",
+  "status": "submitted"
+ },
+ "c8ffb92b-f597-4cd2-b7a0-ae9a5698db18": {
+  "release_date": "2026-08-22",
+  "original_release_date": "2026-08-22",
+  "created_at": "2026-08-22T21:55:16.511566+00:00",
+  "first_distributed_at": "2026-08-22T23:37:20.693935+00:00",
+  "status": "submitted"
+ },
+ "21646a42-df26-4cb8-8779-a13c1cb9fbee": {
+  "release_date": "2026-08-22",
+  "original_release_date": "2026-08-22",
+  "created_at": "2026-08-22T05:23:11.286878+00:00",
+  "first_distributed_at": "2026-08-23T15:51:05.662307+00:00",
+  "status": "submitted"
+ },
+ "5a6a321b-fbb5-40a0-988e-635dbdd54f8a": {
+  "release_date": "2026-08-22",
+  "original_release_date": null,
+  "created_at": "2026-08-22T00:44:43.980562+00:00",
+  "first_distributed_at": "2026-08-22T03:24:08.419466+00:00",
+  "status": "taken_down"
+ },
+ "816b4d9a-0a17-4381-95a5-3b9c6a5b1619": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-06-30",
+  "created_at": "2026-08-17T17:20:23.440685+00:00",
+  "first_distributed_at": "2026-08-17T20:00:40.366948+00:00",
+  "status": "attention_needed"
+ },
+ "32a6feff-0816-4dc0-a8fd-4f1447a291f8": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-06-30",
+  "created_at": "2026-08-17T17:20:21.359956+00:00",
+  "first_distributed_at": "2026-08-17T21:40:24.243685+00:00",
+  "status": "attention_needed"
+ },
+ "9734c35f-d856-4cb5-b56e-a358d22f8b91": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-06-30",
+  "created_at": "2026-08-17T17:20:19.392901+00:00",
+  "first_distributed_at": "2026-08-17T19:50:43.243781+00:00",
+  "status": "attention_needed"
+ },
+ "a378adc4-7932-4dcd-8e6f-4489a24c0297": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-01",
+  "created_at": "2026-08-17T17:20:17.687992+00:00",
+  "first_distributed_at": "2026-08-17T21:30:46.874311+00:00",
+  "status": "attention_needed"
+ },
+ "ec68e89d-db99-4f14-b927-6d3f54fd03e8": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-01",
+  "created_at": "2026-08-17T17:20:15.594298+00:00",
+  "first_distributed_at": "2026-08-17T21:40:24.132535+00:00",
+  "status": "attention_needed"
+ },
+ "05383b9b-212a-4bb2-a854-1067039cad44": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-01",
+  "created_at": "2026-08-17T17:20:13.692178+00:00",
+  "first_distributed_at": "2026-08-17T21:30:46.082374+00:00",
+  "status": "submitted"
+ },
+ "fbc55413-8201-4923-8284-54fa4a018b36": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-01",
+  "created_at": "2026-08-17T17:20:11.451784+00:00",
+  "first_distributed_at": "2026-08-17T21:30:47.016299+00:00",
+  "status": "submitted"
+ },
+ "81480528-d9af-4917-b93a-5c1fc9cdf544": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-01",
+  "created_at": "2026-08-17T17:20:09.918463+00:00",
+  "first_distributed_at": "2026-08-17T21:20:47.680307+00:00",
+  "status": "attention_needed"
+ },
+ "0023cce4-62f9-4a54-8f6a-6fe8126a18b9": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-01",
+  "created_at": "2026-08-17T17:20:08.152707+00:00",
+  "first_distributed_at": "2026-08-17T21:30:25.792713+00:00",
+  "status": "submitted"
+ },
+ "97db9240-723b-4ea9-920d-08539981fc58": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-01",
+  "created_at": "2026-08-17T17:20:06.377683+00:00",
+  "first_distributed_at": "2026-08-17T21:30:26.122791+00:00",
+  "status": "submitted"
+ },
+ "d660540f-48cd-4b93-ab1c-476c6f4dfb3d": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-03",
+  "created_at": "2026-08-17T17:20:04.323018+00:00",
+  "first_distributed_at": "2026-08-18T03:50:42.856001+00:00",
+  "status": "attention_needed"
+ },
+ "7490cfbf-5067-4e33-b658-daaa6a0e830e": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-03",
+  "created_at": "2026-08-17T17:20:02.414639+00:00",
+  "first_distributed_at": "2026-08-17T21:20:48.077581+00:00",
+  "status": "attention_needed"
+ },
+ "26618dd2-68e0-4aa6-ad08-8eb29f059028": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-04",
+  "created_at": "2026-08-17T17:20:00.504093+00:00",
+  "first_distributed_at": "2026-08-17T21:20:47.310239+00:00",
+  "status": "submitted"
+ },
+ "b6a3157e-117b-47dd-b162-5233b2068710": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-04",
+  "created_at": "2026-08-17T17:19:58.485643+00:00",
+  "first_distributed_at": "2026-08-18T02:20:39.721076+00:00",
+  "status": "submitted"
+ },
+ "0db99c31-2ec9-4c79-8416-0742b8d598cb": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-05",
+  "created_at": "2026-08-17T17:19:57.202009+00:00",
+  "first_distributed_at": "2026-08-18T02:20:39.748408+00:00",
+  "status": "submitted"
+ },
+ "9e90fb0d-8ff7-4a3b-b233-06567e224561": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-05",
+  "created_at": "2026-08-17T17:19:55.408193+00:00",
+  "first_distributed_at": "2026-08-18T02:20:40.607404+00:00",
+  "status": "submitted"
+ },
+ "bab1d3db-e8d1-4116-b972-6b7174f83c23": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-09",
+  "created_at": "2026-08-17T17:19:54.038909+00:00",
+  "first_distributed_at": "2026-08-18T03:50:44.494168+00:00",
+  "status": "attention_needed"
+ },
+ "267fdfa7-0fd2-44f7-b59a-b6d0b11321c7": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-10",
+  "created_at": "2026-08-17T17:19:52.082862+00:00",
+  "first_distributed_at": "2026-08-17T21:20:24.352316+00:00",
+  "status": "submitted"
+ },
+ "b58f8c96-8432-40dd-89d2-8ccf40aad11a": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-11",
+  "created_at": "2026-08-17T17:19:50.231596+00:00",
+  "first_distributed_at": "2026-08-18T03:50:28.602689+00:00",
+  "status": "attention_needed"
+ },
+ "a17556e3-189e-495d-9919-cd93c9e5b95d": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-13",
+  "created_at": "2026-08-17T17:19:48.87718+00:00",
+  "first_distributed_at": "2026-08-17T21:20:25.230873+00:00",
+  "status": "attention_needed"
+ },
+ "9963e872-3244-456f-8974-3d1d73742a62": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-15",
+  "created_at": "2026-08-17T17:19:46.670019+00:00",
+  "first_distributed_at": "2026-08-17T23:00:36.302447+00:00",
+  "status": "attention_needed"
+ },
+ "db262af7-eba3-4fdc-a74f-9e7d1c73a0f5": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-17",
+  "created_at": "2026-08-17T17:19:44.552895+00:00",
+  "first_distributed_at": "2026-08-17T23:00:37.159697+00:00",
+  "status": "attention_needed"
+ },
+ "5a0f7bb8-3c87-400a-b4fc-db2779dfbb00": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-21",
+  "created_at": "2026-08-17T17:19:42.622528+00:00",
+  "first_distributed_at": "2026-08-17T21:20:25.528358+00:00",
+  "status": "attention_needed"
+ },
+ "2b1b3dea-4a72-46ce-be8a-58c403646135": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-23",
+  "created_at": "2026-08-17T17:19:40.873109+00:00",
+  "first_distributed_at": "2026-08-17T21:10:14.926429+00:00",
+  "status": "attention_needed"
+ },
+ "16eb852e-3495-450e-9dfd-40c98311668a": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-27",
+  "created_at": "2026-08-17T17:19:39.122014+00:00",
+  "first_distributed_at": "2026-08-17T22:05:39.171493+00:00",
+  "status": "attention_needed"
+ },
+ "d8cb7987-72ae-4fae-afc3-28256133824c": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-27",
+  "created_at": "2026-08-17T17:19:37.121653+00:00",
+  "first_distributed_at": "2026-08-18T03:15:52.895+00:00",
+  "status": "attention_needed"
+ },
+ "caabf6ea-5b1c-472b-a18b-a3ae99f49741": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-27",
+  "created_at": "2026-08-17T17:19:34.867327+00:00",
+  "first_distributed_at": "2026-08-17T19:20:44.404855+00:00",
+  "status": "attention_needed"
+ },
+ "f405f0a8-9a32-44a1-9017-9abd2fa2cdc0": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-27",
+  "created_at": "2026-08-17T17:19:32.899103+00:00",
+  "first_distributed_at": "2026-08-18T03:40:31.717311+00:00",
+  "status": "attention_needed"
+ },
+ "462eeba9-3275-499d-8248-b3203914d902": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-07-30",
+  "created_at": "2026-08-17T17:19:30.935419+00:00",
+  "first_distributed_at": "2026-08-17T22:50:44.508715+00:00",
+  "status": "attention_needed"
+ },
+ "348e6a40-2c73-42c9-8b28-f1fc46d82a4e": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-08-01",
+  "created_at": "2026-08-17T17:19:28.994327+00:00",
+  "first_distributed_at": "2026-08-18T03:15:57.546072+00:00",
+  "status": "submitted"
+ },
+ "6f5475f0-8bcf-4757-8852-e1f66d2b710c": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-08-01",
+  "created_at": "2026-08-17T17:19:27.135076+00:00",
+  "first_distributed_at": "2026-08-18T03:40:31.772578+00:00",
+  "status": "attention_needed"
+ },
+ "3e3bb382-24cd-41f6-83d0-280a76cdb269": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-08-01",
+  "created_at": "2026-08-17T17:19:25.243065+00:00",
+  "first_distributed_at": "2026-08-18T03:40:31.396962+00:00",
+  "status": "attention_needed"
+ },
+ "abad8638-db75-41f9-8488-59d0ee9a4141": {
+  "release_date": "2026-08-17",
+  "original_release_date": "2026-08-18",
+  "created_at": "2026-08-17T06:58:08.090303+00:00",
+  "first_distributed_at": "2026-08-18T02:05:44.394497+00:00",
+  "status": "attention_needed"
+ },
+ "96f505b5-515f-4129-9019-4a92f49a1ffe": {
+  "release_date": "2026-08-13",
+  "original_release_date": "2026-08-16",
+  "created_at": "2026-08-13T22:16:51.678828+00:00",
+  "first_distributed_at": "2026-08-16T02:05:43.514824+00:00",
+  "status": "attention_needed"
+ },
+ "47337c59-4492-47b0-9fec-0b9ce97df7b4": {
+  "release_date": "2026-08-12",
+  "original_release_date": "2026-08-12",
+  "created_at": "2026-08-12T08:16:59.294071+00:00",
+  "first_distributed_at": "2026-08-12T11:01:22.994208+00:00",
+  "status": "attention_needed"
+ },
+ "c4c2de6c-f6fa-4a45-8bab-617093e4ef3c": {
+  "release_date": "2026-08-12",
+  "original_release_date": "2026-08-12",
+  "created_at": "2026-08-12T06:42:35.876689+00:00",
+  "first_distributed_at": "2026-08-12T20:07:02.131568+00:00",
+  "status": "attention_needed"
+ },
+ "55e77242-2a35-430f-a5dc-aa6930ff9d3e": {
+  "release_date": "2026-08-12",
+  "original_release_date": "2026-08-13",
+  "created_at": "2026-08-12T06:01:30.71464+00:00",
+  "first_distributed_at": "2026-08-13T04:30:34.034961+00:00",
+  "status": "attention_needed"
+ },
+ "368708da-941a-447e-bb90-3c183a06eb1f": {
+  "release_date": "2026-08-12",
+  "original_release_date": "2026-08-12",
+  "created_at": "2026-08-12T05:23:48.103645+00:00",
+  "first_distributed_at": "2026-08-12T06:40:36.006896+00:00",
+  "status": "attention_needed"
+ },
+ "82369b8b-033d-4b58-9fcc-d0c5058375a1": {
+  "release_date": "2026-08-12",
+  "original_release_date": "2026-08-12",
+  "created_at": "2026-08-11T20:58:36.77437+00:00",
+  "first_distributed_at": "2026-08-12T06:00:30.854802+00:00",
+  "status": "submitted"
+ }
+}

@@ -39,9 +39,14 @@ from pathlib import Path
 
 import requests
 
+from pattern_dates import label as pattern_label, pick as date_pick
+
 MANUAL_FILE = Path('lore/manual_links.json')
 CACHE_FILE = Path('lore/yt_link_cache.json')
 TRACKS_FILE = Path('lore/tracks_cache.json')
+# release_date lives only on the per-release endpoint; cached so the nightly
+# run makes one extra call per release instead of one per render.
+RELEASE_FILE = Path('lore/release_cache.json')
 OUT = Path('lore/albums.json')
 
 RELEASES_URL = 'https://www.youtube.com/@elsavelaz/releases'
@@ -110,6 +115,68 @@ def get_releases(pat):
             break
         offset = data['nextOffset']
     return out
+
+
+def get_release(release_id, pat, retries=4):
+    """Full release record. Cached in lore/release_cache.json.
+
+    The list endpoint omits `release_date` (it comes back None), so the date a
+    release actually goes live is only available here.
+    """
+    cache = load_json(RELEASE_FILE, {})
+    cached = cache.get(release_id)
+    if cached and cached.get('release_date'):
+        return cached
+
+    headers = {'Authorization': f'Bearer {pat}',
+               'Content-Type': 'application/json'}
+    for attempt in range(retries):
+        try:
+            r = requests.get(f'https://once.app/v1/releases/{release_id}',
+                             headers=headers, timeout=60)
+            if r.status_code == 429:
+                time.sleep(15 * (attempt + 1))
+                continue
+            r.raise_for_status()
+            rel = r.json().get('release') or {}
+            rel = {k: rel.get(k) for k in
+                   ('release_date', 'original_release_date', 'created_at',
+                    'first_distributed_at', 'status')}
+            cache[release_id] = rel
+            RELEASE_FILE.parent.mkdir(parents=True, exist_ok=True)
+            RELEASE_FILE.write_text(json.dumps(
+                cache, indent=1, ensure_ascii=False))
+            return rel
+        except Exception as e:
+            if attempt == retries - 1:
+                print(f'  ⚠️  release detail failed for {release_id}: {e}')
+            else:
+                time.sleep(5 * (attempt + 1))
+    return {}
+
+
+def date_published(rel, detail):
+    """The date the lore shows for a release.
+
+    ONCE records several real dates per release, and they need not agree:
+    `release_date` is the scheduled go-live day, `created_at` the day it was
+    submitted, `first_distributed_at` the day delivery began.
+
+    The 0/3/6/9 pattern decides which of those to show: the scheduled date wins
+    when it lands on the pattern, otherwise the first of the others that does.
+    When none of them land (many releases genuinely don't), it falls back to
+    `release_date` — the scheduled date is always the default answer.
+
+    Order is therefore release_date first, then the alternates, so `pick()`
+    only ever moves off release_date when that date misses AND another real
+    date hits. No date is invented or adjusted.
+    """
+    candidates = (detail.get('release_date'),
+                  detail.get('original_release_date'),
+                  detail.get('first_distributed_at'),
+                  rel.get('first_distributed_at'),
+                  rel.get('created_at'))
+    return date_pick(candidates)
 
 
 def get_tracks(release_id, pat, retries=4):
@@ -237,9 +304,14 @@ def main():
 
         print(f'[{i}/{len(releases)}] {title[:44]:44} {len(songs)} song(s)')
 
+        published = date_published(rel, get_release(rid, pat))
+
         albums.append({
             'album_name': title,
-            'date_published': (rel.get('created_at') or '')[:10],
+            # release_date, not created_at: the card shows the day it goes live
+            'date_published': published,
+            # A label derived from that real date — never a replacement for it.
+            'date_pattern': pattern_label(published),
             'youtube_link': album_url or track_url,
             'album_link': album_url,
             'cover_art': cover,
