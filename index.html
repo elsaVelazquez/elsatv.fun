@@ -143,19 +143,28 @@
          documents card into a 157px box of dead space. Let each card size
          itself and align to the top of its row instead. */
       align-self: start;
+      /* every card is a link, so every card carries the same lime outline and
+         halo: the border is what says "clickable" before you hover */
       background: var(--panel);
-      border: 1px solid var(--line);
+      border: 1px solid rgba(184, 255, 67, 0.55);
+      box-shadow: 0 0 0 1px rgba(184, 255, 67, 0.12),
+                  0 0 14px rgba(184, 255, 67, 0.07);
       color: var(--text);
       text-decoration: none;
       border-radius: 14px;
       padding: 18px 20px;
       font-weight: 700;
-      transition: transform 0.15s ease, background 0.15s ease;
+      transition: transform 0.15s ease, background 0.15s ease,
+                  border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .button:hover {
+    .button:hover,
+    .button:focus-visible {
       background: var(--panel-2);
       transform: translateY(-1px);
+      border-color: #d8ff4f;
+      box-shadow: 0 0 0 1px rgba(216, 255, 79, 0.28),
+                  0 0 22px rgba(216, 255, 79, 0.16);
     }
 
     /* the music call-to-action: YouTube Music pays the most, so it leads */
@@ -168,7 +177,8 @@
       border-color: #d8ff4f;
     }
 
-    /* the YouTube posts card: highlighted so it reads as a link, not a label */
+    /* the YouTube posts card: the loudest of the four, so it keeps its darker
+       green fill on top of the shared lime outline */
     .button-posts {
       position: relative;
       display: flex;
@@ -828,7 +838,45 @@
       flex: 0 0 auto;
     }
 
+    /* --- the pet fund: a paw print trailing the copy ---
+       The paw sits at the right end of the card as a watermark: big enough to
+       read at a glance, muted enough not to compete with the words. */
+    .btn-pet {
+      position: relative;
+      overflow: hidden;
+      /* room on the right so the text never runs under the paw */
+      padding-right: 84px;
+    }
+
+    .btn-pet .paw {
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      width: 58px;
+      height: 58px;
+      transform: translateY(-50%) rotate(-12deg);
+      color: rgba(0, 185, 100, 0.55);
+      pointer-events: none;
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+
+    .btn-pet:hover .paw,
+    .btn-pet:focus-visible .paw {
+      color: rgba(0, 185, 100, 0.85);
+      transform: translateY(-50%) rotate(-4deg) scale(1.04);
+    }
+
     @media (max-width: 520px) {
+      .btn-pet {
+        padding-right: 64px;
+      }
+
+      .btn-pet .paw {
+        width: 44px;
+        height: 44px;
+        right: 10px;
+      }
+
       .button .btn-icon {
         width: 26px;
         height: 26px;
@@ -1075,6 +1123,14 @@
           <svg viewBox="0 0 24 24" focusable="false"><path fill="#00b964" d="M12 20.4 4.3 13a4.9 4.9 0 0 1 7-6.9l.7.7.7-.7a4.9 4.9 0 0 1 7 6.9z"/></svg>
         </span>
         <span class="btn-label">Please Help Resurrect My Pet<span class="btn-sub">GoFundMe</span></span>
+        <!-- the paw print trailing the words: a pad and four toes -->
+        <svg class="paw" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+          <circle cx="12" cy="15" r="5.8"/>
+          <ellipse cx="5.38" cy="9.83" rx="2.7" ry="3.4" transform="rotate(-18.2 5.38 9.83)"/>
+          <ellipse cx="8.87" cy="5.92" rx="2.6" ry="3.5" transform="rotate(-6.6 8.87 5.92)"/>
+          <ellipse cx="15.13" cy="5.92" rx="2.6" ry="3.5" transform="rotate(6.6 15.13 5.92)"/>
+          <ellipse cx="18.62" cy="9.83" rx="2.7" ry="3.4" transform="rotate(18.2 18.62 9.83)"/>
+        </svg>
       </a>
 
     </div>
