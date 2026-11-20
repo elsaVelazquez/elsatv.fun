@@ -1,12 +1,21 @@
 [
   {
+    "song_name": "Resurrect My Pet Yet?",
+    "date_published": "2026-11-19",
+    "date_pattern": "0 · 9 · 0",
+    "album_name": "Resurrect My Pet Yet?",
+    "youtube_link": "",
+    "album_link": "",
+    "cover_art": "https://once.app/api/files/cover-art/78948911-7507-4307-ad17-1c9b06c984d7/aee7523d-184d-4ef0-b5ab-c4a726b3ef49.png"
+  },
+  {
     "song_name": "Rewriting Tithing",
     "date_published": "2026-11-18",
     "date_pattern": "0 · 9 · 0",
     "album_name": "Rewriting Tithing",
-    "youtube_link": "",
-    "album_link": "",
-    "cover_art": "https://once.app/api/files/cover-art/78948911-7507-4307-ad17-1c9b06c984d7/25b78718-ddd1-4c46-b944-8c6f3e6b7e82.png"
+    "youtube_link": "https://music.youtube.com/watch?v=9ITkn1qXLFs&list=OLAK5uy_lUiwkITiS_9HdJo0JY1XPe3DSqOLXmQ7w",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lUiwkITiS_9HdJo0JY1XPe3DSqOLXmQ7w",
+    "cover_art": "https://i.ytimg.com/vi/9ITkn1qXLFs/hqdefault.jpg"
   },
   {
     "song_name": "Deuteronomy Jubilee.exe",
@@ -333,15 +342,6 @@
     "cover_art": "https://i.ytimg.com/vi/bbFYyhw556U/hqdefault.jpg"
   },
   {
-    "song_name": "Standing Up Nerd Reich Standup",
-    "date_published": "2026-08-29",
-    "date_pattern": "",
-    "album_name": "Standing Up Nerd Reich Standup",
-    "youtube_link": "https://music.youtube.com/watch?v=5cclGoyPFYo",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lyb0La2l1nsfRz37-6VsRkHy1x59SjkeA",
-    "cover_art": "https://i.ytimg.com/vi/5cclGoyPFYo/hqdefault.jpg"
-  },
-  {
     "song_name": "I Make Me Thoth Vortex Eight Four One",
     "date_published": "2026-08-31",
     "date_pattern": "",
@@ -349,6 +349,15 @@
     "youtube_link": "https://music.youtube.com/watch?v=516Gk7Cfzug",
     "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nSs2LZzKiZHKWRKivx5EEifCoP2pJZTd8",
     "cover_art": "https://i.ytimg.com/vi/516Gk7Cfzug/hqdefault.jpg"
+  },
+  {
+    "song_name": "Standing Up Nerd Reich Standup",
+    "date_published": "2026-08-29",
+    "date_pattern": "",
+    "album_name": "Standing Up Nerd Reich Standup",
+    "youtube_link": "https://music.youtube.com/watch?v=5cclGoyPFYo",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lyb0La2l1nsfRz37-6VsRkHy1x59SjkeA",
+    "cover_art": "https://i.ytimg.com/vi/5cclGoyPFYo/hqdefault.jpg"
   },
   {
     "song_name": "The Devil Made Me",
@@ -378,33 +387,6 @@
     "cover_art": "https://i.ytimg.com/vi/5ZZz7z7Nhl4/hqdefault.jpg"
   },
   {
-    "song_name": "Are We Closer Yet",
-    "date_published": "2026-06-30",
-    "date_pattern": "6 · 3 · 0",
-    "album_name": "Are We Closer Yet",
-    "youtube_link": "https://music.youtube.com/watch?v=_qfTDV7pSGQ",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lej2rLs-Pt7dhnCrGh2WdvgYiLJw4Z52E",
-    "cover_art": "https://i.ytimg.com/vi/_qfTDV7pSGQ/hqdefault.jpg"
-  },
-  {
-    "song_name": "Magnet Tar Pit Traps",
-    "date_published": "2026-06-30",
-    "date_pattern": "6 · 3 · 0",
-    "album_name": "Magnet Tar Pit Traps",
-    "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mLFJYmoZhVwJvkdP_xhhi5voqurNm0peE",
-    "cover_art": "https://i.ytimg.com/vi/IFXMW-J2pWY/hqdefault.jpg"
-  },
-  {
-    "song_name": "The Closer to Death",
-    "date_published": "2026-06-30",
-    "date_pattern": "6 · 3 · 0",
-    "album_name": "The Closer to Death",
-    "youtube_link": "https://music.youtube.com/watch?v=KoepAOUIuto",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nbdykWJ-IvUFqu8F6UjXVVCPsTGr2klec",
-    "cover_art": "https://i.ytimg.com/vi/KoepAOUIuto/hqdefault.jpg"
-  },
-  {
     "song_name": "Possession by Obsession",
     "date_published": "2026-08-17",
     "date_pattern": "",
@@ -423,15 +405,6 @@
     "cover_art": "https://i.ytimg.com/vi/CV1Klaca8VQ/hqdefault.jpg"
   },
   {
-    "song_name": "Possession by Obsession",
-    "date_published": "2026-08-17",
-    "date_pattern": "",
-    "album_name": "Possession by Obsession",
-    "youtube_link": "https://music.youtube.com/watch?v=x-rwCugnTYc",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kEFWmHGfo7ORBx-oz97NplLNMaa-G1W-U",
-    "cover_art": "https://i.ytimg.com/vi/x-rwCugnTYc/hqdefault.jpg"
-  },
-  {
     "song_name": "Magnet Tar Pit Traps",
     "date_published": "2026-08-17",
     "date_pattern": "",
@@ -448,24 +421,6 @@
     "youtube_link": "https://music.youtube.com/watch?v=odpoF0nk7z0",
     "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nbdykWJ-IvUFqu8F6UjXVVCPsTGr2klec",
     "cover_art": "https://i.ytimg.com/vi/odpoF0nk7z0/hqdefault.jpg"
-  },
-  {
-    "song_name": "Precious My Pet",
-    "date_published": "2026-08-17",
-    "date_pattern": "",
-    "album_name": "Precious My Pet",
-    "youtube_link": "https://music.youtube.com/watch?v=yPEpVQ82yFc",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lMy89oUyCc9Xl0yFLbyNl6FPnddb_OHnc",
-    "cover_art": "https://i.ytimg.com/vi/yPEpVQ82yFc/hqdefault.jpg"
-  },
-  {
-    "song_name": "Possession by Obsession",
-    "date_published": "2026-08-17",
-    "date_pattern": "",
-    "album_name": "Possession by Obsession",
-    "youtube_link": "https://music.youtube.com/watch?v=GNu-pPOR0Fs",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kEFWmHGfo7ORBx-oz97NplLNMaa-G1W-U",
-    "cover_art": "https://i.ytimg.com/vi/GNu-pPOR0Fs/hqdefault.jpg"
   },
   {
     "song_name": "Free Fall Off A Cliff Notes",
@@ -502,15 +457,6 @@
     "youtube_link": "https://music.youtube.com/watch?v=oImo8zzKK00",
     "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_k6uKZzQ_j6DwW97Xo7eBmNV_xaN5XOkrI",
     "cover_art": "https://i.ytimg.com/vi/oImo8zzKK00/hqdefault.jpg"
-  },
-  {
-    "song_name": "Free Fall Off A Cliff Notes",
-    "date_published": "2026-08-17",
-    "date_pattern": "",
-    "album_name": "Free Fall Off A Cliff Notes",
-    "youtube_link": "https://music.youtube.com/watch?v=UBgqDRu7G-0",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_l6johKFsD1WXpyZ3ugru2bcP2a59kmzJ0",
-    "cover_art": "https://i.ytimg.com/vi/UBgqDRu7G-0/hqdefault.jpg"
   },
   {
     "song_name": "Free Fall Off a Cliff",
@@ -684,6 +630,15 @@
     "cover_art": "https://i.ytimg.com/vi/9KkJMjhEK90/hqdefault.jpg"
   },
   {
+    "song_name": "Heat is On",
+    "date_published": "2026-08-13",
+    "date_pattern": "",
+    "album_name": "Heat is On",
+    "youtube_link": "https://music.youtube.com/watch?v=fe_afqdezaM",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mSV-Rt4cBggabDIrRrZQytSd7h2hh4Hrk",
+    "cover_art": "https://i.ytimg.com/vi/fe_afqdezaM/hqdefault.jpg"
+  },
+  {
     "song_name": "Elfalpha Treats",
     "date_published": "2026-08-12",
     "date_pattern": "",
@@ -702,15 +657,6 @@
     "cover_art": "https://i.ytimg.com/vi/-5F__Xv4CfM/hqdefault.jpg"
   },
   {
-    "song_name": "Heat is On",
-    "date_published": "2026-08-12",
-    "date_pattern": "",
-    "album_name": "Heat is On",
-    "youtube_link": "https://music.youtube.com/watch?v=fe_afqdezaM",
-    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mSV-Rt4cBggabDIrRrZQytSd7h2hh4Hrk",
-    "cover_art": "https://i.ytimg.com/vi/fe_afqdezaM/hqdefault.jpg"
-  },
-  {
     "song_name": "Iron March Lullaby",
     "date_published": "2026-08-12",
     "date_pattern": "",
@@ -727,5 +673,32 @@
     "youtube_link": "https://music.youtube.com/watch?v=40WyfivwpKI",
     "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mcmsNbA1uc0D4CxpLNe27GqCcCuBj9eP4",
     "cover_art": "https://i.ytimg.com/vi/40WyfivwpKI/hqdefault.jpg"
+  },
+  {
+    "song_name": "Are We Closer Yet",
+    "date_published": "2026-06-30",
+    "date_pattern": "6 · 3 · 0",
+    "album_name": "Are We Closer Yet",
+    "youtube_link": "https://music.youtube.com/watch?v=_qfTDV7pSGQ",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lej2rLs-Pt7dhnCrGh2WdvgYiLJw4Z52E",
+    "cover_art": "https://i.ytimg.com/vi/_qfTDV7pSGQ/hqdefault.jpg"
+  },
+  {
+    "song_name": "Magnet Tar Pit Traps",
+    "date_published": "2026-06-30",
+    "date_pattern": "6 · 3 · 0",
+    "album_name": "Magnet Tar Pit Traps",
+    "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mLFJYmoZhVwJvkdP_xhhi5voqurNm0peE",
+    "cover_art": "https://i.ytimg.com/vi/IFXMW-J2pWY/hqdefault.jpg"
+  },
+  {
+    "song_name": "The Closer to Death",
+    "date_published": "2026-06-30",
+    "date_pattern": "6 · 3 · 0",
+    "album_name": "The Closer to Death",
+    "youtube_link": "https://music.youtube.com/watch?v=KoepAOUIuto",
+    "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nbdykWJ-IvUFqu8F6UjXVVCPsTGr2klec",
+    "cover_art": "https://i.ytimg.com/vi/KoepAOUIuto/hqdefault.jpg"
   }
 ]

@@ -30,6 +30,11 @@ MANUAL_FILE = Path('lore/manual_links.json')
 # QA'd album + per-song links, produced outside this script. See load_enriched().
 ENRICHED_FILE = Path('lore/music_links_enriched.json')
 ALBUMS_FILE = Path('lore/albums.json')
+# What the channel's releases page showed us, keyed by normalised album title.
+# Committed with the page so a link found once is never looked for again.
+RELEASES_CACHE = Path('lore/releases_cache.json')
+# Release dates already resolved from ONCE — so a run only asks for new ones.
+DATES_FILE = Path('lore/release_dates.json')
 # Shown on any card that has no track/album art yet.
 PENDING_LOGO = 'elfalpha_logo.png'
 RELEASES_URL = 'https://www.youtube.com/@elsavelaz/releases'
@@ -101,6 +106,35 @@ def load_cache():
 def save_cache(cache):
     CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
     CACHE_FILE.write_text(json.dumps(cache, indent=1, ensure_ascii=False))
+
+
+def load_releases_cache():
+    """releases_cache.json: {"<normalised album>": {title, youtube_url, …}}"""
+    if RELEASES_CACHE.exists():
+        try:
+            return json.loads(RELEASES_CACHE.read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def save_releases_cache(found):
+    RELEASES_CACHE.parent.mkdir(parents=True, exist_ok=True)
+    RELEASES_CACHE.write_text(json.dumps(found, indent=1, ensure_ascii=False))
+
+
+def _load_dates():
+    if DATES_FILE.exists():
+        try:
+            return json.loads(DATES_FILE.read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def _save_dates(dates):
+    DATES_FILE.parent.mkdir(parents=True, exist_ok=True)
+    DATES_FILE.write_text(json.dumps(dates, indent=1, ensure_ascii=False))
 
 
 def load_manual():
@@ -177,6 +211,11 @@ def release_date_for(release, pat, retries=3):
     """
     detail = {}
     rid = release.get('id')
+    dates = _load_dates()
+    if rid and rid in dates:
+        # Resolved on an earlier run — reuse it, do not ask ONCE again. An
+        # empty value means "asked, nothing usable" — also do not retry.
+        return dates[rid] or None
     if rid:
         headers = {'Authorization': f'Bearer {pat}',
                    'Content-Type': 'application/json'}
@@ -195,11 +234,37 @@ def release_date_for(release, pat, retries=3):
                     break
                 time.sleep(5 * (attempt + 1))
 
-    return date_pick((detail.get('release_date'),
-                      detail.get('original_release_date'),
-                      detail.get('first_distributed_at'),
-                      release.get('first_distributed_at'),
-                      release.get('created_at')))
+    published = date_pick((detail.get('release_date'),
+                           detail.get('original_release_date'),
+                           detail.get('first_distributed_at'),
+                           release.get('first_distributed_at'),
+                           release.get('created_at')))
+
+    if rid:
+        dates[rid] = published
+        _save_dates(dates)
+
+    return published
+
+
+def stable_order(albums):
+    """Keep the archive in a fixed order: one card per release, newest first.
+
+    The order comes from the dates we already store, NOT from the ONCE list,
+    which reorders between runs. Cards sharing a title + date are the same
+    release (ONCE sometimes holds duplicates) — keep the first. Anything
+    without a date yet goes last.
+    """
+    seen = set()
+    picked, undated = [], []
+    for a in albums:
+        key = (norm(a['title']), a.get('date') or '')
+        if key in seen:
+            continue
+        seen.add(key)
+        (picked if a.get('date') else undated).append(a)
+    picked.sort(key=lambda a: a['date'], reverse=True)  # stable within a day
+    return picked + undated
 
 
 def yt_link_from_once(release_id, pat, retries=4):
@@ -404,16 +469,30 @@ def create_album_data(releases, api_key):
     # Only fetch the public releases page if something is genuinely new.
     # A release already marked `checked` in the cache (see below) was looked
     # for and not found, so we do not re-scrape it on every run.
+    #
+    # A release ONCE already links to YouTube Music is never a reason to scrape:
+    # we resolve it from ONCE below. Only a release with no link anywhere is
+    # looked up on the channel page, so the scrape stays "new releases only".
+    # Links found there are remembered in RELEASES_CACHE as well, so they are
+    # not looked for a second time.
+    channel_found = load_releases_cache()
+
     def needs_lookup(r):
         if manual.get(norm(r.get('title', ''))):
             return False
         entry = cache.get(r['id'], {})
         if entry.get('youtube_url'):
             return False
+        if channel_found.get(norm(r.get('title', ''))):
+            return False
         # Already checked and absent — only retry if ONCE status moved on
         return entry.get('checked_status') != r.get('status')
 
     unresolved = [r for r in releases if needs_lookup(r)]
+
+    # Held back: no link yet and not already checked, so the channel page is
+    # looked at once for them and never again while their ONCE status holds.
+    scrape_ids = {r['id'] for r in unresolved}
 
     if unresolved:
         print(f"{len(unresolved)} release(s) to look up — checking releases page",
@@ -423,6 +502,9 @@ def create_album_data(releases, api_key):
         print("all links known or already checked — not scraping", flush=True)
         scraped = {}
 
+    if scraped:
+        save_releases_cache({**channel_found, **scraped})
+
     print(f"{len(releases)} releases on ONCE, resolving links...", flush=True)
 
     for i, release in enumerate(releases):
@@ -431,11 +513,15 @@ def create_album_data(releases, api_key):
         known = cache.get(rid, {})
         youtube_url = known.get('youtube_url')
         playlist_url = known.get('album_link')
+        # Resolved on an earlier run — reuse it, do not ask ONCE again.
+        cached = bool(youtube_url or known.get('checked_status'))
 
         print(f"[{i+1}/{len(releases)}] {title}", flush=True)
 
         # 0) hand-entered link wins over everything and is never overwritten
         override = manual.get(norm(title))
+        # did ONCE alone already give us this release's link?
+        from_once = bool(youtube_url)
         if override:
             youtube_url = override.get('youtube_link') or youtube_url
             playlist_url = override.get('album_link') or playlist_url
@@ -443,12 +529,15 @@ def create_album_data(releases, api_key):
 
         elif not youtube_url:
             # 1) ONCE knows the exact YouTube Music link
-            youtube_url = yt_link_from_once(rid, pat)
+            youtube_url = yt_link_from_once(rid, pat) if not cached else None
+            from_once = bool(youtube_url)
             if youtube_url:
                 print(f"  ✅ ONCE: {youtube_url}", flush=True)
 
-        # 2) scrape the public releases page (by title, exact-normalised)
-        hit = scraped.get(norm(title))
+        # 2) scrape the public releases page (by title, exact-normalised),
+        # only when ONCE had no link. A release ONCE already points at is not
+        # looked up a second time — no reason to keep touching YouTube.
+        hit = None if from_once else scraped.get(norm(title))
         hit_link = ''
         if hit:
             if not youtube_url:
@@ -501,14 +590,16 @@ def create_album_data(releases, api_key):
                 cover = 'https://once.app' + cover
 
         if youtube_url:
-            cache[rid] = {
+            entry = {
                 'title': title,
                 'youtube_url': youtube_url,
                 'album_link': playlist_url,
                 'cover_art': cover,
             }
-            save_cache(cache)  # write as we go, so a crash keeps progress
-        elif rid in {r['id'] for r in unresolved}:
+            if cache.get(rid) != entry:
+                cache[rid] = entry
+                save_cache(cache)  # write as we go, so a crash keeps progress
+        elif rid in scrape_ids:
             # Looked for it and it isn't there. Remember the ONCE status we saw
             # so the next run skips it until that status changes (e.g. the
             # release actually goes live).
@@ -523,7 +614,8 @@ def create_album_data(releases, api_key):
             print(f"  ⏳ marked checked — not on YouTube yet "
                   f"(ONCE status: {release.get('status')})", flush=True)
 
-        # Resolved once: release_date_for hits the detail endpoint.
+        # Resolved once: release_date_for hits the detail endpoint (cached dates
+        # come straight back, no request).
         published = release_date_for(release, pat)
 
         album = {
@@ -581,7 +673,7 @@ def create_html(albums):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DJ Elsa - Music Archive</title>
+  <title>Kissing Face Lore - DJ Elsa</title>
   <style>
     body { background: #0a0c08; color: #f5f6f0; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
     .container { max-width: 1200px; margin: 0 auto; }
@@ -715,7 +807,7 @@ def create_html(albums):
     <div class="header">
       <a class="home" href="https://elsatv.fun">← elsatv.fun</a>
       <h1>DJ Elsa</h1>
-      <p>Music Archive</p>
+      <p>Kissing Face Lore</p>
       <div class="platforms">
         <a href="https://music.youtube.com/channel/UC04IGR2TTAdwM37b6JTw64A">
           <span class="dot" style="background:#ff0033"></span>YouTube Music</a>
@@ -856,6 +948,10 @@ def main():
 
     # Create album data with real YouTube thumbnails
     albums = create_album_data(releases, api_key)
+
+    # One card per release, newest first, in an order that does not churn:
+    # the page (and lore/songs.json) only changes when something changed.
+    albums = stable_order(albums)
 
     # Create HTML
     html = create_html(albums)

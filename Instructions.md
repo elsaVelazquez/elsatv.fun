@@ -59,9 +59,18 @@ relative to wherever you are standing.
 1. GET the ONCE release list — this is how new releases are found
 2. Every link already in `lore/yt_link_cache.json` or `lore/manual_links.json`
    is reused. **No ONCE status lookups, no scraping for those.**
-3. The releases page is only scraped if something genuinely new or unresolved
-   appears
-4. Writes `kissingface.html`, `lore/songs.json`, `lore/yt_link_cache.json`
+3. Every release date already in `lore/release_dates.json` is reused too — the
+   release detail endpoint is only called for a release with no stored date.
+4. Re-scraping is limited to what has no link yet: the channel's releases page is
+   fetched only when a release has no YouTube link in ONCE, no manual link and
+   is not already marked `checked_status`. What it returns is stored in
+   `lore/releases_cache.json`, so a link found there is never looked for twice
+   — if the scrape ever comes back with nothing, nothing is re-scraped.
+5. Writes `kissingface.html`, `lore/songs.json`, `lore/yt_link_cache.json`,
+   `lore/releases_cache.json`, `lore/release_dates.json`
+
+Commit those two cache files along with the page (the music step does it for
+both), or the next run starts over without them.
 
 Releases already looked for and not found are marked `checked_status`, so they
 are skipped until their ONCE status changes (e.g. they go live).
@@ -202,7 +211,7 @@ use this to update the  https://elsatv.fun/kissingface.html
 
 ```sh
 venv/bin/python scripts/lore/music_lore_scripts/FINAL_SYNC.py
-git add kissingface.html lore/songs.json lore/yt_link_cache.json
+git add kissingface.html lore/songs.json lore/yt_link_cache.json lore/releases_cache.json lore/release_dates.json
 git commit -m "Update music page"
 git push origin main
 open "https://elsatv.fun/kissingface.html"
@@ -214,10 +223,11 @@ then cmd + shift + r
 to do all the above using automation, put this into command line 1 time, have to authorize bash to run scripts on mac:
 
 ```sh
-➜  elsatv.fun git:(main) ✗ chmod +x daily_sync.sh
+➜  elsatv.fun git:(main) ✗ 
+chmod +x daily_sync.sh
 ./daily_sync.sh
-./daily_sync.sh: line 1: cd: /Users/elsa/elsatv.fun: No such file or directory
-➜  elsatv.fun git:(main) ✗ ./daily_sync.sh
+./daily_sync.sh
+
 ```
 
 to update the home page

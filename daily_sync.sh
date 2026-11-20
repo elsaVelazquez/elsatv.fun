@@ -93,13 +93,17 @@ if venv/bin/python \
     if ! git diff --quiet HEAD -- \
         kissingface.html \
         lore/songs.json \
-        lore/yt_link_cache.json; then
+        lore/yt_link_cache.json \
+        lore/releases_cache.json; then
+
+        git add -- lore/releases_cache.json
 
         git commit --only \
             -m "Update music page" -- \
             kissingface.html \
             lore/songs.json \
-            lore/yt_link_cache.json || exit 1
+            lore/yt_link_cache.json \
+            lore/releases_cache.json || exit 1
 
     fi
 
