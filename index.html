@@ -625,10 +625,12 @@
       justify-self: center;
       /* the deck is only as wide as its three sleeves, so it stays inside its
          own column instead of stretching across (and over) the copy */
-      max-width: 300px;
-      height: 138px;
-      /* the spill: the deck sits proud of the banner's top edge (the sketch) */
-      margin: -46px auto -20px;
+      max-width: 330px;
+      height: 132px;
+      /* the spill is the only thing that gives the bigger sleeves room: it pulls
+         the deck up past the banner's top edge, so the copy below keeps the same
+         line it had and nothing is pushed under the fold */
+      margin: -40px auto -18px;
       align-self: center;
       overflow: visible;
     }
@@ -636,8 +638,8 @@
     .lore-entry.featured .lore-cover {
       display: block;
       flex: 0 0 auto;
-      width: 124px;
-      height: 124px;
+      width: 140px;
+      height: 140px;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid rgba(95, 242, 208, 0.45);
@@ -953,8 +955,8 @@
 
     @media (min-width: 700px) {
       .lore-entry.featured {
-        /* copy, then the deck, then the CTA — each in its own column so the
-           covers sit beside the words rather than on top of them */
+        /* copy, then the deck, then the CTA — all on ONE line, so the banner
+           keeps its original height and nothing drops below the fold */
         grid-template-columns: minmax(0, 1fr) auto auto;
         align-items: center;
         /* room for the deck to hang above the top edge */
@@ -962,10 +964,7 @@
       }
 
       .lore-entry.featured .lore-covers {
-        /* span the whole banner so the deck lands on the page's centre line,
-           not tucked into the column beside the copy (justify-self: end pushed
-           it right, which is why it read as off-centre) */
-        grid-column: 1 / -1;
+        grid-column: 2;
         grid-row: 1;
         justify-self: center;
       }
