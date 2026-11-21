@@ -51,23 +51,106 @@ def _fetch(url, timeout=20):
 def _square_art(blob):
     """Cut the album art out of a YouTube thumbnail.
 
-    i.ytimg.com only serves the 16:9 still for a release: the square cover sits
-    at the LEFT edge of that frame, with the title card and a blurred pillar
-    filling the rest (the `-no-1` square variants answer 404). Cropping the
-    leftmost 1:1 square is the actual sleeve; anything already square, or an
-    image we cannot decode, is returned untouched.
+    i.ytimg.com only serves the 16:9 still for a release (the `-no-1` square
+    variants answer 404), and the square sleeve is inset inside it: a typical
+    frame is 480×360 with the art at x=120..360, i.e. flat padding on BOTH
+    sides, at the top and at the bottom. Cropping from x=0 kept the left bar
+    and cut the right of the art, so the picture sat right of centre in its
+    card with a margin only on the left.
+
+    Find the inset art (the region that is not flat padding), then crop a
+    square that is centred on it — trimming never moves the art off centre.
     """
     try:
         im = Image.open(io.BytesIO(blob))
         im = im.convert('RGB')
         w, h = im.size
-        if w and h and w > h:
-            im = im.crop((0, 0, h, h))
+        if not (w and h):
+            return blob
+
+        box = _art_box(im)
+        if box is None:
+            # no padding found: a square needs no work, a still is cropped at
+            # its left edge as before
+            if w > h:
+                im = im.crop((0, 0, h, h))
+        else:
+            left, top, right, bottom = box
+            cx, cy = (left + right) / 2, (top + bottom) / 2
+            side = min(right - left, bottom - top)
+            side = max(1, side)
+            x0 = int(round(cx - side / 2))
+            y0 = int(round(cy - side / 2))
+            x0 = max(0, min(w - side, x0))
+            y0 = max(0, min(h - side, y0))
+            im = im.crop((x0, y0, x0 + side, y0 + side))
+
         out = io.BytesIO()
         im.save(out, 'JPEG', quality=90)
         return out.getvalue()
     except Exception:
         return blob
+
+
+def _art_box(im, tol=24):
+    """Bounding box (left, top, right, bottom) of the artwork in a thumbnail.
+
+    Padding is a bar of ONE colour the full length of its side — a black
+    letterbox, or a single pixel of the cover stretched to fill the frame. It
+    is not perfectly constant after JPEG, but it is far closer to its own edge
+    colour than any column of real art is.
+
+    So measure that instead of "is this line exactly flat": walk in from each
+    edge while the line's colour stays within `tol` of the outermost line's
+    colour. Never trim more than a third of a side, so a genuinely dark border
+    on a cover is not eaten. Returns None if nothing is padding.
+    """
+    w, h = im.size
+    px = im.load()
+    sy = max(1, h // 48)
+    sx = max(1, w // 48)
+
+    def column_stats(x):
+        vals = [px[x, y] for y in range(top, bottom, sy)]
+        return (sum(v[0] for v in vals) / len(vals),
+                sum(v[1] for v in vals) / len(vals),
+                sum(v[2] for v in vals) / len(vals),
+                max(max(v) for v in vals))
+
+    def row_stats(y):
+        vals = [px[x, y] for x in range(left, right, sx)]
+        return (sum(v[0] for v in vals) / len(vals),
+                sum(v[1] for v in vals) / len(vals),
+                sum(v[2] for v in vals) / len(vals),
+                max(max(v) for v in vals))
+
+    left, right, top, bottom = 0, w, 0, h
+    cap_x, cap_y = w // 3, h // 3
+
+    # rows first: a letterbox bar is found across the FULL width
+    def close(a, b):
+        return (abs(a[0] - b[0]) + abs(a[1] - b[1]) + abs(a[2] - b[2])) <= tol
+
+    base = row_stats(0)
+    while top < cap_y and close(row_stats(top), base):
+        top += 1
+    base = row_stats(h - 1)
+    while h - bottom < cap_y and close(row_stats(bottom - 1), base):
+        bottom -= 1
+
+    # then the side bars, measured within the surviving rows
+    base = column_stats(0)
+    while left < cap_x and close(column_stats(left), base):
+        left += 1
+    base = column_stats(w - 1)
+    while w - right < cap_x and close(column_stats(right - 1), base):
+        right -= 1
+
+    if right - left < 8 or bottom - top < 8:
+        return None
+    if (left, top, right, bottom) == (0, 0, w, h):
+        return None
+    return left, top, right, bottom
 
 
 def pick(count=COUNT, rng=None):

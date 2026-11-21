@@ -1,26 +1,26 @@
 {
-  "picked_at": "2026-11-21T18:57:22Z",
+  "picked_at": "2026-11-21T21:11:48Z",
   "covers": [
     {
       "slot": 1,
       "file": "lore/covers/home_cover_1.jpg",
-      "album_name": "The Book of Becoming: The Seed",
-      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_m42EEp7pBZmKkhZobdmAhFzLM4Dd01lsY",
-      "album_slug": "the-book-of-becoming-the-seed"
+      "album_name": "Overdue Dews",
+      "album_link": "https://music.youtube.com/watch?v=bbFYyhw556U",
+      "album_slug": "overdue-dews"
     },
     {
       "slot": 2,
       "file": "lore/covers/home_cover_2.jpg",
-      "album_name": "Reset the Planet",
-      "album_link": "https://music.youtube.com/watch?v=XvbHKQQuy58",
-      "album_slug": "reset-the-planet"
+      "album_name": "RA : Missing Lynk",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_k7fyNws957sjIXthDfD-6LV9q0ZKIGrIg",
+      "album_slug": "ra-missing-lynk"
     },
     {
       "slot": 3,
       "file": "lore/covers/home_cover_3.jpg",
-      "album_name": "Stole the Plot",
-      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mukh36_n1wAbiFl2p72OOXAhYwpEF5u3U",
-      "album_slug": "stole-the-plot"
+      "album_name": "Last Call Psycho Alcohol",
+      "album_link": "https://music.youtube.com/watch?v=7e4oVkp8TDU",
+      "album_slug": "last-call-psycho-alcohol"
     }
   ]
 }
