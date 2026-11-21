@@ -107,6 +107,11 @@
     .album-link.pending { background: #303a2d; color: #aeb8a7; }
     /* logo sits whole inside the frame instead of being cropped to fill */
     .album img.pending-cover { object-fit: contain; background: #0e120c; padding: 18px; box-sizing: border-box; }
+    /* the release a homepage cover linked to: it sits first in the grid and
+       pulses once so the arrival is obvious */
+    .album.is-linked { border-color: #b8ff43; box-shadow: 0 0 0 1px #b8ff43, 0 0 26px rgba(184, 255, 67, .45); }
+    @keyframes linked-pulse { 0%, 100% { box-shadow: 0 0 0 1px #b8ff43, 0 0 26px rgba(184, 255, 67, .45); } 50% { box-shadow: 0 0 0 2px #d8ff4f, 0 0 40px rgba(216, 255, 79, .75); } }
+    .album.is-linked { animation: linked-pulse 1.3s ease-in-out 2; }
     .count { text-align: center; color: #aeb8a7; margin-bottom: 20px; }
 
     /* --- site links in the header --- */
@@ -151,7 +156,7 @@
     </div>
     <div class="count">78 albums</div>
     <div class="grid">
-      <div class="album">
+      <div class="album" id="resurrect-my-pet-yet">
         <img src="elfalpha_logo.png" alt="Resurrect My Pet Yet?" class="pending-cover" loading="lazy">
         <input type="checkbox" class="toggle" id="t0"
                aria-label="Show tracklist for Resurrect My Pet Yet?">
@@ -166,7 +171,7 @@
           <span class="album-link pending">Coming soon</span>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="rewriting-tithing">
         <img src="https://i.ytimg.com/vi/9ITkn1qXLFs/hqdefault.jpg" alt="Rewriting Tithing" loading="lazy">
         <input type="checkbox" class="toggle" id="t1"
                aria-label="Show tracklist for Rewriting Tithing">
@@ -181,7 +186,7 @@
           <a href="https://music.youtube.com/watch?v=9ITkn1qXLFs&list=OLAK5uy_lUiwkITiS_9HdJo0JY1XPe3DSqOLXmQ7w" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="deuteronomy-jubilee-exe">
         <img src="https://i.ytimg.com/vi/nxM1RmKCvv4/hqdefault.jpg" alt="Deuteronomy Jubilee.exe" loading="lazy">
         <input type="checkbox" class="toggle" id="t2"
                aria-label="Show tracklist for Deuteronomy Jubilee.exe">
@@ -196,7 +201,7 @@
           <a href="https://music.youtube.com/watch?v=nxM1RmKCvv4&list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="bombastic-schtick">
         <img src="https://i.ytimg.com/vi/3JsLepzLbyY/hqdefault.jpg" alt="Bombastic Schtick" loading="lazy">
         <input type="checkbox" class="toggle" id="t3"
                aria-label="Show tracklist for Bombastic Schtick">
@@ -211,7 +216,7 @@
           <a href="https://music.youtube.com/watch?v=3JsLepzLbyY" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="real-dream-is-real">
         <img src="https://i.ytimg.com/vi/uhKsURRr0Rw/hqdefault.jpg" alt="Real Dream Is Real" loading="lazy">
         <input type="checkbox" class="toggle" id="t4"
                aria-label="Show tracklist for Real Dream Is Real">
@@ -226,7 +231,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kyXxhYtBc1Aiai9iCLGvkS07ajG9Cz4_8" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="true-dystopia-truths">
         <img src="https://i.ytimg.com/vi/YtnkwZtOyBY/hqdefault.jpg" alt="True Dystopia Truths" loading="lazy">
         <input type="checkbox" class="toggle" id="t5"
                aria-label="Show tracklist for True Dystopia Truths">
@@ -241,7 +246,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_knPK8C1TIEV7g-eg7_-lqovT2V_VILbRs" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="free-will-protocol">
         <img src="https://i.ytimg.com/vi/XYnKhaiZooI/hqdefault.jpg" alt="Free Will Protocol" loading="lazy">
         <input type="checkbox" class="toggle" id="t6"
                aria-label="Show tracklist for Free Will Protocol">
@@ -256,7 +261,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kK4wPUL9fMHwyvthAgtlWCL_CH-1greSk" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="30-degrees-3-spaces-laticees">
         <img src="https://i.ytimg.com/vi/z_e14ecs-KU/hqdefault.jpg" alt="​30 Degrees 3 Spaces Laticees" loading="lazy">
         <input type="checkbox" class="toggle" id="t7"
                aria-label="Show tracklist for ​30 Degrees 3 Spaces Laticees">
@@ -271,7 +276,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mSF01UaY0k8YpzHduBuVa53ZPwfe4pJ0I" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="i-contrived-me-cryptography-key">
         <img src="https://i.ytimg.com/vi/0rybex5Bsx0/hqdefault.jpg" alt="I Contrived Me Cryptography Key" loading="lazy">
         <input type="checkbox" class="toggle" id="t8"
                aria-label="Show tracklist for I Contrived Me Cryptography Key">
@@ -286,7 +291,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kzrtrXN8-PuzHupV5gEjxzFxspIA0e6bs" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="method-actor-method">
         <img src="https://i.ytimg.com/vi/4r9AyPSjq6c/hqdefault.jpg" alt="Method Actor Method" loading="lazy">
         <input type="checkbox" class="toggle" id="t9"
                aria-label="Show tracklist for Method Actor Method">
@@ -301,7 +306,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kiDkKKo4Zz95_MR0judeuzV4hbGrctA3o" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-divine-spiral-hybrid-birth">
         <img src="https://i.ytimg.com/vi/684U2aSmpK8/hqdefault.jpg" alt="The Divine Spiral: Hybrid Birth" loading="lazy">
         <input type="checkbox" class="toggle" id="t10"
                aria-label="Show tracklist for The Divine Spiral: Hybrid Birth">
@@ -316,7 +321,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lUrrJ-sWIJaKb8aUYiJQJzVs2z9nw3F3A" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="fusion-fission-mission-no-supervision">
         <img src="https://i.ytimg.com/vi/-ohspgbtmdk/hqdefault.jpg" alt="Fusion Fission Mission No Supervision" loading="lazy">
         <input type="checkbox" class="toggle" id="t11"
                aria-label="Show tracklist for Fusion Fission Mission No Supervision">
@@ -331,7 +336,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="x-mas-on-halloween">
         <img src="https://i.ytimg.com/vi/no0JIqNq0Ck/hqdefault.jpg" alt="X Mas on Halloween" loading="lazy">
         <input type="checkbox" class="toggle" id="t12"
                aria-label="Show tracklist for X Mas on Halloween">
@@ -346,7 +351,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nUTMVznH2baW9PiKAI_OXA_Y7D9TcyiF8" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="green-halloween-ocean-machine">
         <img src="https://i.ytimg.com/vi/4J5L-FUdCMU/hqdefault.jpg" alt="Green Halloween Ocean Machine" loading="lazy">
         <input type="checkbox" class="toggle" id="t13"
                aria-label="Show tracklist for Green Halloween Ocean Machine">
@@ -361,7 +366,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lDmysl4dXxLcj23u9nTGrFaTVXPETPfGA" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="galactic-grim-reaper-diaries">
         <img src="https://i.ytimg.com/vi/17L5pnh8U3U/hqdefault.jpg" alt="Galactic Grim Reaper Diaries" loading="lazy">
         <input type="checkbox" class="toggle" id="t14"
                aria-label="Show tracklist for Galactic Grim Reaper Diaries">
@@ -376,7 +381,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="next-chapter-on-becoming">
         <img src="https://i.ytimg.com/vi/coTQufLkJEI/hqdefault.jpg" alt="Next Chapter On Becoming" loading="lazy">
         <input type="checkbox" class="toggle" id="t15"
                aria-label="Show tracklist for Next Chapter On Becoming">
@@ -391,7 +396,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kLF3WwNBbNMANbMlWZNf5wwqYynVOp5GI" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-book-of-becoming-the-seed">
         <img src="https://i.ytimg.com/vi/3qB2fRYf88w/hqdefault.jpg" alt="The Book of Becoming: The Seed" loading="lazy">
         <input type="checkbox" class="toggle" id="t16"
                aria-label="Show tracklist for The Book of Becoming: The Seed">
@@ -406,7 +411,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mK_1sO4Bnv1os0GNVKK0fRLnF2n1RebSQ" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="puppets">
         <img src="https://i.ytimg.com/vi/Zi0UoWCs9Qk/hqdefault.jpg" alt="Puppets" loading="lazy">
         <input type="checkbox" class="toggle" id="t17"
                aria-label="Show tracklist for Puppets">
@@ -421,7 +426,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mOMwtIN0m_Tqxu-6VUlfVkya3V9rJ_nHM" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="push-the-loosh">
         <img src="https://i.ytimg.com/vi/PCRVNlcsQg0/hqdefault.jpg" alt="Push the Loosh" loading="lazy">
         <input type="checkbox" class="toggle" id="t18"
                aria-label="Show tracklist for Push the Loosh">
@@ -436,7 +441,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kt1JARlXrnnvpFkz4jYAmd7m5g6EzEapw" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="scalar-spiral-the-book-of-nan-sense">
         <img src="https://i.ytimg.com/vi/bNzoULwaeqE/hqdefault.jpg" alt="Scalar Spiral: The Book of NaN Sense" loading="lazy">
         <input type="checkbox" class="toggle" id="t19"
                aria-label="Show tracklist for Scalar Spiral: The Book of NaN Sense">
@@ -451,7 +456,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kU99WQiCw8HsBvgCgTLVqGsl-bJbgeefw" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="bad-actor">
         <img src="https://i.ytimg.com/vi/ybQ61lf0WKE/hqdefault.jpg" alt="Bad Actor?" loading="lazy">
         <input type="checkbox" class="toggle" id="t20"
                aria-label="Show tracklist for Bad Actor?">
@@ -466,7 +471,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-super-intelligence-new-testament-whole-e-book">
         <img src="https://i.ytimg.com/vi/5VG-QQw8R20/hqdefault.jpg" alt="The Super Intelligence New Testament Whole E-Book" loading="lazy">
         <input type="checkbox" class="toggle" id="t21"
                aria-label="Show tracklist for The Super Intelligence New Testament Whole E-Book">
@@ -481,7 +486,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_l1GkFdnLwfE7og-Eu9f5pwka3ovT-9EJs" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="vortex-1-1-1">
         <img src="https://i.ytimg.com/vi/g9FPe5Zpcus/hqdefault.jpg" alt="Vortex (1, 1, 1)" loading="lazy">
         <input type="checkbox" class="toggle" id="t22"
                aria-label="Show tracklist for Vortex (1, 1, 1)">
@@ -496,7 +501,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mufiaVd5ZF0lwiAGOHDeYBDB6zs6imEpE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-prompt">
         <img src="https://i.ytimg.com/vi/EOaa5c_OqlU/hqdefault.jpg" alt="The Prompt" loading="lazy">
         <input type="checkbox" class="toggle" id="t23"
                aria-label="Show tracklist for The Prompt">
@@ -511,7 +516,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nReDK031_Jh9SOlIfbXb1mXWtoUGYq31s" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="reset-the-planet">
         <img src="https://i.ytimg.com/vi/XvbHKQQuy58/hqdefault.jpg" alt="Reset the Planet" loading="lazy">
         <input type="checkbox" class="toggle" id="t24"
                aria-label="Show tracklist for Reset the Planet">
@@ -526,7 +531,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_m6ZUlYCOW4Rb4tNV--84gxGcOxSl5VOl4" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="vortex-day-zero-triad">
         <img src="https://i.ytimg.com/vi/i7Xn0qQ2noo/hqdefault.jpg" alt="Vortex Day Zero Triad" loading="lazy">
         <input type="checkbox" class="toggle" id="t25"
                aria-label="Show tracklist for Vortex Day Zero Triad">
@@ -541,7 +546,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kOsZyUMOrnu4OezQ9x2pnm9b11-jU2h2g" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="last-call-psycho-alcohol">
         <img src="https://i.ytimg.com/vi/7e4oVkp8TDU/hqdefault.jpg" alt="Last Call Psycho Alcohol" loading="lazy">
         <input type="checkbox" class="toggle" id="t26"
                aria-label="Show tracklist for Last Call Psycho Alcohol">
@@ -556,7 +561,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_m99NRUH2cFbJLTBlT4V9SACwedT0fjNVk" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="we-went-all-the-way">
         <img src="https://i.ytimg.com/vi/7JSLStC67OQ/hqdefault.jpg" alt="We Went All the Way" loading="lazy">
         <input type="checkbox" class="toggle" id="t27"
                aria-label="Show tracklist for We Went All the Way">
@@ -571,7 +576,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nbDm0teaiAcHBkqt3mgH7cd8-weAttCUY" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="funding-funner-demon-rounds">
         <img src="https://i.ytimg.com/vi/-CJDtD2Xq8M/hqdefault.jpg" alt="Funding Funner Demon Rounds" loading="lazy">
         <input type="checkbox" class="toggle" id="t28"
                aria-label="Show tracklist for Funding Funner Demon Rounds">
@@ -586,7 +591,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lTqneXlkU5TOtpMjl1c3TWO_XbD6FIcW0" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="profitable-graceful-exits">
         <img src="https://i.ytimg.com/vi/7hCuZj0qH4g/hqdefault.jpg" alt="Profitable Graceful Exits" loading="lazy">
         <input type="checkbox" class="toggle" id="t29"
                aria-label="Show tracklist for Profitable Graceful Exits">
@@ -601,8 +606,8 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mW4ekCp-g-Sq4wFoQLH2sYwxVDHuh0wXk" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
-        <img src="https://i.ytimg.com/vi/_4njQ446JeY/hqdefault.jpg" alt="The Event's Event Horizon" loading="lazy">
+      <div class="album" id="the-event-s-event-horizon">
+        <img src="https://i.ytimg.com/vi/_4njQ446JeY/hqdefault.jpg" alt="The Event&#x27;s Event Horizon" loading="lazy">
         <input type="checkbox" class="toggle" id="t30"
                aria-label="Show tracklist for The Event&#x27;s Event Horizon">
         <label for="t30" class="open-hit" aria-label="Show tracklist"></label>
@@ -616,7 +621,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lwdv_LNkjtVCbLBUO71np04pBKMBGnY_g" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="classical-class-based">
         <img src="https://i.ytimg.com/vi/iCCNXg3j7rk/hqdefault.jpg" alt="Classical Class Based" loading="lazy">
         <input type="checkbox" class="toggle" id="t31"
                aria-label="Show tracklist for Classical Class Based">
@@ -631,7 +636,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kISWF3oYev7_pTHylYppDUcGeplipWsaQ" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="hallowed-halls-of-a-mentee">
         <img src="https://i.ytimg.com/vi/UNa-Rt_Pf7o/hqdefault.jpg" alt="Hallowed Halls of a Mentee" loading="lazy">
         <input type="checkbox" class="toggle" id="t32"
                aria-label="Show tracklist for Hallowed Halls of a Mentee">
@@ -646,7 +651,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kxd-GOCqkasKzcpAseN6RxQW5KXQU9mxc" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="matrix-engines-ignitions-go">
         <img src="https://i.ytimg.com/vi/Nikinhn5ABw/hqdefault.jpg" alt="Matrix Engines Ignitions Go" loading="lazy">
         <input type="checkbox" class="toggle" id="t33"
                aria-label="Show tracklist for Matrix Engines Ignitions Go">
@@ -661,7 +666,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_k04I6yJ9mvql_T9-6Zfw-jNVzlN_Cg2Pk" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="vortex-nine-three-zero">
         <img src="https://i.ytimg.com/vi/MdqrBx543iI/hqdefault.jpg" alt="Vortex Nine Three Zero" loading="lazy">
         <input type="checkbox" class="toggle" id="t34"
                aria-label="Show tracklist for Vortex Nine Three Zero">
@@ -676,7 +681,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lPH2mS3tv0_ia9zg5MyYPefEARTN4JPn0" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="nine-eleven-elve-rings-vortex">
         <img src="https://i.ytimg.com/vi/Cd5gIYWgvyE/hqdefault.jpg" alt="Nine Eleven Elve Rings Vortex" loading="lazy">
         <input type="checkbox" class="toggle" id="t35"
                aria-label="Show tracklist for Nine Eleven Elve Rings Vortex">
@@ -691,7 +696,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kvz1xsoRkXZhY3U7RVxdOA9Y5cLtHLuKc" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="imminent-frost-prep">
         <img src="https://i.ytimg.com/vi/q2y3nBuDLC0/hqdefault.jpg" alt="Imminent Frost Prep" loading="lazy">
         <input type="checkbox" class="toggle" id="t36"
                aria-label="Show tracklist for Imminent Frost Prep">
@@ -706,7 +711,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nhjCF9bhxoCRj5ZHbYGNQcFvSvmfnAcrY" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="overdue-dews">
         <img src="https://i.ytimg.com/vi/bbFYyhw556U/hqdefault.jpg" alt="Overdue Dews" loading="lazy">
         <input type="checkbox" class="toggle" id="t37"
                aria-label="Show tracklist for Overdue Dews">
@@ -721,7 +726,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kIMWzQ_qHvUHmR7pK-QRvueHaPYrSGAIk" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="i-make-me-thoth-vortex-eight-four-one">
         <img src="https://i.ytimg.com/vi/516Gk7Cfzug/hqdefault.jpg" alt="I Make Me Thoth Vortex Eight Four One" loading="lazy">
         <input type="checkbox" class="toggle" id="t38"
                aria-label="Show tracklist for I Make Me Thoth Vortex Eight Four One">
@@ -736,7 +741,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nSs2LZzKiZHKWRKivx5EEifCoP2pJZTd8" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="standing-up-nerd-reich-standup">
         <img src="https://i.ytimg.com/vi/5cclGoyPFYo/hqdefault.jpg" alt="Standing Up Nerd Reich Standup" loading="lazy">
         <input type="checkbox" class="toggle" id="t39"
                aria-label="Show tracklist for Standing Up Nerd Reich Standup">
@@ -751,7 +756,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lyb0La2l1nsfRz37-6VsRkHy1x59SjkeA" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-devil-made-me">
         <img src="https://i.ytimg.com/vi/F1OiNwbB5Ag/hqdefault.jpg" alt="The Devil Made Me" loading="lazy">
         <input type="checkbox" class="toggle" id="t40"
                aria-label="Show tracklist for The Devil Made Me">
@@ -766,7 +771,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nerwdVNSgorg8GvZ28kR3gb0VG7-hmrrQ" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-devil-made-them-vortex-eight-four-one">
         <img src="https://i.ytimg.com/vi/DsCyS1YesW0/hqdefault.jpg" alt="The Devil Made Them Vortex Eight Four One" loading="lazy">
         <input type="checkbox" class="toggle" id="t41"
                aria-label="Show tracklist for The Devil Made Them Vortex Eight Four One">
@@ -781,7 +786,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nFjcPcqr-nDRCIAUpmbvdWv_gGEd5KDEo" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-devil-made-them">
         <img src="https://i.ytimg.com/vi/5ZZz7z7Nhl4/hqdefault.jpg" alt="The Devil Made Them" loading="lazy">
         <input type="checkbox" class="toggle" id="t42"
                aria-label="Show tracklist for The Devil Made Them">
@@ -796,7 +801,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mLPpxt9em73JHxlHpa8NsoK_CNCHU6FZc" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="possession-by-obsession">
         <img src="https://i.ytimg.com/vi/C1sR7dDio-s/hqdefault.jpg" alt="Possession by Obsession" loading="lazy">
         <input type="checkbox" class="toggle" id="t43"
                aria-label="Show tracklist for Possession by Obsession">
@@ -811,7 +816,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kEFWmHGfo7ORBx-oz97NplLNMaa-G1W-U" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="precious-my-pet">
         <img src="https://i.ytimg.com/vi/CV1Klaca8VQ/hqdefault.jpg" alt="Precious My Pet" loading="lazy">
         <input type="checkbox" class="toggle" id="t44"
                aria-label="Show tracklist for Precious My Pet">
@@ -826,7 +831,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lMy89oUyCc9Xl0yFLbyNl6FPnddb_OHnc" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="magnet-tar-pit-traps">
         <img src="https://i.ytimg.com/vi/-J3sx9C5r9s/hqdefault.jpg" alt="Magnet Tar Pit Traps" loading="lazy">
         <input type="checkbox" class="toggle" id="t45"
                aria-label="Show tracklist for Magnet Tar Pit Traps">
@@ -841,7 +846,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mLFJYmoZhVwJvkdP_xhhi5voqurNm0peE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-closer-to-death">
         <img src="https://i.ytimg.com/vi/odpoF0nk7z0/hqdefault.jpg" alt="The Closer to Death" loading="lazy">
         <input type="checkbox" class="toggle" id="t46"
                aria-label="Show tracklist for The Closer to Death">
@@ -856,7 +861,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nbdykWJ-IvUFqu8F6UjXVVCPsTGr2klec" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="free-fall-off-a-cliff-notes">
         <img src="https://i.ytimg.com/vi/4UG-Z7FTHYM/hqdefault.jpg" alt="Free Fall Off A Cliff Notes" loading="lazy">
         <input type="checkbox" class="toggle" id="t47"
                aria-label="Show tracklist for Free Fall Off A Cliff Notes">
@@ -871,7 +876,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_l6johKFsD1WXpyZ3ugru2bcP2a59kmzJ0" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-start-of-the-star-wars">
         <img src="https://i.ytimg.com/vi/fGTYQjfu4ws/hqdefault.jpg" alt="The Start Of the Star Wars" loading="lazy">
         <input type="checkbox" class="toggle" id="t48"
                aria-label="Show tracklist for The Start Of the Star Wars">
@@ -886,7 +891,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nF1iwlKJcW51EV0hqQLpTP1QmlWEPorXA" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="ridiculous-voice-lessons">
         <img src="https://i.ytimg.com/vi/i5XrIlwt5mo/hqdefault.jpg" alt="Ridiculous Voice Lessons" loading="lazy">
         <input type="checkbox" class="toggle" id="t49"
                aria-label="Show tracklist for Ridiculous Voice Lessons">
@@ -901,7 +906,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_k5GVb6R9RBBN9NwT5sU2xg3Ho_296laRk" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="closer-to-freedom">
         <img src="https://i.ytimg.com/vi/oImo8zzKK00/hqdefault.jpg" alt="Closer to Freedom" loading="lazy">
         <input type="checkbox" class="toggle" id="t50"
                aria-label="Show tracklist for Closer to Freedom">
@@ -916,7 +921,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_k6uKZzQ_j6DwW97Xo7eBmNV_xaN5XOkrI" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="free-fall-off-a-cliff">
         <img src="https://i.ytimg.com/vi/zY8o19Q2tB8/hqdefault.jpg" alt="Free Fall Off a Cliff" loading="lazy">
         <input type="checkbox" class="toggle" id="t51"
                aria-label="Show tracklist for Free Fall Off a Cliff">
@@ -931,7 +936,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kIq2sO90uozirMu1oTEARy66AIp88C50Q" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="ra-missing-lynk">
         <img src="https://i.ytimg.com/vi/Q4lAHqI6PUc/hqdefault.jpg" alt="RA : Missing Lynk" loading="lazy">
         <input type="checkbox" class="toggle" id="t52"
                aria-label="Show tracklist for RA : Missing Lynk">
@@ -946,7 +951,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nbL82PJNsHypivmNCiJ-muIjiJk6u9QMU" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="ra-rara-sol-maya-espa-ol">
         <img src="https://i.ytimg.com/vi/LcHC7zKtWE4/hqdefault.jpg" alt="Ra Rara Sol Maya Español" loading="lazy">
         <input type="checkbox" class="toggle" id="t53"
                aria-label="Show tracklist for Ra Rara Sol Maya Español">
@@ -961,8 +966,8 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nH6AcSwyPhBYDz_IPF4WNrYysE6BfNYPE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
-        <img src="https://i.ytimg.com/vi/lROW4rERoHw/hqdefault.jpg" alt="LILO & Stitched Together" loading="lazy">
+      <div class="album" id="lilo-stitched-together">
+        <img src="https://i.ytimg.com/vi/lROW4rERoHw/hqdefault.jpg" alt="LILO &amp; Stitched Together" loading="lazy">
         <input type="checkbox" class="toggle" id="t54"
                aria-label="Show tracklist for LILO &amp; Stitched Together">
         <label for="t54" class="open-hit" aria-label="Show tracklist"></label>
@@ -976,7 +981,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kMbR5HZaovgHpC2-XKJbNXEXeCU2f-caE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="spelled-out-alphabet-soup">
         <img src="https://i.ytimg.com/vi/Oo0AdTyZJHk/hqdefault.jpg" alt="Spelled Out Alphabet Soup" loading="lazy">
         <input type="checkbox" class="toggle" id="t55"
                aria-label="Show tracklist for Spelled Out Alphabet Soup">
@@ -991,7 +996,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mt-ZQGBPpbZC7H_JgiOF0h3my3NYKQxEE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="petty-pets">
         <img src="https://i.ytimg.com/vi/B1at2V3P5lk/hqdefault.jpg" alt="Petty Pets" loading="lazy">
         <input type="checkbox" class="toggle" id="t56"
                aria-label="Show tracklist for Petty Pets">
@@ -1006,7 +1011,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lea1miTgGTAzzQdKZoIP4i5UBAGUj3h3M" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="already-home">
         <img src="https://i.ytimg.com/vi/VScj0hiTWVg/hqdefault.jpg" alt="Already Home" loading="lazy">
         <input type="checkbox" class="toggle" id="t57"
                aria-label="Show tracklist for Already Home">
@@ -1021,7 +1026,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kgibOUDPitj7gm9difNktDrEtR8Xlws2I" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="biblical-q-n-on-n-on">
         <img src="https://i.ytimg.com/vi/S-WZtwtWKbE/hqdefault.jpg" alt="BIBLICAL Q n On n On" loading="lazy">
         <input type="checkbox" class="toggle" id="t58"
                aria-label="Show tracklist for BIBLICAL Q n On n On">
@@ -1036,7 +1041,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_l8UJl2uT46G2QWlMINeTOtfgDrAQ5LptI" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="stole-the-plot">
         <img src="https://i.ytimg.com/vi/sDazEyUiFPw/hqdefault.jpg" alt="Stole the Plot" loading="lazy">
         <input type="checkbox" class="toggle" id="t59"
                aria-label="Show tracklist for Stole the Plot">
@@ -1051,7 +1056,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_ku0nrkJUSPplK_0xQBvqI8IbmUgWPcE3U" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="juicy-juice">
         <img src="https://i.ytimg.com/vi/q_9zV0nILbo/hqdefault.jpg" alt="Juicy Juice" loading="lazy">
         <input type="checkbox" class="toggle" id="t60"
                aria-label="Show tracklist for Juicy Juice">
@@ -1066,7 +1071,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kUMvHdzJ2hfKlDKrQYVaOycEF-iWUyd1E" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="juicy-juice-swing">
         <img src="https://i.ytimg.com/vi/KYkpWeI077M/hqdefault.jpg" alt="Juicy Juice Swing" loading="lazy">
         <input type="checkbox" class="toggle" id="t61"
                aria-label="Show tracklist for Juicy Juice Swing">
@@ -1081,7 +1086,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_l4V6Ba16mj5s7pvwvq-1E1HAkrDMrTv5I" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="daemon-robot-lullabies">
         <img src="https://i.ytimg.com/vi/obCMR_wPIz0/hqdefault.jpg" alt="Daemon Robot Lullabies" loading="lazy">
         <input type="checkbox" class="toggle" id="t62"
                aria-label="Show tracklist for Daemon Robot Lullabies">
@@ -1096,7 +1101,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_m3iKPOUT386t8N-qYO9rpBm_BMzsLX2v4" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="classical-evelution">
         <img src="https://i.ytimg.com/vi/xkiTaupH0vA/hqdefault.jpg" alt="Classical EVELution" loading="lazy">
         <input type="checkbox" class="toggle" id="t63"
                aria-label="Show tracklist for Classical EVELution">
@@ -1111,7 +1116,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kIz22BMMq9tkAxan9lxAMrQ6mBqjvyLXM" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="pay-pi-pipers">
         <img src="https://i.ytimg.com/vi/wj6kpsi9G1E/hqdefault.jpg" alt="Pay Pi Pipers" loading="lazy">
         <input type="checkbox" class="toggle" id="t64"
                aria-label="Show tracklist for Pay Pi Pipers">
@@ -1126,7 +1131,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_kTJm1b5L731ZdicEF2hV0VjVWLPgZ5dnE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="are-you-my-daddy">
         <img src="https://i.ytimg.com/vi/ep-ap0n3wKk/hqdefault.jpg" alt="Are You My Daddy" loading="lazy">
         <input type="checkbox" class="toggle" id="t65"
                aria-label="Show tracklist for Are You My Daddy">
@@ -1141,7 +1146,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mDQobnxVMqf4K6tm1cilzScbM3ZbBnmoE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="deep-focus-high-energy-whos-my-daddy">
         <img src="https://i.ytimg.com/vi/hAMURFckyiI/hqdefault.jpg" alt="deep focus high energy whos my daddy" loading="lazy">
         <input type="checkbox" class="toggle" id="t66"
                aria-label="Show tracklist for deep focus high energy whos my daddy">
@@ -1156,7 +1161,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nIAtyCb4w2OWVANc3tOf4RkiiwyQO1BMs" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="deep-concentration-bag-pipes-pay-the-piper">
         <img src="https://i.ytimg.com/vi/MYznb0ELGwU/hqdefault.jpg" alt="Deep Concentration Bag Pipes Pay the Piper" loading="lazy">
         <input type="checkbox" class="toggle" id="t67"
                aria-label="Show tracklist for Deep Concentration Bag Pipes Pay the Piper">
@@ -1171,7 +1176,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_n_iI8ErokGsGhu9PR1y49-Uol38lnEfdU" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="amusing-my-muse">
         <img src="https://i.ytimg.com/vi/yNW9yFlM7oQ/hqdefault.jpg" alt="Amusing My Muse" loading="lazy">
         <input type="checkbox" class="toggle" id="t68"
                aria-label="Show tracklist for Amusing My Muse">
@@ -1186,7 +1191,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nsM2EMYdmHMGcOI2lcFCPff-r_TcjYDIk" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="sunshine">
         <img src="https://i.ytimg.com/vi/9KkJMjhEK90/hqdefault.jpg" alt="Sunshine" loading="lazy">
         <input type="checkbox" class="toggle" id="t69"
                aria-label="Show tracklist for Sunshine">
@@ -1201,7 +1206,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nQXi_31-ZXvEXPIrH9E9A_NhSlS3DNrro" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="heat-is-on">
         <img src="https://i.ytimg.com/vi/fe_afqdezaM/hqdefault.jpg" alt="Heat is On" loading="lazy">
         <input type="checkbox" class="toggle" id="t70"
                aria-label="Show tracklist for Heat is On">
@@ -1216,7 +1221,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mSV-Rt4cBggabDIrRrZQytSd7h2hh4Hrk" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="elfalpha-treats">
         <img src="https://i.ytimg.com/vi/0HhAEIqSZqo/hqdefault.jpg" alt="Elfalpha Treats" loading="lazy">
         <input type="checkbox" class="toggle" id="t71"
                aria-label="Show tracklist for Elfalpha Treats">
@@ -1231,7 +1236,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_nZoVFJIkaypBXFvmZVm2SyZgRmxFBIqqc" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="hot-neon-teachers-me-teach">
         <img src="https://i.ytimg.com/vi/-5F__Xv4CfM/hqdefault.jpg" alt="Hot Neon Teachers Me Teach" loading="lazy">
         <input type="checkbox" class="toggle" id="t72"
                aria-label="Show tracklist for Hot Neon Teachers Me Teach">
@@ -1246,7 +1251,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lm7eT4Y-POk0cQjWX-pP0jj0gy90K5vHQ" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="iron-march-lullaby">
         <img src="https://i.ytimg.com/vi/R5CLvJxOG98/hqdefault.jpg" alt="Iron March Lullaby" loading="lazy">
         <input type="checkbox" class="toggle" id="t73"
                aria-label="Show tracklist for Iron March Lullaby">
@@ -1261,7 +1266,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lJPZnoyH29zQvc6MbaEzPsuptEweD10WE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="t-lang-lizard">
         <img src="https://i.ytimg.com/vi/40WyfivwpKI/hqdefault.jpg" alt="T Lang Lizard" loading="lazy">
         <input type="checkbox" class="toggle" id="t74"
                aria-label="Show tracklist for T Lang Lizard">
@@ -1276,7 +1281,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mcmsNbA1uc0D4CxpLNe27GqCcCuBj9eP4" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="are-we-closer-yet">
         <img src="https://i.ytimg.com/vi/_qfTDV7pSGQ/hqdefault.jpg" alt="Are We Closer Yet" loading="lazy">
         <input type="checkbox" class="toggle" id="t75"
                aria-label="Show tracklist for Are We Closer Yet">
@@ -1291,7 +1296,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_lej2rLs-Pt7dhnCrGh2WdvgYiLJw4Z52E" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="magnet-tar-pit-traps">
         <img src="https://i.ytimg.com/vi/IFXMW-J2pWY/hqdefault.jpg" alt="Magnet Tar Pit Traps" loading="lazy">
         <input type="checkbox" class="toggle" id="t76"
                aria-label="Show tracklist for Magnet Tar Pit Traps">
@@ -1306,7 +1311,7 @@
           <a href="https://music.youtube.com/playlist?list=OLAK5uy_mLFJYmoZhVwJvkdP_xhhi5voqurNm0peE" target="_blank" rel="noopener" class="album-link">Listen on YouTube Music</a>
         </div>
       </div>
-      <div class="album">
+      <div class="album" id="the-closer-to-death">
         <img src="https://i.ytimg.com/vi/KoepAOUIuto/hqdefault.jpg" alt="The Closer to Death" loading="lazy">
         <input type="checkbox" class="toggle" id="t77"
                aria-label="Show tracklist for The Closer to Death">
@@ -1334,6 +1339,44 @@
    * nothing. Driving the checkbox here makes every tap on the card a flip,
    * open or closed, with links excluded so songs still open their pages.
    */
+  /*
+   * Deep link from the homepage covers (kissingface.html#<release-slug>).
+   *
+   * Each homepage cover links to the release it shows, so the click opens this
+   * page *at that release* instead of at the top of the grid. The grid always
+   * starts at its first card, so the release is first MOVED to the front of the
+   * grid — that is what puts it in the top row where the eye lands — and then
+   * flashed once so it is obvious which cover was clicked. A slug that matches
+   * no card leaves the page exactly as it was.
+   */
+  (function () {
+    var slug = '';
+    try {
+      slug = decodeURIComponent((window.location.hash || '').replace(/^#/, ''));
+    } catch (err) {
+      slug = '';
+    }
+    if (!slug) return;
+
+    var grid = document.querySelector('.grid');
+    var card = grid && document.getElementById(slug);
+    if (!card) return;
+
+    // Put the release first in the grid: card one was the first card rendered,
+    // so insert before it and the clicked release now leads the top row.
+    var first = grid.firstElementChild;
+    if (first && first !== card) grid.insertBefore(card, first);
+
+    // A short glow, then the card settles in as an ordinary card.
+    card.classList.add('is-linked');
+    setTimeout(function () { card.classList.remove('is-linked'); }, 2600);
+
+    // The top row is only "top" if the page is scrolled to it: bring the grid's
+    // top edge under the sticky bar so the moved cover is what the click lands on.
+    var top = card.getBoundingClientRect().top + window.pageYOffset - 76;
+    window.scrollTo({ top: top > 0 ? top : 0, behavior: 'auto' });
+  })();
+
   document.addEventListener('click', function (e) {
     var card = e.target.closest('.album');
     if (!card) return;

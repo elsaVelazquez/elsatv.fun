@@ -777,6 +777,11 @@ def create_html(albums):
     .album-link.pending { background: #303a2d; color: #aeb8a7; }
     /* logo sits whole inside the frame instead of being cropped to fill */
     .album img.pending-cover { object-fit: contain; background: #0e120c; padding: 18px; box-sizing: border-box; }
+    /* the release a homepage cover linked to: it sits first in the grid and
+       pulses once so the arrival is obvious */
+    .album.is-linked { border-color: #b8ff43; box-shadow: 0 0 0 1px #b8ff43, 0 0 26px rgba(184, 255, 67, .45); }
+    @keyframes linked-pulse { 0%, 100% { box-shadow: 0 0 0 1px #b8ff43, 0 0 26px rgba(184, 255, 67, .45); } 50% { box-shadow: 0 0 0 2px #d8ff4f, 0 0 40px rgba(216, 255, 79, .75); } }
+    .album.is-linked { animation: linked-pulse 1.3s ease-in-out 2; }
     .count { text-align: center; color: #aeb8a7; margin-bottom: 20px; }
 
     /* --- site links in the header --- */
@@ -822,6 +827,11 @@ def create_html(albums):
     <div class="count">''' + str(len(albums)) + ''' albums</div>
     <div class="grid">
 '''
+
+    def _anchor(value):
+        """URL-safe slug for a card's id, so the homepage covers can deep-link
+        to a specific release and have it sit in the top row."""
+        return re.sub(r'[^a-z0-9]+', '-', str(value).lower()).strip('-')
 
     for i, album in enumerate(albums):
         # ONCE cover-art URLs are account-private (404 for a browser), so only
@@ -871,8 +881,9 @@ def create_html(albums):
         date_html = (f'<div class="album-date">{date}{mark_html}</div>'
                      if date else '')
 
-        html += f'''      <div class="album">
-        <img src="{cover}" alt="{album['title']}"{img_class} loading="lazy">
+        album_id = _anchor(album['title'])
+        html += f'''      <div class="album" id="{album_id}">
+        <img src="{cover}" alt="{escape(album['title'])}"{img_class} loading="lazy">
         <input type="checkbox" class="toggle" id="t{i}"
                aria-label="Show tracklist for {escape(album['title'])}">
         <label for="t{i}" class="open-hit" aria-label="Show tracklist"></label>
@@ -901,6 +912,44 @@ def create_html(albums):
    * nothing. Driving the checkbox here makes every tap on the card a flip,
    * open or closed, with links excluded so songs still open their pages.
    */
+  /*
+   * Deep link from the homepage covers (kissingface.html#<release-slug>).
+   *
+   * Each homepage cover links to the release it shows, so the click opens this
+   * page *at that release* instead of at the top of the grid. The grid always
+   * starts at its first card, so the release is first MOVED to the front of the
+   * grid — that is what puts it in the top row where the eye lands — and then
+   * flashed once so it is obvious which cover was clicked. A slug that matches
+   * no card leaves the page exactly as it was.
+   */
+  (function () {
+    var slug = '';
+    try {
+      slug = decodeURIComponent((window.location.hash || '').replace(/^#/, ''));
+    } catch (err) {
+      slug = '';
+    }
+    if (!slug) return;
+
+    var grid = document.querySelector('.grid');
+    var card = grid && document.getElementById(slug);
+    if (!card) return;
+
+    // Put the release first in the grid: card one was the first card rendered,
+    // so insert before it and the clicked release now leads the top row.
+    var first = grid.firstElementChild;
+    if (first && first !== card) grid.insertBefore(card, first);
+
+    // A short glow, then the card settles in as an ordinary card.
+    card.classList.add('is-linked');
+    setTimeout(function () { card.classList.remove('is-linked'); }, 2600);
+
+    // The top row is only "top" if the page is scrolled to it: bring the grid's
+    // top edge under the sticky bar so the moved cover is what the click lands on.
+    var top = card.getBoundingClientRect().top + window.pageYOffset - 76;
+    window.scrollTo({ top: top > 0 ? top : 0, behavior: 'auto' });
+  })();
+
   document.addEventListener('click', function (e) {
     var card = e.target.closest('.album');
     if (!card) return;

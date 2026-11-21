@@ -1,23 +1,26 @@
 {
-  "picked_at": "2026-11-20T19:53:03Z",
+  "picked_at": "2026-11-21T18:57:22Z",
   "covers": [
     {
       "slot": 1,
       "file": "lore/covers/home_cover_1.jpg",
-      "album_name": "Juicy Juice Swing",
-      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lNi3hZMxH0TxvOqXcARxeVsga9ITtOqbo"
+      "album_name": "The Book of Becoming: The Seed",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_m42EEp7pBZmKkhZobdmAhFzLM4Dd01lsY",
+      "album_slug": "the-book-of-becoming-the-seed"
     },
     {
       "slot": 2,
       "file": "lore/covers/home_cover_2.jpg",
-      "album_name": "T Lang Lizard",
-      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_maSi-88zhOl9q9FJRzHhiIlYgLtSxBzgI"
+      "album_name": "Reset the Planet",
+      "album_link": "https://music.youtube.com/watch?v=XvbHKQQuy58",
+      "album_slug": "reset-the-planet"
     },
     {
       "slot": 3,
       "file": "lore/covers/home_cover_3.jpg",
-      "album_name": "I Contrived Me Cryptography Key",
-      "album_link": "https://music.youtube.com/watch?v=0rybex5Bsx0"
+      "album_name": "Stole the Plot",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mukh36_n1wAbiFl2p72OOXAhYwpEF5u3U",
+      "album_slug": "stole-the-plot"
     }
   ]
 }

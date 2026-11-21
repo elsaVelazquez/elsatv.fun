@@ -217,6 +217,18 @@
       display: block;
       padding-right: 20px;
     }
+    /* the sub-line belongs on its own line under the heading: .posts-title is a
+       block, and the shared .btn-sub rule is scoped to .btn-label, so without
+       this the heading and the sentence run together as one run-on string */
+    .button-posts .posts-title .btn-sub {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 400;
+      line-height: 1.35;
+      padding-right: 4px;
+    }
     /* the "on YouTube posts ↗" line: red logo + pill, always visible */
     .button-posts .yt {
       display: inline-flex;
@@ -594,7 +606,14 @@
     }
 
     /* --- covers: three releases, re-picked at random on every scrape ---
-       They stack as a fanned deck so three squares fit in one band, not three. */
+       They stack as a fanned deck so three squares fit in one band, not three.
+       The deck is deliberately taller than the banner and rides up out of it:
+       the sleeves spill above the top edge of the section (the sketch). */
+    .lore-entry.featured {
+      /* the deck rides up out of the banner, so it must not be culled */
+      overflow: visible;
+    }
+
     .lore-entry.featured .lore-covers {
       position: relative;
       z-index: 2;
@@ -603,18 +622,21 @@
       justify-content: center;
       gap: 0;
       width: 100%;
-      max-width: 270px;
-      height: 112px;
-      /* nudge the deck down so its middle aligns with the copy block's centre */
-      margin: 0 auto;
+      /* the deck is only as wide as its three sleeves, so it stays inside its
+         own column instead of stretching across (and over) the copy */
+      max-width: 300px;
+      height: 138px;
+      /* the spill: the deck sits proud of the banner's top edge (the sketch) */
+      margin: -46px auto -20px;
       align-self: center;
+      overflow: visible;
     }
 
     .lore-entry.featured .lore-cover {
       display: block;
       flex: 0 0 auto;
-      width: 92px;
-      height: 92px;
+      width: 124px;
+      height: 124px;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid rgba(95, 242, 208, 0.45);
@@ -629,12 +651,12 @@
 
     /* the three overlap: outer ones tucked behind, the middle one standing up */
     .lore-entry.featured .lore-cover:first-child {
-      transform: translateX(16px) rotate(-5deg) scale(0.9);
+      transform: translateX(26px) rotate(-6deg) scale(0.88);
       z-index: 1;
     }
 
     .lore-entry.featured .lore-cover.is-big {
-      transform: translateY(-4px) scale(1.06);
+      transform: translateY(-6px) scale(1.06);
       z-index: 3;
       border-color: rgba(95, 242, 208, 0.9);
       box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6),
@@ -642,16 +664,16 @@
     }
 
     .lore-entry.featured .lore-cover:last-child {
-      transform: translateX(-16px) rotate(5deg) scale(0.9);
+      transform: translateX(-26px) rotate(6deg) scale(0.88);
       z-index: 1;
     }
 
     .lore-entry.featured .lore-covers:hover .lore-cover:first-child {
-      transform: translateX(-24px) rotate(-8deg) scale(0.94);
+      transform: translateX(-12px) rotate(-8deg) scale(0.94);
     }
 
     .lore-entry.featured .lore-covers:hover .lore-cover:last-child {
-      transform: translateX(24px) rotate(8deg) scale(0.94);
+      transform: translateX(12px) rotate(8deg) scale(0.94);
     }
 
     .lore-entry.featured .lore-cover img {
@@ -915,25 +937,33 @@
       }
 
       .lore-entry.featured .lore-covers {
-        height: 112px;
+        max-width: 300px;
+        height: 118px;
+        /* no spill on a phone: the banner stacks, so a negative margin lands
+           the deck on top of the blurb lines and hides them */
+        margin: 4px auto 2px;
       }
 
       .lore-entry.featured .lore-cover {
-        width: 88px;
-        height: 88px;
+        width: 96px;
+        height: 96px;
       }
     }
 
     @media (min-width: 700px) {
       .lore-entry.featured {
-        grid-template-columns: minmax(0, 1.15fr) auto auto;
+        /* copy, then the deck, then the CTA — each in its own column so the
+           covers sit beside the words rather than on top of them */
+        grid-template-columns: minmax(0, 1fr) auto auto;
         align-items: center;
+        /* room for the deck to hang above the top edge */
+        overflow: visible;
       }
 
-      /* the covers sit in the middle column, the CTA at the right */
       .lore-entry.featured .lore-covers {
         grid-column: 2;
         grid-row: 1;
+        justify-self: end;
       }
 
       .lore-entry.featured .lore-open {
@@ -941,7 +971,7 @@
         grid-row: 1;
       }
 
-      /* the pills stay together as one row under the copy, spanning both columns */
+      /* the pills stay together as one row under the copy */
       .lore-entry.featured .platforms {
         grid-column: 1 / -1;
       }
@@ -1020,15 +1050,17 @@
 
         <!-- three releases, re-picked at random on every scrape:
              homepage_images.py overwrites these three filenames each run -->
-        <div class="lore-covers" aria-hidden="true">
-          <a class="lore-cover" href="kissingface.html" tabindex="-1">
-            <img src="lore/covers/home_cover_1.jpg" alt="" loading="eager" decoding="async" width="200" height="200" />
+        <div class="lore-covers">
+          <!-- each sleeve deep-links to its own release: the lore page moves
+               that card into the top row so the sleeve shows up first -->
+          <a class="lore-cover" href="kissingface.html#the-book-of-becoming-the-seed" title="The Book of Becoming: The Seed — open this release in the Kissing Face lore">
+            <img src="lore/covers/home_cover_1.jpg" alt="The Book of Becoming: The Seed — open this release in the Kissing Face lore" loading="eager" decoding="async" width="200" height="200" />
           </a>
-          <a class="lore-cover is-big" href="kissingface.html" tabindex="-1">
-            <img src="lore/covers/home_cover_2.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" width="200" height="200" />
+          <a class="lore-cover is-big" href="kissingface.html#reset-the-planet" title="Reset the Planet — open this release in the Kissing Face lore">
+            <img src="lore/covers/home_cover_2.jpg" alt="Reset the Planet — open this release in the Kissing Face lore" loading="eager" fetchpriority="high" decoding="async" width="200" height="200" />
           </a>
-          <a class="lore-cover" href="kissingface.html" tabindex="-1">
-            <img src="lore/covers/home_cover_3.jpg" alt="" loading="eager" decoding="async" width="200" height="200" />
+          <a class="lore-cover" href="kissingface.html#stole-the-plot" title="Stole the Plot — open this release in the Kissing Face lore">
+            <img src="lore/covers/home_cover_3.jpg" alt="Stole the Plot — open this release in the Kissing Face lore" loading="eager" decoding="async" width="200" height="200" />
           </a>
         </div>
 
@@ -1080,19 +1112,29 @@
           </svg>
         </span>
         <span class="posts-label">
-          <span class="posts-title">Content - Read the Daily Citizen Scientists Independently Syncing With Me - my ontological RAG pipeline</span>
+          <span class="posts-title">Read the Daily Posts<span class="btn-sub">Citizen scientists independently syncing with me — my ontological RAG pipeline</span></span>
           <span class="yt">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path fill="#ff0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8z"/>
               <path fill="#fff" d="M9.6 15.6V8.4L15.8 12z"/>
             </svg>
-            I scraped my own YouTube content ↗
+            @elsaTVfun ↗
           </span>
         </span>
       </a>
 
-      <!-- two links, one card: LinkedIn above, GitHub below -->
+      <!-- three links, one card: Calendly, LinkedIn, GitHub -->
       <div class="button button-stack btn-social">
+        <a class="stack-row"
+           href="https://calendly.com/elsatv"
+           target="_blank"
+           rel="noopener noreferrer">
+          <span class="btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false"><rect x="3.2" y="4.8" width="17.6" height="16" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.4 9.6h17.2M8 2.8v3.6M16 2.8v3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="14.6" r="1.5" fill="currentColor"/></svg>
+          </span>
+          <span class="btn-label">Calendly <span class="handle">elsatv</span></span>
+        </a>
+
         <a class="stack-row"
            href="https://www.linkedin.com/in/elsa-data-sci/"
            target="_blank"
