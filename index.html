@@ -622,6 +622,7 @@
       justify-content: center;
       gap: 0;
       width: 100%;
+      justify-self: center;
       /* the deck is only as wide as its three sleeves, so it stays inside its
          own column instead of stretching across (and over) the copy */
       max-width: 300px;
@@ -961,9 +962,12 @@
       }
 
       .lore-entry.featured .lore-covers {
-        grid-column: 2;
+        /* span the whole banner so the deck lands on the page's centre line,
+           not tucked into the column beside the copy (justify-self: end pushed
+           it right, which is why it read as off-centre) */
+        grid-column: 1 / -1;
         grid-row: 1;
-        justify-self: end;
+        justify-self: center;
       }
 
       .lore-entry.featured .lore-open {
