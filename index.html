@@ -834,23 +834,45 @@
     }
 
     /* right column: the booking cell spans both rows and draws the divider.
-       The sketch puts the calendar mark on the left, "Calendar" and the arrow
-       on one line beside it, and the price under the label. */
+       The mark sits on top, "Book a Mtg" under it, the price under that, all
+       centred in the cell. */
     .button-stack .stack-row.is-book {
       grid-column: 2;
       grid-row: 1 / span 2;
       border-left: 1px solid var(--line);
+      /* the tile, then the two lines of text, read top to bottom */
+      flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      gap: 10px;
-      padding: 10px 14px;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      text-align: center;
     }
 
-    /* the two cells of the left column are separated from each other, not from
-       the right-hand book card */
+    /* Every cell lights up when the pointer is anywhere in the card, not just
+       over that one link: the card already glows as a whole, so the cells
+       inside it should read as lit too. :focus-within keeps the keyboard in
+       step with the mouse. */
     .button-stack .stack-row:hover,
-    .button-stack .stack-row:focus-visible {
-      background: var(--panel-2);
+    .button-stack .stack-row:focus-visible,
+    .btn-social .stack-row {
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-social:hover .stack-row,
+    .btn-social:focus-within .stack-row {
+      /* a wash over the card's own tint would double up and read as a dark
+         block; just the text and the tiles light up instead */
+      background: transparent;
+    }
+
+    /* the one cell under the pointer wins, so it is clearly the target. The
+       wash is a shadow rather than a background, so it still paints over the
+       transparent background the card-wide hover sets above. */
+    .btn-social .stack-row:hover,
+    .btn-social .stack-row:focus-visible {
+      background: rgba(216, 255, 79, 0.07);
+      box-shadow: inset 0 0 22px rgba(216, 255, 79, 0.10);
     }
 
     /* the row's own gap spaces the tile from the text; the shared .btn-icon
@@ -880,6 +902,7 @@
       height: 32px;
       border-radius: 8px;
       background: rgba(216, 255, 79, 0.14);
+      transition: background 0.15s ease, box-shadow 0.15s ease;
     }
 
     .button-stack .stack-row .btn-icon svg {
@@ -887,11 +910,91 @@
       height: 18px;
     }
 
-    /* the booking half: a ticket mark with a check, then "Calendar" over the
-       price and the duration */
+    /* the booking half: a ticket mark with a check on top, "Book a Mtg" under
+       it, the price and the duration under that. Same tile size as the two
+       cells on the left, so the two columns share one grid rhythm. */
+
+    /* the label in the booking cell is a fixed stack: the title line, then the
+       price line under it. Made a block so the arrow and the price each sit on
+       a line of their own instead of running on after the words. */
+    .button-stack .stack-row.is-book .btn-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      width: 100%;
+      font-size: 1.05rem;
+      line-height: 1.15;
+    }
+
+    .button-stack .stack-row.is-book .btn-title {
+      display: block;
+    }
+
+    /* Hovering anywhere in the card lifts every link inside it: each tile
+       gains the lime halo it has on its own hover, and the words are tinted
+       lime with the same soft glow, so the whole card reads as lit. */
+    .btn-social:hover .stack-row .btn-icon,
+    .btn-social:focus-within .stack-row .btn-icon {
+      background: rgba(216, 255, 79, 0.24);
+      box-shadow: 0 0 12px rgba(216, 255, 79, 0.35);
+    }
+
+    /* every link inside the card, with its tile and its words, takes the colour
+       change too, so the glow does not snap off when the pointer crosses */
+    .btn-social .stack-row,
+    .btn-social .btn-label,
+    .btn-social .btn-title,
+    .btn-social .btn-price {
+      transition: color 0.18s ease, text-shadow 0.18s ease;
+    }
+
+    .btn-social:hover .btn-label,
+    .btn-social:focus-within .btn-label {
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(216, 255, 79, 0.35);
+    }
+
+    /* the heading line of the booking cell glows with the rest of the card */
+    .btn-social:hover .is-book .btn-title,
+    .btn-social:focus-within .is-book .btn-title {
+      color: var(--accent);
+      text-shadow: 0 0 10px rgba(216, 255, 79, 0.35);
+    }
+
+    /* the handles and the price stay the quieter half, but they warm up too */
+    .btn-social:hover .btn-label .handle,
+    .btn-social:hover .is-book .btn-price,
+    .btn-social:focus-within .btn-label .handle,
+    .btn-social:focus-within .is-book .btn-price {
+      color: #cfe98a;
+      text-shadow: 0 0 10px rgba(216, 255, 79, 0.3);
+    }
+
+    /* the cell actually under the pointer gets a touch more: its words go
+       full lime inside the card-wide wash, so the target still reads */
+    .btn-social:hover .stack-row:hover .btn-label,
+    .btn-social:hover .stack-row:hover .btn-title {
+      color: var(--accent);
+      text-shadow: 0 0 14px rgba(216, 255, 79, 0.55);
+    }
+
+    .btn-social:hover .stack-row:hover .handle,
+    .btn-social:hover .stack-row:hover .btn-price {
+      color: #e6ffa6;
+      text-shadow: 0 0 12px rgba(216, 255, 79, 0.4);
+    }
+
+    .btn-social:hover .is-book .btn-go,
+    .btn-social:focus-within .is-book .btn-go {
+      color: var(--accent);
+      transform: translate(1px, -1px);
+    }
+
     .button-stack .stack-row.is-book .btn-icon {
-      width: 38px;
-      height: 38px;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
     }
 
     .button-stack .stack-row.is-book .btn-icon svg {
@@ -908,27 +1011,21 @@
       white-space: nowrap;
     }
 
-    .button-stack .stack-row.is-book:hover .btn-price,
-    .button-stack .stack-row.is-book:focus-visible .btn-price {
-      color: var(--text);
-    }
 
-    /* the sketch ends the "Calendar" line with a little arrow: it is an
+
+    /* the sketch ends the "Book a Mtg" line with a little arrow: it is an
        outbound link, so say so right after the label */
     .button-stack .stack-row.is-book .btn-go {
-      margin-left: 4px;
+      margin-left: 3px;
       color: var(--muted);
       font-size: 0.95rem;
       font-weight: 700;
       line-height: 1;
+      display: inline-block;
       transition: color 0.15s ease, transform 0.15s ease;
     }
 
-    .button-stack .stack-row.is-book:hover .btn-go,
-    .button-stack .stack-row.is-book:focus-visible .btn-go {
-      color: var(--accent);
-      transform: translate(1px, -1px);
-    }
+
 
     /* --- the documents tile: a PDF sheet, a cart and a dollar sign --- */
     .btn-icon.is-duo {
@@ -1030,13 +1127,13 @@
       }
 
       .button-stack .stack-row.is-book .btn-icon {
-        width: 30px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
       }
 
       .button-stack .stack-row.is-book .btn-icon svg {
-        width: 18px;
-        height: 18px;
+        width: 19px;
+        height: 19px;
       }
 
       .button-stack .stack-row.is-book .btn-price {
@@ -1270,7 +1367,10 @@
           <span class="btn-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false"><rect x="3.2" y="4.8" width="17.6" height="16" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.4 9.6h17.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.4 15.5l2.4 2.4 4.6-5.1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
-          <span class="btn-label">Calendar<span class="btn-go" aria-hidden="true">&#8250;</span><span class="btn-price">$18 &middot; 15 minutes</span></span>
+          <span class="btn-label">
+            <span class="btn-title">Book a Mtg<span class="btn-go" aria-hidden="true">&#8250;</span></span>
+            <span class="btn-price">$18 &middot; 15 minutes</span>
+          </span>
         </a>
       </div>
 
