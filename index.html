@@ -167,6 +167,19 @@
                   0 0 22px rgba(216, 255, 79, 0.16);
     }
 
+    /* the split card is a container of three links, not a link: lighting its
+       outline and lifting it would glow the whole thing whichever cell the
+       pointer is on. The cells themselves do the talking (see .btn-social
+       .stack-row:hover further down), so the container stays at rest. */
+    .button-stack:hover,
+    .button-stack:focus-visible {
+      background: var(--panel);
+      transform: none;
+      border-color: rgba(184, 255, 67, 0.55);
+      box-shadow: 0 0 0 1px rgba(184, 255, 67, 0.12),
+                  0 0 14px rgba(184, 255, 67, 0.07);
+    }
+
     /* the music call-to-action: YouTube Music pays the most, so it leads */
     .button-primary {
       background: #1c2410;
@@ -849,30 +862,22 @@
       text-align: center;
     }
 
-    /* Every cell lights up when the pointer is anywhere in the card, not just
-       over that one link: the card already glows as a whole, so the cells
-       inside it should read as lit too. :focus-within keeps the keyboard in
-       step with the mouse. */
-    .button-stack .stack-row:hover,
-    .button-stack .stack-row:focus-visible,
+    /* Only the cell under the pointer lights up. The card keeps its own
+       border glow on hover (handled further down, shared with the other
+       three tiles), but the links inside stay at rest until one of them is
+       actually hovered — otherwise the whole card flashes and the pointer
+       no longer says which link it is about to open. :focus-visible keeps the
+       keyboard in step with the mouse. */
     .btn-social .stack-row {
-      transition: background 0.15s ease, color 0.15s ease;
+      transition: background 0.15s ease, color 0.15s ease,
+                  box-shadow 0.15s ease;
     }
 
-    .btn-social:hover .stack-row,
-    .btn-social:focus-within .stack-row {
-      /* a wash over the card's own tint would double up and read as a dark
-         block; just the text and the tiles light up instead */
-      background: transparent;
-    }
-
-    /* the one cell under the pointer wins, so it is clearly the target. The
-       wash is a shadow rather than a background, so it still paints over the
-       transparent background the card-wide hover sets above. */
     .btn-social .stack-row:hover,
     .btn-social .stack-row:focus-visible {
-      background: rgba(216, 255, 79, 0.07);
-      box-shadow: inset 0 0 22px rgba(216, 255, 79, 0.10);
+      background: rgba(216, 255, 79, 0.09);
+      box-shadow: inset 0 0 28px rgba(216, 255, 79, 0.16),
+                  0 0 16px rgba(216, 255, 79, 0.10);
     }
 
     /* the row's own gap spaces the tile from the text; the shared .btn-icon
@@ -931,75 +936,69 @@
       display: block;
     }
 
-    /* Hovering anywhere in the card lifts every link inside it: each tile
-       gains the lime halo it has on its own hover, and the words are tinted
-       lime with the same soft glow, so the whole card reads as lit. */
-    .btn-social:hover .stack-row .btn-icon,
-    .btn-social:focus-within .stack-row .btn-icon {
+    /* The one cell under the pointer lifts: its tile gains the lime halo and
+       its words are tinted lime with a soft glow. Nothing else in the card
+       changes, so the glow always marks exactly the link about to open. */
+    .btn-social .stack-row:hover .btn-icon,
+    .btn-social .stack-row:focus-visible .btn-icon {
       background: rgba(216, 255, 79, 0.24);
-      box-shadow: 0 0 12px rgba(216, 255, 79, 0.35);
+      box-shadow: 0 0 14px rgba(216, 255, 79, 0.35);
     }
 
-    /* every link inside the card, with its tile and its words, takes the colour
-       change too, so the glow does not snap off when the pointer crosses */
-    .btn-social .stack-row,
+    /* the words and their quieter second line, so the glow does not snap off
+       when the pointer crosses from the tile to the text */
     .btn-social .btn-label,
     .btn-social .btn-title,
     .btn-social .btn-price {
       transition: color 0.18s ease, text-shadow 0.18s ease;
     }
 
-    .btn-social:hover .btn-label,
-    .btn-social:focus-within .btn-label {
-      color: var(--accent);
-      text-shadow: 0 0 10px rgba(216, 255, 79, 0.35);
-    }
-
-    /* the heading line of the booking cell glows with the rest of the card */
-    .btn-social:hover .is-book .btn-title,
-    .btn-social:focus-within .is-book .btn-title {
-      color: var(--accent);
-      text-shadow: 0 0 10px rgba(216, 255, 79, 0.35);
-    }
-
-    /* the handles and the price stay the quieter half, but they warm up too */
-    .btn-social:hover .btn-label .handle,
-    .btn-social:hover .is-book .btn-price,
-    .btn-social:focus-within .btn-label .handle,
-    .btn-social:focus-within .is-book .btn-price {
-      color: #cfe98a;
-      text-shadow: 0 0 10px rgba(216, 255, 79, 0.3);
-    }
-
-    /* the cell actually under the pointer gets a touch more: its words go
-       full lime inside the card-wide wash, so the target still reads */
-    .btn-social:hover .stack-row:hover .btn-label,
-    .btn-social:hover .stack-row:hover .btn-title {
+    .btn-social .stack-row:hover .btn-label,
+    .btn-social .stack-row:hover .btn-title,
+    .btn-social .stack-row:focus-visible .btn-label,
+    .btn-social .stack-row:focus-visible .btn-title {
       color: var(--accent);
       text-shadow: 0 0 14px rgba(216, 255, 79, 0.55);
     }
 
-    .btn-social:hover .stack-row:hover .handle,
-    .btn-social:hover .stack-row:hover .btn-price {
+    /* the handles and the price stay the quieter half, but they warm up too */
+    .btn-social .stack-row:hover .handle,
+    .btn-social .stack-row:hover .btn-price,
+    .btn-social .stack-row:focus-visible .handle,
+    .btn-social .stack-row:focus-visible .btn-price {
       color: #e6ffa6;
       text-shadow: 0 0 12px rgba(216, 255, 79, 0.4);
     }
 
-    .btn-social:hover .is-book .btn-go,
-    .btn-social:focus-within .is-book .btn-go {
+    .btn-social .stack-row:hover .btn-go,
+    .btn-social .stack-row:focus-visible .btn-go {
       color: var(--accent);
       transform: translate(1px, -1px);
     }
 
+    /* the booking half: the calendar mark on top, "Book a Mtg" under it, the
+       price and the duration under that. The tile is much bigger than the two
+       on the left so the mark reads as the main action of the card, and the
+       glyph gets most of the tile so it reads as a calendar, not an icon. */
     .button-stack .stack-row.is-book .btn-icon {
-      width: 34px;
-      height: 34px;
+      width: 68px;
+      height: 68px;
+      border-radius: 16px;
       flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .button-stack .stack-row.is-book .btn-icon svg {
-      width: 22px;
-      height: 22px;
+      width: 56px;
+      height: 56px;
+    }
+
+    /* the calendar glyph is stroked in lime: the page outline, the header band
+       and the binder rings share the tile's accent text colour */
+    .btn-icon.is-cal svg {
+      color: var(--accent);
     }
 
     .button-stack .stack-row.is-book .btn-price {
@@ -1127,13 +1126,14 @@
       }
 
       .button-stack .stack-row.is-book .btn-icon {
-        width: 32px;
-        height: 32px;
+        width: 54px;
+        height: 54px;
+        border-radius: 13px;
       }
 
       .button-stack .stack-row.is-book .btn-icon svg {
-        width: 19px;
-        height: 19px;
+        width: 42px;
+        height: 42px;
       }
 
       .button-stack .stack-row.is-book .btn-price {
@@ -1364,8 +1364,23 @@
            href="https://calendly.com/elsatv"
            target="_blank"
            rel="noopener noreferrer">
-          <span class="btn-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><rect x="3.2" y="4.8" width="17.6" height="16" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.4 9.6h17.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.4 15.5l2.4 2.4 4.6-5.1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="btn-icon is-cal" aria-hidden="true">
+            <!-- a page-a-day calendar, drawn as an outline so it still reads as
+                 a calendar at tile size: a wide page, a solid header band, two
+                 binder rings punching out through the top edge, and a grid of
+                 day cells in the body -->
+            <svg viewBox="0 0 24 24" focusable="false" fill="none"
+                 stroke="currentColor" stroke-width="1.6"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3.2" y="4.6" width="17.6" height="16.4" rx="2.6"/>
+              <path d="M3.2 9.4h17.6" stroke-width="1.4"/>
+              <path d="M8 2.9v3.4M16 2.9v3.4" stroke-width="2"/>
+              <rect x="6.6" y="12.1" width="2.9" height="2.6" rx="0.7" fill="currentColor" stroke="none"/>
+              <rect x="10.8" y="12.1" width="2.9" height="2.6" rx="0.7" fill="currentColor" stroke="none"/>
+              <rect x="15" y="12.1" width="2.9" height="2.6" rx="0.7" fill="currentColor" stroke="none"/>
+              <rect x="6.6" y="16" width="2.9" height="2.6" rx="0.7" fill="currentColor" stroke="none"/>
+              <rect x="10.8" y="16" width="2.9" height="2.6" rx="0.7" fill="currentColor" stroke="none"/>
+            </svg>
           </span>
           <span class="btn-label">
             <span class="btn-title">Book a Mtg<span class="btn-go" aria-hidden="true">&#8250;</span></span>
