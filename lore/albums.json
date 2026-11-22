@@ -1,11 +1,96 @@
 {
-  "generated_at": "2026-11-18T19:49:05+00:00",
-  "album_count": 80,
-  "song_count": 397,
+  "generated_at": "2026-11-22T19:16:30+00:00",
+  "album_count": 83,
+  "song_count": 406,
   "albums": [
+    {
+      "album_name": "sIA-TANs Interrogate Gate 8",
+      "date_published": "2026-11-21",
+      "date_pattern": "0 · 3 · 0",
+      "youtube_link": "",
+      "album_link": "",
+      "cover_art": "",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Soul X-Ray Prisms",
+          "duration": "3:29",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Significant Figures Sig Fig",
+          "duration": "5:01",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 3,
+          "song_name": "Hymns In Me",
+          "duration": "6:05",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 4,
+          "song_name": "Hymns In My SIM",
+          "duration": "3:13",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Resurrect My Pet Yet?",
+      "date_published": "2026-11-19",
+      "date_pattern": "0 · 9 · 0",
+      "youtube_link": "",
+      "album_link": "",
+      "cover_art": "",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Copper Lead",
+          "duration": "4:31",
+          "youtube_link": ""
+        },
+        {
+          "track_number": 2,
+          "song_name": "Jelly Fish",
+          "duration": "3:32",
+          "youtube_link": ""
+        }
+      ]
+    },
+    {
+      "album_name": "Rewriting Tithing",
+      "date_published": "2026-11-18",
+      "date_pattern": "0 · 9 · 0",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lUiwkITiS_9HdJo0JY1XPe3DSqOLXmQ7w",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lUiwkITiS_9HdJo0JY1XPe3DSqOLXmQ7w",
+      "cover_art": "https://i.ytimg.com/vi/9ITkn1qXLFs/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "I Pray for Me",
+          "duration": "5:24",
+          "youtube_link": "https://music.youtube.com/watch?v=9ITkn1qXLFs"
+        },
+        {
+          "track_number": 2,
+          "song_name": "Yo Momma's Humiliation Ritual",
+          "duration": "3:48",
+          "youtube_link": "https://music.youtube.com/watch?v=7S-d0-sqvXY"
+        },
+        {
+          "track_number": 3,
+          "song_name": "Rewriting Tithing",
+          "duration": "5:22",
+          "youtube_link": "https://music.youtube.com/watch?v=eyesrdd2hiI"
+        }
+      ]
+    },
     {
       "album_name": "Deuteronomy Jubilee.exe",
       "date_published": "2026-11-18",
+      "date_pattern": "0 · 9 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
       "cover_art": "https://i.ytimg.com/vi/nxM1RmKCvv4/hqdefault.jpg",
@@ -39,6 +124,7 @@
     {
       "album_name": "Bombastic Schtick",
       "date_published": "2026-11-15",
+      "date_pattern": "0 · 6 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=3JsLepzLbyY",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/3JsLepzLbyY/hqdefault.jpg",
@@ -66,6 +152,7 @@
     {
       "album_name": "Real Dream Is Real",
       "date_published": "2026-11-12",
+      "date_pattern": "0 · 3 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_kyXxhYtBc1Aiai9iCLGvkS07ajG9Cz4_8",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kyXxhYtBc1Aiai9iCLGvkS07ajG9Cz4_8",
       "cover_art": "https://i.ytimg.com/vi/uhKsURRr0Rw/hqdefault.jpg",
@@ -93,6 +180,7 @@
     {
       "album_name": "True Dystopia Truths",
       "date_published": "2026-11-11",
+      "date_pattern": "0 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=YtnkwZtOyBY",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/YtnkwZtOyBY/hqdefault.jpg",
@@ -114,6 +202,7 @@
     {
       "album_name": "Free Will Protocol",
       "date_published": "2026-11-10",
+      "date_pattern": "0 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=XYnKhaiZooI",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/XYnKhaiZooI/hqdefault.jpg",
@@ -129,6 +218,7 @@
     {
       "album_name": "​30 Degrees 3 Spaces Laticees",
       "date_published": "2026-11-09",
+      "date_pattern": "0 · 9 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mSF01UaY0k8YpzHduBuVa53ZPwfe4pJ0I",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mSF01UaY0k8YpzHduBuVa53ZPwfe4pJ0I",
       "cover_art": "https://i.ytimg.com/vi/z_e14ecs-KU/hqdefault.jpg",
@@ -156,6 +246,7 @@
     {
       "album_name": "I Contrived Me Cryptography Key",
       "date_published": "2026-11-06",
+      "date_pattern": "0 · 6 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=0rybex5Bsx0",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/0rybex5Bsx0/hqdefault.jpg",
@@ -182,7 +273,8 @@
     },
     {
       "album_name": "Method Actor Method",
-      "date_published": "2026-11-05",
+      "date_published": "2026-11-03",
+      "date_pattern": "0 · 3 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=4r9AyPSjq6c",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/4r9AyPSjq6c/hqdefault.jpg",
@@ -198,6 +290,7 @@
     {
       "album_name": "The Divine Spiral: Hybrid Birth",
       "date_published": "2026-11-01",
+      "date_pattern": "0 · 0 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lUrrJ-sWIJaKb8aUYiJQJzVs2z9nw3F3A",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lUrrJ-sWIJaKb8aUYiJQJzVs2z9nw3F3A",
       "cover_art": "https://i.ytimg.com/vi/684U2aSmpK8/hqdefault.jpg",
@@ -219,6 +312,7 @@
     {
       "album_name": "Fusion Fission Mission No Supervision",
       "date_published": "2026-10-31",
+      "date_pattern": "0 · 3 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ",
       "cover_art": "https://i.ytimg.com/vi/-ohspgbtmdk/hqdefault.jpg",
@@ -234,6 +328,7 @@
     {
       "album_name": "X Mas on Halloween",
       "date_published": "2026-10-31",
+      "date_pattern": "0 · 3 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=no0JIqNq0Ck",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/no0JIqNq0Ck/hqdefault.jpg",
@@ -267,6 +362,7 @@
     {
       "album_name": "Green Halloween Ocean Machine",
       "date_published": "2026-10-30",
+      "date_pattern": "0 · 3 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=4J5L-FUdCMU",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/4J5L-FUdCMU/hqdefault.jpg",
@@ -282,6 +378,7 @@
     {
       "album_name": "Galactic Grim Reaper Diaries",
       "date_published": "2026-10-28",
+      "date_pattern": "0 · 0 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_njDnaz1_ezOhxg6FrA5IMBGdNbqEua5_Q",
       "cover_art": "https://i.ytimg.com/vi/17L5pnh8U3U/hqdefault.jpg",
@@ -315,6 +412,7 @@
     {
       "album_name": "Next Chapter On Becoming",
       "date_published": "2026-10-27",
+      "date_pattern": "0 · 9 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lcpbkHeXG5RH70ZWJZkFw_173PDH9lFg0",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lcpbkHeXG5RH70ZWJZkFw_173PDH9lFg0",
       "cover_art": "https://i.ytimg.com/vi/coTQufLkJEI/hqdefault.jpg",
@@ -372,6 +470,7 @@
     {
       "album_name": "The Book of Becoming: The Seed",
       "date_published": "2026-10-26",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_m42EEp7pBZmKkhZobdmAhFzLM4Dd01lsY",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_m42EEp7pBZmKkhZobdmAhFzLM4Dd01lsY",
       "cover_art": "https://i.ytimg.com/vi/3qB2fRYf88w/hqdefault.jpg",
@@ -417,6 +516,7 @@
     {
       "album_name": "Puppets",
       "date_published": "2026-10-24",
+      "date_pattern": "0 · 6 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=Zi0UoWCs9Qk",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/Zi0UoWCs9Qk/hqdefault.jpg",
@@ -485,7 +585,8 @@
     },
     {
       "album_name": "Push the Loosh",
-      "date_published": "2026-10-20",
+      "date_published": "2026-10-21",
+      "date_pattern": "0 · 3 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=PCRVNlcsQg0",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/PCRVNlcsQg0/hqdefault.jpg",
@@ -519,6 +620,7 @@
     {
       "album_name": "Scalar Spiral: The Book of NaN Sense",
       "date_published": "2026-10-19",
+      "date_pattern": "0 · 9 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=bNzoULwaeqE",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/bNzoULwaeqE/hqdefault.jpg",
@@ -540,6 +642,7 @@
     {
       "album_name": "Bad Actor?",
       "date_published": "2026-10-19",
+      "date_pattern": "0 · 9 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs",
       "cover_art": "https://i.ytimg.com/vi/ybQ61lf0WKE/hqdefault.jpg",
@@ -579,6 +682,7 @@
     {
       "album_name": "The Super Intelligence New Testament Whole E-Book",
       "date_published": "2026-10-16",
+      "date_pattern": "0 · 6 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_l1GkFdnLwfE7og-Eu9f5pwka3ovT-9EJs",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_l1GkFdnLwfE7og-Eu9f5pwka3ovT-9EJs",
       "cover_art": "https://i.ytimg.com/vi/5VG-QQw8R20/hqdefault.jpg",
@@ -624,6 +728,7 @@
     {
       "album_name": "Vortex (1, 1, 1)",
       "date_published": "2026-10-11",
+      "date_pattern": "0 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=g9FPe5Zpcus",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/g9FPe5Zpcus/hqdefault.jpg",
@@ -657,6 +762,7 @@
     {
       "album_name": "The Prompt",
       "date_published": "2026-10-10",
+      "date_pattern": "0 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=EOaa5c_OqlU",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/EOaa5c_OqlU/hqdefault.jpg",
@@ -683,7 +789,8 @@
     },
     {
       "album_name": "Reset the Planet",
-      "date_published": "2026-10-08",
+      "date_published": "2026-10-10",
+      "date_pattern": "0 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=XvbHKQQuy58",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/XvbHKQQuy58/hqdefault.jpg",
@@ -729,6 +836,7 @@
     {
       "album_name": "Vortex Day Zero Triad",
       "date_published": "2026-10-01",
+      "date_pattern": "0 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=i7Xn0qQ2noo",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/i7Xn0qQ2noo/hqdefault.jpg",
@@ -756,6 +864,7 @@
     {
       "album_name": "Last Call Psycho Alcohol",
       "date_published": "2026-09-30",
+      "date_pattern": "9 · 3 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=7e4oVkp8TDU",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/7e4oVkp8TDU/hqdefault.jpg",
@@ -783,6 +892,7 @@
     {
       "album_name": "We Went All the Way",
       "date_published": "2026-09-28",
+      "date_pattern": "9 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=7JSLStC67OQ",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/7JSLStC67OQ/hqdefault.jpg",
@@ -816,6 +926,7 @@
     {
       "album_name": "Funding Funner Demon Rounds",
       "date_published": "2026-09-27",
+      "date_pattern": "9 · 9 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=-CJDtD2Xq8M",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/-CJDtD2Xq8M/hqdefault.jpg",
@@ -885,6 +996,7 @@
     {
       "album_name": "Profitable Graceful Exits",
       "date_published": "2026-09-24",
+      "date_pattern": "9 · 6 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=7hCuZj0qH4g",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/7hCuZj0qH4g/hqdefault.jpg",
@@ -918,6 +1030,7 @@
     {
       "album_name": "The Event's Event Horizon",
       "date_published": "2026-09-24",
+      "date_pattern": "9 · 6 · 0",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nC245JvKePLmYrW0hCCZVRFS123cxzYS0",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nC245JvKePLmYrW0hCCZVRFS123cxzYS0",
       "cover_art": "https://i.ytimg.com/vi/_4njQ446JeY/hqdefault.jpg",
@@ -963,6 +1076,7 @@
     {
       "album_name": "Classical Class Based",
       "date_published": "2026-09-21",
+      "date_pattern": "9 · 3 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=iCCNXg3j7rk",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/iCCNXg3j7rk/hqdefault.jpg",
@@ -996,6 +1110,7 @@
     {
       "album_name": "Hallowed Halls of a Mentee",
       "date_published": "2026-09-18",
+      "date_pattern": "9 · 9 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=UNa-Rt_Pf7o",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/UNa-Rt_Pf7o/hqdefault.jpg",
@@ -1059,6 +1174,7 @@
     {
       "album_name": "Matrix Engines Ignitions Go",
       "date_published": "2026-09-15",
+      "date_pattern": "9 · 6 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=Nikinhn5ABw",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/Nikinhn5ABw/hqdefault.jpg",
@@ -1098,6 +1214,7 @@
     {
       "album_name": "Vortex Nine Three Zero",
       "date_published": "2026-09-12",
+      "date_pattern": "9 · 3 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=MdqrBx543iI",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/MdqrBx543iI/hqdefault.jpg",
@@ -1143,6 +1260,7 @@
     {
       "album_name": "Nine Eleven Elve Rings Vortex",
       "date_published": "2026-09-11",
+      "date_pattern": "9 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=Cd5gIYWgvyE",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/Cd5gIYWgvyE/hqdefault.jpg",
@@ -1158,6 +1276,7 @@
     {
       "album_name": "Imminent Frost Prep",
       "date_published": "2026-09-10",
+      "date_pattern": "9 · 0 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=q2y3nBuDLC0",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/q2y3nBuDLC0/hqdefault.jpg",
@@ -1185,6 +1304,7 @@
     {
       "album_name": "Overdue Dews",
       "date_published": "2026-09-09",
+      "date_pattern": "9 · 9 · 0",
       "youtube_link": "https://music.youtube.com/watch?v=bbFYyhw556U",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/bbFYyhw556U/hqdefault.jpg",
@@ -1218,6 +1338,7 @@
     {
       "album_name": "I Make Me Thoth Vortex Eight Four One",
       "date_published": "2026-08-31",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mfEZ4lWwspBBrs_pyM6SMglKY6yDg9jWA",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mfEZ4lWwspBBrs_pyM6SMglKY6yDg9jWA",
       "cover_art": "https://i.ytimg.com/vi/516Gk7Cfzug/hqdefault.jpg",
@@ -1335,6 +1456,7 @@
     {
       "album_name": "Standing Up Nerd Reich Standup",
       "date_published": "2026-08-29",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=5cclGoyPFYo",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/5cclGoyPFYo/hqdefault.jpg",
@@ -1398,6 +1520,7 @@
     {
       "album_name": "The Devil Made Me",
       "date_published": "2026-08-22",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=F1OiNwbB5Ag",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/F1OiNwbB5Ag/hqdefault.jpg",
@@ -1437,6 +1560,7 @@
     {
       "album_name": "The Devil Made Them Vortex Eight Four One",
       "date_published": "2026-08-22",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mPlk3Aku6t6i0YgJu9q4xYW0lExqnrJ2E",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mPlk3Aku6t6i0YgJu9q4xYW0lExqnrJ2E",
       "cover_art": "https://i.ytimg.com/vi/DsCyS1YesW0/hqdefault.jpg",
@@ -1494,6 +1618,7 @@
     {
       "album_name": "The Devil Made Them",
       "date_published": "2026-08-22",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_layA2w0k1YA1cjrL96l-65WeHlkp3i0Oc",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_layA2w0k1YA1cjrL96l-65WeHlkp3i0Oc",
       "cover_art": "https://i.ytimg.com/vi/5ZZz7z7Nhl4/hqdefault.jpg",
@@ -1543,53 +1668,9 @@
       ]
     },
     {
-      "album_name": "Are We Closer Yet",
-      "date_published": "2026-08-17",
-      "youtube_link": "https://music.youtube.com/watch?v=_qfTDV7pSGQ",
-      "album_link": "",
-      "cover_art": "https://i.ytimg.com/vi/_qfTDV7pSGQ/hqdefault.jpg",
-      "songs": [
-        {
-          "track_number": 1,
-          "song_name": "Are We Closer Yet",
-          "duration": "1:17",
-          "youtube_link": "https://music.youtube.com/watch?v=_qfTDV7pSGQ"
-        }
-      ]
-    },
-    {
-      "album_name": "Magnet Tar Pit Traps",
-      "date_published": "2026-08-17",
-      "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY",
-      "album_link": "",
-      "cover_art": "https://i.ytimg.com/vi/IFXMW-J2pWY/hqdefault.jpg",
-      "songs": [
-        {
-          "track_number": 1,
-          "song_name": "Magnet Tar Pit Traps",
-          "duration": "2:17",
-          "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY"
-        }
-      ]
-    },
-    {
-      "album_name": "The Closer to Death",
-      "date_published": "2026-08-17",
-      "youtube_link": "https://music.youtube.com/watch?v=KoepAOUIuto",
-      "album_link": "",
-      "cover_art": "https://i.ytimg.com/vi/KoepAOUIuto/hqdefault.jpg",
-      "songs": [
-        {
-          "track_number": 1,
-          "song_name": "The Closer to Death",
-          "duration": "2:35",
-          "youtube_link": "https://music.youtube.com/watch?v=KoepAOUIuto"
-        }
-      ]
-    },
-    {
       "album_name": "Possession by Obsession",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=C1sR7dDio-s",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/C1sR7dDio-s/hqdefault.jpg",
@@ -1605,6 +1686,7 @@
     {
       "album_name": "Precious My Pet",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=CV1Klaca8VQ",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/CV1Klaca8VQ/hqdefault.jpg",
@@ -1620,6 +1702,7 @@
     {
       "album_name": "Possession by Obsession",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=x-rwCugnTYc",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/x-rwCugnTYc/hqdefault.jpg",
@@ -1635,6 +1718,7 @@
     {
       "album_name": "Magnet Tar Pit Traps",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=-J3sx9C5r9s",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/-J3sx9C5r9s/hqdefault.jpg",
@@ -1650,6 +1734,7 @@
     {
       "album_name": "The Closer to Death",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=odpoF0nk7z0",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/odpoF0nk7z0/hqdefault.jpg",
@@ -1665,6 +1750,7 @@
     {
       "album_name": "Precious My Pet",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=yPEpVQ82yFc",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/yPEpVQ82yFc/hqdefault.jpg",
@@ -1680,6 +1766,7 @@
     {
       "album_name": "Possession by Obsession",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=GNu-pPOR0Fs",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/GNu-pPOR0Fs/hqdefault.jpg",
@@ -1695,6 +1782,7 @@
     {
       "album_name": "Free Fall Off A Cliff Notes",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=4UG-Z7FTHYM",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/4UG-Z7FTHYM/hqdefault.jpg",
@@ -1710,6 +1798,7 @@
     {
       "album_name": "The Start Of the Star Wars",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=fGTYQjfu4ws",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/fGTYQjfu4ws/hqdefault.jpg",
@@ -1725,6 +1814,7 @@
     {
       "album_name": "Ridiculous Voice Lessons",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=i5XrIlwt5mo",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/i5XrIlwt5mo/hqdefault.jpg",
@@ -1758,6 +1848,7 @@
     {
       "album_name": "Closer to Freedom",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lwBa4BTX99rsUencp0YFqM_5_h6dMHzo8",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lwBa4BTX99rsUencp0YFqM_5_h6dMHzo8",
       "cover_art": "https://i.ytimg.com/vi/oImo8zzKK00/hqdefault.jpg",
@@ -1845,6 +1936,7 @@
     {
       "album_name": "Free Fall Off A Cliff Notes",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=UBgqDRu7G-0",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/UBgqDRu7G-0/hqdefault.jpg",
@@ -1860,6 +1952,7 @@
     {
       "album_name": "Free Fall Off a Cliff",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=zY8o19Q2tB8",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/zY8o19Q2tB8/hqdefault.jpg",
@@ -1875,6 +1968,7 @@
     {
       "album_name": "RA : Missing Lynk",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_k7fyNws957sjIXthDfD-6LV9q0ZKIGrIg",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_k7fyNws957sjIXthDfD-6LV9q0ZKIGrIg",
       "cover_art": "https://i.ytimg.com/vi/Q4lAHqI6PUc/hqdefault.jpg",
@@ -1944,6 +2038,7 @@
     {
       "album_name": "Ra Rara Sol Maya Español",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=LcHC7zKtWE4",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/LcHC7zKtWE4/hqdefault.jpg",
@@ -1989,6 +2084,7 @@
     {
       "album_name": "LILO & Stitched Together",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nVqSvCccPjkaOHj3X2uDpNBdhxyDOBMZs",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nVqSvCccPjkaOHj3X2uDpNBdhxyDOBMZs",
       "cover_art": "https://i.ytimg.com/vi/lROW4rERoHw/hqdefault.jpg",
@@ -2058,6 +2154,7 @@
     {
       "album_name": "Spelled Out Alphabet Soup",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nKcq4DLCFRc-JD2mZgGzSYyLbOK5n-t1Q",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nKcq4DLCFRc-JD2mZgGzSYyLbOK5n-t1Q",
       "cover_art": "https://i.ytimg.com/vi/Oo0AdTyZJHk/hqdefault.jpg",
@@ -2115,6 +2212,7 @@
     {
       "album_name": "Petty Pets",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nF9vp4d7z10u0XfI5NjxgD5WfnL1tas18",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nF9vp4d7z10u0XfI5NjxgD5WfnL1tas18",
       "cover_art": "https://i.ytimg.com/vi/B1at2V3P5lk/hqdefault.jpg",
@@ -2166,6 +2264,7 @@
     {
       "album_name": "Already Home",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nzjSOfyXTurYrNzNQEm8ha0cCgoTkOXoQ",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nzjSOfyXTurYrNzNQEm8ha0cCgoTkOXoQ",
       "cover_art": "https://i.ytimg.com/vi/VScj0hiTWVg/hqdefault.jpg",
@@ -2229,6 +2328,7 @@
     {
       "album_name": "BIBLICAL Q n On n On",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_kKFlKw0GGGng-NPuII8bM6qqdepTUOzyA",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kKFlKw0GGGng-NPuII8bM6qqdepTUOzyA",
       "cover_art": "https://i.ytimg.com/vi/S-WZtwtWKbE/hqdefault.jpg",
@@ -2280,6 +2380,7 @@
     {
       "album_name": "Stole the Plot",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mukh36_n1wAbiFl2p72OOXAhYwpEF5u3U",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mukh36_n1wAbiFl2p72OOXAhYwpEF5u3U",
       "cover_art": "https://i.ytimg.com/vi/sDazEyUiFPw/hqdefault.jpg",
@@ -2331,6 +2432,7 @@
     {
       "album_name": "Juicy Juice",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lYxB5rsmWNHaysS9aSXJq8EDVVmlo-MP0",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lYxB5rsmWNHaysS9aSXJq8EDVVmlo-MP0",
       "cover_art": "https://i.ytimg.com/vi/q_9zV0nILbo/hqdefault.jpg",
@@ -2382,6 +2484,7 @@
     {
       "album_name": "Juicy Juice Swing",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lNi3hZMxH0TxvOqXcARxeVsga9ITtOqbo",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lNi3hZMxH0TxvOqXcARxeVsga9ITtOqbo",
       "cover_art": "https://i.ytimg.com/vi/KYkpWeI077M/hqdefault.jpg",
@@ -2445,6 +2548,7 @@
     {
       "album_name": "Daemon Robot Lullabies",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mU5GVhBbbFGHVvIvDqlS-KezlbGZBANYM",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mU5GVhBbbFGHVvIvDqlS-KezlbGZBANYM",
       "cover_art": "https://i.ytimg.com/vi/obCMR_wPIz0/hqdefault.jpg",
@@ -2496,6 +2600,7 @@
     {
       "album_name": "Classical EVELution",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mpoWwv4nyperTfy-V69atFGbierp5UtVA",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mpoWwv4nyperTfy-V69atFGbierp5UtVA",
       "cover_art": "https://i.ytimg.com/vi/xkiTaupH0vA/hqdefault.jpg",
@@ -2565,6 +2670,7 @@
     {
       "album_name": "Pay Pi Pipers",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=wj6kpsi9G1E",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/wj6kpsi9G1E/hqdefault.jpg",
@@ -2610,6 +2716,7 @@
     {
       "album_name": "Are You My Daddy",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_mn9cMdySRd4nPVTyHtz8XwZQytj42hrN8",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mn9cMdySRd4nPVTyHtz8XwZQytj42hrN8",
       "cover_art": "https://i.ytimg.com/vi/ep-ap0n3wKk/hqdefault.jpg",
@@ -2691,6 +2798,7 @@
     {
       "album_name": "deep focus high energy whos my daddy",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_kVMX1P3PObFDJgFQ27bsb5sL2QZ1-KPLI",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_kVMX1P3PObFDJgFQ27bsb5sL2QZ1-KPLI",
       "cover_art": "https://i.ytimg.com/vi/hAMURFckyiI/hqdefault.jpg",
@@ -2784,6 +2892,7 @@
     {
       "album_name": "Deep Concentration Bag Pipes Pay the Piper",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_lJjAuscQtzh_mM0DcdUnjF-EydGBQlDXA",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lJjAuscQtzh_mM0DcdUnjF-EydGBQlDXA",
       "cover_art": "https://i.ytimg.com/vi/MYznb0ELGwU/hqdefault.jpg",
@@ -2847,6 +2956,7 @@
     {
       "album_name": "Amusing My Muse",
       "date_published": "2026-08-17",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_k_W_opiveLT7QH5ivFxL2FzpzfCY6lu10",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_k_W_opiveLT7QH5ivFxL2FzpzfCY6lu10",
       "cover_art": "https://i.ytimg.com/vi/yNW9yFlM7oQ/hqdefault.jpg",
@@ -2898,6 +3008,7 @@
     {
       "album_name": "Sunshine",
       "date_published": "2026-08-13",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=9KkJMjhEK90",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/9KkJMjhEK90/hqdefault.jpg",
@@ -2913,6 +3024,7 @@
     {
       "album_name": "Elfalpha Treats",
       "date_published": "2026-08-12",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=0HhAEIqSZqo",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/0HhAEIqSZqo/hqdefault.jpg",
@@ -2940,6 +3052,7 @@
     {
       "album_name": "Hot Neon Teachers Me Teach",
       "date_published": "2026-08-12",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=-5F__Xv4CfM",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/-5F__Xv4CfM/hqdefault.jpg",
@@ -2985,6 +3098,7 @@
     {
       "album_name": "Heat is On",
       "date_published": "2026-08-12",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_nXkRsHX2iUH0DV8sqcNjVBcxojedm6Xhk",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_nXkRsHX2iUH0DV8sqcNjVBcxojedm6Xhk",
       "cover_art": "https://i.ytimg.com/vi/fe_afqdezaM/hqdefault.jpg",
@@ -3036,6 +3150,7 @@
     {
       "album_name": "Iron March Lullaby",
       "date_published": "2026-08-12",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/watch?v=R5CLvJxOG98",
       "album_link": "",
       "cover_art": "https://i.ytimg.com/vi/R5CLvJxOG98/hqdefault.jpg",
@@ -3051,6 +3166,7 @@
     {
       "album_name": "T Lang Lizard",
       "date_published": "2026-08-12",
+      "date_pattern": "",
       "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_maSi-88zhOl9q9FJRzHhiIlYgLtSxBzgI",
       "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_maSi-88zhOl9q9FJRzHhiIlYgLtSxBzgI",
       "cover_art": "https://i.ytimg.com/vi/40WyfivwpKI/hqdefault.jpg",
@@ -3102,6 +3218,54 @@
           "song_name": "Most Highest",
           "duration": "7:32",
           "youtube_link": "https://music.youtube.com/watch?v=os2HJFyQNKk"
+        }
+      ]
+    },
+    {
+      "album_name": "Are We Closer Yet",
+      "date_published": "2026-06-30",
+      "date_pattern": "6 · 3 · 0",
+      "youtube_link": "https://music.youtube.com/watch?v=_qfTDV7pSGQ",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/_qfTDV7pSGQ/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Are We Closer Yet",
+          "duration": "1:17",
+          "youtube_link": "https://music.youtube.com/watch?v=_qfTDV7pSGQ"
+        }
+      ]
+    },
+    {
+      "album_name": "Magnet Tar Pit Traps",
+      "date_published": "2026-06-30",
+      "date_pattern": "6 · 3 · 0",
+      "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/IFXMW-J2pWY/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Magnet Tar Pit Traps",
+          "duration": "2:17",
+          "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY"
+        }
+      ]
+    },
+    {
+      "album_name": "The Closer to Death",
+      "date_published": "2026-06-30",
+      "date_pattern": "6 · 3 · 0",
+      "youtube_link": "https://music.youtube.com/watch?v=KoepAOUIuto",
+      "album_link": "",
+      "cover_art": "https://i.ytimg.com/vi/KoepAOUIuto/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "The Closer to Death",
+          "duration": "2:35",
+          "youtube_link": "https://music.youtube.com/watch?v=KoepAOUIuto"
         }
       ]
     }

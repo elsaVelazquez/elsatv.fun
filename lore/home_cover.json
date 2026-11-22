@@ -1,26 +1,26 @@
 {
-  "picked_at": "2026-11-21T21:11:48Z",
+  "picked_at": "2026-11-22T19:17:14Z",
   "covers": [
     {
       "slot": 1,
       "file": "lore/covers/home_cover_1.jpg",
+      "album_name": "Free Fall Off A Cliff Notes",
+      "album_link": "https://music.youtube.com/watch?v=4UG-Z7FTHYM",
+      "album_slug": "free-fall-off-a-cliff-notes"
+    },
+    {
+      "slot": 2,
+      "file": "lore/covers/home_cover_2.jpg",
       "album_name": "Overdue Dews",
       "album_link": "https://music.youtube.com/watch?v=bbFYyhw556U",
       "album_slug": "overdue-dews"
     },
     {
-      "slot": 2,
-      "file": "lore/covers/home_cover_2.jpg",
-      "album_name": "RA : Missing Lynk",
-      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_k7fyNws957sjIXthDfD-6LV9q0ZKIGrIg",
-      "album_slug": "ra-missing-lynk"
-    },
-    {
       "slot": 3,
       "file": "lore/covers/home_cover_3.jpg",
-      "album_name": "Last Call Psycho Alcohol",
-      "album_link": "https://music.youtube.com/watch?v=7e4oVkp8TDU",
-      "album_slug": "last-call-psycho-alcohol"
+      "album_name": "Magnet Tar Pit Traps",
+      "album_link": "https://music.youtube.com/watch?v=-J3sx9C5r9s",
+      "album_slug": "magnet-tar-pit-traps"
     }
   ]
 }
