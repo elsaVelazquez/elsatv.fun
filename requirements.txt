@@ -1,1 +1,4 @@
 requests>=2.28.0
+# Music pipeline: collect_music_links.py needs this to read the YouTube Music
+# artist catalogue for per-song links. Without it, song names render unlinked.
+ytmusicapi==1.12.3

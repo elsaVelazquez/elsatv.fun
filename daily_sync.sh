@@ -66,7 +66,15 @@ fi
 
 echo "--- Syncing Posts ---"
 
-if venv/bin/python \
+# Can now run 25+ minutes on a first catch-up: it also reads the text inside
+# any image that has no reading yet (local tesseract; vision capped at $0.50
+# per run). caffeinate keeps the Mac awake so a long run is not cut off.
+NO_SLEEP=""
+if command -v caffeinate >/dev/null 2>&1; then
+    NO_SLEEP="caffeinate -dimsu"
+fi
+
+if $NO_SLEEP venv/bin/python \
     scripts/lore/yt_posts_lore_scripts/sync_posts.py; then
 
     if ! git diff --quiet HEAD -- posts.html; then
@@ -84,27 +92,40 @@ fi
 # ==========================================
 # 5. KISSINGFACE MUSIC PIPELINE
 # ==========================================
+# sync_music.py, not FINAL_SYNC.py: it runs build_albums.py and
+# collect_music_links.py first, and those are what actually discover the
+# per-song YouTube Music links. FINAL_SYNC.py on its own only reuses links it
+# is handed, so it can never link the songs of a release it has not seen.
 
 echo "--- Syncing Music ---"
 
 if venv/bin/python \
-    scripts/lore/music_lore_scripts/FINAL_SYNC.py; then
+    scripts/lore/music_lore_scripts/sync_music.py; then
 
-    if ! git diff --quiet HEAD -- \
+    # Stage every file the music page is built from. The per-song links live in
+    # albums.json and music_links_enriched.json: left unstaged, the next run
+    # starts without them and has to look everything up again.
+    git add -- \
         kissingface.html \
         lore/songs.json \
+        lore/albums.json \
+        lore/music_links_enriched.json \
         lore/yt_link_cache.json \
-        lore/releases_cache.json; then
+        lore/releases_cache.json \
+        lore/release_dates.json \
+        lore/tracks_cache.json \
+        lore/release_cache.json
 
-        git add -- lore/releases_cache.json
-
-        git commit --only \
-            -m "Update music page" -- \
-            kissingface.html \
-            lore/songs.json \
-            lore/yt_link_cache.json \
-            lore/releases_cache.json || exit 1
-
+    if ! git diff --cached --quiet; then
+        # Only a regeneration timestamp changed? Then nothing real did — the
+        # sync stamps generated_at on every run. Do not commit an empty update.
+        if [ -z "$(git diff --cached -U0 | grep -E '^[-+] ' \
+            | grep -vE '^[-+]  "(generated_at|source_generated_at)"')" ]; then
+            echo "Only timestamps changed — nothing to commit."
+            git reset -q
+        else
+            git commit -m "Update music page" || exit 1
+        fi
     fi
 
 else

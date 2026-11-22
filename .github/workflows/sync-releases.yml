@@ -33,12 +33,18 @@ jobs:
       - name: Sync releases
         env:
           ONCE_PAT: ${{ secrets.ONCE_PAT }}
-        run: python scripts/lore/music_lore_scripts/FINAL_SYNC.py
+        # sync_music.py, not FINAL_SYNC.py alone: FINAL_SYNC only reuses song
+        # links it is given. build_albums.py finds new releases and
+        # collect_music_links.py is what discovers their per-song links.
+        run: python scripts/lore/music_lore_scripts/sync_music.py
 
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add kissingface.html lore/songs.json lore/yt_link_cache.json
+          git add kissingface.html lore/songs.json lore/albums.json \
+                  lore/music_links_enriched.json lore/yt_link_cache.json \
+                  lore/releases_cache.json lore/release_dates.json \
+                  lore/tracks_cache.json lore/release_cache.json
           git diff --staged --quiet || git commit -m "Auto-update YouTube releases [skip ci]"
           git push
