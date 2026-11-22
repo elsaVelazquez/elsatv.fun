@@ -4,6 +4,7 @@ ocr_images.py — read the text already visible inside each archived image.
 
     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_images.py --limit 20      # try a sample
     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_images.py                 # all of them
+    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_images.py --only a.jpg,b.jpg  # just these
 
 Runs tesseract locally: no API, no quota, no per-image cost. This is the
 expensive-in-minutes step (~30 min for 1617 images) but it is CPU, not money,
@@ -102,10 +103,16 @@ def main():
     ap.add_argument('--limit', type=int, default=0,
                     help='only the first N images (0 = all)')
     ap.add_argument('--images', default=str(IMAGES))
+    ap.add_argument('--only', default='',
+                    help='comma-separated image filenames to read, e.g. the new '
+                         'ones a sync reported')
     ap.add_argument('--out', default=str(OUT))
     args = ap.parse_args()
 
     files = list_images(Path(args.images))
+    if args.only:
+        only = {n.strip() for n in args.only.split(',') if n.strip()}
+        files = [p for p in files if p.name in only]
     if args.limit:
         files = files[:args.limit]
     print(f'→ {len(files)} image(s) to read')

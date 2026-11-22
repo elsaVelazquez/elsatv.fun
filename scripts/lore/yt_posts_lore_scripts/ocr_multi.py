@@ -6,6 +6,7 @@ what the first pass missed.
     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_multi.py                  # every image
     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_multi.py --limit 20       # just a sample
     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_multi.py --reocr          # redo everything
+    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_multi.py --only a.jpg,b.jpg  # just these
 
 Reads  lore/YTelsaTVposts/images/*.jpg
 Writes lore/YTelsaTVposts/ocr_extra.json   (adds to what is already there)
@@ -218,6 +219,9 @@ def main():
                     help='stop after N images (0 = all)')
     ap.add_argument('--reocr', action='store_true',
                     help='redo images already in ocr_extra.json')
+    ap.add_argument('--only', default='',
+                    help='comma-separated image filenames to consider, e.g. the '
+                         'new ones a sync reported')
     args = ap.parse_args()
 
     load_base()
@@ -232,6 +236,10 @@ def main():
         except Exception:
             done = {}
     print(f'  {len(done)} image(s) already read extra-wise')
+
+    if args.only:
+        only = {n.strip() for n in args.only.split(',') if n.strip()}
+        files = [p for p in files if p.name in only]
 
     todo = [p for p in files if args.reocr or p.name not in done]
     if args.limit:

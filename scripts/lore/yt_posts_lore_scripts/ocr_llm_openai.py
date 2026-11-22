@@ -9,6 +9,9 @@ word for word.
     # trial: 5 images, never spend more than 10 cents
     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_llm_openai.py --limit 5 --max-cost 0.10
 
+    # only the images a sync just reported as new
+    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_llm_openai.py --only a.jpg,b.jpg --max-cost 0.10
+
     # the whole archive, hard-capped at 3 dollars
     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_llm_openai.py --max-cost 3.00
 
@@ -274,12 +277,18 @@ def main():
                     help='price it and exit; sends nothing')
     ap.add_argument('--reocr', action='store_true',
                     help='ignore what is already in llm_text.json')
+    ap.add_argument('--only', default='',
+                    help='comma-separated image filenames to consider, e.g. the '
+                         'new ones a sync reported')
     args = ap.parse_args()
 
     if not INDEX.exists():
         raise SystemExit('no index.json — run the archive script first')
     index = json.loads(INDEX.read_text())
     names = wanted_images(index)
+    if args.only:
+        only = {n.strip() for n in args.only.split(',') if n.strip()}
+        names = [n for n in names if n in only]
     done = {} if args.reocr else load_done()
     todo = [n for n in names if n not in done]
 

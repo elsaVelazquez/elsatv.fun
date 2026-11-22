@@ -6,6 +6,7 @@ sync_posts.py — the one command that catches the archive up with YouTube.
     venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_posts.py --dry-run
     venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_posts.py --max-new 5
     venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_posts.py --max-cost 0.20
+    venv/bin/python scripts/lore/yt_posts_lore_scripts/sync_posts.py --no-ocr
 
 Same idea as FINAL_SYNC.py is for the music page: look at what is already on
 disk, fetch only what is missing, rebuild only what changed. Nothing in here
@@ -21,25 +22,40 @@ WHAT IT DOES, IN ORDER
   4. stamp_images.py      --only new      stamps datestamped/ copies that are
                                           missing; existing stamps are untouched
   5. web_images.py        --only new      makes web/*.webp copies that are missing
-  6. build_day_index.py                   rebuilds days.json from the JSON files
-  7. build_posts_html.py                  rebuilds posts.html + its root copy
+  6. OCR, --only unread                   reads the text inside every image
+                                          that has no reading yet — pass 1 and
+                                          multi-pass (local tesseract, free),
+                                          then the vision model within --max-cost
+  7. build_day_index.py                   rebuilds days.json from the JSON files
+  8. build_posts_html.py                  rebuilds posts.html + its root copy
 
-Steps 4–7 are local, free and idempotent, so they run every time and cost
-seconds when there is nothing new. Steps 1–3 touch the network.
+Steps 4–8 are local and idempotent, so they run every time and cost seconds when
+there is nothing new. Steps 1–3 touch the network. Step 6 costs CPU, plus money
+for the capped vision-model part.
 
 If the archive is already current `--dry-run` prints "nothing new" and exits
 without writing anything.
 
-OCR is deliberately NOT here. It is the slow, expensive part, so it is an opt-in
-step on the images the run reports as new:
+OCR — WHY IT IS STEP 6 AND NOT A SEPARATE COMMAND
+------------------------------------------------
+An image whose text is not read yet is simply an unfinished image, so the sync
+finishes it: it hands each OCR script `--only <the unread files>` and nothing
+else. Images already read are never sent again, so nothing is re-done or
+re-paid. The two tesseract passes are local and free and always run through.
+The vision pass stops at `--max-cost` (default $0.50 per run) and saves as it
+goes, so a later sync continues from the cap — the archive catches up over a few
+runs instead of spending all at once. `--max-cost 0` or `--no-ocr` skips OCR
+entirely and still rebuilds the page.
 
-    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_images.py --limit 20
-    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_multi.py --limit 6
-    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_llm_openai.py --max-cost 0.10
-    venv/bin/python scripts/lore/yt_posts_lore_scripts/build_posts_html.py
+The full picture is printed at the end (and written to ocr_todo.txt with
+ready-to-paste commands) in case you ever want to top up by hand:
 
-(or just re-run this script afterwards — it rebuilds the page from whatever
-OCR files exist, and every OCR script is resumable.)
+    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_images.py --only a.jpg,b.jpg
+    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_multi.py --only a.jpg,b.jpg
+    venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_llm_openai.py \
+        --only a.jpg,b.jpg --max-cost 0.50
+
+(every OCR script is resumable, so re-running is always safe.)
 """
 import argparse
 import json
@@ -108,6 +124,37 @@ def run(script, args, dry=False, label=''):
     return True
 
 
+# Which OCR file each reading is stored in, and how to ask that script for one
+# specific set of images.
+OCR_PASSES = [
+    ('ocr.json', 'ocr_images.py', 'pass 1'),
+    ('ocr_extra.json', 'ocr_multi.py', 'multi-pass'),
+    ('llm_text.json', 'ocr_llm_openai.py', 'vision'),
+]
+
+
+# --------------------------------------------------------------------------- #
+def archive_images():
+    """Every image that belongs to a post, oldest post first, de-duplicated."""
+    out, seen = [], set()
+    for post in load(INDEX, {}).get('posts', []):
+        for name in post.get('image_files') or []:
+            if name not in seen:
+                seen.add(name)
+                out.append(name)
+    return out
+
+
+def unread_images():
+    """{pass label: [image, ...]} — images that pass has no reading for yet."""
+    used = archive_images()
+    gaps = {}
+    for json_name, _script, label in OCR_PASSES:
+        have = load(ROOT_DIR / json_name, {}).get('images', {})
+        gaps[label] = [n for n in used if n not in have]
+    return gaps
+
+
 # --------------------------------------------------------------------------- #
 def main():
     ap = argparse.ArgumentParser(
@@ -121,11 +168,15 @@ def main():
     ap.add_argument('--refresh-metadata', action='store_true',
                     help='also re-read like counts / dates / comments on posts '
                          'we already have')
-    ap.add_argument('--max-cost', type=float, default=0.0,
-                    help='cap in USD passed to ocr_llm_openai.py if it runs '
-                         '(0 = do not run OCR at all)')
+    ap.add_argument('--max-cost', type=float, default=0.5,
+                    help='ceiling in USD for the vision-model OCR pass of this '
+                         'run (default 0.50; the next run continues where it '
+                         'stopped). 0 = do not run OCR at all')
     ap.add_argument('--ocr', action='store_true',
-                    help='run the OCR passes on new images too (slow)')
+                    help='(kept for compatibility; OCR now runs by default when '
+                         'any image has no text yet)')
+    ap.add_argument('--no-ocr', action='store_true',
+                    help='skip the OCR pass this time (page still rebuilds)')
     args = ap.parse_args()
 
     if not INDEX.exists() and not args.dry_run:
@@ -200,21 +251,17 @@ def main():
         else:
             print('\n▸ 5/7 web_images.py not present — skipped')
 
-        # 6 — optional OCR on the new pictures only -----------------------------
-        if args.ocr and new_images:
-            if not run('ocr_images.py', ['--limit', str(len(new_images))],
-                       label=f'6/7 tesseract pass 1 on {len(new_images)} new image(s)'):
-                return 1
-            if not run('ocr_multi.py', ['--limit', str(len(new_images))],
-                       label='6/7 tesseract multi-pass'):
-                return 1
-            if args.max_cost:
-                run('ocr_llm_openai.py',
-                    ['--max-images', str(len(new_images)),
-                     '--max-cost', f'{args.max_cost:.2f}'],
-                    label=f'6/7 vision model, ceiling ${args.max_cost:.2f}')
+        # 6 — text inside the images, for every image that has none yet --------
+        if args.no_ocr or args.max_cost <= 0:
+            print('\n▸ 6/7 image text — skipped '
+                  + ('(--no-ocr)' if args.no_ocr else '(--max-cost 0)'))
+        else:
+            print('\n▸ 6/7 image text for images with no reading yet')
+            if not run_ocr_pass(args.dry_run, args.max_cost):
+                print('  (OCR did not finish — the page is still rebuilt below; '
+                      'run this command again to continue)')
     else:
-        print('\n▸ 4/7–5/7 image passes — skipped (--no-images)')
+        print('\n▸ 4/7–6/7 image passes — skipped (--no-images)')
 
     # 7 — rebuild everything that is derived ------------------------------------
     if not run('build_day_index.py', [], label='7/7 rebuild days.json'):
@@ -227,12 +274,96 @@ def main():
           f'{payload.get("post_count", 0)} posts, '
           f'{len(list(IMAGES.iterdir())) if IMAGES.is_dir() else 0} images')
     print(f'   {datetime.now():%Y-%m-%d %H:%M:%S}')
-    print('\n   If new images came in, their text is not on the page yet. When '
-          'you want it:\n'
-          '     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_multi.py --limit 20\n'
-          '     venv/bin/python scripts/lore/yt_posts_lore_scripts/ocr_llm_openai.py --max-cost 0.10\n'
-          '     venv/bin/python scripts/lore/yt_posts_lore_scripts/build_posts_html.py')
+    report_ocr_gaps()
     return 0
+
+
+# --------------------------------------------------------------------------- #
+def run_ocr_pass(dry, max_cost):
+    """Read the text in every image that is still unread, cheapest pass first.
+
+    Only the unread files are handed to each script (`--only`), so a run never
+    re-reads — and never re-pays for — an image it already has. The two
+    tesseract passes are local and free, so they always run to completion. The
+    vision pass is capped at `max_cost`, and because `llm_text.json` is saved as
+    it goes, the next sync picks up exactly where the cap stopped it.
+
+    Returns True if every image was read, False if something is left over.
+    """
+    gaps = unread_images()
+    if not any(gaps.values()):
+        print('  every image already has text — nothing to read')
+        return True
+    for label, missing in gaps.items():
+        print(f'    {label:<12} {len(missing):>4} image(s) to read')
+    if dry:
+        return True
+
+    complete = True
+    for json_name, script, label in OCR_PASSES:
+        missing = gaps[label]
+        if not missing:
+            continue
+        if script == 'ocr_llm_openai.py':
+            if max_cost <= 0:
+                complete = False
+                continue
+            for i in range(0, len(missing), 400):
+                if not run(script, ['--only', ','.join(missing[i:i + 400]),
+                                    '--max-cost', f'{max_cost:.2f}'],
+                           label=f'6/7 {label} on {len(missing[i:i + 400])} image(s), '
+                                 f'ceiling ${max_cost:.2f}'):
+                    return False
+                if unread_images()[label]:
+                    print(f'    ceiling ${max_cost:.2f} reached — the rest waits for '
+                          'the next sync')
+                    complete = False
+                    break
+        else:
+            for i in range(0, len(missing), 400):
+                if not run(script, ['--only', ','.join(missing[i:i + 400])],
+                           label=f'6/7 {label} on {min(400, len(missing) - i)} '
+                                 'image(s)'):
+                    return False
+    return complete and not any(unread_images().values())
+
+
+# --------------------------------------------------------------------------- #
+def report_ocr_gaps():
+    """Say which images still have no text, and the exact command for them.
+
+    Written to be copy-pasted by hand, and saved to ocr_todo.txt, so a manual
+    top-up is a paste, not a guess. Every OCR script skips what it already has.
+    """
+    used = archive_images()
+    gaps = unread_images()
+    caps = {'pass 1': '', 'multi-pass': '', 'vision': ' --max-cost 0.50'}
+
+    if not any(gaps.values()):
+        print(f'\n   Image text: all {len(used)} image(s) read by all three passes.')
+        return
+
+    print(f'\n   Image text still missing ({len(used)} images in the archive):')
+    for label, missing in gaps.items():
+        print(f'     {label:<12} {len(missing):>4} not read yet')
+
+    # Exact commands for exactly the unread files, oldest post first, in
+    # batches of 400 so a shell never gets an argument list longer than ARG_MAX.
+    lines = []
+    for json_name, script, label in OCR_PASSES:
+        missing = gaps[label]
+        for i in range(0, len(missing), 400):
+            chunk = ','.join(missing[i:i + 400])
+            lines.append(f'venv/bin/python scripts/lore/yt_posts_lore_scripts/'
+                         f'{script} --only {chunk}{caps[label]}')
+    lines.append('venv/bin/python scripts/lore/yt_posts_lore_scripts/'
+                 'sync_posts.py')  # rebuilds days.json + posts.html
+    todo = ROOT_DIR / 'ocr_todo.txt'
+    todo.write_text('\n'.join(lines) + '\n')
+    print(f'   To top up by hand instead, these are the only commands needed '
+          f'({todo}):')
+    print(f'     {len(lines)} command(s) — all of them with:  sh {todo}')
+    print('     or just run this sync again: the same set, automatically.')
 
 
 if __name__ == '__main__':
