@@ -288,6 +288,19 @@
       max-width: 100%;
       white-space: normal;
     }
+    /* the YouTube mark leads the pill, in front of the words */
+    .button-posts .yt .yt-logo {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      width: 20px;
+      height: 14px;
+    }
+    .button-posts .yt .yt-logo svg {
+      width: 20px;
+      height: 14px;
+      display: block;
+    }
     .button-posts .yt .yt-text {
       color: #10140b;
       font-weight: 700;
@@ -1375,8 +1388,14 @@
             </span>
             <span class="posts-title">My ontological RAG pipeline</span>
           </span>
-          <span class="btn-sub">Ciizen scientists independently syncing with me</span>
+          <span class="btn-sub">Read citizen scientists independently syncing with me</span>
           <span class="yt">
+            <span class="yt-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <rect x="0.6" y="4.2" width="22.8" height="15.6" rx="4.6" fill="#ff0000"/>
+                <path fill="#fff" d="M10 8.7l6.6 3.3L10 15.3z"/>
+              </svg>
+            </span>
             <span class="yt-text">Scraping my own content</span>
             <span class="yt-handle">@elsaTVfun</span>
             <span class="yt-arrow" aria-hidden="true">↗</span>
