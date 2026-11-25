@@ -35,6 +35,9 @@ ALBUMS_FILE = Path('lore/albums.json')
 RELEASES_CACHE = Path('lore/releases_cache.json')
 # Release dates already resolved from ONCE — so a run only asks for new ones.
 DATES_FILE = Path('lore/release_dates.json')
+# Tracklists fetched straight from ONCE. Same file and same shape as the one
+# build_albums.py writes, so the two never duplicate a lookup.
+TRACKS_FILE = Path('lore/tracks_cache.json')
 # Shown on any card that has no track/album art yet.
 PENDING_LOGO = 'elfalpha_logo.png'
 RELEASES_URL = 'https://www.youtube.com/@elsavelaz/releases'
@@ -135,6 +138,80 @@ def _load_dates():
 def _save_dates(dates):
     DATES_FILE.parent.mkdir(parents=True, exist_ok=True)
     DATES_FILE.write_text(json.dumps(dates, indent=1, ensure_ascii=False))
+
+
+def _load_tracks():
+    if TRACKS_FILE.exists():
+        try:
+            return json.loads(TRACKS_FILE.read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def _save_tracks(tracks):
+    TRACKS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    TRACKS_FILE.write_text(json.dumps(tracks, indent=1, ensure_ascii=False))
+
+
+def _duration(seconds):
+    """3:29 — the same mm:ss the tracklists already use."""
+    if not seconds:
+        return ''
+    return f'{seconds // 60}:{seconds % 60:02d}'
+
+
+def tracks_from_once(release_id, pat, retries=3):
+    """The tracklist for one release, straight from ONCE.
+
+    lore/albums.json is a snapshot taken by build_albums.py, so a release
+    submitted since that run is simply absent from it — and the card then read
+    "tracklist not published yet" while ONCE already held every track. Reading
+    the release detail here means FINAL_SYNC.py alone keeps a new card's
+    song titles current.
+
+    Cached in lore/tracks_cache.json in the exact shape build_albums.py uses,
+    so a tracklist is fetched once and either script reuses it.
+    """
+    cache = _load_tracks()
+    cached = cache.get(release_id)
+    if cached:
+        return cached
+
+    headers = {'Authorization': f'Bearer {pat}', 'Content-Type': 'application/json'}
+    for attempt in range(retries):
+        try:
+            r = requests.get(f'https://once.app/v1/releases/{release_id}',
+                             headers=headers, timeout=30)
+            if r.status_code == 429:
+                time.sleep(15 * (attempt + 1))
+                continue
+            r.raise_for_status()
+            tracks = []
+            for t in (r.json().get('tracks') or []):
+                name = t.get('title') or ''
+                if not name:
+                    continue
+                vid = t.get('ytmusic_video_id')
+                tracks.append({
+                    'track_number': t.get('track_number') or 0,
+                    'song_name': name,
+                    'duration': _duration(t.get('duration')),
+                    # direct link to this song, when ONCE knows its video id
+                    'youtube_link': (f'https://music.youtube.com/watch?v={vid}'
+                                     if vid else ''),
+                })
+            tracks.sort(key=lambda t: t['track_number'])
+            if tracks:
+                cache[release_id] = tracks
+                _save_tracks(cache)
+            return tracks
+        except Exception as e:
+            if attempt == retries - 1:
+                print(f"  ⚠️  tracklist failed for {release_id}: {e}")
+            else:
+                time.sleep(5 * (attempt + 1))
+    return []
 
 
 def load_manual():
@@ -627,8 +704,11 @@ def create_album_data(releases, api_key):
             'cover_art': cover,
             'youtube_url': youtube_url or '',
             'album_link': playlist_url or '',
+            # albums.json first (already resolved, no request), then ONCE for a
+            # release submitted since that snapshot was taken.
             'songs': _with_song_links(
-                tracklists.get(norm(title)) or [], qa.get('songs') or {}),
+                tracklists.get(norm(title)) or tracks_from_once(rid, pat),
+                qa.get('songs') or {}),
             'genre': release.get('genre', 'Electronic'),
             'preferred_link': preferred,
             'qa_album_link': qa.get('album_link') or '',
@@ -647,6 +727,9 @@ def _with_song_links(songs, qa_songs):
     ONCE only sometimes knows a track's video id, so most tracklists arrived
     with youtube_link empty and the song titles rendered as dead text. A QA'd
     link wins when present; anything ONCE supplied stays otherwise.
+
+    A track with no link is still shown, as a plain title — an unlinked song
+    name is a finished card, not a missing one.
     """
     for s in songs:
         link = qa_songs.get(norm(s.get('song_name', '')))
@@ -1038,6 +1121,27 @@ def main():
     print(f"✅ lore/songs.json: {len(songs)} rows")
     print(f"   {with_link} with a YouTube link, {len(songs) - with_link} still blank")
     print(f"   {with_cover} with cover art")
+
+    # Tracklists are a separate failure from a dead button: a card can have a
+    # working link and still show "tracklist not published yet". Count them so
+    # a release ONCE already has songs for never slips through as an empty card.
+    no_tracks = [a['title'] for a in albums if not (a.get('songs') or [])]
+    total_tracks = sum(len(a.get('songs') or []) for a in albums)
+    unlinked = [(a['title'], s.get('song_name')) for a in albums
+                for s in (a.get('songs') or []) if not s.get('youtube_link')]
+    print(f"   {total_tracks} song title(s) across {len(albums) - len(no_tracks)} "
+          f"tracklist(s), {len(unlinked)} without their own link")
+    if no_tracks:
+        print(f"\n⚠️  {len(no_tracks)} card(s) show 'tracklist not published yet':")
+        for title in no_tracks:
+            print(f"     - {title}")
+    if unlinked:
+        print(f"\nℹ️  {len(unlinked)} song title(s) render unlinked "
+              f"(no per-song video id yet):")
+        for album_title, song_name in unlinked[:20]:
+            print(f"     - {album_title} / {song_name}")
+        if len(unlinked) > 20:
+            print(f"     … and {len(unlinked) - 20} more")
 
     # Name the cards that rendered as "Coming soon" or fell back to the
     # placeholder logo. The totals above can look healthy while individual
