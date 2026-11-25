@@ -33,11 +33,17 @@ Running the script only rewrites files **on this machine**. Nothing reaches
 `https://elsatv.fun` until you commit and push:
 
 ```bash
-git add kissingface.html lore/songs.json lore/yt_link_cache.json
+git add kissingface.html lore/songs.json lore/albums.json lore/tracks_cache.json \
+        lore/yt_link_cache.json lore/releases_cache.json lore/release_dates.json
 git commit -m "Update music page"
 git push origin main
 open "https://elsatv.fun/kissingface.html"   # then cmd+shift+r
 ```
+
+`lore/albums.json` and `lore/tracks_cache.json` must be committed with the page.
+They hold the album tracklists and the per-song YouTube video ids, and a run
+that starts without them has to look everything up again — and a release first
+cached while still *submitted* would keep its empty links.
 
 `./publish.sh` does the sync, commit and push in one step. It does **not** touch
 `posts.html` — see the section at the end of `Instructions.md` for that page.

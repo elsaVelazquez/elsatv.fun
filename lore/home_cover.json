@@ -1,26 +1,26 @@
 {
-  "picked_at": "2026-11-22T19:17:14Z",
+  "picked_at": "2026-11-25T22:07:04Z",
   "covers": [
     {
       "slot": 1,
       "file": "lore/covers/home_cover_1.jpg",
-      "album_name": "Free Fall Off A Cliff Notes",
-      "album_link": "https://music.youtube.com/watch?v=4UG-Z7FTHYM",
-      "album_slug": "free-fall-off-a-cliff-notes"
+      "album_name": "Deuteronomy Jubilee.exe",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_n6btIClkxAtd6rxjIEllSK5O--DUpuLH0",
+      "album_slug": "deuteronomy-jubilee-exe"
     },
     {
       "slot": 2,
       "file": "lore/covers/home_cover_2.jpg",
-      "album_name": "Overdue Dews",
-      "album_link": "https://music.youtube.com/watch?v=bbFYyhw556U",
-      "album_slug": "overdue-dews"
+      "album_name": "Next Chapter On Becoming",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_lcpbkHeXG5RH70ZWJZkFw_173PDH9lFg0",
+      "album_slug": "next-chapter-on-becoming"
     },
     {
       "slot": 3,
       "file": "lore/covers/home_cover_3.jpg",
-      "album_name": "Magnet Tar Pit Traps",
-      "album_link": "https://music.youtube.com/watch?v=-J3sx9C5r9s",
-      "album_slug": "magnet-tar-pit-traps"
+      "album_name": "I Make Me Thoth Vortex Eight Four One",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_mfEZ4lWwspBBrs_pyM6SMglKY6yDg9jWA",
+      "album_slug": "i-make-me-thoth-vortex-eight-four-one"
     }
   ]
 }

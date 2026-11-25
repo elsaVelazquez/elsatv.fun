@@ -183,8 +183,12 @@ def get_tracks(release_id, pat, retries=4):
     """Tracklist for one release. Cached in lore/tracks_cache.json."""
     cache = load_json(TRACKS_FILE, {})
     cached = cache.get(release_id)
-    # re-fetch only if the cached shape predates the per-song youtube_link
-    if cached and all('youtube_link' in t for t in cached):
+    # Re-fetch when the cached copy predates the per-song youtube_link key, or
+    # when it holds no links at all. A release first fetched while it was still
+    # "submitted" caches empty links; treating that as final meant it could
+    # never gain them, however long it had been live on YouTube Music.
+    if cached and all('youtube_link' in t for t in cached) \
+            and any(t.get('youtube_link') for t in cached):
         return cached
 
     headers = {'Authorization': f'Bearer {pat}',
@@ -207,6 +211,8 @@ def get_tracks(release_id, pat, retries=4):
                     # direct link to this song, from ONCE's per-track video id
                     'youtube_link': (f'https://music.youtube.com/watch?v={vid}'
                                      if vid else ''),
+                    # kept so the artwork can be built from a real video id
+                    'ytmusic_video_id': vid or '',
                 })
             tracks.sort(key=lambda t: t['track_number'])
             cache[release_id] = tracks
@@ -288,8 +294,6 @@ def main():
             album_url = f'https://music.youtube.com/playlist?list={pid}' if pid else ''
 
         track_url = over.get('youtube_link') or known.get('youtube_url') or ''
-        vid = video_id(track_url) or video_id(album_url)
-        cover = f'https://i.ytimg.com/vi/{vid}/hqdefault.jpg' if vid else ''
 
         # song name -> direct track URL, when we already know it
         by_title = {norm(v.get('title')): v.get('youtube_url')
@@ -301,6 +305,14 @@ def main():
         for s in songs:
             if not s.get('youtube_link'):
                 s['youtube_link'] = by_title.get(norm(s['song_name']), '')
+
+        # Cover art needs a *video* id. An album playlist URL carries only
+        # list=, so fall back to the first track's video id — otherwise a
+        # release whose only link is a playlist gets no artwork at all.
+        vid = (video_id(track_url) or video_id(album_url)
+               or next((video_id(s.get('youtube_link')) for s in songs
+                        if video_id(s.get('youtube_link'))), ''))
+        cover = f'https://i.ytimg.com/vi/{vid}/hqdefault.jpg' if vid else ''
 
         print(f'[{i}/{len(releases)}] {title[:44]:44} {len(songs)} song(s)')
 

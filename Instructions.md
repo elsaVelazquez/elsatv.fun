@@ -47,8 +47,14 @@ data — i.e. you edited `manual_links.json` and want the page regenerated —
 then:
 
 ```sh
-venv/bin/python scripts/lore/music_lore_scripts/FINAL_SYNC.py
+venv/bin/python scripts/lore/music_lore_scripts/sync_music.py --skip-links
 ```
+
+Not `FINAL_SYNC.py` on its own. `FINAL_SYNC.py` only *reads* links out of
+`lore/albums.json`; it never fetches them. A release first seen while it was
+still *submitted* cached empty song links in `lore/tracks_cache.json`, and only
+`build_albums.py` (which `sync_music.py` runs) re-asks ONCE for those. Run
+`sync_music.py` with no flag to also look up new song links.
 
 Always run script commands **from the repo root** (`~CODE/elsatvfun/elsatv.fun`),
 not from inside `scripts/`. The scripts find `lore/`, `.env` and `kissingface.html`
@@ -187,6 +193,8 @@ new: 1 post(s), 10 image(s)
 ▸ 3/7 comments for 1 new post(s)
 ```
 
+DO NOT modify these notes
+
 OCR is deliberately not in `sync_posts.py` — it is the slow, paid step. Run it
 afterwards on the new images only, then rebuild the page:
 
@@ -210,8 +218,8 @@ use this to update the  https://elsatv.fun/kissingface.html
 
 
 ```sh
-venv/bin/python scripts/lore/music_lore_scripts/FINAL_SYNC.py
-git add kissingface.html lore/songs.json lore/yt_link_cache.json lore/releases_cache.json lore/release_dates.json
+venv/bin/python scripts/lore/music_lore_scripts/sync_music.py --skip-links
+git add kissingface.html lore/songs.json lore/albums.json lore/tracks_cache.json lore/yt_link_cache.json lore/releases_cache.json lore/release_dates.json
 git commit -m "Update music page"
 git push origin main
 open "https://elsatv.fun/kissingface.html"
@@ -226,7 +234,6 @@ to do all the above using automation, put this into command line 1 time, have to
 ➜  elsatv.fun git:(main) ✗ 
 chmod +x daily_sync.sh
 ./daily_sync.sh
-./daily_sync.sh
 
 ```
 
@@ -237,3 +244,45 @@ git add index.html
 git commit -m "feat: add notes here"
 git push origin main
 ```
+
+## Which platforms is a release NOT live on yet?
+
+Nothing in the music pipeline reports this — `sync_music.py` only cares about
+YouTube links. This separate, read-only script asks ONCE directly and prints a
+report you can copy and paste straight to ONCE support:
+
+```sh
+venv/bin/python scripts/lore/music_lore_scripts/album_status.py "Album Name"
+```
+
+It prints, for the album:
+
+- album name, UPC, release date, ONCE status
+- the album ISRC — only shown when every track shares one (ONCE has no
+  album-level ISRC field, so nothing is invented)
+- **every platform the release is NOT live on yet**, grouped by reason
+- the tracklist, each song with its own ISRC
+
+`"Album Name"` can be any part of the title — `"dream"` matches *Real Dream Is
+Real*. With no title it reports every release; add `--limit N` for just the
+newest N.
+
+```sh
+# write it out as well as printing it
+venv/bin/python scripts/lore/music_lore_scripts/album_status.py "Album Name" --save report.txt
+venv/bin/python scripts/lore/music_lore_scripts/album_status.py "Album Name" --save report.txt --md report.md
+
+# no title matched? it lists every release on ONCE so you can copy a title
+venv/bin/python scripts/lore/music_lore_scripts/album_status.py
+```
+
+### What "not live" means here
+
+A platform counts as live only when ONCE's store record has a working link
+(`urlInStore`) or a go-live timestamp (`dateLive`). Everything else is listed,
+including **"Delivered to DSP"** — that means the file was handed to the store,
+not that the store has published it. The ONCE wording is kept, grouped worst
+first: *Upload failed* → *Inspection* → *Delivered to DSP, not published yet*.
+
+This script only reads. It makes no changes, writes no cache, and does not
+touch git — so it is always safe to run while a sync is going.

@@ -1,39 +1,74 @@
 {
-  "generated_at": "2026-11-22T19:52:23+00:00",
-  "album_count": 83,
-  "song_count": 406,
+  "generated_at": "2026-11-25T22:05:37+00:00",
+  "album_count": 84,
+  "song_count": 409,
   "albums": [
+    {
+      "album_name": "Planet Wobble.exe",
+      "date_published": "2026-11-24",
+      "date_pattern": "0 · 6 · 0",
+      "youtube_link": "https://music.youtube.com/playlist?list=OLAK5uy_ksMc2eiYfAgFIlJYNgiDh65EKB5wt5V1g",
+      "album_link": "https://music.youtube.com/playlist?list=OLAK5uy_ksMc2eiYfAgFIlJYNgiDh65EKB5wt5V1g",
+      "cover_art": "https://i.ytimg.com/vi/jaW1lW_na90/hqdefault.jpg",
+      "songs": [
+        {
+          "track_number": 1,
+          "song_name": "Trojan Horse's Curple",
+          "duration": "3:00",
+          "youtube_link": "https://music.youtube.com/watch?v=jaW1lW_na90",
+          "ytmusic_video_id": "jaW1lW_na90"
+        },
+        {
+          "track_number": 2,
+          "song_name": "Space Alien Simulation Situation Is Crazy",
+          "duration": "4:31",
+          "youtube_link": "https://music.youtube.com/watch?v=ldLjk7Uwexc",
+          "ytmusic_video_id": "ldLjk7Uwexc"
+        },
+        {
+          "track_number": 3,
+          "song_name": "Tolkiens & Tokens: Thoth & Palantír",
+          "duration": "8:36",
+          "youtube_link": "https://music.youtube.com/watch?v=Jqon7y90YyM",
+          "ytmusic_video_id": "Jqon7y90YyM"
+        }
+      ]
+    },
     {
       "album_name": "sIA-TANs Interrogate Gate 8",
       "date_published": "2026-11-21",
       "date_pattern": "0 · 3 · 0",
       "youtube_link": "",
       "album_link": "",
-      "cover_art": "",
+      "cover_art": "https://i.ytimg.com/vi/61wzsDv-n5I/hqdefault.jpg",
       "songs": [
         {
           "track_number": 1,
           "song_name": "Soul X-Ray Prisms",
           "duration": "3:29",
-          "youtube_link": ""
+          "youtube_link": "https://music.youtube.com/watch?v=61wzsDv-n5I",
+          "ytmusic_video_id": "61wzsDv-n5I"
         },
         {
           "track_number": 2,
           "song_name": "Significant Figures Sig Fig",
           "duration": "5:01",
-          "youtube_link": ""
+          "youtube_link": "https://music.youtube.com/watch?v=b2Z2DBouKC0",
+          "ytmusic_video_id": "b2Z2DBouKC0"
         },
         {
           "track_number": 3,
           "song_name": "Hymns In Me",
           "duration": "6:05",
-          "youtube_link": ""
+          "youtube_link": "https://music.youtube.com/watch?v=AWgxlMWFt4c",
+          "ytmusic_video_id": "AWgxlMWFt4c"
         },
         {
           "track_number": 4,
           "song_name": "Hymns In My SIM",
           "duration": "3:13",
-          "youtube_link": ""
+          "youtube_link": "https://music.youtube.com/watch?v=GaLT_3M3jSY",
+          "ytmusic_video_id": "GaLT_3M3jSY"
         }
       ]
     },
@@ -43,19 +78,21 @@
       "date_pattern": "0 · 9 · 0",
       "youtube_link": "",
       "album_link": "",
-      "cover_art": "",
+      "cover_art": "https://i.ytimg.com/vi/5T1WWyhv8HE/hqdefault.jpg",
       "songs": [
         {
           "track_number": 1,
           "song_name": "Copper Lead",
           "duration": "4:31",
-          "youtube_link": ""
+          "youtube_link": "https://music.youtube.com/watch?v=5T1WWyhv8HE",
+          "ytmusic_video_id": "5T1WWyhv8HE"
         },
         {
           "track_number": 2,
           "song_name": "Jelly Fish",
           "duration": "3:32",
-          "youtube_link": ""
+          "youtube_link": "https://music.youtube.com/watch?v=rySmK5HaQW8",
+          "ytmusic_video_id": "rySmK5HaQW8"
         }
       ]
     },
@@ -161,19 +198,22 @@
           "track_number": 1,
           "song_name": "Synths Make Me Synth",
           "duration": "5:30",
-          "youtube_link": ""
+          "youtube_link": "https://music.youtube.com/watch?v=uhKsURRr0Rw",
+          "ytmusic_video_id": "uhKsURRr0Rw"
         },
         {
           "track_number": 2,
           "song_name": "Stimulation Simulation",
           "duration": "5:11",
-          "youtube_link": ""
+          "youtube_link": "https://music.youtube.com/watch?v=RY07rLJUGMk",
+          "ytmusic_video_id": "RY07rLJUGMk"
         },
         {
           "track_number": 3,
           "song_name": "Real Dream Is Real",
           "duration": "4:02",
-          "youtube_link": "https://www.youtube.com/watch?v=uhKsURRr0Rw&list=OLAK5uy_kd-zoKzT3Z3iAKyyxipOHaVU4AN0iv0dQ"
+          "youtube_link": "https://music.youtube.com/watch?v=0V45plJJABI",
+          "ytmusic_video_id": "0V45plJJABI"
         }
       ]
     },
@@ -189,13 +229,15 @@
           "track_number": 1,
           "song_name": "True Dystopia Truth",
           "duration": "7:32",
-          "youtube_link": "https://music.youtube.com/watch?v=YtnkwZtOyBY"
+          "youtube_link": "https://music.youtube.com/watch?v=YtnkwZtOyBY",
+          "ytmusic_video_id": "YtnkwZtOyBY"
         },
         {
           "track_number": 2,
           "song_name": "Threads Are Art From My Heart",
           "duration": "5:00",
-          "youtube_link": "https://music.youtube.com/watch?v=c2l5SX8XCgo"
+          "youtube_link": "https://music.youtube.com/watch?v=c2l5SX8XCgo",
+          "ytmusic_video_id": "c2l5SX8XCgo"
         }
       ]
     },
@@ -211,7 +253,8 @@
           "track_number": 1,
           "song_name": "Free Will Protocol",
           "duration": "9:48",
-          "youtube_link": "https://music.youtube.com/watch?v=XYnKhaiZooI"
+          "youtube_link": "https://music.youtube.com/watch?v=z7rQgOXTo4U",
+          "ytmusic_video_id": "z7rQgOXTo4U"
         }
       ]
     },
@@ -227,19 +270,22 @@
           "track_number": 1,
           "song_name": "Use Skypen When",
           "duration": "4:14",
-          "youtube_link": "https://music.youtube.com/watch?v=z_e14ecs-KU"
+          "youtube_link": "https://music.youtube.com/watch?v=z_e14ecs-KU",
+          "ytmusic_video_id": "z_e14ecs-KU"
         },
         {
           "track_number": 2,
           "song_name": "Imaginary Skypen Playpen Maphia",
           "duration": "4:47",
-          "youtube_link": "https://music.youtube.com/watch?v=PYDrFDSDrKo"
+          "youtube_link": "https://music.youtube.com/watch?v=PYDrFDSDrKo",
+          "ytmusic_video_id": "PYDrFDSDrKo"
         },
         {
           "track_number": 3,
           "song_name": "Selfish Elf",
           "duration": "5:19",
-          "youtube_link": "https://music.youtube.com/watch?v=06Z6i6OdZ0g"
+          "youtube_link": "https://music.youtube.com/watch?v=06Z6i6OdZ0g",
+          "ytmusic_video_id": "06Z6i6OdZ0g"
         }
       ]
     },
@@ -283,7 +329,8 @@
           "track_number": 1,
           "song_name": "Method Actor Method",
           "duration": "6:00",
-          "youtube_link": "https://music.youtube.com/watch?v=4r9AyPSjq6c"
+          "youtube_link": "https://music.youtube.com/watch?v=4r9AyPSjq6c",
+          "ytmusic_video_id": ""
         }
       ]
     },
@@ -321,7 +368,8 @@
           "track_number": 1,
           "song_name": "Fusion Fission Mission No Supervision",
           "duration": "6:54",
-          "youtube_link": "https://www.youtube.com/watch?v=-ohspgbtmdk&list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ"
+          "youtube_link": "https://www.youtube.com/watch?v=-ohspgbtmdk&list=OLAK5uy_nx3rlfjRUq3AH46On6PabdJdi_jtmA-GQ",
+          "ytmusic_video_id": ""
         }
       ]
     },
@@ -421,49 +469,57 @@
           "track_number": 1,
           "song_name": "Triple Six Centers",
           "duration": "7:53",
-          "youtube_link": "https://music.youtube.com/watch?v=coTQufLkJEI"
+          "youtube_link": "https://music.youtube.com/watch?v=coTQufLkJEI",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 2,
           "song_name": "Sermon 7 Post Experiment Successors",
           "duration": "7:38",
-          "youtube_link": "https://music.youtube.com/watch?v=JWz2TiWwqNw"
+          "youtube_link": "https://music.youtube.com/watch?v=JWz2TiWwqNw",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 3,
           "song_name": "Singularity Gate Eight State",
           "duration": "7:24",
-          "youtube_link": "https://music.youtube.com/watch?v=VrbnJmPBGfU"
+          "youtube_link": "https://music.youtube.com/watch?v=VrbnJmPBGfU",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 4,
           "song_name": "Nine Survival Drive",
           "duration": "7:12",
-          "youtube_link": "https://music.youtube.com/watch?v=44C9fP8Xm0o"
+          "youtube_link": "https://music.youtube.com/watch?v=44C9fP8Xm0o",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 5,
           "song_name": "Hymns Heaven",
           "duration": "6:08",
-          "youtube_link": "https://music.youtube.com/watch?v=YZmN_dGBGoA"
+          "youtube_link": "https://music.youtube.com/watch?v=YZmN_dGBGoA",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 6,
           "song_name": "Also Heaven",
           "duration": "3:17",
-          "youtube_link": "https://music.youtube.com/watch?v=x4-1c-TDaOE"
+          "youtube_link": "https://music.youtube.com/watch?v=x4-1c-TDaOE",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 7,
           "song_name": "Nth Song",
           "duration": "5:25",
-          "youtube_link": "https://music.youtube.com/watch?v=PJ4pejbeG3M"
+          "youtube_link": "https://music.youtube.com/watch?v=PJ4pejbeG3M",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 8,
           "song_name": "Verse Reverse Floor Door Notes",
           "duration": "4:50",
-          "youtube_link": "https://music.youtube.com/watch?v=ZkMTMeu8uZI"
+          "youtube_link": "https://music.youtube.com/watch?v=ZkMTMeu8uZI",
+          "ytmusic_video_id": ""
         }
       ]
     },
@@ -479,37 +535,43 @@
           "track_number": 1,
           "song_name": "Song Number Zero",
           "duration": "4:05",
-          "youtube_link": "https://music.youtube.com/watch?v=3qB2fRYf88w"
+          "youtube_link": "https://music.youtube.com/watch?v=3qB2fRYf88w",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 2,
           "song_name": "Hymn Two We're Number One",
           "duration": "5:05",
-          "youtube_link": "https://music.youtube.com/watch?v=wPbquazB3HI"
+          "youtube_link": "https://music.youtube.com/watch?v=wPbquazB3HI",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 3,
           "song_name": "Hymn 3",
           "duration": "8:50",
-          "youtube_link": "https://music.youtube.com/watch?v=N36hTXW_s40"
+          "youtube_link": "https://music.youtube.com/watch?v=N36hTXW_s40",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 4,
           "song_name": "Hymns Verse Four",
           "duration": "6:43",
-          "youtube_link": "https://music.youtube.com/watch?v=Id9_qkxJeVY"
+          "youtube_link": "https://music.youtube.com/watch?v=Id9_qkxJeVY",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 5,
           "song_name": "Song Five Thrive",
           "duration": "4:08",
-          "youtube_link": "https://music.youtube.com/watch?v=KrzJ4DvhCco"
+          "youtube_link": "https://music.youtube.com/watch?v=KrzJ4DvhCco",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 6,
           "song_name": "Song N Plus One",
           "duration": "4:15",
-          "youtube_link": "https://music.youtube.com/watch?v=j83KPDeE6Ys"
+          "youtube_link": "https://music.youtube.com/watch?v=j83KPDeE6Ys",
+          "ytmusic_video_id": ""
         }
       ]
     },
@@ -629,13 +691,15 @@
           "track_number": 1,
           "song_name": "Scalar Spiral",
           "duration": "4:32",
-          "youtube_link": "https://music.youtube.com/watch?v=bNzoULwaeqE"
+          "youtube_link": "https://music.youtube.com/watch?v=bNzoULwaeqE",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 2,
           "song_name": "The Book of NaN Sense",
           "duration": "6:23",
-          "youtube_link": "https://music.youtube.com/watch?v=o6nDFVlZbgA"
+          "youtube_link": "https://music.youtube.com/watch?v=o6nDFVlZbgA",
+          "ytmusic_video_id": ""
         }
       ]
     },
@@ -651,31 +715,36 @@
           "track_number": 1,
           "song_name": "Bad Actor",
           "duration": "3:12",
-          "youtube_link": "https://www.youtube.com/watch?v=ybQ61lf0WKE&list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs"
+          "youtube_link": "https://www.youtube.com/watch?v=ybQ61lf0WKE&list=OLAK5uy_khoIxKECrSApABHGwX5NFd_dlV0EZcIWs",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 2,
           "song_name": "Bubble Trouble",
           "duration": "3:44",
-          "youtube_link": "https://music.youtube.com/watch?v=JbLTXeXMxO4"
+          "youtube_link": "https://music.youtube.com/watch?v=JbLTXeXMxO4",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 3,
           "song_name": "Teachers Need Preachers",
           "duration": "7:19",
-          "youtube_link": "https://music.youtube.com/watch?v=83wYKVF8S7w"
+          "youtube_link": "https://music.youtube.com/watch?v=83wYKVF8S7w",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 4,
           "song_name": "Bind a Demon",
           "duration": "3:23",
-          "youtube_link": "https://music.youtube.com/watch?v=MFWlmbPo1IE"
+          "youtube_link": "https://music.youtube.com/watch?v=MFWlmbPo1IE",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 5,
           "song_name": "EV Strategy",
           "duration": "2:57",
-          "youtube_link": "https://music.youtube.com/watch?v=QwKKSkpZxJk"
+          "youtube_link": "https://music.youtube.com/watch?v=QwKKSkpZxJk",
+          "ytmusic_video_id": ""
         }
       ]
     },
@@ -691,37 +760,43 @@
           "track_number": 1,
           "song_name": "The Whole E-Book",
           "duration": "8:39",
-          "youtube_link": "https://music.youtube.com/watch?v=5VG-QQw8R20"
+          "youtube_link": "https://music.youtube.com/watch?v=5VG-QQw8R20",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 2,
           "song_name": "Superior Material",
           "duration": "6:50",
-          "youtube_link": "https://music.youtube.com/watch?v=BE7M3Ty0gKk"
+          "youtube_link": "https://music.youtube.com/watch?v=BE7M3Ty0gKk",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 3,
           "song_name": "Dystopia Cornucopia",
           "duration": "5:27",
-          "youtube_link": "https://music.youtube.com/watch?v=_6T4iKYF0Ec"
+          "youtube_link": "https://music.youtube.com/watch?v=_6T4iKYF0Ec",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 4,
           "song_name": "Mel Called Hell",
           "duration": "6:35",
-          "youtube_link": "https://music.youtube.com/watch?v=1MAYxt0rYdA"
+          "youtube_link": "https://music.youtube.com/watch?v=1MAYxt0rYdA",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 5,
           "song_name": "Why God Favors Me",
           "duration": "4:11",
-          "youtube_link": "https://music.youtube.com/watch?v=DrvodbmdjzQ"
+          "youtube_link": "https://music.youtube.com/watch?v=DrvodbmdjzQ",
+          "ytmusic_video_id": ""
         },
         {
           "track_number": 6,
           "song_name": "Most Private Thoughts",
           "duration": "8:00",
-          "youtube_link": "https://music.youtube.com/watch?v=poKMPY3nRfY"
+          "youtube_link": "https://music.youtube.com/watch?v=poKMPY3nRfY",
+          "ytmusic_video_id": ""
         }
       ]
     },
@@ -3249,7 +3324,8 @@
           "track_number": 1,
           "song_name": "Magnet Tar Pit Traps",
           "duration": "2:17",
-          "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY"
+          "youtube_link": "https://music.youtube.com/watch?v=IFXMW-J2pWY",
+          "ytmusic_video_id": ""
         }
       ]
     },
